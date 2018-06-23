@@ -1,12 +1,14 @@
 # Introduction
 
+https://rvagamejams.github.io/learn2love
+
 **Current progress:**
-- Chapter 1 - Basic programming [x]
-- Chapter 2 - Introducing LÖVE []
-- Chapter 3 - Structuring code []
-- Chapter 4 - Functional programming []
-- Chapter 5 - Intermediate game []
-- Chapter 6 - Advanced topics []
+- Chapter 1 - Basic programming ✔
+- Chapter 2 - Introducing LÖVE (in progress)
+- Chapter 3 - Structuring code (to do)
+- Chapter 4 - Functional programming (to do)
+- Chapter 5 - Intermediate game (to do)
+- Chapter 6 - Advanced topics (to do)
 
 ## What is this book?
 
@@ -26,5 +28,4 @@ Tools come and go, so the goal is to teach things of value with less focus on th
 
 | | |
 |:--:|:--|
-|[![](https://avatars0.githubusercontent.com/u/2344456?s=460)](https://github.com/jaythomas)|I have been programming since 2007, focusing on teaching myself best practices.
-Along the way I have found a lot of good and bad tutorials on the right and wrong way to build things and I want to help others avoid getting stuck like I did.
+|[![](https://avatars0.githubusercontent.com/u/2344456?s=460)](https://github.com/jaythomas)|I have been programming since 2007, focusing on teaching myself best practices. Along the way I have found a lot of good and bad tutorials on the right and wrong way to build things and I want to help others avoid getting stuck like I did.

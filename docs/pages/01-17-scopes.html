@@ -1,0 +1,699 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.17 - Scopes · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="01-18-chapter-review.html" />
+    
+    
+    <link rel="prev" href="01-16-for-loops-2.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.17 - Scopes</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="scopes">Scopes</h1>
+<p>When defining functions, we define parameters for those functions which work like regular variables.
+If we try to access a parameter outside a function we will see that it is <code>nil</code>.</p>
+<pre><code class="lang-lua">addition = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span></span>
+  <span class="hljs-built_in">print</span>(a, b)
+  <span class="hljs-keyword">return</span> a + b
+<span class="hljs-keyword">end</span>
+
+addition(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+
+<span class="hljs-built_in">print</span>(a, b)
+</code></pre>
+<p>The parameters <code>a</code> and <code>b</code> are <em>local variables</em>.
+We&apos;ve seen local variables with for loops, where the variable <code>counting_number</code> couldn&apos;t be accessed outside the for loop:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">for</span> counting_number = <span class="hljs-number">1</span>, <span class="hljs-number">4</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(counting_number)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(counting_number)
+</code></pre>
+<p>Functions, for loops, and while loops create a <em>scope</em> each time they are ran.
+Things created in the scope, including local variables, are destroyed when that loop or function invoke is done.
+This is how the program tidies up after itself and keeps the computer from running out of memory.
+The process of removing unused data from memory and releasing control of that memory is called garbage collection.
+Lua does this for us so we don&apos;t have to think about it.
+Variables we create normally don&apos;t follow the same rules.
+They will continue to exist after the scope they were created in has been destroyed.</p>
+<pre><code class="lang-lua">addition = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span></span>
+  text = <span class="hljs-string">&quot;I&apos;m not going away.&quot;</span>
+  <span class="hljs-keyword">return</span> a + b
+<span class="hljs-keyword">end</span>
+
+addition(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+
+<span class="hljs-built_in">print</span>(text)
+</code></pre>
+<p>Eventually all these variables we make will fill up memory unnecessarily.
+This can also be problematic if we accidentally make two variables but use the same name.</p>
+<pre><code class="lang-lua">x = <span class="hljs-number">2</span>
+
+addition = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span></span>
+  <span class="hljs-comment">-- This modifies the x at the top!</span>
+  x = <span class="hljs-number">9</span>
+  <span class="hljs-keyword">return</span> a + b
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(x)
+result = addition(x, y)
+<span class="hljs-built_in">print</span>(x)
+</code></pre>
+<p>When you write a large program, you&apos;ll inevitably make two variables with the same name, so this could be a huge issue.
+The solution is to make our variables local variables by putting the keyword <code>local</code> before all our variables when we create them.</p>
+<pre><code class="lang-lua">addition = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span></span>
+  <span class="hljs-keyword">local</span> text = <span class="hljs-string">&quot;I&apos;m only accessible inside the function.&quot;</span>
+  <span class="hljs-keyword">return</span> a + b
+<span class="hljs-keyword">end</span>
+
+addition(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+
+<span class="hljs-built_in">print</span>(text)
+</code></pre>
+<p>Now <code>text</code> is only in the scope of the function and not getting into other people&apos;s business.
+If you don&apos;t write <code>local</code> before a variable, then what you are creating is a <em>global variable</em>.
+It&apos;s a shame that variables are global unless we explicitly tell them not to be.
+There is never a reason to create global variables if you have enough knowledge to know not to.
+So as a best practice, all code examples going forward, only local variables will be created.
+Let&apos;s see a few more examples:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> number = <span class="hljs-number">12</span>
+
+<span class="hljs-comment">-- This function has no parameters</span>
+<span class="hljs-keyword">local</span> print_numbers = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-comment">-- This works. You can see variables outside the function</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;number:&apos;</span>, number)
+  <span class="hljs-comment">-- This doesn&apos;t work. The variable didn&apos;t exist</span>
+  <span class="hljs-comment">-- at the time &quot;print_numbers&quot; was created.</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;number2:&apos;</span>, number2)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> number2 = <span class="hljs-number">18</span>
+
+print_numbers()
+
+<span class="hljs-comment">-- We already &quot;declared&quot; number. We don&apos;t write &quot;local&quot; again.</span>
+number = <span class="hljs-number">13</span>
+
+print_numbers()
+</code></pre>
+<p>Notice when it printed that it knew <code>number</code> was updated to 13 but couldn&apos;t track <code>number2</code>.
+As long as a variable was created before the scope (function&apos;s scope in this case) was created then it will always track the latest value.</p>
+<p>As a reminder, we already saw with the for loop and while loop that you can modify variables in the outer, or parent, scope:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> number = <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">while</span> number &lt; <span class="hljs-number">10</span> <span class="hljs-keyword">do</span>
+  number = number + <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>This also works with functions:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> number = <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">local</span> mutate_number = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  number = <span class="hljs-number">7</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(number)
+mutate_number()
+<span class="hljs-built_in">print</span>(number)
+</code></pre>
+<p>What if you make two variables with the same name in two different scopes?
+Try running this one:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> number = <span class="hljs-number">18</span>
+
+<span class="hljs-keyword">local</span> shadowing = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">local</span> number = <span class="hljs-number">6</span>
+  <span class="hljs-built_in">print</span>(number)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(number)
+shadowing()
+</code></pre>
+<p>The inner <code>number</code> does not affect the outer <code>number</code> in any way.
+The outer <code>number</code> is not accessible inside the function as long as the inner <code>number</code> exists.
+When a variable has the same name as another variable in a parent scope as the parent scope variable becomes inaccessible, this is called <em>shadowing</em>.
+Typically you would want to avoid shadowing if at least for the reason that using the same variable name twice in the same file can make the code harder to read and more prone to errors being introduced.</p>
+<p>One more interesting things with scopes.
+Normally a function cannot see itself:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> self_reference = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-built_in">print</span>(self_reference) <span class="hljs-comment">-- This will be nil!</span>
+<span class="hljs-keyword">end</span>
+
+self_reference()
+</code></pre>
+<p>It doesn&apos;t see itself because the variable is still being created when the function is being created.
+But remember that if a variable exists before the function does, it can see the latest up-to-date content of that variable.
+So here&apos;s the trick to make that work:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> self_reference = <span class="hljs-keyword">nil</span>
+self_reference = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-built_in">print</span>(self_reference)
+<span class="hljs-keyword">end</span>
+
+self_reference()
+</code></pre>
+<p>The variable is declared, even though we assigned <code>nil</code> to it.
+Assigning nil to get a variable declared is pretty common, so Lua includes a shorthand way of declaring empty variables:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> self_reference
+self_reference = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-built_in">print</span>(self_reference)
+<span class="hljs-keyword">end</span>
+
+self_reference()
+</code></pre>
+<p>This may seem silly that a function would need to access itself, but there are some very powerful applications for this that we will see later on.</p>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li>Declare a global variable inside a function, <code>x = 5</code> (no local keyword) then try to print the variable from outside the function. Can it be printed? How?</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01-16-for-loops-2.html" class="navigation navigation-prev " aria-label="Previous page: 1.16 - For loops (part 2)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="01-18-chapter-review.html" class="navigation navigation-next " aria-label="Next page: 1.18 - Chapter review">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.17 - Scopes","level":"1.2.17","depth":2,"next":{"title":"1.18 - Chapter review","level":"1.2.18","depth":2,"path":"pages/01-18-chapter-review.md","ref":"pages/01-18-chapter-review.md","articles":[]},"previous":{"title":"1.16 - For loops (part 2)","level":"1.2.16","depth":2,"path":"pages/01-16-for-loops-2.md","ref":"pages/01-16-for-loops-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/01-17-scopes.md","mtime":"2018-06-18T03:49:38.702Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-23T06:24:35.372Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

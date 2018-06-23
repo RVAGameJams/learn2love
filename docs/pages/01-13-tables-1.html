@@ -1,0 +1,699 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.13 - Tables (part 1) · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="01-14-tables-2.html" />
+    
+    
+    <link rel="prev" href="01-12-first-game.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.13 - Tables (part 1)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="tables-part-1">Tables (part 1)</h1>
+<p>Tables are the last data type we&apos;ll discuss in this chapter.
+Other languages have different names for this data type like &quot;object&quot;, &quot;hash&quot;, &quot;map&quot; and &quot;dictionary&quot;, and the features may vary from one programming language to another.
+Tables are used to build <em>composite data types</em> like lists, trees, or a big green orc running across the screen.
+Composite data types are higher order data structures created from more primitive data types like numbers and strings.
+The number of data structures you can create are endless.
+We need to learn about a few to not only understand how tables work, but to be able to build any modern software.</p>
+<p>The basic syntax for tables is to make a curly brace <code>{</code> (same key as the square brace on most keyboards) to start the table, write some data in the table, then put a closing curly brace <code>}</code> to end the table.
+So an empty table would look like this:</p>
+<pre><code class="lang-lua">my_cool_table = {}
+</code></pre>
+<h2 id="lists">Lists</h2>
+<p>Lists are usually started by writing the first item, then the second, and so on.
+If we wanted to make a grocery list in software, it may look like this:</p>
+<pre><code class="lang-lua">groceries = {
+  [<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;beans&quot;</span>,
+  [<span class="hljs-number">2</span>] = <span class="hljs-string">&quot;bananas&quot;</span>,
+  [<span class="hljs-number">3</span>] = <span class="hljs-string">&quot;buns&quot;</span>
+}
+</code></pre>
+<p>Ok maybe your typical grocery list looks different.
+What do we do with this data now that we got it?
+We can access and modify the data as if they were stored in their own variables.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">return</span> groceries[<span class="hljs-number">1</span>]
+</code></pre>
+<pre><code>=&gt; beans
+</code></pre><p>First we specify the variable name of the table, then in square brackets we put the number we want.
+You can access them in any order and modify them as needed:</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">print</span>(groceries[<span class="hljs-number">3</span>])
+groceries[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;coffee beans&quot;</span>
+<span class="hljs-built_in">print</span>(groceries[<span class="hljs-number">1</span>])
+</code></pre>
+<pre><code>buns
+coffee beans
+</code></pre><p>The order you define them in doesn&apos;t matter:</p>
+<pre><code class="lang-lua">groceries = {
+  [<span class="hljs-number">3</span>] = <span class="hljs-string">&quot;beans&quot;</span>,
+  [<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;bananas&quot;</span>,
+  [<span class="hljs-number">2</span>] = <span class="hljs-string">&quot;buns&quot;</span>
+}
+</code></pre>
+<p>The number in square brackets is the <em>key</em>.
+A key that is part of a numeric sequence of keys such as this list is often called an <em>index</em>.
+So <code>&quot;bananas&quot;</code> has an index of <code>1</code>.
+The plural of index is <em>indices</em>.</p>
+<p>Don&apos;t forget the commas between each item in your list or you will get quite the error message:</p>
+<pre><code>[string &quot;groceries = {...&quot;]:3: &apos;}&apos; expected (to close &apos;{&apos; at line 1) near &apos;[&apos;
+</code></pre><p>When you are missing a comma between items, it thinks it has reached the end of the table but then errors out when it goes to close the table but sees another item instead of the close curly bracket <code>}</code>.</p>
+<p>Another issue you may run into is if you try to access a key that has no data.
+There is no 4th item in our table so if we try to access it:</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">print</span>(groceries[<span class="hljs-number">4</span>])
+</code></pre>
+<p>We get back <code>nil</code>, the same way we would if we tried to access a variable name that has no data assigned to it.</p>
+<p>Writing out large lists can become a headache when we have to manually number each item in a list:</p>
+<pre><code class="lang-lua">groceries = {
+  [<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;beans&quot;</span>,
+  [<span class="hljs-number">2</span>] = <span class="hljs-string">&quot;bananas&quot;</span>,
+  [<span class="hljs-number">3</span>] = <span class="hljs-string">&quot;buns&quot;</span>,
+  [<span class="hljs-number">4</span>] = <span class="hljs-string">&quot;blueberries&quot;</span>,
+  [<span class="hljs-number">5</span>] = <span class="hljs-string">&quot;butter&quot;</span>,
+  [<span class="hljs-number">6</span>] = <span class="hljs-string">&quot;broccoli&quot;</span>,
+  [<span class="hljs-number">7</span>] = <span class="hljs-string">&quot;basil&quot;</span>
+}
+</code></pre>
+<p>What if we remove an item or we want to move something to a different position in the list?
+What a pain to have to re-index everything.
+Thankfully there is shorthand way of writing lists:</p>
+<pre><code class="lang-lua">groceries = {
+  <span class="hljs-string">&quot;beans&quot;</span>,
+  <span class="hljs-string">&quot;bananas&quot;</span>,
+  <span class="hljs-string">&quot;buns&quot;</span>,
+  <span class="hljs-string">&quot;blueberries&quot;</span>,
+  <span class="hljs-string">&quot;butter&quot;</span>,
+  <span class="hljs-string">&quot;broccoli&quot;</span>,
+  <span class="hljs-string">&quot;basil&quot;</span>
+}
+</code></pre>
+<p>This is identical to the code written above, except now the indices are auto-generated for me.
+<code>&quot;basil&quot;</code> has an index of <code>7</code> since it is the 7th item in the list, but if I cut and pasted it to the top of my list, it&apos;s index would be <code>1</code> and everything below it would be renumbered accordingly.</p>
+<h2 id="looping-over-lists">Looping over lists</h2>
+<p>If we wanted to print our grocery list, we could say something like:</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">print</span>(groceries[<span class="hljs-number">1</span>])
+<span class="hljs-built_in">print</span>(groceries[<span class="hljs-number">2</span>])
+<span class="hljs-built_in">print</span>(groceries[<span class="hljs-number">3</span>])
+<span class="hljs-built_in">print</span>(groceries[<span class="hljs-number">4</span>])
+<span class="hljs-comment">-- and so on...</span>
+</code></pre>
+<p>But that is quite repetitious and requires updating if the size of our list changes.
+Luckily we already know about <em>while loops</em>.</p>
+<pre><code class="lang-lua">index = <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">while</span> groceries[index] ~= <span class="hljs-keyword">nil</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(index, groceries[index])
+  <span class="hljs-comment">-- Go to the next index in the list</span>
+  index = index + <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>See how instead of accessing each item as <code>groceries[1]</code>, <code>groceries[2]</code>... we can just use a variable in the square brackets instead of a number.
+Then inside the loop we bump the number up and access the next item in the list.
+The loop stops when the index goes beyond the last item in the list and there is nothing there.
+So when index 8 is read, <code>groceries[8]</code> is nil and the while condition is no longer true.
+While conditions don&apos;t even need a boolean expression.
+It can know whether or not to continue simply if the given item has data or is nil.
+It can be simplified to read:</p>
+<pre><code class="lang-lua">index = <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">while</span> groceries[index] <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(index, groceries[index])
+  <span class="hljs-comment">-- Go to the next index in the list</span>
+  index = index + <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Again, it knows to exit when it sees <code>false</code> or <code>nil</code>.
+The caveat to this would be if you a special list with <code>false</code> in it:</p>
+<pre><code class="lang-lua">groceries = {
+  <span class="hljs-string">&quot;beans&quot;</span>,
+  <span class="hljs-string">&quot;bananas&quot;</span>,
+  <span class="hljs-keyword">false</span>,
+  <span class="hljs-string">&quot;blueberries&quot;</span>,
+  <span class="hljs-string">&quot;butter&quot;</span>,
+  <span class="hljs-string">&quot;broccoli&quot;</span>,
+  <span class="hljs-string">&quot;basil&quot;</span>
+}
+</code></pre>
+<p>When the while loop gets to the third item in the list and sees <code>false</code>, it would stop looping before it reads the rest.
+It&apos;s not typically a good idea to mix and match different data types in a list because of issues like this, however, we could work around this if we needed to.
+There is a special operator for tables to get the size of the list.</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">print</span>(#groceries)
+</code></pre>
+<pre><code>7
+</code></pre><p>An easy way to remember the <code>#</code> operator is to remember that it returns the # of items in a list.
+Using this operator we could write our while loop in a different way.</p>
+<pre><code class="lang-lua">index = <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">while</span> index &lt;= #groceries <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(index, groceries[index])
+  <span class="hljs-comment">-- Go to the next index in the list</span>
+  index = index + <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>You could even tweak this slightly to read the list backwards if you wanted to:</p>
+<pre><code class="lang-lua">index = #groceries
+
+<span class="hljs-keyword">while</span> index &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(index, groceries[index])
+  <span class="hljs-comment">-- Go to the next index in the list</span>
+  index = index - <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Notice we are subtracting from the index with each loop in order to accomplish this.</p>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li>Try to modify the while loop to only print every other item in the grocery list. (Hint: instead of incrementing by 1 on each read, you want to increment more.)</li>
+<li>Write a while loop that counts to 10 and populates an empty table with the same item 10 times. (Hint: you assign to indices just like variables, <code>list[index] = &quot;hi&quot;</code>.)</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01-12-first-game.html" class="navigation navigation-prev " aria-label="Previous page: 1.12 - First game">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="01-14-tables-2.html" class="navigation navigation-next " aria-label="Next page: 1.14 - Tables (part 2)">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.13 - Tables (part 1)","level":"1.2.13","depth":2,"next":{"title":"1.14 - Tables (part 2)","level":"1.2.14","depth":2,"path":"pages/01-14-tables-2.md","ref":"pages/01-14-tables-2.md","articles":[]},"previous":{"title":"1.12 - First game","level":"1.2.12","depth":2,"path":"pages/01-12-first-game.md","ref":"pages/01-12-first-game.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/01-13-tables-1.md","mtime":"2018-06-16T02:54:27.896Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-23T06:24:35.372Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

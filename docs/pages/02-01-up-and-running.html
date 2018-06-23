@@ -1,0 +1,618 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.1 - Up and running · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="02-02-love-structure.html" />
+    
+    
+    <link rel="prev" href="02-00-introducing-love.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.1 - Up and running</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="development-environment">Development environment</h1>
+<p>Learning by making is fun and effective.
+Learning to interface with other people&apos;s software is part of being a programmer and is a necessary skill to have as one.
+<a href="https://love2d.org/" target="_blank">L&#xD6;VE</a> is a framework for making games.
+A framework is just a set of tools or functionality combined together to serve a larger purpose.
+In the case of L&#xD6;VE this includes, but is not limited to:</p>
+<ul>
+<li>Functions for loading images, audio, and text</li>
+<li>Functions for creating and moving objects</li>
+<li>Parameters for making the objects interact</li>
+</ul>
+<h2 id="installing-your-environment">Installing your environment</h2>
+<p>The L&#xD6;VE website has links to install the software on your system.
+For mobile devices you can find a copy in the app store.
+Along with installing L&#xD6;VE, you will need a text editor for creating Lua files on your system.
+I&apos;m not going to make any recommendations for that as you can easily search the web for &quot;code editors&quot; and find any number of suitable choices for your operating system.</p>
+<h2 id="test-that-l&#xF6;ve-runs">Test that L&#xD6;VE runs</h2>
+<p>When you launch L&#xD6;VE, (see instructions below on how to do that) you will be greeted with a friendly graphic and the text &quot;NO GAME&quot;, meaning you are running the engine but didn&apos;t give it a game to load.</p>
+<h3 id="osx-and-other-posix-systems">OSX and other posix systems</h3>
+<p>If your system created a shortcut, run that.
+Otherwise you can open the terminal on your system and run the command:</p>
+<pre><code class="lang-sh">love
+</code></pre>
+<h3 id="windows">Windows</h3>
+<p>If a shortcut for L&#xD6;VE didn&apos;t appear in the start menu, you should be able to type &quot;love&quot; in the search and see it.</p>
+<h2 id="create-a-project-folder">Create a project folder</h2>
+<p>Find a safe place to create a folder and give it the name &quot;hello&quot;.
+Within the folder, create a new text file named &quot;main.lua&quot;.
+This will be where our game&apos;s code goes.</p>
+<p><strong>Note for Windows:</strong>
+In order to create a file with the name &quot;main.lua&quot;, you may need to first create a new &quot;Text Document&quot;, right-click on it, click &quot;Properties&quot; then from the properties menu change the file extension from reading &quot;main.lua.txt&quot; to just &quot;main.lua&quot;.</p>
+<h2 id="create-a-test-game">Create a test game</h2>
+<p>Within &quot;main.lua&quot;, write out the following function:</p>
+<pre><code class="lang-lua">love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  love.graphics.<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;Hello World!&apos;</span>, <span class="hljs-number">400</span>, <span class="hljs-number">300</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Now let&apos;s figure out how to run it and see what it does.</p>
+<h2 id="run-the-game">Run the game</h2>
+<p>This will be different for different operating systems.</p>
+<h3 id="osx-and-other-posix-systems">OSX and other posix systems</h3>
+<p>Open the terminal and navigate to the &quot;hello&quot; folder:</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> /path/to/your/game
+ls <span class="hljs-comment"># Should display &quot;main.lua&quot; if you&apos;re in the correct directory.</span>
+</code></pre>
+<p>This will let L&#xD6;VE know the game is in this folder.
+Now run L&#xD6;VE:</p>
+<pre><code class="lang-sh">love .
+</code></pre>
+<p>The <code>.</code> (period) means &quot;current location&quot;, so you&apos;re telling L&#xD6;VE that the game is in this location we&apos;re currently in.
+If the game ran successfully, you will see a black window with the text &quot;Hello world!&quot; in small print.</p>
+<h3 id="windows">Windows</h3>
+<p>Find the shortcut to L&#xD6;VE and drag and drop it in the game folder like so:</p>
+<p><img src="../images/02-01-windows-folder.png" alt=""></p>
+<p>Then right-click on the L&#xD6;VE shortcut and you will see a &quot;Properties&quot; dialog window similar to this:</p>
+<p><img src="../images/02-01-windows-shortcut.png" alt=""></p>
+<p>The &quot;Target&quot; field may be the same or slightly different depending on your system version.
+Without deleting the text string currently in the &quot;Target&quot; field, append the path to your game folder in quotes to the end.
+You can copy and paste this path from the folder&apos;s address bar.
+For instance the target path in the picture should go from reading:</p>
+<pre><code>&quot;C:\Program Files\LOVE\love.exe&quot;
+</code></pre><p>to</p>
+<pre><code>&quot;C:\Program Files\LOVE\love.exe&quot; &quot;C:\Users\IEUser\Desktop\hello&quot;
+</code></pre><p>Now press &quot;OK&quot; to close the Properties dialog and clicking the shortcut will launch the game.
+If the game ran successfully, you will see a black window with the text &quot;Hello world!&quot; in small print.</p>
+<h2 id="congratulations">Congratulations!</h2>
+<p>You&apos;ve set up your development environment for writing a game in Lua.
+If you had issues getting through this, reach out to me either through a GitHub issue or my contact information and I will update this guide to including any additional troubleshooting steps for future users.</p>
+<p>Now that our development environment is set up and our first game is running, try modifying the code so the string &quot;Hello World!&quot; reads something different.
+It&apos;s pretty apparent that running this function prints to the screen whatever string we give it.
+But what are the 2nd and 3rd parameters for?</p>
+<pre><code class="lang-lua">  love.graphics.<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;Hello World!&apos;</span>, <span class="hljs-number">400</span>, <span class="hljs-number">300</span>)
+</code></pre>
+<p>Try modifying those numbers and see what it does to the text.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02-00-introducing-love.html" class="navigation navigation-prev " aria-label="Previous page: 2.0 - Introducing LÖVE">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="02-02-love-structure.html" class="navigation navigation-next " aria-label="Next page: 2.2 - LÖVE structure">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.1 - Up and running","level":"1.3.1","depth":2,"next":{"title":"2.2 - LÖVE structure","level":"1.3.2","depth":2,"path":"pages/02-02-love-structure.md","ref":"pages/02-02-love-structure.md","articles":[]},"previous":{"title":"2.0 - Introducing LÖVE","level":"1.3","depth":1,"path":"pages/02-00-introducing-love.md","ref":"pages/02-00-introducing-love.md","articles":[{"title":"2.1 - Up and running","level":"1.3.1","depth":2,"path":"pages/02-01-up-and-running.md","ref":"pages/02-01-up-and-running.md","articles":[]},{"title":"2.2 - LÖVE structure","level":"1.3.2","depth":2,"path":"pages/02-02-love-structure.md","ref":"pages/02-02-love-structure.md","articles":[]},{"title":"2.3 - Geometry","level":"1.3.3","depth":2,"path":"pages/02-03-geometry.md","ref":"pages/02-03-geometry.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-01-up-and-running.md","mtime":"2018-06-22T02:30:48.686Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-23T06:24:35.372Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

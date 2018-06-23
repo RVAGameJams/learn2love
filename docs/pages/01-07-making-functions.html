@@ -1,0 +1,656 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.7 - Making functions · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="01-08-booleans.html" />
+    
+    
+    <link rel="prev" href="01-06-scripting-and-printing.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.7 - Making functions</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="making-functions">Making functions</h1>
+<p>Functions are the third data type we&apos;ve seen.
+We&apos;ve accessed some variables where functions were defined for us and had a blast using them (I know I did).
+Functions are the building blocks of software.
+You can compose them then snap them together like Danish plastic blocks.
+It takes time to understand how they work and much longer to master their inner power.
+So without further ado, let&apos;s see what they actually look like:</p>
+<pre><code class="lang-lua"><span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">4</span> + <span class="hljs-number">4</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Type it out in the text editor window and let us break this down line by line and word for word.
+Whenever we type <code>function()</code> we are beginning a new function.
+The 2nd line is the body of our function where things happen.
+The body of the function can be many lines long.
+The body of the function could also be empty (but that&apos;s not very useful).
+On the last line of the function body we return data.
+This return statement won&apos;t end our entire program though!
+It will only tell the computer we&apos;re finishing up with our function.
+Then on the third line, we&apos;re telling the computer we&apos;re done writing our function.
+In order to use this example function, we should probably use a variable to give it a name:</p>
+<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">4</span> + <span class="hljs-number">4</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The first bit should be understandable.
+We <em>declared</em> a variable called <code>add</code>, then we assigned some data to it on the right of the equal sign.
+In this case, our function.
+Now it is ready to use.</p>
+<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">4</span> + <span class="hljs-number">4</span>
+<span class="hljs-keyword">end</span>
+
+result = add()
+<span class="hljs-keyword">return</span> result
+</code></pre>
+<pre><code>=&gt; 8
+</code></pre><p>We&apos;ve made our very own function with our very own name for it and even invoked it and got back data!
+If you instead got an error message, double check what you typed that nothing is missing.
+Error messages give you a <em>line number</em> of where to find the error that crashed the program.</p>
+<p>Take a look for a minute at how we invoked our function:</p>
+<pre><code class="lang-lua">add()
+</code></pre>
+<p>We typed out the variable name that our function is assigned to, followed by some parenthesis.
+In those parenthesis is the data that we passed into our function... wait a minute the parenthesis are empty.
+We didn&apos;t pass any data into our function.
+Whenever we called those other functions we passed in data, like when we passed <code>&quot;hello&quot;</code> into <code>string.reverse(&quot;hello&quot;)</code>.
+What if we modify our line where we invoke our function and give it some data?</p>
+<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">4</span> + <span class="hljs-number">4</span>
+<span class="hljs-keyword">end</span>
+
+result = add(<span class="hljs-number">16</span>)
+<span class="hljs-keyword">return</span> result
+</code></pre>
+<p>It seems it always returns <code>=&gt; 8</code> no matter what arguments we try to pass in.
+We need to rewind to the first line of our function and take a close look at this bit:</p>
+<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+</code></pre>
+<p>The <code>()</code> at the end of <code>function()</code> is where we tell our program how many arguments we are accepting.
+If the parenthesis are empty, then our function is ignoring all arguments and will likely always return the same result.
+Let&apos;s tweak the function slightly and give it one parameter with the name <code>a</code>.
+Let&apos;s also tweak the second line while we&apos;re at it:</p>
+<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a)</span></span>
+  <span class="hljs-keyword">return</span> a + <span class="hljs-number">4</span>
+<span class="hljs-keyword">end</span>
+
+result = add(<span class="hljs-number">16</span>)
+<span class="hljs-keyword">return</span> result
+</code></pre>
+<pre><code>=&gt; 20
+</code></pre><p>Now when we pass in different numbers, we get different results:</p>
+<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a)</span></span>
+  <span class="hljs-keyword">return</span> a + <span class="hljs-number">4</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(add(<span class="hljs-number">16</span>))
+<span class="hljs-built_in">print</span>(add(<span class="hljs-number">12</span>))
+</code></pre>
+<p>To complete this function, let&apos;s give it a second parameter of <code>b</code> and modify the return statement in the function body:</p>
+<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span></span>
+  <span class="hljs-keyword">return</span> a + b
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(add(<span class="hljs-number">16</span>))
+<span class="hljs-built_in">print</span>(add(<span class="hljs-number">12</span>))
+</code></pre>
+<p>If we try and run the code now, we&apos;ll get another error:</p>
+<pre><code class="lang-lua">[<span class="hljs-built_in">string</span> <span class="hljs-string">&quot;add = function(a, b)...&quot;</span>]:<span class="hljs-number">2</span>: attempt to perform arithmetic on <span class="hljs-keyword">local</span> <span class="hljs-string">&apos;b&apos;</span> (a <span class="hljs-keyword">nil</span> value)
+</code></pre>
+<p>Let&apos;s read this error carefully.
+It is saying inside the square brackets that an error occurred when using the function we defined (<code>add = function(a, b)...</code>).
+To the right of the square brackets it is saying line 2 (<code>:2</code>) of our text is the particular location of the crash.
+To the right of the line number is what happened that made it crash.
+It tried to perform addition with <code>a + b</code> but the value of <code>b</code> was nil.
+We stated that our function requires two parameters now, <code>a</code> and <code>b</code>, and our program will crash if we try and invoke the function with only one parameter.
+Let&apos;s modify the lines where we invoke the function to give it two arguments each time we invoke it:</p>
+<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span></span>
+  <span class="hljs-keyword">return</span> a + b
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(add(<span class="hljs-number">16</span>, <span class="hljs-number">10</span>))
+<span class="hljs-built_in">print</span>(add(<span class="hljs-number">12</span>, <span class="hljs-number">2</span>))
+</code></pre>
+<p>Great, everything is working again!
+With the experience of our first, fully-functional function, we can now start treading the waters of this great world.</p>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li>To get used to writing functions, try writing some complimentary functions named <code>subtract</code>, <code>multiply</code>, <code>divide</code>, or <code>modulate</code> (modulus).</li>
+<li>Make a <code>concatenate</code> function that accepts 2 strings and returns 1 combined string.</li>
+<li>Try making a function that takes 3 or more parameters.</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01-06-scripting-and-printing.html" class="navigation navigation-prev " aria-label="Previous page: 1.6 - Scripting and printing">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="01-08-booleans.html" class="navigation navigation-next " aria-label="Next page: 1.8 - Booleans">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.7 - Making functions","level":"1.2.7","depth":2,"next":{"title":"1.8 - Booleans","level":"1.2.8","depth":2,"path":"pages/01-08-booleans.md","ref":"pages/01-08-booleans.md","articles":[]},"previous":{"title":"1.6 - Scripting and printing","level":"1.2.6","depth":2,"path":"pages/01-06-scripting-and-printing.md","ref":"pages/01-06-scripting-and-printing.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/01-07-making-functions.md","mtime":"2018-06-15T02:09:40.440Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-23T06:24:35.372Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

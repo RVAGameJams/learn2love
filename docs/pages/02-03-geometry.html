@@ -1,0 +1,609 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.3 - Geometry · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="02-02-love-structure.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.3 - Geometry</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="geometry">Geometry</h1>
+<p>If you modified the numbers <code>400</code> and <code>300</code> in main.lua you will have seen that they move the text.
+Realizing that they&apos;re some kind of coordinates, let&apos;s talk about graphs.</p>
+<p>When learning about graphs in geometry class, we learned about an x-axis and y-axis and labeled plotted points along the graph.
+If you wanted to mark (-2, -4) then you would find where -2 on the x-axis intersects with -4 on the y-axis.
+Knowing that X is horizontal and Y is vertical, if we had (-2, -4) and (1, 2) we could draw it out like this:</p>
+<p><div>
+                        <span id="plugin-graph-0"></span>
+                        <script>functionPlot({"data":[{"attr":{"fill":"red","opacity":1,"r":2,"stroke":"red","stroke-width":6},"fnType":"points","graphType":"scatter","points":[[-2,-4],[1,2]]}],"disableZoom":true,"grid":true,"xAxis":{"label":"x-axis","domain":[-5,5]},"yAxis":{"label":"y-axis","domain":[-5,5]},"target":"#plugin-graph-0"});</script>
+                    </div></p>
+<p>These two points could even be connected to form a 2-dimensional line:</p>
+<p><div>
+                        <span id="plugin-graph-1"></span>
+                        <script>functionPlot({"data":[{"attr":{"fill":"red","opacity":1,"r":2,"stroke":"red","stroke-width":6},"fnType":"points","graphType":"scatter","points":[[-2,-4],[1,2]]},{"attr":{"opacity":1,"stroke":"blue","stroke-width":4},"fn":"2x"}],"disableZoom":true,"grid":true,"xAxis":{"label":"x-axis","domain":[-5,5]},"yAxis":{"label":"y-axis","domain":[-5,5]},"target":"#plugin-graph-1"});</script>
+                    </div></p>
+<p>Before we get too far on drawing points and lines, let&apos;s look back at our function:</p>
+<pre><code class="lang-lua">  love.graphics.<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello World!&quot;</span>, <span class="hljs-number">400</span>, <span class="hljs-number">300</span>)
+</code></pre>
+<p>The <code>400</code> is the X position and <strong>increasing</strong> it will move the text further to the <strong>right</strong>.
+<strong>Decreasing</strong> the X position will move the text further to the <strong>left</strong>.
+The <code>300</code> is the Y position, one difference between computers and geometry class is data is calculated from top to bottom, so <strong>increasing</strong> the Y position moves the <strong>down</strong> and <strong>decreasing</strong> it moves the data <strong>up</strong>.
+Let&apos;s take a look at what our game&apos;s graph looks like with the point (5, 3) highlighted:</p>
+<p><div>
+                        <span id="plugin-graph-2"></span>
+                        <script>functionPlot({"data":[{"attr":{"fill":"red","opacity":1,"r":2,"stroke":"red","stroke-width":6},"fnType":"points","graphType":"scatter","points":[[5,3]]}],"disableZoom":true,"grid":true,"xAxis":{"domain":[0,8]},"yAxis":{"domain":[0,8],"invert":true},"target":"#plugin-graph-2"});</script>
+                    </div></p>
+<p>Notice that the top-left corner of our screen is (0, 0), so if you tried to draw any points with negative numbers they would be drawn off screen where we can&apos;t see them.
+Another thing to note is in the game, the coordinates represent how many <strong>pixels</strong> down and to the right we want to draw.
+Since computer screens are made of so many pixels, you need to use large numbers to make a noticeable difference.</p>
+<p>If we wanted to draw a <em>polygon</em> (shape) such as a triangle on this graph, we would have to give three points:</p>
+<p><div>
+                        <span id="plugin-graph-3"></span>
+                        <script>functionPlot({"data":[{"attr":{"fill":"red","opacity":1,"r":2,"stroke":"red","stroke-width":6},"fnType":"points","graphType":"scatter","points":[[4,1],[1,7],[7,7]]}],"disableZoom":true,"grid":true,"xAxis":{"domain":[0,8]},"yAxis":{"domain":[0,8],"invert":true},"target":"#plugin-graph-3"});</script>
+                    </div></p>
+<p>In the same way, we can plot out points in our code and tell it to draw a line to connect the dots.
+Let&apos;s use larger numbers though.
+Rewrite main.lua to look like this:</p>
+<pre><code class="lang-lua">love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, <span class="hljs-number">50</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The numbers in this code can be read off in pairs to identify the coordinates: (50, 0), (0, 100), (100, 100)
+L&#xD6;VE&apos;s physics engine takes the coordinates, starting at the first point and connects them with a line sequentially.
+Once it reaches the last point, it draws a line from the last point back to the first to close the shape.</p>
+<p>Let&apos;s try a rectangle to get some more practice in:</p>
+<pre><code class="lang-lua">love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">local</span> rectangle = {<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">100</span>}
+  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, rectangle)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Notice this time instead of passing the numbers directly into <code>love.graphics.polygon</code>, we put them into a list and passed the list in.
+Passing in coordinates both ways has the same effect.</p>
+<p>Another important thing to think about is if you draw a polygon with 4 or more sides, you need to make sure the points are listed in the correct order.
+Consider the following example:</p>
+<p><div>
+                        <span id="plugin-graph-4"></span>
+                        <script>functionPlot({"data":[{"attr":{"fill":"red","opacity":1,"r":2,"stroke":"red","stroke-width":6},"fnType":"points","graphType":"scatter","points":[[1,1],[1,6],[6,6],[6,1]]}],"disableZoom":true,"grid":true,"xAxis":{"domain":[0,8]},"yAxis":{"domain":[0,8],"invert":true},"target":"#plugin-graph-4"});</script>
+                    </div></p>
+<p>If we fed the points into the function in a clockwise or counter-clockwise/anti-clockwise order, the rectangle would be drawn the same either way.
+If we fed the points in from cross directions, we may accidentally draw a bow tie:</p>
+<p><div>
+                        <span id="plugin-graph-5"></span>
+                        <script>functionPlot({"data":[{"attr":{"fill":"red","opacity":1,"r":2,"stroke":"red","stroke-width":6},"fnType":"points","graphType":"scatter","points":[[1,1],[1,6],[6,6],[6,1]]},{"attr":{"fill":"none","opacity":1,"r":2,"stroke":"blue","stroke-width":6},"fnType":"points","graphType":"polyline","points":[[1,1],[6,6],[6,1],[1,6],[1,1]]}],"disableZoom":true,"grid":true,"xAxis":{"domain":[0,8]},"yAxis":{"domain":[0,8],"invert":true},"target":"#plugin-graph-5"});</script>
+                    </div></p>
+<p>Creating shapes with unclosed sides don&apos;t play well with L&#xD6;VE&apos;s physics engine as such shapes are not physically possible.
+If you try to do this, you may not see the shape you expect, and perhaps nothing will be drawn.</p>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li>Take a look at the documentation for the function <a href="https://love2d.org/wiki/love.graphics.polygon" target="_blank">love.graphics.polygon</a>. The example shows the string <code>&apos;line&apos;</code> can be swapped for a different parameter. What is it? Try it out and see how it works!</li>
+<li>Try making a polygon with 5 sides.</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02-02-love-structure.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 2.2 - LÖVE structure">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.3 - Geometry","level":"1.3.3","depth":2,"previous":{"title":"2.2 - LÖVE structure","level":"1.3.2","depth":2,"path":"pages/02-02-love-structure.md","ref":"pages/02-02-love-structure.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-03-geometry.md","mtime":"2018-06-23T05:33:39.709Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-23T06:24:35.372Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

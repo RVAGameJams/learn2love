@@ -1,0 +1,698 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.9 - Flow control · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="01-10-while.html" />
+    
+    
+    <link rel="prev" href="01-08-booleans.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.9 - Flow control</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="flow-control">Flow control</h1>
+<p>Typically the computer starts at the top of our script and reads each line down in a sequence.
+We make the programs jump around with functions in the mix
+Try this out in the text editor:</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;I&apos;m called 1st&quot;</span>)
+
+add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span></span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;I&apos;m called 5th&quot;</span>)
+  <span class="hljs-keyword">return</span> a + b
+<span class="hljs-keyword">end</span>
+
+subtract = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span></span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;I&apos;m called 3rd&quot;</span>)
+  <span class="hljs-keyword">return</span> a - b
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;I&apos;m called 2nd&quot;</span>)
+
+subtract(<span class="hljs-number">16</span>, <span class="hljs-number">10</span>)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;I&apos;m called 4th&quot;</span>)
+
+add(<span class="hljs-number">12</span>, <span class="hljs-number">2</span>)
+</code></pre>
+<p>We have a function that is saved to the variable <code>add</code> but it isn&apos;t invoked until further down in the code.
+So in a sense our program has worked its way down the page then jumped back up to the function and worked its way through the body of the function then picked back up where it was before.
+In a similar fashion, we can make our program take one path or another depending if the data is <code>true</code> or <code>false</code>.</p>
+<pre><code class="lang-lua">noise = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(animal)</span></span>
+  <span class="hljs-keyword">if</span> (animal == <span class="hljs-string">&quot;dog&quot;</span>) <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;woof&quot;</span> <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(noise(<span class="hljs-string">&quot;dog&quot;</span>))
+<span class="hljs-built_in">print</span>(noise(<span class="hljs-string">&quot;rabbit&quot;</span>))
+</code></pre>
+<p>Let&apos;s analyze this function line by line.
+The function is called noise and takes an animal name (string) as a parameter.
+On the next line it says if &quot;animal is dog&quot; is true then return something special.
+We put an <code>end</code> at the end of our statement to make it obvious to the computer.
+If the statement was false, then <code>&quot;woof&quot;</code> does not get returned.
+Instead an empty string (<code>&quot;&quot;</code>) gets returned.
+When we invoke the function with the argument &quot;dog&quot; then we get back &quot;woof!&quot;.
+With &quot;rabbit&quot; we get back silence.
+Maybe the rabbit doesn&apos;t want the dog to hear where she is.
+Let&apos;s make our function more versatile by adding more animals:</p>
+<pre><code class="lang-lua">noise = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(animal)</span></span>
+  <span class="hljs-keyword">if</span> animal == <span class="hljs-string">&quot;dog&quot;</span> <span class="hljs-keyword">or</span> animal == <span class="hljs-string">&quot;wolf&quot;</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;woof&quot;</span> <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">if</span> animal == <span class="hljs-string">&quot;cat&quot;</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;meow&quot;</span> <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(noise(<span class="hljs-string">&quot;dog&quot;</span>))
+<span class="hljs-built_in">print</span>(noise(<span class="hljs-string">&quot;cat&quot;</span>))
+<span class="hljs-built_in">print</span>(noise(<span class="hljs-string">&quot;rabbit&quot;</span>))
+<span class="hljs-built_in">print</span>(noise(<span class="hljs-string">&quot;wolf&quot;</span>))
+</code></pre>
+<p>We have branching paths happening within our function.
+If we were to map out these branches it may look something like:</p>
+<pre><code> |
+ +--&gt; &quot;woof&quot;
+ +--&gt; &quot;meow&quot;
+ |
+ +--&gt; &quot;&quot;
+</code></pre><p>There&apos;s no requirement that a statement has to be all written out on one line.
+Sometimes when doing multiple things inside an <em>if statement</em> we may want to put it on multiple lines:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">if</span> my_age &gt; <span class="hljs-number">17</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;You&apos;re an adult!&quot;</span>)
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Get a job!&quot;</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Similar to functions having bodies, everything between <code>then</code> and <code>end</code> is considered the body of the if statement.
+Sometimes it is necessary for our branches to have forks within them.
+Let&apos;s say our function takes a language as a second, optional parameter:</p>
+<pre><code class="lang-lua">noise = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(animal, language)</span></span>
+  <span class="hljs-keyword">if</span> animal == <span class="hljs-string">&quot;dog&quot;</span> <span class="hljs-keyword">or</span> animal == <span class="hljs-string">&quot;wolf&quot;</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;woof&quot;</span> <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">if</span> animal == <span class="hljs-string">&quot;cat&quot;</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;meow&quot;</span> <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">if</span> animal == <span class="hljs-string">&quot;bird&quot;</span> <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">if</span> language == <span class="hljs-string">&quot;spanish&quot;</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;p&#xED;o&quot;</span> <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;tweet&quot;</span>
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(noise(<span class="hljs-string">&quot;dog&quot;</span>))
+<span class="hljs-built_in">print</span>(noise(<span class="hljs-string">&quot;rabbit&quot;</span>))
+<span class="hljs-built_in">print</span>(noise(<span class="hljs-string">&quot;bird&quot;</span>))
+<span class="hljs-built_in">print</span>(noise(<span class="hljs-string">&quot;bird&quot;</span>, <span class="hljs-string">&quot;spanish&quot;</span>))
+</code></pre>
+<p>The if statement for checking if the animal is a bird is 4 lines long.
+Once we find out that the animal is a bird, while still in the body of the if statement, we stop to check and see if the language is set to Spanish.
+If it is, we end up inside an if statement within an if statement!
+Otherwise we&apos;ll return <code>&quot;tweet&quot;</code> if the language isn&apos;t Spanish.
+Maybe mapping out the paths will clear things up:</p>
+<pre><code> |
+ +--&gt; &quot;woof&quot;
+ +--&gt; &quot;meow&quot;
+ +-----&gt; &quot;p&#xED;o&quot;
+ |   |
+ |   +--&gt; &quot;tweet&quot;
+ |
+ +--&gt; &quot;&quot;
+</code></pre><p>Our code can get unreadable very quickly if we start nesting if statements inside each other.
+Fortunately doing so isn&apos;t usually necessary.</p>
+<p>Let&apos;s talk about another aspect of if statements.
+Suppose I have two branches of code that are opposite of each other:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">if</span> daytime == <span class="hljs-keyword">true</span> <span class="hljs-keyword">then</span>
+  thermostat = <span class="hljs-number">71</span>
+<span class="hljs-keyword">end</span>
+<span class="hljs-keyword">if</span> daytime == <span class="hljs-keyword">false</span> <span class="hljs-keyword">then</span>
+  thermostat = <span class="hljs-number">68</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Rather than writing this out as two if statements and checking the value of daytime twice, I can take advantage of the keyword <code>else</code>:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">if</span> daytime == <span class="hljs-keyword">true</span> <span class="hljs-keyword">then</span>
+  thermostat = <span class="hljs-number">71</span>
+<span class="hljs-keyword">else</span>
+  thermostat = <span class="hljs-number">68</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>That way if <code>daytime</code> is not <code>true</code>, it will default to the second branch.
+You could read this off almost like a sentence:
+&quot;If daytime is true then set the thermostat to 71, otherwise set the thermostat to 68.&quot;
+Not having to check things twice when doing computations saves us time and makes our program run more efficiently.
+Since <code>daytime</code> is a boolean in this case, we don&apos;t need to check if it is true or false.
+We can just pass it to the if statement to be checked for true and false and make our operation even simpler.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">if</span> daytime <span class="hljs-keyword">then</span>
+  thermostat = <span class="hljs-number">71</span>
+<span class="hljs-keyword">else</span>
+  thermostat = <span class="hljs-number">68</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Even simpler now.
+&quot;If daytime then set thermostat to 71, otherwise set thermostat to 68.&quot;
+There&apos;s one more feature of if statements we should discuss.
+If there is another condition you need to check, maybe several more, you can also use the <code>elseif</code> keyword that will get checked.
+It&apos;s basically like an <code>if</code> that skip when the first if passes, or gets checked when the first if fails.
+It looks something like this:</p>
+<pre><code class="lang-lua">color = <span class="hljs-string">&quot;green&quot;</span>
+
+<span class="hljs-keyword">if</span> color == <span class="hljs-string">&quot;blue&quot;</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;That&apos;s my favorite color!&quot;</span>)
+<span class="hljs-keyword">elseif</span> color == <span class="hljs-string">&quot;green&quot;</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Very subtle choice. I like it.&quot;</span>)
+<span class="hljs-keyword">elseif</span> color == <span class="hljs-string">&quot;pink&quot;</span> <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Nice, bold choice.&quot;</span>)
+<span class="hljs-keyword">else</span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;I don&apos;t think that color would match your shoes.&quot;</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Try it out!</p>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li>Write out a function that takes 1 parameter named &quot;sides&quot;. Make the function return the name of the shape depending on the number of sides (for instance, &quot;triangle&quot;). Try to make the if statement include an <code>else</code> at the end to account for everything else that the if doesn&apos;t.</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01-08-booleans.html" class="navigation navigation-prev " aria-label="Previous page: 1.8 - Booleans">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="01-10-while.html" class="navigation navigation-next " aria-label="Next page: 1.10 - While">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.9 - Flow control","level":"1.2.9","depth":2,"next":{"title":"1.10 - While","level":"1.2.10","depth":2,"path":"pages/01-10-while.md","ref":"pages/01-10-while.md","articles":[]},"previous":{"title":"1.8 - Booleans","level":"1.2.8","depth":2,"path":"pages/01-08-booleans.md","ref":"pages/01-08-booleans.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/01-09-flow-control.md","mtime":"2018-06-15T20:03:34.264Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-23T06:24:35.372Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

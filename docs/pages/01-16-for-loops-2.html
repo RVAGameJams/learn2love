@@ -1,0 +1,705 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.16 - For loops (part 2) · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="01-17-scopes.html" />
+    
+    
+    <link rel="prev" href="01-15-for-loops-1.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.16 - For loops (part 2)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="for-loops-part-2">For loops (part 2)</h1>
+<p>We can create a different style of for loop using functions, but in order to do that, we need to understand another aspect of functions we haven&apos;t yet covered.
+Functions can return multiple values.</p>
+<pre><code class="lang-lua">sort_numbers = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span></span>
+  <span class="hljs-keyword">if</span> a &gt; b <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">return</span> a, b
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">return</span> b, a
+<span class="hljs-keyword">end</span>
+
+bigger, smaller = sort_numbers(<span class="hljs-number">12</span>, <span class="hljs-number">18</span>)
+
+<span class="hljs-built_in">print</span>(bigger)
+<span class="hljs-built_in">print</span>(smaller)
+</code></pre>
+<p>This function takes two numbers, checks to see which is bigger, then returns both the bigger number first then the smaller number second.
+Notice we did this by putting a comma in the return statement then providing a second value after the comma.
+Likewise, we were able to capture both values into variables by putting the first variable name, a comma, then the second variable (<code>bigger, smaller =</code>).
+We don&apos;t need to capture everything returned from a function.
+We could have just as easily called the function and only captured the bigger number if that&apos;s all we wanted from it.</p>
+<pre><code class="lang-lua">bigger = sort_numbers(<span class="hljs-number">12</span>, <span class="hljs-number">18</span>)
+</code></pre>
+<h2 id="generic-for-loops">Generic for loops</h2>
+<p>Let&apos;s take a look at the sibling to the numeric for loop called the generic for loop.
+It&apos;s called generic for loop because it takes a function that makes it behave in different ways for different situations.
+It doesn&apos;t do anything on its own.
+It relies on the function to tell it how to behave.</p>
+<h3 id="ipairs">ipairs</h3>
+<p>Here&apos;s what generic for loops look like:</p>
+<pre><code class="lang-lua">list = {<span class="hljs-string">&apos;dog&apos;</span>, <span class="hljs-string">&apos;cat&apos;</span>, <span class="hljs-string">&apos;mouse&apos;</span>}
+<span class="hljs-keyword">for</span> index <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(list) <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(index, list[index])
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p><code>ipairs</code> takes our for loop and makes it iterate over each item in the list and gives us an <code>index</code> variable to work with inside the loop.
+But wait, there&apos;s more!
+<code>ipairs</code> provides us with another variable that holds the value of the item at that index.
+Try it out yourself:</p>
+<pre><code class="lang-lua">list = {<span class="hljs-string">&apos;dog&apos;</span>, <span class="hljs-string">&apos;cat&apos;</span>, <span class="hljs-string">&apos;mouse&apos;</span>}
+<span class="hljs-keyword">for</span> index, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(list) <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(index, value)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Ah yes, so convenient!
+There is one gotcha with doing this.
+If you wanted to edit the table from inside the loop, you need to access the table directly:</p>
+<pre><code class="lang-lua">list = {<span class="hljs-string">&apos;dog&apos;</span>, <span class="hljs-string">&apos;cat&apos;</span>, <span class="hljs-string">&apos;mouse&apos;</span>}
+<span class="hljs-keyword">for</span> index, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(list) <span class="hljs-keyword">do</span>
+  list[index] = <span class="hljs-built_in">string</span>.upper(value)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(list[<span class="hljs-number">1</span>])
+</code></pre>
+<p>If you try to just edit the value:</p>
+<pre><code class="lang-lua">list = {<span class="hljs-string">&apos;dog&apos;</span>, <span class="hljs-string">&apos;cat&apos;</span>, <span class="hljs-string">&apos;mouse&apos;</span>}
+<span class="hljs-keyword">for</span> index, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(list) <span class="hljs-keyword">do</span>
+  value = <span class="hljs-built_in">string</span>.upper(value)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(list[<span class="hljs-number">1</span>])
+</code></pre>
+<p>the list won&apos;t be modified, because <code>value</code> is just a copy of the data that&apos;s actually in the list.
+You&apos;re editing a temporary copy.</p>
+<h3 id="pairs">pairs</h3>
+<p>Another function for programming for loops with special functionality is <code>pairs</code>.
+This will iterate over every key in a table:</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">table</span> = {
+  cat = <span class="hljs-string">&apos;meow&apos;</span>,
+  dog = <span class="hljs-string">&apos;bark&apos;</span>
+}
+
+<span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(<span class="hljs-built_in">table</span>) <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(key, value)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Even indices:</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">table</span> = {
+  <span class="hljs-string">&apos;a&apos;</span>,
+  <span class="hljs-string">&apos;b&apos;</span>,
+  <span class="hljs-string">&apos;c&apos;</span>,
+  cat = <span class="hljs-string">&apos;meow&apos;</span>,
+  dog = <span class="hljs-string">&apos;bark&apos;</span>
+}
+
+<span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(<span class="hljs-built_in">table</span>) <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(key, value)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>No sneaking past <code>pairs</code> for any of these keys either:</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">table</span> = {
+  [<span class="hljs-number">1</span>] = <span class="hljs-string">&apos;a&apos;</span>,
+  [<span class="hljs-number">2</span>] = <span class="hljs-string">&apos;b&apos;</span>,
+  [<span class="hljs-number">3</span>] = <span class="hljs-string">&apos;c&apos;</span>,
+  cat = <span class="hljs-string">&apos;meow&apos;</span>,
+  dog = <span class="hljs-string">&apos;bark&apos;</span>,
+  [<span class="hljs-keyword">true</span>] = <span class="hljs-keyword">false</span>,
+  [{}] = <span class="hljs-string">&apos;what?&apos;</span>
+}
+
+<span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(<span class="hljs-built_in">table</span>) <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(key, value)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>An easy way to remember the difference between <code>ipairs</code> and <code>pairs</code> is the &quot;i&quot; in <code>ipairs</code> stands for index.
+Sure there&apos;s a difference when working with weird tables like the one above, but why can&apos;t we just use <code>pairs</code> for regular list-style tables?</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">table</span> = {
+  [<span class="hljs-number">2</span>] = <span class="hljs-string">&apos;b&apos;</span>,
+  [<span class="hljs-number">3</span>] = <span class="hljs-string">&apos;c&apos;</span>,
+  [<span class="hljs-number">1</span>] = <span class="hljs-string">&apos;a&apos;</span>
+}
+
+<span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(<span class="hljs-built_in">table</span>) <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(key, value)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code>3   c
+2   b
+1   a
+</code></pre><p>As you can see, the order of the items isn&apos;t guaranteed with <code>pairs</code>.
+<code>ipairs</code> is also optimized to handle numeric keys and will generally perform faster, so it&apos;s good to know the difference.</p>
+<h3 id="under-the-generic-for-loop-hood">Under the generic-for-loop hood</h3>
+<p><code>ipairs</code> and <code>pairs</code> are just regular functions that we invoke.
+They return a function (yes, a function that returns a function!) and this returned function programs our loop to behave how we want.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> iterator, list, start_number <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(index)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>So this is what a generic for loop really looks like without the help of <code>ipairs</code> or <code>pairs</code>.
+It requires 3 parameters that <code>ipairs</code>/<code>pairs</code> provides data back to the key and value variables that we can use inside the loop.
+<code>iterator</code>, <code>list</code>, <code>start_number</code> are all variables we would otherwise have to define without their help.</p>
+<ul>
+<li><code>iterator</code> would be a function we provide to the loop</li>
+<li><code>list</code> would be what we want to iterate over</li>
+<li><code>start_number</code> would be the starting index in the list</li>
+</ul>
+<pre><code class="lang-lua">list = {<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>, <span class="hljs-string">&apos;c&apos;</span>}
+
+iterator, list, start_number = <span class="hljs-built_in">ipairs</span>(list)
+
+<span class="hljs-keyword">for</span> index, value <span class="hljs-keyword">in</span> iterator, list, start_number <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(index)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p><code>ipairs</code> gives us an iterator to pass to the for loop, as well as our list we already had, and a starting number.
+We can print the results of ipairs and see the 3 things it gives us:</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">ipairs</span>(list))
+</code></pre>
+<pre><code>function: 0x156a3f0    table: 0x1572aa0    0
+</code></pre><p>So to say it again, generic for loops require 3 things: an iterator function, our list, and a number.
+In order to not have to write them ourselves, we generated those 3 things by invoking <code>ipairs</code> then passing them into the for loop parameters.
+Don&apos;t fret too much if this seems confusing right now because we&apos;re not going to need to write custom for loops or custom iterators.</p>
+<h3 id="numeric-versus-generic-which-to-use">Numeric versus generic: which to use?</h3>
+<p>Numeric for loops are good for simple counting but perform just as well or maybe even better than generic for loops.
+Generic for loops are more adaptable.
+If you have a situation where either would work, just use whichever you want.
+It really won&apos;t make any difference.</p>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li>Make a list and then write both a numeric for loop and generic for loop that iterate over the list and print each item. Compare the two approaches.</li>
+<li>Make a table with animals for keys and the sounds they make for the key values. Make a for loop that uses <code>pairs</code> to iterate over each and change the noises to all capital letters.</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01-15-for-loops-1.html" class="navigation navigation-prev " aria-label="Previous page: 1.15 - For loops (part 1)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="01-17-scopes.html" class="navigation navigation-next " aria-label="Next page: 1.17 - Scopes">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.16 - For loops (part 2)","level":"1.2.16","depth":2,"next":{"title":"1.17 - Scopes","level":"1.2.17","depth":2,"path":"pages/01-17-scopes.md","ref":"pages/01-17-scopes.md","articles":[]},"previous":{"title":"1.15 - For loops (part 1)","level":"1.2.15","depth":2,"path":"pages/01-15-for-loops-1.md","ref":"pages/01-15-for-loops-1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/01-16-for-loops-2.md","mtime":"2018-06-17T23:31:23.516Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-23T06:24:35.372Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
