@@ -1,0 +1,17 @@
+{
+  "name": "learn2love",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Jay Thomas <jay@gfax.ch>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "gitbook build",
+    "start": "gitbook serve"
+  },
+  "devDependencies": {
+    "gitbook": "^3.2.3",
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-graph": "^0.1.0"
+  }
+}
