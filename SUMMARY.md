@@ -24,3 +24,5 @@
   * [2.1 - Up and running](pages/02-01-up-and-running.md)
   * [2.2 - LÖVE structure](pages/02-02-love-structure.md)
   * [2.3 - Geometry](pages/02-03-geometry.md)
+  * [2.4 - Game loop](pages/02-04-game-loop.md)
+  * [2.5 - Delta time](pages/02-05-delta-time.md)

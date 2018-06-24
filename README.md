@@ -1,13 +1,11 @@
-# Introduction
-
-https://rvagamejams.github.io/learn2love
+# [lean2love](https://rvagamejams.github.io/learn2love)
 
 **Current progress:**
-- Chapter 1 - Basic programming ✔
-- Chapter 2 - Introducing LÖVE (in progress)
+- [Chapter 1](pages/01-00-programming-basics.md) - Programming basics ✔
+- [Chapter 2](pages/02-00-introducing-love.md) - Introducing LÖVE (in progress)
 - Chapter 3 - Structuring code (to do)
 - Chapter 4 - Functional programming (to do)
-- Chapter 5 - Intermediate game (to do)
+- Chapter 5 - Problem solving (to do)
 - Chapter 6 - Advanced topics (to do)
 
 ## What is this book?

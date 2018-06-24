@@ -93,7 +93,7 @@ print(colors[color]) -- prints the same thing
 ```
 
 By convention, strings are typically used for dictionary-like tables while lists are numbers.
-Don't make the mistake of thinking there are the same:
+Don't make the mistake of thinking these are the same:
 
 ```lua
 list = {
@@ -139,6 +139,20 @@ Throws an error:
 [string "crazy_list = {..."]:2: table index is nil
 ```
 
+Values in a table can be any type of data, including functions:
+
+```lua
+cat = {
+  color = "gray",
+  smelly = true,
+  make_sound = function()
+    print("meyuow!")
+  end
+}
+
+cat.make_sound()
+```
+
 # Exercises
 
-- Remember the early function we made that returned the animal sounds? Make a function with a table in it, where each key is an animal name. Give each key a value equal to the sound the animal makes and return the animal sound. Try invoking the function and see if you get back the correct sound.
+- Remember the early function we made that returned the animal sounds? Make a function with a table in it, where each key in the table is an animal name. Give each key a value equal to the sound the animal makes and return the animal sound. Try invoking the function and see if you get back the correct sound.

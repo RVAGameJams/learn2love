@@ -1,0 +1,9 @@
+# Previously-rendered books
+docs
+
+# Dev stuff
+package.json
+.editorconfig
+.gitignore
+*.log
+*.lock
