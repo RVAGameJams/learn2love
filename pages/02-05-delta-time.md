@@ -88,9 +88,7 @@ end
 
 Imagine if we wanted to move a character across the screen but we didn't use delta time.
 The character would run faster on some computers and slower on others.
-Even worse, when the computer slows down the character will slow down too and gameplay would be fluttery.
-Old games did rely on the computer speed and issues arose when the games were ran on newer hardware;
-Everything played like it was on fast-forward.
+Computers would keep getting faster and the game would run so fast it would no longer be playable.
 Delta time solves this issue and we'll be taking advantage of it for everything time-based in our game.
 
 ## Exercises
