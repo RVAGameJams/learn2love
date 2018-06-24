@@ -1,5 +1,0 @@
-# Dev output (move to docs for publishing)
-_book
-
-node_modules
-*.log

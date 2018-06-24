@@ -1,6 +1,9 @@
 # Previously-rendered books
 docs
 
+# ...ignore yourself
+.bookignore
+
 # Dev stuff
 package.json
 .editorconfig
