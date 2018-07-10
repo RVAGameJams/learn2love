@@ -24,7 +24,7 @@ So what's the difference between tables, dictionaries, and maps?
 
 - tables are just a data type in Lua that can be used to build data structures like lists and dictionaries
 - dictionaries are key-value storages used to centralize similar-purpose data in one place and make it easier to look the data up
-- maps are data structures used to map data from one place to another, and a dictionary is one type of map
+- maps are data structures used to translate one type of information to another, and a dictionary is one type of map
 
 Dictionaries are the only types of map we'll be concerned about here, but know that maps generally refer to instances of data structures that do mapping.
 There are often discrepancies in terminology between mathematics and the various fields in computer science.
@@ -75,7 +75,7 @@ local key_map = {
 }
 ```
 
-This doesn't look any more concise that our previous code, but our goal is to keep the `love.keypressed` function clean in this case.
+This doesn't look any more concise than our previous code, but our goal is to keep the `love.keypressed` function clean in this case.
 When a key is pressed it will be mapped to a key function we define in `key_map`.
 Another important thing is these functions could be modular and moved anywhere we need them to be, and even re-used.
 Let's not go too crazy right now though.
@@ -100,7 +100,7 @@ local key_map = {
   end,
   escape = function()
     love.event.quit()
-  end,
+  end
 }
 
 love.draw = function()
