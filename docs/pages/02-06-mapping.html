@@ -58,6 +58,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="02-07-the-world.html" />
+    
     
     <link rel="prev" href="02-05-delta-time.html" />
     
@@ -449,6 +451,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.7" data-path="02-07-the-world.html">
+            
+                <a href="02-07-the-world.html">
+            
+                    
+                    2.7 - The world
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -521,7 +536,7 @@ So what&apos;s the difference between tables, dictionaries, and maps?</p>
 <ul>
 <li>tables are just a data type in Lua that can be used to build data structures like lists and dictionaries</li>
 <li>dictionaries are key-value storages used to centralize similar-purpose data in one place and make it easier to look the data up</li>
-<li>maps are data structures used to map data from one place to another, and a dictionary is one type of map</li>
+<li>maps are data structures used to translate one type of information to another, and a dictionary is one type of map</li>
 </ul>
 <p>Dictionaries are the only types of map we&apos;ll be concerned about here, but know that maps generally refer to instances of data structures that do mapping.
 There are often discrepancies in terminology between mathematics and the various fields in computer science.
@@ -565,7 +580,7 @@ Remember all those if/elseif statements in main.lua?</p>
   <span class="hljs-keyword">end</span>
 }
 </code></pre>
-<p>This doesn&apos;t look any more concise that our previous code, but our goal is to keep the <code>love.keypressed</code> function clean in this case.
+<p>This doesn&apos;t look any more concise than our previous code, but our goal is to keep the <code>love.keypressed</code> function clean in this case.
 When a key is pressed it will be mapped to a key function we define in <code>key_map</code>.
 Another important thing is these functions could be modular and moved anywhere we need them to be, and even re-used.
 Let&apos;s not go too crazy right now though.
@@ -588,7 +603,7 @@ We&apos;ll keep the key map somewhere near the top.</p>
   <span class="hljs-keyword">end</span>,
   escape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
     love.event.quit()
-  <span class="hljs-keyword">end</span>,
+  <span class="hljs-keyword">end</span>
 }
 
 love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
@@ -646,10 +661,14 @@ love.update = <span class="hljs-function"><span class="hljs-keyword">function</s
 
             
                 
-                <a href="02-05-delta-time.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 2.5 - Delta time">
+                <a href="02-05-delta-time.html" class="navigation navigation-prev " aria-label="Previous page: 2.5 - Delta time">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="02-07-the-world.html" class="navigation navigation-next " aria-label="Next page: 2.7 - The world">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -658,7 +677,7 @@ love.update = <span class="hljs-function"><span class="hljs-keyword">function</s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.6 - Mapping","level":"1.3.6","depth":2,"previous":{"title":"2.5 - Delta time","level":"1.3.5","depth":2,"path":"pages/02-05-delta-time.md","ref":"pages/02-05-delta-time.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-06-mapping.md","mtime":"2018-06-24T03:49:51.615Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-24T03:54:36.875Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.6 - Mapping","level":"1.3.6","depth":2,"next":{"title":"2.7 - The world","level":"1.3.7","depth":2,"path":"pages/02-07-the-world.md","ref":"pages/02-07-the-world.md","articles":[]},"previous":{"title":"2.5 - Delta time","level":"1.3.5","depth":2,"path":"pages/02-05-delta-time.md","ref":"pages/02-05-delta-time.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-06-mapping.md","mtime":"2018-07-03T22:03:56.203Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-10T19:58:28.163Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
