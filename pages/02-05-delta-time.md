@@ -93,5 +93,5 @@ Delta time solves this issue and we'll be taking advantage of it for everything 
 
 ## Exercises
 
-- Change the line `local clock_display = 'Seconds: ' .. seconds` so that `seconds` is formatted to display whole numbers. Hint: you will need to use Lua's built-in `math.floor` function.
+- Change the line `local clock_display = 'Seconds: ' .. seconds` so that `seconds` is formatted to display whole numbers. Hint: you will need to use Lua's built-in `math.floor` function to format `seconds`.
 - Change the x position of the left side of the square from `100` to `(seconds * 10)` and watch what the square does.

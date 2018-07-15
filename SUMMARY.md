@@ -28,3 +28,4 @@
   * [2.5 - Delta time](pages/02-05-delta-time.md)
   * [2.6 - Mapping](pages/02-06-mapping.md)
   * [2.7 - The world](pages/02-07-the-world.md)
+  * [2.8 - Reading documentation](pages/02-08-reading-documentation.md)

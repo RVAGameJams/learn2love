@@ -134,6 +134,9 @@ love.update = function(dt)
 end
 ```
 
+This is a lot to digest so don't hesitate to re-read through this code several times if necessary.
+There were a lot of new functions introduced in this section, so in the next section we'll take a deeper look at the documentation and read more about them and their components.
+
 ## Exercises
 
-- Try changing the mass and gravity and see what happens.
+- Try changing the mass (`triangle.body:setMass`) and gravity (`love.physics.newWorld`) and see what happens.

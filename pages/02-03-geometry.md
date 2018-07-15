@@ -89,7 +89,7 @@ Before we get too far on drawing points and lines, let's look back at our functi
 
 The `400` is the X position and **increasing** it will move the text further to the **right**.
 **Decreasing** the X position will move the text further to the **left**.
-The `300` is the Y position, one difference between computers and geometry class is data is calculated from top to bottom, so **increasing** the Y position moves the **down** and **decreasing** it moves the data **up**.
+The `300` is the Y position, one difference between computers and geometry class is data is calculated from top to bottom, so **increasing** the Y position moves the text **down** and **decreasing** it moves the text **up**.
 Let's take a look at what our game's graph looks like with the point (5, 3) highlighted:
 
 {% graph %}
@@ -281,5 +281,5 @@ If you try to do this, you may not see the shape you expect, and perhaps nothing
 
 ## Exercises
 
-- Take a look at the documentation for the function [love.graphics.polygon](https://love2d.org/wiki/love.graphics.polygon). The example shows the string `'line'` can be swapped for a different parameter. What is it? Try it out and see how it works!
-- Try making a polygon with 5 sides.
+- Take a look at the documentation for the function [love.graphics.polygon](https://love2d.org/wiki/love.graphics.polygon). The example shows the argument `'line'` is a string and represents the "drawMode". Try changing the "drawMode" from `'line'` to one of the other available options (see the examples or click the [drawMode](https://love2d.org/wiki/DrawMode) link on the wiki page). What other option is there? How does it work? Try it out and see how it works!
+- Try making a polygon with 5 sides/points. Hint: use the square example above as a reference.

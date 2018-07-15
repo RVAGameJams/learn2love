@@ -62,4 +62,4 @@ In the next section, let's see how LÖVE handles the "4. Tick time in game." ste
 ## Exercises
 
 - Try adding a few more colors to the program. To understand how `love.graphics.setColor` works, see [the documentation](https://love2d.org/wiki/love.graphics.setColor).
-- Make is so that if the escape key is pressed, the function `love.event.quit` is invoked and the game exits. Spoilers: the solution can be seen in the next section.
+- Make is so that if the escape key is pressed, the function `love.event.quit` is invoked and the game exits. The string to use for the escape key can be found on the wiki's [KeyConstant](https://love2d.org/wiki/KeyConstant) page. Spoilers: the solution can be seen in the next section.
