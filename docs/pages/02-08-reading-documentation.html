@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.2 - LÖVE structure · GitBook</title>
+        <title>2.8 - Reading documentation · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -58,10 +58,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="02-03-geometry.html" />
     
-    
-    <link rel="prev" href="02-01-up-and-running.html" />
+    <link rel="prev" href="02-07-the-world.html" />
     
 
     <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
@@ -386,7 +384,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.2" data-path="02-02-love-structure.html">
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
             
                 <a href="02-02-love-structure.html">
             
@@ -464,7 +462,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="02-08-reading-documentation.html">
+        <li class="chapter active" data-level="1.3.8" data-path="02-08-reading-documentation.html">
             
                 <a href="02-08-reading-documentation.html">
             
@@ -512,7 +510,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2.2 - LÖVE structure</a>
+        <a href=".." >2.8 - Reading documentation</a>
     </h1>
 </div>
 
@@ -527,39 +525,111 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="l&#xF6;ve-structure">L&#xD6;VE structure</h1>
-<p>Open up &quot;main.lua&quot; and take a look at our first line.
-We defined a function called <code>love.draw</code>, which implies there is a table called <code>love</code> and we created a key in it called <code>draw</code>.
-Indeed this is the case, but somehow the function was invoked without using having to write <code>love.draw()</code> and invoke it ourselves.
-This requires a high-level explanation of what the engine is doing with our file.</p>
-<p>When L&#xD6;VE is run, before our main.lua file is ran, a table called <code>love</code> is defined as a global variable.
-We can assign functions to this table (<code>love.draw</code>) and access functions already defined in it (<code>love.graphics.print</code>).
-<code>love.graphics.print</code> has two dots in it, so that means the love table probably looks something like:</p>
-<pre><code class="lang-lua">love = {
-  draw = <span class="hljs-keyword">nil</span>,
-  graphics = {
-    <span class="hljs-built_in">print</span> = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> ... <span class="hljs-keyword">end</span>
-  }
-}
+                                <h1 id="reading-documentation">Reading documentation</h1>
+<p>You typically run into two types of documentation for software: guides and API documentation.
+Guides would be information on getting started, tutorials, and books.
+An API (application programming interface) is a portion of software that a programmer writes for his/her program to allow fellow programmers to interact with their application.
+As for L&#xD6;VE&apos;s programming interface, most of your interactions with the framework are done through the <code>love</code> global variable that the framework purposely exposes.
+API documentation is the most fundamental form of software documentation because without it, you would not know what all the functions in the program do unless you were resourceful enough to go in and study all the source code and figure each function out on your own.</p>
+<p><a href="https://love2d.org/wiki/love" target="_blank">The documentation for L&#xD6;VE</a> (bookmark this!) is written in a wiki style where each table and function has an article that describes how to use it.
+From here you should see many <em>modules</em> listed.
+Click on <a href="https://love2d.org/wiki/love.physics" target="_blank"><code>love.physics</code></a>.
+Again, <code>love.physics</code> is just a table with functions in it.
+So within the article we see each of the functions stored in it including the functions <a href="https://love2d.org/wiki/love.physics.newBody" target="_blank"><code>love.physics.newBody</code></a> which we used to create our entities&apos; bodies, <a href="https://love2d.org/wiki/love.physics.newPolygonShape" target="_blank"><code>love.physics.newPolygonShape</code></a> which we used to create their shapes, and  <a href="https://love2d.org/wiki/love.physics.newFixture" target="_blank"><code>love.physics.newFixture</code></a> which we used to create their fixtures.
+We also see <a href="https://love2d.org/wiki/love.physics.newWorld" target="_blank"><code>love.physics.newWorld</code></a> which created our world table.
+Let&apos;s look at the first function&apos;s article.</p>
+<p>Clicking on the article for <code>love.physics.newBody</code> we get a synopsis showing how the function might be used, along with a description of its parameters and what the function returns.
+Over the course of different versions of the framework, functions may be modified so in the case of this function you can see examples of how to use it differently in different versions of L&#xD6;VE.
+Since the function lists that it returns a body, click the link to go over to the article on the <a href="https://love2d.org/wiki/Body" target="_blank">body</a> table&apos;s documentation.</p>
+<p>There&apos;s a lot of functions here that set properties on the body and get properties from the body.
+One of them is the <a href="https://love2d.org/wiki/Body:setMass" target="_blank"><code>body:setMass</code></a> function we used to give our entity weight.
+We can see that it takes one parameter and that the parameter is meant to simulate how many kilograms of mass the body has.
+We originally told it that our triangle in the last section weighed 32 kilograms, which if you think the object fell too fast or too slow then you may need to adjust your world&apos;s gravity to match your expectation.</p>
+<p>Now let&apos;s go back to <a href="https://love2d.org/wiki/love.physics" target="_blank"><code>love.physics</code></a> for a moment and take a look at one of the other components we added to our previous code, the <a href="https://love2d.org/wiki/Fixture" target="_blank">fixture</a>.
+We previously created a fixture table by calling <a href="https://love2d.org/wiki/love.physics.newFixture" target="_blank"><code>triangle.fixture = love.physics.newFixture(triangle.body, triangle.shape)</code></a>.
+However, we haven&apos;t seen any of these functions in the fixture table that could come in handy.
+For instance, we could give our triangle bounciness by invoking <a href="https://love2d.org/wiki/Fixture:setRestitution" target="_blank"><code>fixture:setRestitution</code></a>.
+Our triangle fixture is named <code>triangle.fixture</code> though, not <code>fixture</code>.
+If 0 is no bounciness (default) and 1 is 100%, try modifying the game code and adding a restitution of 75%:</p>
+<pre><code class="lang-lua">triangle.fixture:setRestitution(<span class="hljs-number">0.75</span>)
 </code></pre>
-<p>The <code>love</code> table has a plenty of other tables nested in it, and it puts similar functions in tables together.
-So all the functions relating to graphics are inside the <code>love.graphics</code> table.</p>
-<p>Once &quot;main.lua&quot; is done running, we&apos;ve accessed and modified the <code>love</code> table and added some new functionality to it, telling it how to draw to the screen by defining our <code>love.draw</code> function.
-If we define a function with this name, the game engine will see it and invoke it.
-In fact, it continuously invokes <code>love.draw</code> many times a second.
-To prove my point, let&apos;s modify main.lua and make it print a number.</p>
-<pre><code class="lang-lua"><span class="hljs-keyword">local</span> number = <span class="hljs-number">0</span>
+<p>Try running the game and see how that works.
+If you set the restitution to <code>1</code> or higher then the triangle won&apos;t stop bouncing and will bounce itself right off the screen.</p>
+<h2 id="callbacks">Callbacks</h2>
+<p>Let&apos;s backtrack now to the main article about the <a href="https://love2d.org/wiki/love" target="_blank">love table</a>.
+If you scroll down a little on the page, you&apos;ll see a section titled &quot;Callbacks&quot; that contains some functions we&apos;ve become familiar with such as <code>love.draw</code> and <code>love.update</code>.
+This is a list of all the functions in the game loop that we have and haven&apos;t talked about yet.
+A &quot;callback&quot; is a function you create and give to an API (the <code>love</code> table in this case) that will later get invoked as needed.
+Creating functions with these names allow you to tap into specific portions of the game loop and trigger your own events.</p>
+<p>Let&apos;s take a look at the <code>love.keypressed</code> callback for instance.
+In the synopsis you see that it has 3 parameters (the documentation mistakenly calls parameters &quot;arguments&quot;).
+We used the first parameter <code>key</code> to see what key was pressed.
+If you ever need to know what keys are available, you can click on the link provided next to the parameter name, <code>KeyConstant</code> to see a well-defined list of all the available key strings passed in to this parameter.
+The second parameter <code>scancode</code> we didn&apos;t talk about, but it has a well-defined <code>Scancode</code> article explaining what it is.
+If you are not familiar with scancodes, take a minute to read it and perhaps you&apos;ll learn about a feature you may want to use in your game.</p>
+<p>One more callback we&apos;ll look at while we&apos;re here is <code>love.focus</code>.
+Take a moment to stop here and read what it does and what parameters it takes before continuing.
+Now it would be really cool if we were making a game and when the user switched to another application window, the game automatically paused for the user.
+So first let&apos;s start by implementing a pause feature in our earlier game code:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> world = love.physics.newWorld(<span class="hljs-number">0</span>, <span class="hljs-number">9.81</span> * <span class="hljs-number">128</span>)
+
+<span class="hljs-comment">-- Triangle is the name of our first entity</span>
+<span class="hljs-keyword">local</span> triangle = {}
+triangle.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-string">&apos;dynamic&apos;</span>)
+<span class="hljs-comment">-- Give the triangle some weight</span>
+triangle.body.setMass(triangle.body, <span class="hljs-number">32</span>)
+triangle.shape = love.physics.newPolygonShape(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>)
+triangle.fixture = love.physics.newFixture(triangle.body, triangle.shape)
+triangle.fixture:setRestitution(<span class="hljs-number">0.75</span>)
+
+<span class="hljs-comment">-- Another entity</span>
+<span class="hljs-keyword">local</span> bar = {}
+bar.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">450</span>, <span class="hljs-string">&apos;static&apos;</span>)
+bar.shape = love.physics.newPolygonShape(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">20</span>, <span class="hljs-number">400</span>, <span class="hljs-number">20</span>, <span class="hljs-number">400</span>, <span class="hljs-number">0</span>)
+bar.fixture = love.physics.newFixture(bar.body, bar.shape)
+
+<span class="hljs-comment">-- Boolean to keep track of whether our game is paused or not</span>
+<span class="hljs-keyword">local</span> paused = <span class="hljs-keyword">false</span>
+
+<span class="hljs-keyword">local</span> key_map = {
+  escape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    love.event.quit()
+  <span class="hljs-keyword">end</span>,
+  space = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    paused = <span class="hljs-keyword">not</span> paused
+  <span class="hljs-keyword">end</span>
+}
 
 love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-  number = number + <span class="hljs-number">1</span>
-  love.graphics.<span class="hljs-built_in">print</span>(number, <span class="hljs-number">400</span>, <span class="hljs-number">300</span>)
+  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, triangle.body:getWorldPoints(triangle.shape:getPoints()))
+  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, bar.body:getWorldPoints(bar.shape:getPoints()))
+<span class="hljs-keyword">end</span>
+
+love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
+  <span class="hljs-comment">-- Check in the key map if there is a function</span>
+  <span class="hljs-comment">-- that matches this pressed key&apos;s name</span>
+  <span class="hljs-keyword">if</span> key_map[pressed_key] <span class="hljs-keyword">then</span>
+    key_map[pressed_key]()
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> paused <span class="hljs-keyword">then</span>
+    world:update(dt)
+  <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Each time we go to print the number, we increase it by 1.
-Run this program and see how quickly the number climbs.
-The faster your computer is, the faster the number will move.</p>
-<p>The <code>love</code> table is a seemingly complex structure of tables inside tables and functions inside those, but we&apos;ll gradually learn the structure and purpose of each thing over the course of this chapter.
-In the next section, let&apos;s take a look at the 2nd and 3rd parameters in <code>love.graphics.print</code> and see how they work.</p>
+<p>Notice the 3 changes:</p>
+<ul>
+<li>We added a boolean called <code>paused</code> and set it to false</li>
+<li>We added a new function to <code>key_map</code> so that when <code>&quot;space&quot;</code> is pressed, the value of <code>paused</code> is set to <code>not paused</code>. <code>not</code> is an operator for booleans we previously didn&apos;t discuss. It simply says &quot;the opposite of this boolean&quot;. So if <code>paused</code> is <code>true</code>, then setting <code>paused</code> to <code>not paused</code> will set it to <code>false</code>.</li>
+<li>Lastly, inside <code>love.update</code> to told the world to update only if we are <code>not paused</code>. So the passage of time in the game world will cease when pressing the space key.</li>
+</ul>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li>Now with the documentation in hand, define <code>love.focus</code> and make it so the game pauses when the user clicks away from the game window.</li>
+<li>Bonus: make the game print a text saying that the game is paused when <code>paused</code> is <code>true</code>. Go find the documentation for <code>love.graphics.print</code> to see an example on displaying text.</li>
+</ul>
 
                                 
                                 </section>
@@ -587,14 +657,10 @@ In the next section, let&apos;s take a look at the 2nd and 3rd parameters in <co
 
             
                 
-                <a href="02-01-up-and-running.html" class="navigation navigation-prev " aria-label="Previous page: 2.1 - Up and running">
+                <a href="02-07-the-world.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 2.7 - The world">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="02-03-geometry.html" class="navigation navigation-next " aria-label="Next page: 2.3 - Geometry">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -603,7 +669,7 @@ In the next section, let&apos;s take a look at the 2nd and 3rd parameters in <co
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.2 - LÖVE structure","level":"1.3.2","depth":2,"next":{"title":"2.3 - Geometry","level":"1.3.3","depth":2,"path":"pages/02-03-geometry.md","ref":"pages/02-03-geometry.md","articles":[]},"previous":{"title":"2.1 - Up and running","level":"1.3.1","depth":2,"path":"pages/02-01-up-and-running.md","ref":"pages/02-01-up-and-running.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-02-love-structure.md","mtime":"2018-06-22T18:43:23.347Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-15T21:11:00.559Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.8 - Reading documentation","level":"1.3.8","depth":2,"previous":{"title":"2.7 - The world","level":"1.3.7","depth":2,"path":"pages/02-07-the-world.md","ref":"pages/02-07-the-world.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-08-reading-documentation.md","mtime":"2018-07-15T21:04:31.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-15T21:11:00.559Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
