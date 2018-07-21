@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.7 - The world · GitBook</title>
+        <title>2.9 - Modules and Organization · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -58,10 +58,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="02-08-reading-documentation.html" />
     
-    
-    <link rel="prev" href="02-06-mapping.html" />
+    <link rel="prev" href="02-08-reading-documentation.html" />
     
 
     <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
@@ -451,7 +449,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.7" data-path="02-07-the-world.html">
+        <li class="chapter " data-level="1.3.7" data-path="02-07-the-world.html">
             
                 <a href="02-07-the-world.html">
             
@@ -477,7 +475,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.9" data-path="02-09-modules-and-organization.html">
+        <li class="chapter active" data-level="1.3.9" data-path="02-09-modules-and-organization.html">
             
                 <a href="02-09-modules-and-organization.html">
             
@@ -525,7 +523,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2.7 - The world</a>
+        <a href=".." >2.9 - Modules and Organization</a>
     </h1>
 </div>
 
@@ -540,95 +538,136 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="the-world">The world</h1>
-<p>A world is a physical space where objects can be created (spawned) and interact.
-Shapes and other things drawn on the screen are not implicitly part of a world and won&apos;t interact with each other unless they are.
-Multiple worlds can co-exist, but the objects in each world won&apos;t interact.
-Going forward I will refer to these objects as <em>entities</em>.</p>
-<h2 id="entities">Entities</h2>
-<p>Entities are made up of different components that allow them to interact.
-These are the 3 fundamental physical components:</p>
-<ul>
-<li><strong>shape</strong> - some sort of polygon to give our entity a physical shape that determines the boundaries of the entity</li>
-<li><strong>body</strong> - holds physical properties such as mass</li>
-<li><strong>fixture</strong> - attaches a shape to a body</li>
-</ul>
-<p>Let&apos;s write a new main.lua from scratch and see how these are all wired up.
-First, a world needs to be defined:</p>
-<pre><code class="lang-lua"><span class="hljs-keyword">local</span> world = love.physics.newWorld(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>)
+                                <h1 id="modules-and-organization">Modules and organization</h1>
+<p>Eventually when you start writing real programs, you realize if you keep all the code in one file that things can get a bit messy.
+Putting your code in separate files helps you not only keep your different pieces of code separated from each other, but it helps you visualize the structure of your program.</p>
+<p>Let&apos;s start with a single <em>main.lua</em> file and we&apos;ll then split it into different files:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> my_cool_functon = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  love.graphics.<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;This function came from function-module.lua&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> my_cool_table = {}
+my_cool_table.print_stuff = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  love.graphics.<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;This function came from table-module.lua&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;my_cool_function is&apos;</span>, my_cool_function)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;my_cool_table is&apos;</span>, my_cool_table)
 </code></pre>
-<p><code>love.physics.newWorld</code> returns a table, an instance of a world.
-The table holds functions that allow us to apply attributes to the world.
-It also holds all the entities in our world, which is currently none on initialization.
-According to the documentation on <a href="https://love2d.org/wiki/love.physics.newWorld" target="_blank"><code>love.physics.newWorld</code></a>, our 1st and 2nd parameters set the X and Y gravity on our world.
-We don&apos;t want any sideways gravity, but we&apos;ll go ahead and set an arbitrary number for the vertical gravity.</p>
-<p>While focusing on the world, we should allow the world to know whenever we get an update to the delta time.
-A world without time would be frozen;
-By letting the world know about the passage of time, it can know whether it needs to make an entity fall another meter or two meters&#x2026;</p>
-<pre><code class="lang-lua">love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
-  world.update(world, dt)
+<p>When we go to run the code, we get a blank window because we&apos;re not drawing anything.
+We do see our print statements output our function and table to the console though:</p>
+<pre><code>my_cool_function is     function: 0x41f2abc0
+my_cool_table is        table: 0x41f2aa08
+</code></pre><h2 id="modules-and-require">Modules and <code>require</code></h2>
+<p>Think of your Lua files as giant functions that get invoked whenever you load the file.
+Just like a function, you can <em>return</em> values from your files.
+If you load one Lua file from another, you will get whatever value is returned.
+Let&apos;s modify our previous code.
+First define these two new files in the game folder:</p>
+<p><strong>function-module.lua</strong></p>
+<pre><code class="lang-lua"><span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  love.graphics.<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;This function came from function-module.lua&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>)
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Actually, let&apos;s do one trick here.
-When calling a function in Lua and the first parameter of the function is the table the function is stored in, you can use a shortcut notation:</p>
-<pre><code class="lang-lua">love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
-  world:update(dt)
+<p><strong>table-module.lua</strong></p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> my_cool_table = {}
+my_cool_table.print_stuff = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  love.graphics.<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;This function came from table-module.lua&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>)
 <span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">return</span> my_cool_table
 </code></pre>
-<p>Aside from being easier to write, you&apos;ll see this way of invoking functions used all over the place in the L&#xD6;VE documentation.</p>
-<p>Finally, we&apos;ll add an entity to the game in 4 steps:</p>
-<ol>
-<li>Create a table to store all the pieces of our entity together. Not entirely necessary but we&apos;ll learn later why this step makes things easier.</li>
-<li>Create a body. This will be added to the entity table and the world.</li>
-<li>Create the shape we want the entity to have.</li>
-<li>Create a fixture to attach the body and shape together.</li>
-</ol>
-<pre><code class="lang-lua"><span class="hljs-comment">-- Triangle is the name of our first entity</span>
-<span class="hljs-keyword">local</span> triangle = {}
-triangle.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-string">&apos;dynamic&apos;</span>)
-<span class="hljs-comment">-- Give the triangle some weight</span>
-triangle.body:setMass(<span class="hljs-number">32</span>)
-triangle.shape = love.physics.newPolygonShape(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>)
-triangle.fixture = love.physics.newFixture(triangle.body, triangle.shape)
+<p>Then update <strong>main.lua</strong>:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> function_module = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;function-module&apos;</span>)
+<span class="hljs-keyword">local</span> table_module = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;table-module&apos;</span>)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;function_module is&apos;</span>, function_module)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;table_module is&apos;</span>, table_module)
+</code></pre>
+<p>Let&apos;s start from the top.
+In <em>function-module.lua</em> we write a return statement that returns a function with no name.
+We don&apos;t invoke the function, we just return it as a value the same way a function may return a number or string.
+Likewise in <em>table-module.lua</em> we defined a table (with a function in it) and returned the table on the last line of the file.
+The function name and local variable name <code>my_cool_table</code> is inconsequential and can&apos;t be seen outside the <em>table-module.lua</em> file as modules have their own <a href="01-17-scopes.html">scope</a>.</p>
+<p>In <em>main.lua</em> we are <em>requiring</em> function-module using a built-in Lua function, <code>require</code>.
+<code>require</code> takes one argument, a string that equals the name of your file and it then invokes that file and returns back a function which we assign to a new variable <code>function_module</code>.
+We then do the same thing for <em>table-module.lua</em>. We require it, which invokes it and returns back whatever that file returns.
+In this case is a table.
+Notice that when we pass in the filenames as arguments we just give the first part of the filename without the extension &quot;.lua&quot; at the end.
+This function expects that any file it is requiring is a Lua file.</p>
+<p>After we required the files, we printed the values of those variables, so you should see the results of the print statements appear in the console like before:</p>
+<pre><code>function_module is      function: 0x40479548
+table_module is table: 0x40479bc8
+</code></pre><p>We pulled in the return values from the other two files into our <em>main.lua</em> file and printed the values, but since we didn&apos;t invoke the functions from those two files then we got a blank game window when running the program.
+Let&apos;s define a <code>love.draw</code> in <em>main.lua</em> like before and invoke the functions we got back from both modules:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> function_module = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;function-module&apos;</span>)
+<span class="hljs-keyword">local</span> table_module = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;table-module&apos;</span>)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;function_module is&apos;</span>, function_module)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;table_module is&apos;</span>, table_module)
 
 love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, triangle.body:getWorldPoints(triangle.shape:getPoints()))
+  function_module()
+  table_module.print_stuff()
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>After creating the <code>body</code> table inside <code>triangle</code>, we called <code>triangle.body.setMass</code> to set a weight property on our triangle so it can fall.
-Notice we wrote <code>triangle.body:setMass(32)</code>, which is the same as saying <code>triangle.body.setMass(triangle.body, 32)</code> but shorter and more conventional to the way the L&#xD6;VE documentation writes.</p>
-<p>What&apos;s going on inside <code>love.draw</code> looks pretty crazy so let&apos;s break the long line up.</p>
-<pre><code class="lang-lua">  love.graphics.polygon(
-    <span class="hljs-string">&apos;line&apos;</span>,
-    triangle.body:getWorldPoints(triangle.shape:getPoints())
-  )
-</code></pre>
-<p>We&apos;ve used <code>love.graphics.polygon</code> previously so its purpose should already be familiar.
-The first parameter <code>&apos;line&apos;</code> is telling it that we want an outline of a shape drawn.
-The second parameter is a table containing the points that need to be outlined.
-To get the triangle&apos;s points we call <code>triangle.shape:getPoints()</code>, but this only returns the shape of the triangle and the relative position of the points.
-By then calling <code>triangle.body:getWorldPoints(triangle.shape:getPoints())</code> we convert those relative points to their absolute position as that&apos;s what the polygon drawing function needs to know so it can draw the triangle exactly where it is supposed to be on the screen.</p>
-<p>Let&apos;s put it all together and add one more entity into the mix so the two can interact:</p>
-<pre><code class="lang-lua"><span class="hljs-keyword">local</span> world = love.physics.newWorld(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>)
+<p>We were able to invoke the functions and use the returned data as if it were all in the same file.</p>
+<h2 id="organizing-modules">Organizing modules</h2>
+<p>It may help to see a real example of using modules in a game, so let&apos;s take our previous game code from <a href="pages/02-08-reading-documentation.md">2.8 - Reading documentation</a> and see how we can separate out functionality.
+The first thing we did in our game was define a world, so let&apos;s start by putting our world-related code in a dedicated file named <strong>world.lua</strong>:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- world.lua</span>
 
-<span class="hljs-comment">-- Triangle is the name of our first entity</span>
+<span class="hljs-keyword">local</span> world = love.physics.newWorld(<span class="hljs-number">0</span>, <span class="hljs-number">9.81</span> * <span class="hljs-number">128</span>)
+
+<span class="hljs-keyword">return</span> world
+</code></pre>
+<p>Remember that you need the return statement at the end of your files or else the code will return <code>nil</code> when you go to require it and this could cause all kinds of unexepcted errors when you run it.
+Next let&apos;s create a folder named <strong>entities</strong> that we can keep all our game entities in.
+We plan on creating more entities so it will help to keep them all together.
+In the entities folder, create a file and name it <strong>triangle.lua</strong>.
+We&apos;ll cut all the code from the original main.lua that related to our triangle entity and put it here:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/triangle.lua</span>
+
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
 <span class="hljs-keyword">local</span> triangle = {}
 triangle.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-string">&apos;dynamic&apos;</span>)
-<span class="hljs-comment">-- Give the triangle some weight</span>
 triangle.body.setMass(triangle.body, <span class="hljs-number">32</span>)
 triangle.shape = love.physics.newPolygonShape(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>)
 triangle.fixture = love.physics.newFixture(triangle.body, triangle.shape)
+triangle.fixture:setRestitution(<span class="hljs-number">0.75</span>)
 
-<span class="hljs-comment">-- Another entity</span>
+<span class="hljs-keyword">return</span> triangle
+</code></pre>
+<p>Notice how we are requiring the <code>world</code> table from world.lua, because we need to access that table in this entity&apos;s file so we can add the entity to the world.
+We also need to do the same thing as above with the <strong>bar</strong> entity:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/bar.lua</span>
+
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
 <span class="hljs-keyword">local</span> bar = {}
 bar.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">450</span>, <span class="hljs-string">&apos;static&apos;</span>)
 bar.shape = love.physics.newPolygonShape(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">20</span>, <span class="hljs-number">400</span>, <span class="hljs-number">20</span>, <span class="hljs-number">400</span>, <span class="hljs-number">0</span>)
 bar.fixture = love.physics.newFixture(bar.body, bar.shape)
 
+<span class="hljs-keyword">return</span> bar
+</code></pre>
+<p>Now our <strong>main.lua</strong> should only contain our key map and <code>love</code> functions:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
+
+<span class="hljs-keyword">local</span> bar = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/bar&apos;</span>)
+<span class="hljs-keyword">local</span> triangle = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/triangle&apos;</span>)
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-comment">-- Boolean to keep track of whether our game is paused or not</span>
+<span class="hljs-keyword">local</span> paused = <span class="hljs-keyword">false</span>
 
 <span class="hljs-keyword">local</span> key_map = {
   escape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
     love.event.quit()
+  <span class="hljs-keyword">end</span>,
+  space = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    paused = <span class="hljs-keyword">not</span> paused
   <span class="hljs-keyword">end</span>
 }
 
@@ -637,6 +676,11 @@ love.draw = <span class="hljs-function"><span class="hljs-keyword">function</spa
   love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, bar.body:getWorldPoints(bar.shape:getPoints()))
 <span class="hljs-keyword">end</span>
 
+love.focus = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(focused)</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> focused <span class="hljs-keyword">then</span>
+    paused = <span class="hljs-keyword">true</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
 
 love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
   <span class="hljs-comment">-- Check in the key map if there is a function</span>
@@ -650,11 +694,23 @@ love.update = <span class="hljs-function"><span class="hljs-keyword">function</s
   world:update(dt)
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>This is a lot to digest so don&apos;t hesitate to re-read through this code several times if necessary.
-There were a lot of new functions introduced in this section, so in the next section we&apos;ll take a deeper look at the documentation and read more about them and their components.</p>
+<p>Our two entities and world get pulled into main.lua and everything should run exactly as before.
+One thing to note is that even though we require world.lua 3 times in our code, it is the same world and not 3 copies.
+This is because Lua knows to only run a module the first time you require it and not invoke it again.
+Once it runs the first time, the returned results are stored in memory for the next time you try to require it.
+We can prove this by adding a print statement to <strong>world.lua</strong>:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- world.lua</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;This is the world&quot;</span>)
+
+<span class="hljs-keyword">local</span> world = love.physics.newWorld(<span class="hljs-number">0</span>, <span class="hljs-number">9.81</span> * <span class="hljs-number">128</span>)
+
+<span class="hljs-keyword">return</span> world
+</code></pre>
+<p>How many times does <code>&quot;This is the world&quot;</code> get printed to the console?</p>
 <h2 id="exercises">Exercises</h2>
 <ul>
-<li>Try changing the mass (<code>triangle.body:setMass</code>) and gravity (<code>love.physics.newWorld</code>) and see what happens.</li>
+<li>Try creating two new modules; One that returns a string and one that returns a number.</li>
 </ul>
 
                                 
@@ -683,14 +739,10 @@ There were a lot of new functions introduced in this section, so in the next sec
 
             
                 
-                <a href="02-06-mapping.html" class="navigation navigation-prev " aria-label="Previous page: 2.6 - Mapping">
+                <a href="02-08-reading-documentation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 2.8 - Reading documentation">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="02-08-reading-documentation.html" class="navigation navigation-next " aria-label="Next page: 2.8 - Reading documentation">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -699,7 +751,7 @@ There were a lot of new functions introduced in this section, so in the next sec
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.7 - The world","level":"1.3.7","depth":2,"next":{"title":"2.8 - Reading documentation","level":"1.3.8","depth":2,"path":"pages/02-08-reading-documentation.md","ref":"pages/02-08-reading-documentation.md","articles":[]},"previous":{"title":"2.6 - Mapping","level":"1.3.6","depth":2,"path":"pages/02-06-mapping.md","ref":"pages/02-06-mapping.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-07-the-world.md","mtime":"2018-07-10T23:08:42.139Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-21T13:36:52.467Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.9 - Modules and Organization","level":"1.3.9","depth":2,"previous":{"title":"2.8 - Reading documentation","level":"1.3.8","depth":2,"path":"pages/02-08-reading-documentation.md","ref":"pages/02-08-reading-documentation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-09-modules-and-organization.md","mtime":"2018-07-21T13:36:14.387Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-21T13:36:52.467Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
