@@ -29,3 +29,4 @@
   * [2.6 - Mapping](pages/02-06-mapping.md)
   * [2.7 - The world](pages/02-07-the-world.md)
   * [2.8 - Reading documentation](pages/02-08-reading-documentation.md)
+  * [2.9 - Modules and Organization](pages/02-09-modules-and-organization.md)
