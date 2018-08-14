@@ -1,4 +1,4 @@
-# [lean2love](https://rvagamejams.github.io/learn2love)
+# [learn2love](https://rvagamejams.github.io/learn2love)
 
 **Current progress:**
 - [Chapter 1](https://rvagamejams.github.io/learn2love/pages/01-00-programming-basics.html) - Programming basics ✔

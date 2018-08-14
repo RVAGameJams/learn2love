@@ -1,4 +1,4 @@
-# Development environment
+# Up and running
 
 Learning by making is fun and effective.
 Learning to interface with other people's software is part of being a programmer and is a necessary skill to have as one.
@@ -10,7 +10,7 @@ In the case of LÖVE this includes, but is not limited to:
 - Functions for creating and moving objects
 - Parameters for making the objects interact
 
-## Installing your environment
+## Installing your development environment
 
 The LÖVE website has links to install the software on your system.
 If you have LÖVE installed already, make sure that you at least version 11 (mysterious mysteries) as some functionality we'll cover here doesn't exist in older versions.

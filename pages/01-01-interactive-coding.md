@@ -100,7 +100,7 @@ The modulus operator is represented in most languages as a `%` (percent) symbol:
 ```
 
 Modulus operations aren't seen in grade school classrooms as often as the rest, but are quite common in software and computer sciences.
-The way it works is you take the 2nd number and subtract is from the bigger number as many times as possible until 1st number is bigger than the 2nd.
+The way it works is you take the 2nd number and subtract it from the bigger number as many times as possible until the 1st number is bigger than the 2nd.
 The result is what's left of the 1st number.
 With `8 % 3`, if you keep subtracting `3` from `8` then you end up with `2` left.
 
