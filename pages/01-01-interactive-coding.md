@@ -122,3 +122,5 @@ Likewise, `10 % 4` results in `2` because 4 goes into 10 twice, and leaves a rem
 - Try typing different modulo operations in and guessing what the answer will be.
 - Try using negative numbers (`-3 + -2`).
 - Try using a set of parenthesis inside another set of parenthesis. Does it behave as you expect?
+- After running through all the exercises press the 'up' key in the REPL. What happens and how can this speed up your work?
+
