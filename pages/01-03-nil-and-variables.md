@@ -42,11 +42,22 @@ name
 ```
 
 ...and hit ENTER, it will print out the value that belongs to this variable to remind you.
-You can change the value of name and get different results:
+The `=` (equal) sign tells Lua that you want to assign a value to the given name/variable.
+You can change the value of a variable and get different results:
 
 ```lua
 name = "Jeff"
 "hello my name is " .. name
+```
+
+Assignment isn't the same as it is in Algebra.
+You can change the value of a variable multiple times.
+We can tell `name` that it equals itself with some additional information *concatenated* to it:
+
+```lua
+name = "abc"
+name = name .. "def"
+name
 ```
 
 You can assign any type of data to a variable, including numbers:
@@ -54,6 +65,13 @@ You can assign any type of data to a variable, including numbers:
 name = "Jeff"
 age = 16
 "hello my name is " .. name .. " and I am " .. age .. "."
+```
+
+You can change numbers after assignment too:
+```lua
+age = 16
+age = age * 2
+"my age doubled is " .. age
 ```
 
 So, what if you type in a made up variable name?
