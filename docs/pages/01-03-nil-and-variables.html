@@ -482,7 +482,20 @@
                 <a href="02-09-modules-and-organization.html">
             
                     
-                    2.9 - Modules and Organization
+                    2.9 - Modules and organization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="02-10-collision-callbacks.html">
+            
+                <a href="02-10-collision-callbacks.html">
+            
+                    
+                    2.10 - Collision callbacks
             
                 </a>
             
@@ -569,14 +582,27 @@ If you type:</p>
 <pre><code class="lang-lua">name
 </code></pre>
 <p>...and hit ENTER, it will print out the value that belongs to this variable to remind you.
-You can change the value of name and get different results:</p>
+The <code>=</code> (equal) sign tells Lua that you want to assign a value to the given name/variable.
+You can change the value of a variable and get different results:</p>
 <pre><code class="lang-lua">name = <span class="hljs-string">&quot;Jeff&quot;</span>
 <span class="hljs-string">&quot;hello my name is &quot;</span> .. name
+</code></pre>
+<p>Assignment isn&apos;t the same as it is in Algebra.
+You can change the value of a variable multiple times.
+We can tell <code>name</code> that it equals itself with some additional information <em>concatenated</em> to it:</p>
+<pre><code class="lang-lua">name = <span class="hljs-string">&quot;abc&quot;</span>
+name = name .. <span class="hljs-string">&quot;def&quot;</span>
+name
 </code></pre>
 <p>You can assign any type of data to a variable, including numbers:</p>
 <pre><code class="lang-lua">name = <span class="hljs-string">&quot;Jeff&quot;</span>
 age = <span class="hljs-number">16</span>
 <span class="hljs-string">&quot;hello my name is &quot;</span> .. name .. <span class="hljs-string">&quot; and I am &quot;</span> .. age .. <span class="hljs-string">&quot;.&quot;</span>
+</code></pre>
+<p>You can change numbers after assignment too:</p>
+<pre><code class="lang-lua">age = <span class="hljs-number">16</span>
+age = age * <span class="hljs-number">2</span>
+<span class="hljs-string">&quot;my age doubled is &quot;</span> .. age
 </code></pre>
 <p>So, what if you type in a made up variable name?</p>
 <pre><code class="lang-lua">noname
@@ -651,7 +677,7 @@ DOG3 = <span class="hljs-string">&quot;Ember&quot;</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.3 - Nil and variables","level":"1.2.3","depth":2,"next":{"title":"1.4 - Using functions","level":"1.2.4","depth":2,"path":"pages/01-04-using-functions.md","ref":"pages/01-04-using-functions.md","articles":[]},"previous":{"title":"1.2 - Strings","level":"1.2.2","depth":2,"path":"pages/01-02-strings.md","ref":"pages/01-02-strings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/01-03-nil-and-variables.md","mtime":"2018-06-12T22:58:24.691Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-14T00:53:57.699Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.3 - Nil and variables","level":"1.2.3","depth":2,"next":{"title":"1.4 - Using functions","level":"1.2.4","depth":2,"path":"pages/01-04-using-functions.md","ref":"pages/01-04-using-functions.md","articles":[]},"previous":{"title":"1.2 - Strings","level":"1.2.2","depth":2,"path":"pages/01-02-strings.md","ref":"pages/01-02-strings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/01-03-nil-and-variables.md","mtime":"2018-08-15T03:45:56.273Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-18T04:03:37.715Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
