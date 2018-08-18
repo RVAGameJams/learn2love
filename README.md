@@ -25,6 +25,5 @@ I have been programming since 2007, focusing on teaching myself best practices. 
 
 ## Author and contributors
 
-| | |
-|:--:|:--|
-|[![](https://avatars0.githubusercontent.com/u/2344456?s=460)](https://github.com/jaythomas)|Original author
+- [jaythomas](https://github.com/jaythomas): Original author
+- [JimmyStevens](https://github.com/JimmyStevens): Contributions to chapter 1
