@@ -113,7 +113,7 @@ We can take advantage of the while loop to make them continue guessing while the
 math.randomseed(os.time())
 number = math.random(100)
 
-print("Guess what number I am think of. It is between 1 and 100.")
+print("Guess my secret number. It is between 1 and 100.")
 
 guess = tonumber(io.read())
 
