@@ -145,7 +145,7 @@ When we talked about if statements, remember the keyword `else`?
 math.randomseed(os.time())
 number = math.random(100)
 
-print("Guess what number I am think of. It is between 1 and 100.")
+print("Guess my secret number. It is between 1 and 100.")
 
 guess = tonumber(io.read())
 
@@ -180,7 +180,7 @@ number = math.random(100)
 -- Our starting number of guesses
 guess_counter = 1
 
-print("Guess what number I am think of. It is between 1 and 100.")
+print("Guess my secret number. It is between 1 and 100.")
 
 guess = tonumber(io.read())
 
