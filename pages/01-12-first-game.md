@@ -72,7 +72,7 @@ math.random(100)
 
 This generates a random number between 1 and 100.
 Except, if you run the program repeatedly you may notice that it spits out the same number.
-That's become nothing in the computer world is random.
+That's because nothing in the computer world is random.
 If we fed in random noises through a speaker or white noise from an old television set then our computer could use this to generate random numbers.
 Since we don't easily have access to those things, we need to *seed* Lua with some *perceived* randomness.
 
@@ -113,7 +113,7 @@ We can take advantage of the while loop to make them continue guessing while the
 math.randomseed(os.time())
 number = math.random(100)
 
-print("Guess what number I am think of. It is between 1 and 100.")
+print("Guess my secret number. It is between 1 and 100.")
 
 guess = tonumber(io.read())
 
@@ -145,7 +145,7 @@ When we talked about if statements, remember the keyword `else`?
 math.randomseed(os.time())
 number = math.random(100)
 
-print("Guess what number I am think of. It is between 1 and 100.")
+print("Guess my secret number. It is between 1 and 100.")
 
 guess = tonumber(io.read())
 
@@ -180,7 +180,7 @@ number = math.random(100)
 -- Our starting number of guesses
 guess_counter = 1
 
-print("Guess what number I am think of. It is between 1 and 100.")
+print("Guess my secret number. It is between 1 and 100.")
 
 guess = tonumber(io.read())
 
