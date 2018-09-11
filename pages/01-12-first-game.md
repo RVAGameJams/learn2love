@@ -72,7 +72,7 @@ math.random(100)
 
 This generates a random number between 1 and 100.
 Except, if you run the program repeatedly you may notice that it spits out the same number.
-That's become nothing in the computer world is random.
+That's because nothing in the computer world is random.
 If we fed in random noises through a speaker or white noise from an old television set then our computer could use this to generate random numbers.
 Since we don't easily have access to those things, we need to *seed* Lua with some *perceived* randomness.
 
