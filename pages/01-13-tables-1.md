@@ -161,7 +161,7 @@ end
 ```
 
 Again, it knows to exit when it sees `false` or `nil`.
-The caveat to this would be if you a special list with `false` in it:
+The caveat to this would be if you make a special list with `false` in it:
 
 ```lua
 groceries = {
