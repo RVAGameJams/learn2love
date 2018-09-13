@@ -149,7 +149,7 @@ shadowing()
 
 The inner `number` does not affect the outer `number` in any way.
 The outer `number` is not accessible inside the function as long as the inner `number` exists.
-When a variable has the same name as another variable in a parent scope as the parent scope variable becomes inaccessible, this is called *shadowing*.
+If a variable has the same name as another variable in a parent scope then the parent scope variable becomes inaccessible: this is called *shadowing*.
 Typically you would want to avoid shadowing if at least for the reason that using the same variable name twice in the same file can make the code harder to read and more prone to errors being introduced.
 
 
