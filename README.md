@@ -3,10 +3,10 @@
 **Current progress:**
 - [Chapter 1](https://rvagamejams.com/learn2love/pages/01-00-programming-basics.html) - Programming basics ✔
 - [Chapter 2](https://rvagamejams.com/learn2love/pages/02-00-introducing-love.html) - Introducing LÖVE (in progress)
-- Chapter 3 - Structuring code (to do)
-- Chapter 4 - Functional programming (to do)
-- Chapter 5 - Problem solving (to do)
-- Chapter 6 - Advanced topics (to do)
+- Chapter 3 - Functional programming (to do)
+- Chapter 4 - Structuring code (to do)
+- Chapter 5 - Deeper programming topics (to do)
+- Chapter 6 - Advanced challenges in LÖVE (to do)
 
 ## What is this book?
 
@@ -26,4 +26,4 @@ I have been programming since 2007, focusing on teaching myself best practices. 
 ## Author and contributors
 
 - [jaythomas](https://github.com/jaythomas): Original author
-- [JimmyStevens](https://github.com/JimmyStevens): Contributions to chapter 1
+- [JimmyStevens](https://github.com/JimmyStevens): Edits and suggestions in chapter 1 & 2

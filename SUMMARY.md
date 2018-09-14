@@ -31,3 +31,4 @@
   * [2.8 - Reading documentation](pages/02-08-reading-documentation.md)
   * [2.9 - Modules and organization](pages/02-09-modules-and-organization.md)
   * [2.10 - Collision callbacks](pages/02-10-collision-callbacks.md)
+  * [2.11 - Breakout (part 1)](pages/02-11-breakout-part-1.md)
