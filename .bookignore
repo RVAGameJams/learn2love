@@ -1,6 +1,9 @@
 # Previously-rendered books
 docs
 
+# source code examples
+code
+
 # ...ignore yourself
 .bookignore
 

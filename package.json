@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "rm -rf docs && gitbook build",
+    "build": "rm -rf docs && gitbook build && cp -r _book docs",
     "start": "gitbook serve"
   },
   "devDependencies": {
