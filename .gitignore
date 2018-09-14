@@ -3,3 +3,6 @@ _book
 
 node_modules
 *.log
+
+# Npm lock file
+package-lock.json

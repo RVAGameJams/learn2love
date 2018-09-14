@@ -295,7 +295,7 @@ end
 ```
 
 When you run the game, you should see pretty much the same thing as this:
-![](code/breakout-1/screenshot.png)
+![](https://raw.githubusercontent.com/RVAGameJams/learn2love/master/code/breakout-1/screenshot.png)
 
 
 If you missed anything or are having issues, here's a copy of the completed source code for this section:
