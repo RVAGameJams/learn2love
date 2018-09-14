@@ -1,0 +1,922 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.11 - Breakout (part 1) · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="02-10-collision-callbacks.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="02-04-game-loop.html">
+            
+                <a href="02-04-game-loop.html">
+            
+                    
+                    2.4 - Game loop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="02-05-delta-time.html">
+            
+                <a href="02-05-delta-time.html">
+            
+                    
+                    2.5 - Delta time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="02-06-mapping.html">
+            
+                <a href="02-06-mapping.html">
+            
+                    
+                    2.6 - Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="02-07-the-world.html">
+            
+                <a href="02-07-the-world.html">
+            
+                    
+                    2.7 - The world
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="02-08-reading-documentation.html">
+            
+                <a href="02-08-reading-documentation.html">
+            
+                    
+                    2.8 - Reading documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="02-09-modules-and-organization.html">
+            
+                <a href="02-09-modules-and-organization.html">
+            
+                    
+                    2.9 - Modules and organization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="02-10-collision-callbacks.html">
+            
+                <a href="02-10-collision-callbacks.html">
+            
+                    
+                    2.10 - Collision callbacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.11" data-path="02-11-breakout-part-1.html">
+            
+                <a href="02-11-breakout-part-1.html">
+            
+                    
+                    2.11 - Breakout (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.11 - Breakout (part 1)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="breakout-part-1-more-entity-practice">Breakout (part 1): more entity practice</h1>
+<p>Let&apos;s bring all these concepts together by making another game, a <a href="https://en.wikipedia.org/wiki/Breakout_clone" target="_blank">breakout clone</a>.
+The requirements are pretty simple:</p>
+<ul>
+<li>The objective of the game is to destroy all the bricks on the screen</li>
+<li>The player controls a &quot;paddle&quot; entity that hits a ball</li>
+<li>The ball destroys the bricks</li>
+<li>The ball needs to stay within the boundaries of the screen</li>
+<li>If the ball touches the bottom of the screen (below the paddle), the game ends</li>
+</ul>
+<p>If you still have the code from the previous sections, feel free to copy the folder naming the new one &quot;breakout&quot; or whatever you want your breakout clone to be called.
+At the end of this section there will be a link to all the source code to use as a reference in case you get stuck.
+The first modification we&apos;ll make is to set a specific window size so no matter which version of L&#xD6;VE you&apos;re on we&apos;re working with the same window proportions and entity dimensions.
+To do this, open of <strong>conf.lua</strong> or create it if you don&apos;t have it and put in the following code:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- L&#xD6;VE configuration file</span>
+
+love.conf = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(t)</span></span>
+  t.console = <span class="hljs-keyword">true</span>        <span class="hljs-comment">-- Enable the debug console for Windows.</span>
+  t.window.width = <span class="hljs-number">800</span>    <span class="hljs-comment">-- Game&apos;s screen width (number of pixels)</span>
+  t.window.height = <span class="hljs-number">600</span>   <span class="hljs-comment">-- Game&apos;s screen height (number of pixels)</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The <em>conf</em>, or <em>configuration</em> file lets you define a callback in the <code>love</code> table that modifies the game engine&apos;s configuration on load.
+You can read more about all the interesting things you can do with it <a href="https://love2d.org/wiki/Config_Files" target="_blank">here</a> but most of its features won&apos;t be necessary for our simple game.</p>
+<p>The next modification we&apos;ll make is deleting the entities from the last section. Let&apos;s create new entities to represent the ball and paddle:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/ball.lua</span>
+
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-keyword">local</span> entity = {}
+entity.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-string">&apos;dynamic&apos;</span>)
+entity.body:setMass(<span class="hljs-number">32</span>)
+entity.body:setLinearVelocity(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>)
+entity.shape = love.physics.newCircleShape(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>)
+entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+entity.fixture:setRestitution(<span class="hljs-number">1</span>)
+entity.fixture:setUserData(entity)
+
+<span class="hljs-keyword">return</span> entity
+</code></pre>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/paddle.lua</span>
+
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-keyword">local</span> entity = {}
+entity.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">560</span>, <span class="hljs-string">&apos;static&apos;</span>)
+entity.shape = love.physics.newRectangleShape(<span class="hljs-number">180</span>, <span class="hljs-number">20</span>)
+entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+entity.fixture:setUserData(entity)
+
+<span class="hljs-keyword">return</span> entity
+</code></pre>
+<p>Before we try and run anything, take a look at a few things we&apos;ve done differently in defining these entities than we&apos;ve previously done.</p>
+<ul>
+<li>In <strong>ball.lua</strong> we are defining a circle shape instead of a polygon. This means we have no sides or corner points we can reference when spawning or tracking the position of this object. Circles have to be tracked from their center point and their boundaries by their radius.</li>
+<li>In this file we&apos;re using <a href="https://love2d.org/wiki/Body:setLinearVelocity" target="_blank"><code>Body:setLinearVelocity</code></a> to apply movement on the ball in a specific direction when the entity spawns.</li>
+<li>In <strong>paddle.lua</strong> we are defining a polygon shape, but instead of specifying each point we are using the <a href="https://love2d.org/wiki/love.physics.newRectangleShape" target="_blank"><code>love.physics.newRectangleShape</code></a> function to define the shape. This will still generate a polygon as before, but instead of specifying each point in the shape we are giving a height and width and allowing it to figure out the shape we want based on those two parameters. Think of it as a shortcut version of the <a href="https://love2d.org/wiki/love.physics.newPolygonShape" target="_blank"><code>love.physics.newPolygonShape</code></a> function.</li>
+<li>The paddle has a static body while the ball is dynamic. What this entails is the ball will be affected by the paddle but the paddle won&apos;t be affected by the ball. Even though the paddle is static, it can be manually repositioned as we&apos;ll do later with buttons.</li>
+<li>In both entity files, we are passing the full entity table as the fixture user data instead of just a string name like before. This will allow us to easily access the entire entity inside the collision callback as we&apos;ll see later. You&apos;ll want to go back and compare that code from the <a href="02-10-collision-callbacks.html">Collision Callbacks</a> section to these entities, but don&apos;t worry if it doesn&apos;t make complete sense yet.</li>
+</ul>
+<p>Now we need to modify <strong>main.lua</strong> to load up our new entities:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
+
+<span class="hljs-keyword">local</span> paddle = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/paddle&apos;</span>)
+<span class="hljs-keyword">local</span> ball = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/ball&apos;</span>)
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-comment">-- Boolean to keep track of whether our game is paused or not</span>
+<span class="hljs-keyword">local</span> paused = <span class="hljs-keyword">false</span>
+
+<span class="hljs-keyword">local</span> key_map = {
+  escape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    love.event.quit()
+  <span class="hljs-keyword">end</span>,
+  space = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    paused = <span class="hljs-keyword">not</span> paused
+  <span class="hljs-keyword">end</span>
+}
+
+love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">local</span> ball_x, ball_y = ball.body:getWorldCenter()
+  love.graphics.circle(<span class="hljs-string">&apos;fill&apos;</span>, ball_x, ball_y, ball.shape:getRadius())
+  love.graphics.polygon(
+    <span class="hljs-string">&apos;line&apos;</span>,
+    paddle.body:getWorldPoints(paddle.shape:getPoints())
+  )
+<span class="hljs-keyword">end</span>
+
+love.focus = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(focused)</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> focused <span class="hljs-keyword">then</span>
+    paused = <span class="hljs-keyword">true</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
+  <span class="hljs-comment">-- Check in the key map if there is a function</span>
+  <span class="hljs-comment">-- that matches this pressed key&apos;s name</span>
+  <span class="hljs-keyword">if</span> key_map[pressed_key] <span class="hljs-keyword">then</span>
+    key_map[pressed_key]()
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> paused <span class="hljs-keyword">then</span>
+    world:update(dt)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Take note of a few things we&apos;re doing here:</p>
+<ul>
+<li>For drawing the circle, we need to invoke <a href="https://love2d.org/wiki/love.graphics.circle" target="_blank"><code>love.graphics.circle</code></a>.</li>
+<li>For drawing the paddle, we still invoke <a href="https://love2d.org/wiki/love.graphics.polygon" target="_blank"><code>love.graphics.polygon</code></a> as the rectangle is still a polygon shape.</li>
+</ul>
+<p>Now let&apos;s remove any print statements in <strong>world.lua</strong> just to clean things up.
+We&apos;ll leave the callbacks there since we may use them later but we&apos;ll leave them empty for now.
+We&apos;ll also set the gravity to <code>0</code> because we want the ball to bounce freely like in the real Breakout game and not lose any momentum.</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- world.lua</span>
+
+<span class="hljs-comment">-- Called at the beginning of any contact in the world. Parameters:</span>
+<span class="hljs-comment">-- {fixture} fixture_a - first fixture object in the collision.</span>
+<span class="hljs-comment">-- {fixture} fixture_b - second fixture object in the collision.</span>
+<span class="hljs-comment">-- {contact} contact - world object created on and at the point of</span>
+<span class="hljs-comment">--   contact. When sliding along an object, there may be several.</span>
+<span class="hljs-comment">--   See further: https://love2d.org/wiki/Contact</span>
+<span class="hljs-keyword">local</span> begin_contact_callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fixture_a, fixture_b, contact)</span></span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> end_contact_callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fixture_a, fixture_b, contact)</span></span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> pre_solve_callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fixture_a, fixture_b, contact)</span></span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> post_solve_callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fixture_a, fixture_b, contact)</span></span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> world = love.physics.newWorld(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+
+world:setCallbacks(
+  begin_contact_callback,
+  end_contact_callback,
+  pre_solve_callback,
+  post_solve_callback
+)
+
+<span class="hljs-keyword">return</span> world
+</code></pre>
+<p>What happens if you run the game now?
+The ball flies right off the screen without consequence.
+There are a couple different ways of preventing the ball from moving off screen.
+Possibly the most simple approach is to put up some walls.
+Can you guess what the code to those walls may look like?
+Yup, they will be entities similar to the paddle except that they just sit at the edges of the screen.
+Let&apos;s create some entities for that purpose:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/boundary-top.lua</span>
+
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-keyword">local</span> entity = {}
+entity.body = love.physics.newBody(world, <span class="hljs-number">400</span>, <span class="hljs-number">5</span>, <span class="hljs-string">&apos;static&apos;</span>)
+entity.shape = love.physics.newRectangleShape(<span class="hljs-number">800</span>, <span class="hljs-number">10</span>)
+entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+entity.fixture:setUserData(entity)
+
+<span class="hljs-keyword">return</span> entity
+</code></pre>
+<p>Take a look at these numbers for a minute.
+For the location of the body we specified 400 pixels.
+So starting from the top left corner and moving right along the x-axis we&apos;ve specified the very center of an 800-pixel-wide window.
+The reason we&apos;ve done this is because we want the top and bottom wall boundaries to stretch 800 pixels wide, the entire length of the window, and when calling <code>newBody</code> and spawning an entity&apos;s body it will spawn the center point of the entity shape at that location.
+Not all entity shapes are square, or even polygonal, so it is simplest for the game engine to center the shape on the body&apos;s spawn point rather than using another point of reference on the shape, like the top left corner of the shape (not all shapes have corners).
+In fact, the ball and paddle spawned centered on the location we gave for their bodies.</p>
+<p>So we made the walls 800 pixels wide and just to give it a little visibility we made them 10 pixels tall.
+You would think we&apos;d spawn the wall at the very top of the screen (0 pixels on the y-axis,) but since our walls will be centered to the spawn points we should move down half the height of the wall if we want it all to appear on screen.</p>
+<p>Now the boundary on the bottom will have the same dimensions, but it will be spawned at the bottom of the screen (600 pixels) minus half the height of the wall (5 pixels):</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/boundary-bottom.lua</span>
+
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-keyword">local</span> entity = {}
+entity.body = love.physics.newBody(world, <span class="hljs-number">400</span>, <span class="hljs-number">595</span>, <span class="hljs-string">&apos;static&apos;</span>)
+entity.shape = love.physics.newRectangleShape(<span class="hljs-number">800</span>, <span class="hljs-number">10</span>)
+entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+entity.fixture:setUserData(entity)
+
+<span class="hljs-keyword">return</span> entity
+</code></pre>
+<p>The left and right boundaries will follow the same pattern except they will be the height of the screen instead of the width of the screen:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/boundary-left.lua</span>
+
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-keyword">local</span> entity = {}
+entity.body = love.physics.newBody(world, <span class="hljs-number">5</span>, <span class="hljs-number">300</span>, <span class="hljs-string">&apos;static&apos;</span>)
+entity.shape = love.physics.newRectangleShape(<span class="hljs-number">10</span>, <span class="hljs-number">600</span>)
+entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+entity.fixture:setUserData(entity)
+
+<span class="hljs-keyword">return</span> entity
+</code></pre>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/boundary-right.lua</span>
+
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-keyword">local</span> entity = {}
+entity.body = love.physics.newBody(world, <span class="hljs-number">795</span>, <span class="hljs-number">300</span>, <span class="hljs-string">&apos;static&apos;</span>)
+entity.shape = love.physics.newRectangleShape(<span class="hljs-number">10</span>, <span class="hljs-number">600</span>)
+entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+entity.fixture:setUserData(entity)
+
+<span class="hljs-keyword">return</span> entity
+</code></pre>
+<p>We won&apos;t see these entities until we <em>require</em> them and draw them on the screen.
+So modify <strong>main.lua</strong> to require and draw them the same way we do the ball and paddle:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
+
+<span class="hljs-keyword">local</span> boundary_bottom = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-bottom&apos;</span>)
+<span class="hljs-keyword">local</span> boundary_left = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-left&apos;</span>)
+<span class="hljs-keyword">local</span> boundary_right = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-right&apos;</span>)
+<span class="hljs-keyword">local</span> boundary_top = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-top&apos;</span>)
+<span class="hljs-keyword">local</span> paddle = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/paddle&apos;</span>)
+<span class="hljs-keyword">local</span> ball = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/ball&apos;</span>)
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-comment">-- Boolean to keep track of whether our game is paused or not</span>
+<span class="hljs-keyword">local</span> paused = <span class="hljs-keyword">false</span>
+
+<span class="hljs-keyword">local</span> key_map = {
+  escape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    love.event.quit()
+  <span class="hljs-keyword">end</span>,
+  space = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    paused = <span class="hljs-keyword">not</span> paused
+  <span class="hljs-keyword">end</span>
+}
+
+love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, boundary_bottom.body:getWorldPoints(boundary_bottom.shape:getPoints()))
+  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, boundary_left.body:getWorldPoints(boundary_left.shape:getPoints()))
+  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, boundary_right.body:getWorldPoints(boundary_right.shape:getPoints()))
+  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, boundary_top.body:getWorldPoints(boundary_top.shape:getPoints()))
+  <span class="hljs-keyword">local</span> ball_x, ball_y = ball.body:getWorldCenter()
+  love.graphics.circle(<span class="hljs-string">&apos;fill&apos;</span>, ball_x, ball_y, ball.shape:getRadius())
+  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, paddle.body:getWorldPoints(paddle.shape:getPoints()))
+<span class="hljs-keyword">end</span>
+
+love.focus = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(focused)</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> focused <span class="hljs-keyword">then</span>
+    paused = <span class="hljs-keyword">true</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
+  <span class="hljs-comment">-- Check in the key map if there is a function</span>
+  <span class="hljs-comment">-- that matches this pressed key&apos;s name</span>
+  <span class="hljs-keyword">if</span> key_map[pressed_key] <span class="hljs-keyword">then</span>
+    key_map[pressed_key]()
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> paused <span class="hljs-keyword">then</span>
+    world:update(dt)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>When you run the game, you should see pretty much the same thing as this:
+<img src="code/breakout-1/screenshot.png" alt=""></p>
+<p>If you missed anything or are having issues, here&apos;s a copy of the completed source code for this section:
+<a href="https://github.com/RVAGameJams/learn2love/tree/master/code/breakout-1" target="_blank">https://github.com/RVAGameJams/learn2love/tree/master/code/breakout-1</a></p>
+<p>Looking back at our list of minimal requirements we&apos;ve already completed one thing on our list:</p>
+<blockquote>
+<p>The ball needs to stay within the boundaries of the screen</p>
+</blockquote>
+<p>There&apos;s still quite a bit more work to complete this list so let&apos;s continue in the next section.</p>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li>Maybe it would be better if the boundary lines were even with the screen so we couldn&apos;t see them. Modify the boundary positions so it looks like the ball is bouncing off the edge of the screen.</li>
+<li>What happens if we require the boundaries but don&apos;t draw them in <code>love.draw</code>? Does the game still work?</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02-10-collision-callbacks.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 2.10 - Collision callbacks">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.11 - Breakout (part 1)","level":"1.3.11","depth":2,"previous":{"title":"2.10 - Collision callbacks","level":"1.3.10","depth":2,"path":"pages/02-10-collision-callbacks.md","ref":"pages/02-10-collision-callbacks.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-11-breakout-part-1.md","mtime":"2018-09-14T03:37:29.854Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-14T03:37:55.831Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
