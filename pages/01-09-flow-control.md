@@ -153,7 +153,7 @@ You could read this off almost like a sentence:
 "If daytime is true then set the thermostat to 71, otherwise set the thermostat to 68."
 Not having to check things twice when doing computations saves us time and makes our program run more efficiently.
 Since `daytime` is a boolean in this case, we don't need to check if it is true or false.
-We can just pass it to the if statement to be checked for true and false and make our operation even simpler.
+We can just pass it to the *if statement* to be checked for `true`/`false` and make our operation even simpler.
 
 
 ```lua
@@ -164,11 +164,10 @@ else
 end
 ```
 
-Even simpler now.
+Better.
 "If daytime then set thermostat to 71, otherwise set thermostat to 68."
-There's one more feature of if statements we should discuss.
-If there is another condition you need to check, maybe several more, you can also use the `elseif` keyword that will get checked.
-It's basically like an `if` that skip when the first if passes, or gets checked when the first if fails.
+There's one more feature of *if statements* we should discuss.
+If there is another condition you need to check, maybe several more, you can use the `elseif` keyword.
 It looks something like this:
 
 ```lua
@@ -187,6 +186,9 @@ end
 
 Try it out!
 
+- The beginning of the *if statement*... `if color == "blue" then`... is false. This code gets skipped over.
+- Then the next part of the *if statement*... `elseif color == "green" then`... is true so that section of code underneath it... `print("Very subtle choice. I like it.")` is ran.
+- The rest of the *if statement* is skipped without checking if its true or not. So `elseif color == "pink" then`/`else` are never processed.
 
 ## Exercises
 
