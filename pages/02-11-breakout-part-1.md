@@ -299,7 +299,7 @@ When you run the game, you should see pretty much the same thing as this:
 
 
 If you missed anything or are having issues, here's a copy of the completed source code for this section:
-https://github.com/RVAGameJams/learn2love/code/breakout-part-1
+https://github.com/RVAGameJams/learn2love/tree/master/code/breakout-1
 
 Looking back at our list of minimal requirements we've already completed one thing on our list:
 
