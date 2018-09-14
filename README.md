@@ -27,3 +27,21 @@ I have been programming since 2007, focusing on teaching myself best practices. 
 
 - [jaythomas](https://github.com/jaythomas): Original author
 - [JimmyStevens](https://github.com/JimmyStevens): Edits and suggestions in chapter 1 & 2
+
+## Contributing
+
+- Issues, comments, and suggestions can be made using the [GitHub issues](https://github.com/RVAGameJams/learn2love/issues) page.
+- To download, build, and run the book or any code examples use the "Clone or download" button on the [main repository page](https://github.com/RVAGameJams/learn2love).
+
+### For developers and the curious
+
+Feel free to submit a pull request.
+The documentation is built using [NodeJS](https://nodejs.org/en/).
+If you wish to run the documentation for local development purposes, install nodejs then run these commands from within the `learn2love` directory you downloaded:
+
+```sh
+npm install # Downloads build tools to the a "node_modules" folder inside the directory
+npm start   # Creates a local web server to where you can visit the link http://localhost:4000
+```
+
+Once the local web server is running, any edits you make to the pages will rebuild the book and reload the page you're viewing.
