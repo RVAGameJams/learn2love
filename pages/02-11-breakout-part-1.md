@@ -14,6 +14,7 @@ At the end of this section there will be a link to all the source code to use as
 The first modification we'll make is to set a specific window size so no matter which version of LÖVE you're on we're working with the same window proportions and entity dimensions.
 To do this, open of **conf.lua** or create it if you don't have it and put in the following code:
 ```lua
+-- conf.lua
 -- LÖVE configuration file
 
 love.conf = function(t)
@@ -310,4 +311,4 @@ There's still quite a bit more work to complete this list so let's continue in t
 ## Exercises
 
 - Maybe it would be better if the boundary lines were even with the screen so we couldn't see them. Modify the boundary positions so it looks like the ball is bouncing off the edge of the screen.
-- What happens if we require the boundaries but don't draw them in `love.draw`? Does the game still work?
+- What happens if we `require` the boundaries but don't draw them in `love.draw`? Does the game still work?
