@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.11 - Breakout (part 1) · GitBook</title>
+        <title>2.12 - Breakout (part 2) · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -58,10 +58,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="02-12-breakout-part-2.html" />
     
-    
-    <link rel="prev" href="02-10-collision-callbacks.html" />
+    <link rel="prev" href="02-11-breakout-part-1.html" />
     
 
     <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
@@ -503,7 +501,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.11" data-path="02-11-breakout-part-1.html">
+        <li class="chapter " data-level="1.3.11" data-path="02-11-breakout-part-1.html">
             
                 <a href="02-11-breakout-part-1.html">
             
@@ -516,7 +514,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.12" data-path="02-12-breakout-part-2.html">
+        <li class="chapter active" data-level="1.3.12" data-path="02-12-breakout-part-2.html">
             
                 <a href="02-12-breakout-part-2.html">
             
@@ -564,7 +562,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2.11 - Breakout (part 1)</a>
+        <a href=".." >2.12 - Breakout (part 2)</a>
     </h1>
 </div>
 
@@ -579,221 +577,65 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="breakout-part-1-more-entity-practice">Breakout (part 1): more entity practice</h1>
-<p>Let&apos;s bring all these concepts together by making another game, a <a href="https://en.wikipedia.org/wiki/Breakout_clone" target="_blank">breakout clone</a>.
-The requirements are pretty simple:</p>
+                                <h1 id="breakout-part-2-entity-management">Breakout (part 2): entity management</h1>
+<h2 id="review">Review</h2>
+<p>In the previous section we made a checklist of requirements and accomplished one of them:</p>
 <ul>
 <li>The objective of the game is to destroy all the bricks on the screen</li>
 <li>The player controls a &quot;paddle&quot; entity that hits a ball</li>
 <li>The ball destroys the bricks</li>
-<li>The ball needs to stay within the boundaries of the screen</li>
-<li>If the ball touches the bottom of the screen (below the paddle), the game ends</li>
+<li><strong>&#x2714;</strong> The ball needs to stay within the boundaries of the screen</li>
+<li>If the ball touches the bottom of the screen, the game ends</li>
 </ul>
-<p>If you still have the code from the previous sections, feel free to copy the folder naming the new one &quot;breakout&quot; or whatever you want your breakout clone to be called.
-At the end of this section there will be a link to all the source code to use as a reference in case you get stuck.
-The first modification we&apos;ll make is to set a specific window size so no matter which version of L&#xD6;VE you&apos;re on we&apos;re working with the same window proportions and entity dimensions.
-To do this, open of <strong>conf.lua</strong> or create it if you don&apos;t have it and put in the following code:</p>
-<pre><code class="lang-lua"><span class="hljs-comment">-- conf.lua</span>
-<span class="hljs-comment">-- L&#xD6;VE configuration file</span>
-
-love.conf = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(t)</span></span>
-  t.console = <span class="hljs-keyword">true</span>        <span class="hljs-comment">-- Enable the debug console for Windows.</span>
-  t.window.width = <span class="hljs-number">800</span>    <span class="hljs-comment">-- Game&apos;s screen width (number of pixels)</span>
-  t.window.height = <span class="hljs-number">600</span>   <span class="hljs-comment">-- Game&apos;s screen height (number of pixels)</span>
-<span class="hljs-keyword">end</span>
+<p>In the previous exercise, the goal was to move the boundaries so they were just off screen.
+This gives the effect that the ball is bouncing off the edges of the game window.</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/boundary-bottom.lua</span>
+entity.body = love.physics.newBody(world, <span class="hljs-number">400</span>, <span class="hljs-number">606</span>, <span class="hljs-string">&apos;static&apos;</span>)
 </code></pre>
-<p>The <em>conf</em>, or <em>configuration</em> file lets you define a callback in the <code>love</code> table that modifies the game engine&apos;s configuration on load.
-You can read more about all the interesting things you can do with it <a href="https://love2d.org/wiki/Config_Files" target="_blank">here</a> but most of its features won&apos;t be necessary for our simple game.</p>
-<p>The next modification we&apos;ll make is deleting the entities from the last section. Let&apos;s create new entities to represent the ball and paddle:</p>
-<pre><code class="lang-lua"><span class="hljs-comment">-- entities/ball.lua</span>
-
-<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
-
-<span class="hljs-keyword">local</span> entity = {}
-entity.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-string">&apos;dynamic&apos;</span>)
-entity.body:setMass(<span class="hljs-number">32</span>)
-entity.body:setLinearVelocity(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>)
-entity.shape = love.physics.newCircleShape(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>)
-entity.fixture = love.physics.newFixture(entity.body, entity.shape)
-entity.fixture:setRestitution(<span class="hljs-number">1</span>)
-entity.fixture:setUserData(entity)
-
-<span class="hljs-keyword">return</span> entity
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/boundary-left.lua</span>
+entity.body = love.physics.newBody(world, <span class="hljs-number">-6</span>, <span class="hljs-number">300</span>, <span class="hljs-string">&apos;static&apos;</span>)
 </code></pre>
-<pre><code class="lang-lua"><span class="hljs-comment">-- entities/paddle.lua</span>
-
-<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
-
-<span class="hljs-keyword">local</span> entity = {}
-entity.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">560</span>, <span class="hljs-string">&apos;static&apos;</span>)
-entity.shape = love.physics.newRectangleShape(<span class="hljs-number">180</span>, <span class="hljs-number">20</span>)
-entity.fixture = love.physics.newFixture(entity.body, entity.shape)
-entity.fixture:setUserData(entity)
-
-<span class="hljs-keyword">return</span> entity
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/boundary-right.lua</span>
+entity.body = love.physics.newBody(world, <span class="hljs-number">806</span>, <span class="hljs-number">300</span>, <span class="hljs-string">&apos;static&apos;</span>)
 </code></pre>
-<p>Before we try and run anything, take a look at a few things we&apos;ve done differently in defining these entities than we&apos;ve previously done.</p>
-<ul>
-<li>In <strong>ball.lua</strong> we are defining a circle shape instead of a polygon. This means we have no sides or corner points we can reference when spawning or tracking the position of this object. Circles have to be tracked from their center point and their boundaries by their radius.</li>
-<li>In this file we&apos;re using <a href="https://love2d.org/wiki/Body:setLinearVelocity" target="_blank"><code>Body:setLinearVelocity</code></a> to apply movement on the ball in a specific direction when the entity spawns.</li>
-<li>In <strong>paddle.lua</strong> we are defining a polygon shape, but instead of specifying each point we are using the <a href="https://love2d.org/wiki/love.physics.newRectangleShape" target="_blank"><code>love.physics.newRectangleShape</code></a> function to define the shape. This will still generate a polygon as before, but instead of specifying each point in the shape we are giving a height and width and allowing it to figure out the shape we want based on those two parameters. Think of it as a shortcut version of the <a href="https://love2d.org/wiki/love.physics.newPolygonShape" target="_blank"><code>love.physics.newPolygonShape</code></a> function.</li>
-<li>The paddle has a static body while the ball is dynamic. What this entails is the ball will be affected by the paddle but the paddle won&apos;t be affected by the ball. Even though the paddle is static, it can be manually repositioned as we&apos;ll do later with buttons.</li>
-<li>In both entity files, we are passing the full entity table as the fixture user data instead of just a string name like before. This will allow us to easily access the entire entity inside the collision callback as we&apos;ll see later. You&apos;ll want to go back and compare that code from the <a href="02-10-collision-callbacks.html">Collision Callbacks</a> section to these entities, but don&apos;t worry if it doesn&apos;t make complete sense yet.</li>
-</ul>
-<p>Now we need to modify <strong>main.lua</strong> to load up our new entities:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/boundary-top.lua</span>
+entity.body = love.physics.newBody(world, <span class="hljs-number">400</span>, <span class="hljs-number">-6</span>, <span class="hljs-string">&apos;static&apos;</span>)
+</code></pre>
+<p>Here they have been moved 6 pixels off screen just to use even numbers and make calculation easier.
+Previously we also raised the question of whether or not the boundaries would work if we still <code>require</code>&apos;d them in <strong>main.lua</strong> but didn&apos;t draw them in <code>love.draw</code>.
+The answer is they still work but we don&apos;t see them.
+Since they are off screen, that doesn&apos;t matter anyway and we can save our program from doing extra work:</p>
 <pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
-
-<span class="hljs-keyword">local</span> paddle = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/paddle&apos;</span>)
-<span class="hljs-keyword">local</span> ball = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/ball&apos;</span>)
-<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
-
-<span class="hljs-comment">-- Boolean to keep track of whether our game is paused or not</span>
-<span class="hljs-keyword">local</span> paused = <span class="hljs-keyword">false</span>
-
-<span class="hljs-keyword">local</span> key_map = {
-  escape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-    love.event.quit()
-  <span class="hljs-keyword">end</span>,
-  space = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-    paused = <span class="hljs-keyword">not</span> paused
-  <span class="hljs-keyword">end</span>
-}
-
 love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
   <span class="hljs-keyword">local</span> ball_x, ball_y = ball.body:getWorldCenter()
   love.graphics.circle(<span class="hljs-string">&apos;fill&apos;</span>, ball_x, ball_y, ball.shape:getRadius())
-  love.graphics.polygon(
-    <span class="hljs-string">&apos;line&apos;</span>,
-    paddle.body:getWorldPoints(paddle.shape:getPoints())
-  )
-<span class="hljs-keyword">end</span>
-
-love.focus = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(focused)</span></span>
-  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> focused <span class="hljs-keyword">then</span>
-    paused = <span class="hljs-keyword">true</span>
-  <span class="hljs-keyword">end</span>
-<span class="hljs-keyword">end</span>
-
-love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
-  <span class="hljs-comment">-- Check in the key map if there is a function</span>
-  <span class="hljs-comment">-- that matches this pressed key&apos;s name</span>
-  <span class="hljs-keyword">if</span> key_map[pressed_key] <span class="hljs-keyword">then</span>
-    key_map[pressed_key]()
-  <span class="hljs-keyword">end</span>
-<span class="hljs-keyword">end</span>
-
-love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
-  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> paused <span class="hljs-keyword">then</span>
-    world:update(dt)
-  <span class="hljs-keyword">end</span>
+  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, paddle.body:getWorldPoints(paddle.shape:getPoints()))
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Take note of a few things we&apos;re doing here:</p>
-<ul>
-<li>For drawing the circle, we need to invoke <a href="https://love2d.org/wiki/love.graphics.circle" target="_blank"><code>love.graphics.circle</code></a>.</li>
-<li>For drawing the paddle, we still invoke <a href="https://love2d.org/wiki/love.graphics.polygon" target="_blank"><code>love.graphics.polygon</code></a> as the rectangle is still a polygon shape.</li>
-</ul>
-<p>Now let&apos;s remove any print statements in <strong>world.lua</strong> just to clean things up.
-We&apos;ll leave the callbacks there since we may use them later but we&apos;ll leave them empty for now.
-We&apos;ll also set the gravity to <code>0</code> because we want the ball to bounce freely like in the real Breakout game and not lose any momentum.</p>
-<pre><code class="lang-lua"><span class="hljs-comment">-- world.lua</span>
-
-<span class="hljs-comment">-- Called at the beginning of any contact in the world. Parameters:</span>
-<span class="hljs-comment">-- {fixture} fixture_a - first fixture object in the collision.</span>
-<span class="hljs-comment">-- {fixture} fixture_b - second fixture object in the collision.</span>
-<span class="hljs-comment">-- {contact} contact - world object created on and at the point of</span>
-<span class="hljs-comment">--   contact. When sliding along an object, there may be several.</span>
-<span class="hljs-comment">--   See further: https://love2d.org/wiki/Contact</span>
-<span class="hljs-keyword">local</span> begin_contact_callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fixture_a, fixture_b, contact)</span></span>
-<span class="hljs-keyword">end</span>
-
-<span class="hljs-keyword">local</span> end_contact_callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fixture_a, fixture_b, contact)</span></span>
-<span class="hljs-keyword">end</span>
-
-<span class="hljs-keyword">local</span> pre_solve_callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fixture_a, fixture_b, contact)</span></span>
-<span class="hljs-keyword">end</span>
-
-<span class="hljs-keyword">local</span> post_solve_callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fixture_a, fixture_b, contact)</span></span>
-<span class="hljs-keyword">end</span>
-
-<span class="hljs-keyword">local</span> world = love.physics.newWorld(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
-
-world:setCallbacks(
-  begin_contact_callback,
-  end_contact_callback,
-  pre_solve_callback,
-  post_solve_callback
-)
-
-<span class="hljs-keyword">return</span> world
-</code></pre>
-<p>What happens if you run the game now?
-The ball flies right off the screen without consequence.
-There are a couple different ways of preventing the ball from moving off screen.
-Possibly the most simple approach is to put up some walls.
-Can you guess what the code to those walls may look like?
-Yup, they will be entities similar to the paddle except that they just sit at the edges of the screen.
-Let&apos;s create some entities for that purpose:</p>
-<pre><code class="lang-lua"><span class="hljs-comment">-- entities/boundary-top.lua</span>
+<h2 id="entity-list">Entity list</h2>
+<p>Let&apos;s think about the problem of brick entities for a minute.
+We could create an entity file for each brick, but they are more or less the same except that they spawn in different spots.
+Imagine making 50 different entity files and then inside <code>love.draw</code> making 50 lines to draw each brick and so on.
+What we can instead do is make an entity file for 1 brick then make a list with 50 copies of it (or however many brick copies we end up fitting on the screen).
+We can then loop over this list to draw the bricks.</p>
+<p>Let&apos;s first create the brick entity file:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/brick.lua</span>
 
 <span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
 
-<span class="hljs-keyword">local</span> entity = {}
-entity.body = love.physics.newBody(world, <span class="hljs-number">400</span>, <span class="hljs-number">5</span>, <span class="hljs-string">&apos;static&apos;</span>)
-entity.shape = love.physics.newRectangleShape(<span class="hljs-number">800</span>, <span class="hljs-number">10</span>)
-entity.fixture = love.physics.newFixture(entity.body, entity.shape)
-entity.fixture:setUserData(entity)
+<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x_pos, y_pos)</span></span>
+  <span class="hljs-keyword">local</span> entity = {}
+  entity.body = love.physics.newBody(world, x_pos, y_pos, <span class="hljs-string">&apos;static&apos;</span>)
+  entity.shape = love.physics.newRectangleShape(<span class="hljs-number">50</span>, <span class="hljs-number">20</span>)
+  entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+  entity.fixture:setUserData(entity)
 
-<span class="hljs-keyword">return</span> entity
+  <span class="hljs-keyword">return</span> entity
+<span class="hljs-keyword">end</span>
 </code></pre>
-<p>Take a look at these numbers for a minute.
-For the location of the body we specified 400 pixels.
-So starting from the top left corner and moving right along the x-axis we&apos;ve specified the very center of an 800-pixel-wide window.
-The reason we&apos;ve done this is because we want the top and bottom wall boundaries to stretch 800 pixels wide, the entire length of the window, and when calling <code>newBody</code> and spawning an entity&apos;s body it will spawn the center point of the entity shape at that location.
-Not all entity shapes are square, or even polygonal, so it is simplest for the game engine to center the shape on the body&apos;s spawn point rather than using another point of reference on the shape, like the top left corner of the shape (not all shapes have corners).
-In fact, the ball and paddle spawned centered on the location we gave for their bodies.</p>
-<p>So we made the walls 800 pixels wide and just to give it a little visibility we made them 10 pixels tall.
-You would think we&apos;d spawn the wall at the very top of the screen (0 pixels on the y-axis,) but since our walls will be centered to the spawn points we should move down half the height of the wall if we want it all to appear on screen.</p>
-<p>Now the boundary on the bottom will have the same dimensions, but it will be spawned at the bottom of the screen (600 pixels) minus half the height of the wall (5 pixels):</p>
-<pre><code class="lang-lua"><span class="hljs-comment">-- entities/boundary-bottom.lua</span>
-
-<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
-
-<span class="hljs-keyword">local</span> entity = {}
-entity.body = love.physics.newBody(world, <span class="hljs-number">400</span>, <span class="hljs-number">595</span>, <span class="hljs-string">&apos;static&apos;</span>)
-entity.shape = love.physics.newRectangleShape(<span class="hljs-number">800</span>, <span class="hljs-number">10</span>)
-entity.fixture = love.physics.newFixture(entity.body, entity.shape)
-entity.fixture:setUserData(entity)
-
-<span class="hljs-keyword">return</span> entity
-</code></pre>
-<p>The left and right boundaries will follow the same pattern except they will be the height of the screen instead of the width of the screen:</p>
-<pre><code class="lang-lua"><span class="hljs-comment">-- entities/boundary-left.lua</span>
-
-<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
-
-<span class="hljs-keyword">local</span> entity = {}
-entity.body = love.physics.newBody(world, <span class="hljs-number">5</span>, <span class="hljs-number">300</span>, <span class="hljs-string">&apos;static&apos;</span>)
-entity.shape = love.physics.newRectangleShape(<span class="hljs-number">10</span>, <span class="hljs-number">600</span>)
-entity.fixture = love.physics.newFixture(entity.body, entity.shape)
-entity.fixture:setUserData(entity)
-
-<span class="hljs-keyword">return</span> entity
-</code></pre>
-<pre><code class="lang-lua"><span class="hljs-comment">-- entities/boundary-right.lua</span>
-
-<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
-
-<span class="hljs-keyword">local</span> entity = {}
-entity.body = love.physics.newBody(world, <span class="hljs-number">795</span>, <span class="hljs-number">300</span>, <span class="hljs-string">&apos;static&apos;</span>)
-entity.shape = love.physics.newRectangleShape(<span class="hljs-number">10</span>, <span class="hljs-number">600</span>)
-entity.fixture = love.physics.newFixture(entity.body, entity.shape)
-entity.fixture:setUserData(entity)
-
-<span class="hljs-keyword">return</span> entity
-</code></pre>
-<p>We won&apos;t see these entities until we <em>require</em> them and draw them on the screen.
-So modify <strong>main.lua</strong> to require and draw them the same way we do the ball and paddle:</p>
+<p>Instead of returning an entity in this file, we returned a function that takes an x-position and y-position as parameters.
+When the function gets invoked wherever it is required, it will generate a new entity with those coordinates for its spawn point.
+Here&apos;s how we can use it:</p>
 <pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
 
 <span class="hljs-keyword">local</span> boundary_bottom = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-bottom&apos;</span>)
@@ -802,6 +644,15 @@ So modify <strong>main.lua</strong> to require and draw them the same way we do 
 <span class="hljs-keyword">local</span> boundary_top = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-top&apos;</span>)
 <span class="hljs-keyword">local</span> paddle = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/paddle&apos;</span>)
 <span class="hljs-keyword">local</span> ball = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/ball&apos;</span>)
+<span class="hljs-keyword">local</span> brick = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/brick&apos;</span>)
+
+<span class="hljs-keyword">local</span> entities = {
+  brick(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>),
+  brick(<span class="hljs-number">200</span>, <span class="hljs-number">100</span>),
+  brick(<span class="hljs-number">300</span>, <span class="hljs-number">100</span>)
+}
+
+
 <span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
 
 <span class="hljs-comment">-- Boolean to keep track of whether our game is paused or not</span>
@@ -817,13 +668,13 @@ So modify <strong>main.lua</strong> to require and draw them the same way we do 
 }
 
 love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, boundary_bottom.body:getWorldPoints(boundary_bottom.shape:getPoints()))
-  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, boundary_left.body:getWorldPoints(boundary_left.shape:getPoints()))
-  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, boundary_right.body:getWorldPoints(boundary_right.shape:getPoints()))
-  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, boundary_top.body:getWorldPoints(boundary_top.shape:getPoints()))
   <span class="hljs-keyword">local</span> ball_x, ball_y = ball.body:getWorldCenter()
   love.graphics.circle(<span class="hljs-string">&apos;fill&apos;</span>, ball_x, ball_y, ball.shape:getRadius())
   love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, paddle.body:getWorldPoints(paddle.shape:getPoints()))
+
+  <span class="hljs-keyword">for</span> _, entity <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(entities) <span class="hljs-keyword">do</span>
+    love.graphics.polygon(<span class="hljs-string">&apos;fill&apos;</span>, entity.body:getWorldPoints(entity.shape:getPoints()))
+  <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 
 love.focus = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(focused)</span></span>
@@ -846,19 +697,202 @@ love.update = <span class="hljs-function"><span class="hljs-keyword">function</s
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>When you run the game, you should see pretty much the same thing as this:
-<img src="https://raw.githubusercontent.com/RVAGameJams/learn2love/master/code/breakout-1/screenshot.png" alt=""></p>
+<p>We made an entity table with a list of brick entities in it, then in <code>love.draw</code> we made a for loop to draw each entity in the list.
+Before we change anything else try running the game and taking a look that the bricks appear and that everything works.</p>
+<h2 id="rule-of-single-responsibility">Rule of single responsibility</h2>
+<p>Our goal for the rest of this section will be to simplify entity management.
+One strategy we&apos;ll have for doing this is to think of each file in our game as having a single responsibility.
+A good sign that we&apos;re doing this is <strong>main.lua</strong> is very small and easy to scan over with the eyes and digest.</p>
+<p>So what is the responsibility of <strong>main.lua</strong>?</p>
+<ul>
+<li>Create the callback functions necessary to run the game.</li>
+</ul>
+<p>Here&apos;s some things it is doing that don&apos;t fit that responsibility:</p>
+<ul>
+<li>Load and store all the entities</li>
+<li>Figure out how to draw each type of entity in <code>love.draw</code></li>
+<li>Store a map of keypresses</li>
+</ul>
+<p>Imagine our game is an organization and each file is a role in the company.
+Our main file is like the secretary that knows how to handle requests from outsiders.
+If somebody called asking the secretary about building-maintenance issues, the secretary wouldn&apos;t grab plumbing tools and take care of the problem but rather dispatch the person whose responsibility is that exact kind of problem.
+As the owner of this organization we should know everyone&apos;s roles so it&apos;s easy to know where each responsibility lies.
+It will make is easier for us to grow the company to the size we desire.</p>
+<p>One easy improvement is to not write out all the instructions for drawing each entity within the main file, but rather let each entity file be responsible for every feature of that entity, including how to draw that entity.
+We may want to get fancy later and draw bricks in different colors, for instance.
+That could get complicated and we don&apos;t want the main file to retain a bunch of code about brick colors and such.</p>
+<p>Modifying the entities is as easy as creating <code>draw</code> functions in the entity tables:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/brick.lua</span>
+
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x_pos, y_pos)</span></span>
+  <span class="hljs-keyword">local</span> entity = {}
+  entity.body = love.physics.newBody(world, x_pos, y_pos, <span class="hljs-string">&apos;static&apos;</span>)
+  entity.shape = love.physics.newRectangleShape(<span class="hljs-number">50</span>, <span class="hljs-number">20</span>)
+  entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+  entity.fixture:setUserData(entity)
+
+  entity.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    love.graphics.polygon(<span class="hljs-string">&apos;fill&apos;</span>, self.body:getWorldPoints(self.shape:getPoints()))
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">return</span> entity
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/paddle.lua</span>
+
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pos_x, pos_y)</span></span>
+  <span class="hljs-keyword">local</span> entity = {}
+  entity.body = love.physics.newBody(world, pos_x, pos_y, <span class="hljs-string">&apos;static&apos;</span>)
+  entity.shape = love.physics.newRectangleShape(<span class="hljs-number">180</span>, <span class="hljs-number">20</span>)
+  entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+  entity.fixture:setUserData(entity)
+
+  entity.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, self.body:getWorldPoints(self.shape:getPoints()))
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">return</span> entity
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/ball.lua</span>
+
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x_pos, y_pos)</span></span>
+  <span class="hljs-keyword">local</span> entity = {}
+  entity.body = love.physics.newBody(world, x_pos, y_pos, <span class="hljs-string">&apos;dynamic&apos;</span>)
+  entity.body:setMass(<span class="hljs-number">32</span>)
+  entity.body:setLinearVelocity(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>)
+  entity.shape = love.physics.newCircleShape(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>)
+  entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+  entity.fixture:setRestitution(<span class="hljs-number">1</span>)
+  entity.fixture:setUserData(entity)
+
+  entity.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    <span class="hljs-keyword">local</span> self_x, self_y = self.body:getWorldCenter()
+    love.graphics.circle(<span class="hljs-string">&apos;fill&apos;</span>, self_x, self_y, self.shape:getRadius())
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">return</span> entity
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Go ahead and make <em>all</em> the entities return a function with <code>x_pos</code> and <code>y_pos</code> parameters and we&apos;ll just add everything to the entity list like the bricks.
+Don&apos;t forget to change out the numbers in the <code>love.physics.newBody(world, 200, 200, &apos;dynamic&apos;)</code> with the arguments being passed in by the function: <code>love.physics.newBody(world, x_pos, y_pos, &apos;dynamic&apos;)</code>.
+For the boundaries entity files there is no need for <code>entity.draw</code> functions, but still make them return functions with the two parameters.
+Now update the <code>entities</code> list in <strong>main.lua</strong> to include all the entities:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
+
+<span class="hljs-keyword">local</span> boundary_bottom = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-bottom&apos;</span>)
+<span class="hljs-keyword">local</span> boundary_left = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-left&apos;</span>)
+<span class="hljs-keyword">local</span> boundary_right = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-right&apos;</span>)
+<span class="hljs-keyword">local</span> boundary_top = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-top&apos;</span>)
+<span class="hljs-keyword">local</span> paddle = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/paddle&apos;</span>)
+<span class="hljs-keyword">local</span> ball = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/ball&apos;</span>)
+<span class="hljs-keyword">local</span> brick = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/brick&apos;</span>)
+
+<span class="hljs-keyword">local</span> entities = {
+  boundary_bottom(<span class="hljs-number">400</span>, <span class="hljs-number">606</span>),
+  boundary_left(<span class="hljs-number">-6</span>, <span class="hljs-number">300</span>),
+  boundary_right(<span class="hljs-number">806</span>, <span class="hljs-number">300</span>),
+  boundary_top(<span class="hljs-number">400</span>, <span class="hljs-number">-6</span>),
+  paddle(<span class="hljs-number">300</span>, <span class="hljs-number">500</span>),
+  ball(<span class="hljs-number">200</span>, <span class="hljs-number">200</span>),
+  brick(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>),
+  brick(<span class="hljs-number">200</span>, <span class="hljs-number">100</span>),
+  brick(<span class="hljs-number">300</span>, <span class="hljs-number">100</span>)
+}
+
+
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-comment">-- Boolean to keep track of whether our game is paused or not</span>
+<span class="hljs-keyword">local</span> paused = <span class="hljs-keyword">false</span>
+
+<span class="hljs-keyword">local</span> key_map = {
+  escape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    love.event.quit()
+  <span class="hljs-keyword">end</span>,
+  space = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    paused = <span class="hljs-keyword">not</span> paused
+  <span class="hljs-keyword">end</span>
+}
+
+love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">for</span> _, entity <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(entities) <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">if</span> entity.draw <span class="hljs-keyword">then</span> entity:draw() <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+love.focus = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(focused)</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> focused <span class="hljs-keyword">then</span>
+    paused = <span class="hljs-keyword">true</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
+  <span class="hljs-comment">-- Check in the key map if there is a function</span>
+  <span class="hljs-comment">-- that matches this pressed key&apos;s name</span>
+  <span class="hljs-keyword">if</span> key_map[pressed_key] <span class="hljs-keyword">then</span>
+    key_map[pressed_key]()
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> paused <span class="hljs-keyword">then</span>
+    world:update(dt)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Take a look at our <code>love.draw</code> function.
+It is much simpler now that it no longer needs to know how to draw each entity.
+It just asks the entity if it knows how to draw itself and if it does it tells it to do so.
+Remember that invoking <code>entity:draw()</code> is just shorthand for writing <code>entity.draw(entity)</code> because of the <code>:</code>.</p>
+<p>Ok, but putting the entities in a list didn&apos;t clean up this file.
+Now this file is responsible for knowing where to spawn the entities and having them in a list just makes this file bigger.
+Well you see the reason we put them in a list is because we want to make a new game file called <strong>entities.lua</strong> that will be responsible for loading, spawning, and storing all the entities when the game starts up.
+Create a new file then cut all the entity <code>require</code> statements and the entity list and paste it in the new file:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities.lua</span>
+
+<span class="hljs-keyword">local</span> boundary_bottom = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-bottom&apos;</span>)
+<span class="hljs-keyword">local</span> boundary_left = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-left&apos;</span>)
+<span class="hljs-keyword">local</span> boundary_right = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-right&apos;</span>)
+<span class="hljs-keyword">local</span> boundary_top = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-top&apos;</span>)
+<span class="hljs-keyword">local</span> paddle = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/paddle&apos;</span>)
+<span class="hljs-keyword">local</span> ball = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/ball&apos;</span>)
+<span class="hljs-keyword">local</span> brick = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/brick&apos;</span>)
+
+<span class="hljs-keyword">return</span> {
+  boundary_bottom(<span class="hljs-number">400</span>, <span class="hljs-number">606</span>),
+  boundary_left(<span class="hljs-number">-6</span>, <span class="hljs-number">300</span>),
+  boundary_right(<span class="hljs-number">806</span>, <span class="hljs-number">300</span>),
+  boundary_top(<span class="hljs-number">400</span>, <span class="hljs-number">-6</span>),
+  paddle(<span class="hljs-number">300</span>, <span class="hljs-number">500</span>),
+  ball(<span class="hljs-number">200</span>, <span class="hljs-number">200</span>),
+  brick(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>),
+  brick(<span class="hljs-number">200</span>, <span class="hljs-number">100</span>),
+  brick(<span class="hljs-number">300</span>, <span class="hljs-number">100</span>)
+}
+</code></pre>
+<p>And now the top of our main file only needs to load the entities file and it will have the list to use in <code>love.draw</code> and elsewhere as needed:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
+
+<span class="hljs-keyword">local</span> entities = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities&apos;</span>)
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+</code></pre>
+<p>When you run the game, you should be seeing something similar to this:
+<img src="https://raw.githubusercontent.com/RVAGameJams/learn2love/master/code/breakout-2/screenshot.png" alt=""></p>
 <p>If you missed anything or are having issues, here&apos;s a copy of the completed source code for this section:
-<a href="https://github.com/RVAGameJams/learn2love/tree/master/code/breakout-1" target="_blank">https://github.com/RVAGameJams/learn2love/tree/master/code/breakout-1</a></p>
-<p>Looking back at our list of minimal requirements we&apos;ve already completed one thing on our list:</p>
-<blockquote>
-<p>The ball needs to stay within the boundaries of the screen</p>
-</blockquote>
-<p>There&apos;s still quite a bit more work to complete this list so let&apos;s continue in the next section.</p>
+<a href="https://github.com/RVAGameJams/learn2love/tree/master/code/breakout-2" target="_blank">https://github.com/RVAGameJams/learn2love/tree/master/code/breakout-2</a></p>
+<p>And that&apos;s about it for entity management.
+We&apos;ll figure out how to handle keypresses for the paddle and everything else in the next section.
+We&apos;ll finish the cleanup in our main file while we&apos;re at it.</p>
 <h2 id="exercises">Exercises</h2>
 <ul>
-<li>Maybe it would be better if the boundary lines were even with the screen so we couldn&apos;t see them. Modify the boundary positions so it looks like the ball is bouncing off the edge of the screen.</li>
-<li>What happens if we <code>require</code> the boundaries but don&apos;t draw them in <code>love.draw</code>? Does the game still work?</li>
+<li>Now that our entities have passed off knowledge on where they spawn over to <strong>entities.lua</strong>, our left and right boundaries are identical files. Replace <strong>boundary-left.lua</strong> and <strong>boundary-right.lua</strong> with a single <strong>boundary-vertical.lua</strong> file and spawn two copies of that in <strong>entities.lua</strong>.</li>
 </ul>
 
                                 
@@ -887,14 +921,10 @@ love.update = <span class="hljs-function"><span class="hljs-keyword">function</s
 
             
                 
-                <a href="02-10-collision-callbacks.html" class="navigation navigation-prev " aria-label="Previous page: 2.10 - Collision callbacks">
+                <a href="02-11-breakout-part-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 2.11 - Breakout (part 1)">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="02-12-breakout-part-2.html" class="navigation navigation-next " aria-label="Next page: 2.12 - Breakout (part 2)">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -903,7 +933,7 @@ love.update = <span class="hljs-function"><span class="hljs-keyword">function</s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.11 - Breakout (part 1)","level":"1.3.11","depth":2,"next":{"title":"2.12 - Breakout (part 2)","level":"1.3.12","depth":2,"path":"pages/02-12-breakout-part-2.md","ref":"pages/02-12-breakout-part-2.md","articles":[]},"previous":{"title":"2.10 - Collision callbacks","level":"1.3.10","depth":2,"path":"pages/02-10-collision-callbacks.md","ref":"pages/02-10-collision-callbacks.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-11-breakout-part-1.md","mtime":"2018-09-18T13:12:18.656Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-18T13:39:39.243Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.12 - Breakout (part 2)","level":"1.3.12","depth":2,"previous":{"title":"2.11 - Breakout (part 1)","level":"1.3.11","depth":2,"path":"pages/02-11-breakout-part-1.md","ref":"pages/02-11-breakout-part-1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-12-breakout-part-2.md","mtime":"2018-09-18T13:36:07.236Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-18T13:39:39.243Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
