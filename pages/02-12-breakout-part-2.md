@@ -357,4 +357,4 @@ We'll finish the cleanup in our main file while we're at it.
 
 ## Exercises
 
-- Now that our entities have passed off knowledge on where they spawn over to **entities.lua**, our left and right boundaries are identical files. Replace **boundary-left.lua** and **boundary-right.lua** with a single **boundary-vertical.lua** file and spawn two copies of that in **entities.lua**.
+- Now that our entities have passed off knowledge on where they spawn over to **entities.lua**, our left and right boundaries are identical files. Replace **boundary-left.lua** and **boundary-right.lua** with a single **boundary-vertical.lua** file and spawn two copies of that in **entities.lua**. If you get stuck, check out the **entities.lua** file in the next section for how this is done.
