@@ -1,0 +1,954 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.14 - Breakout (part 4) · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="02-13-breakout-part-3.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="02-04-game-loop.html">
+            
+                <a href="02-04-game-loop.html">
+            
+                    
+                    2.4 - Game loop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="02-05-delta-time.html">
+            
+                <a href="02-05-delta-time.html">
+            
+                    
+                    2.5 - Delta time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="02-06-mapping.html">
+            
+                <a href="02-06-mapping.html">
+            
+                    
+                    2.6 - Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="02-07-the-world.html">
+            
+                <a href="02-07-the-world.html">
+            
+                    
+                    2.7 - The world
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="02-08-reading-documentation.html">
+            
+                <a href="02-08-reading-documentation.html">
+            
+                    
+                    2.8 - Reading documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="02-09-modules-and-organization.html">
+            
+                <a href="02-09-modules-and-organization.html">
+            
+                    
+                    2.9 - Modules and organization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="02-10-collision-callbacks.html">
+            
+                <a href="02-10-collision-callbacks.html">
+            
+                    
+                    2.10 - Collision callbacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="02-11-breakout-part-1.html">
+            
+                <a href="02-11-breakout-part-1.html">
+            
+                    
+                    2.11 - Breakout (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="02-12-breakout-part-2.html">
+            
+                <a href="02-12-breakout-part-2.html">
+            
+                    
+                    2.12 - Breakout (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="02-13-breakout-part-3.html">
+            
+                <a href="02-13-breakout-part-3.html">
+            
+                    
+                    2.13 - Breakout (part 3)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.14" data-path="02-14-breakout-part-4.html">
+            
+                <a href="02-14-breakout-part-4.html">
+            
+                    
+                    2.14 - Breakout (part 4)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.14 - Breakout (part 4)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="breakout-part-4-physics">Breakout (part 4): physics</h1>
+<h2 id="review">Review</h2>
+<p>In the previous exercises we discussed issues with the ball slowing down due to friction.
+With a bit of browsing through the <code>love.physics</code> documentation you might have seen that friction is a property of the fixture and can be set to 0 in <a href="https://love2d.org/wiki/Fixture:setFriction" target="_blank"><code>fixture:setFriction</code></a>.</p>
+<p>How about creating the pause screen text?
+Were you able to do it without touching <strong>main.lua</strong>?
+Take a look at this entity that was created just for the single responsibility of displaying pause text:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/pause-text.lua</span>
+
+<span class="hljs-keyword">local</span> input = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;input&apos;</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">local</span> window_width, window_height = love.window.getMode()
+
+  <span class="hljs-keyword">local</span> entity = {}
+
+  entity.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    <span class="hljs-keyword">if</span> input.paused <span class="hljs-keyword">then</span>
+      love.graphics.<span class="hljs-built_in">print</span>(
+        {{ <span class="hljs-number">0.2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0.2</span>, <span class="hljs-number">1</span> }, <span class="hljs-string">&apos;PAUSED&apos;</span>},
+        <span class="hljs-built_in">math</span>.floor(window_width / <span class="hljs-number">2</span>) - <span class="hljs-number">54</span>,
+        <span class="hljs-built_in">math</span>.floor(window_height / <span class="hljs-number">2</span>),
+        <span class="hljs-number">0</span>,
+        <span class="hljs-number">2</span>,
+        <span class="hljs-number">2</span>
+      )
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">return</span> entity
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>That&apos;s right.
+Even the pause screen is an entity.
+The first natural place to think to put it would be the main file but entity files are perfect because we can create as many as we need for each task and add it to <strong>entities.lua</strong> where it will be handled by the game loop.
+For centering the text the <a href="https://love2d.org/wiki/love.window.getMode" target="_blank"><code>love.window.getMode</code></a> function is used to get the full window dimensions then those numbers are divided in half.
+This saves us from manually coding in numbers that would need to be readjusted if the window size changed.
+Additionally, <code>math.floor</code> was used for good measure to make sure we are returning a whole number.
+It is recommended to round decimals off from numbers when passing coordinates to the drawing functions.
+Otherwise it may attempt to draw that object between pixels on the screen and cause some blurriness.</p>
+<h2 id="physics-updates">Physics updates</h2>
+<p>An issue we had with the game physics since we got the paddle moving is that the ball doesn&apos;t always ricochet off the paddle as you would expect.
+This is because we made the paddle static so the ball doesn&apos;t push it around, but this has the effect of the paddle not interacting with the ball correctly.
+This is where <code>kinematic</code> bodies come in.
+Kinematic bodies, like static bodies aren&apos;t affected by dynamic bodies.
+Kinematic bodies, unlike static bodies, can affect dynamic bodies.</p>
+<p>We&apos;re going to make 3 changes to <strong>paddle.lua</strong>:</p>
+<ul>
+<li>Move the boundary dimensions, paddle dimensions, and paddle speed to easily-referenced variables at the top of the file.</li>
+<li>Change the body type to kinematic</li>
+<li>Overhaul the update code to move the body with linear velocity rather than manually setting a new location on the screen with every update</li>
+</ul>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/paddle.lua</span>
+
+<span class="hljs-keyword">local</span> input = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;input&apos;</span>)
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pos_x, pos_y)</span></span>
+  <span class="hljs-keyword">local</span> window_width = love.window.getMode()
+  <span class="hljs-comment">-- Variables to make these easier to adjust</span>
+  <span class="hljs-keyword">local</span> entity_width = <span class="hljs-number">120</span>
+  <span class="hljs-keyword">local</span> entity_height = <span class="hljs-number">20</span>
+  <span class="hljs-keyword">local</span> entity_speed = <span class="hljs-number">600</span>
+    <span class="hljs-comment">-- The limit of how far left/right the entity can move towards</span>
+    <span class="hljs-comment">-- the edges (with a little bit of padding thrown on).</span>
+  <span class="hljs-keyword">local</span> left_boundary = (entity_width / <span class="hljs-number">2</span>) + <span class="hljs-number">2</span>
+  <span class="hljs-keyword">local</span> right_boundary = window_width - (entity_width / <span class="hljs-number">2</span>) - <span class="hljs-number">2</span>
+
+  <span class="hljs-keyword">local</span> entity = {}
+  entity.body = love.physics.newBody(world, pos_x, pos_y, <span class="hljs-string">&apos;kinematic&apos;</span>)
+  entity.shape = love.physics.newRectangleShape(entity_width, entity_height)
+  entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+  entity.fixture:setUserData(entity)
+
+  entity.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, self.body:getWorldPoints(self.shape:getPoints()))
+  <span class="hljs-keyword">end</span>
+
+  entity.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    <span class="hljs-comment">-- Don&apos;t move if both keys are pressed. Just return</span>
+    <span class="hljs-comment">-- instead of going through the rest of the function.</span>
+    <span class="hljs-keyword">if</span> input.left <span class="hljs-keyword">and</span> input.right <span class="hljs-keyword">then</span>
+      <span class="hljs-keyword">return</span>
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">local</span> self_x = self.body:getX()
+    <span class="hljs-keyword">if</span> input.left <span class="hljs-keyword">and</span> self_x &gt; left_boundary <span class="hljs-keyword">then</span>
+      self.body:setLinearVelocity(-entity_speed, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">elseif</span> input.right <span class="hljs-keyword">and</span> self_x &lt; right_boundary <span class="hljs-keyword">then</span>
+      self.body:setLinearVelocity(entity_speed, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">else</span>
+      self.body:setLinearVelocity(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">return</span> entity
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>I took the liberty of adjusting the paddle size, but with our nice boundary-size calculations in place the paddle dimensions can easily be adjusted and the boundary size will take those changes into account.
+Let&apos;s drill into the <code>entity.update</code> function.</p>
+<p>Once the inputs are checked to be true or false the current x-position of the paddle is checked to see if it goes out of the boundaries (calculated near the top).
+Notice that the calculations for the boundary locations are done at the top instead of in <code>entity.update</code>.
+This means those calculations aren&apos;t done on every update since they don&apos;t need to be.</p>
+<p>A bit more complex than the paddle are the calculations for the ball:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/ball.lua</span>
+
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x_pos, y_pos)</span></span>
+  <span class="hljs-keyword">local</span> entity_max_speed = <span class="hljs-number">880</span>
+
+  <span class="hljs-keyword">local</span> entity = {}
+  entity.body = love.physics.newBody(world, x_pos, y_pos, <span class="hljs-string">&apos;dynamic&apos;</span>)
+  entity.body:setLinearVelocity(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>)
+  entity.shape = love.physics.newCircleShape(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>)
+  entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+  entity.fixture:setFriction(<span class="hljs-number">0</span>)
+  entity.fixture:setRestitution(<span class="hljs-number">1</span>)
+  entity.fixture:setUserData(entity)
+
+  entity.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    <span class="hljs-keyword">local</span> self_x, self_y = self.body:getWorldCenter()
+    love.graphics.circle(<span class="hljs-string">&apos;fill&apos;</span>, self_x, self_y, self.shape:getRadius())
+  <span class="hljs-keyword">end</span>
+
+  entity.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    <span class="hljs-keyword">local</span> vel_x, vel_y = self.body:getLinearVelocity()
+    <span class="hljs-keyword">local</span> speed = <span class="hljs-built_in">math</span>.abs(vel_x) + <span class="hljs-built_in">math</span>.abs(vel_y)
+
+    <span class="hljs-keyword">local</span> vel_x_is_critical = <span class="hljs-built_in">math</span>.abs(vel_x) &gt; entity_max_speed * <span class="hljs-number">2</span>
+    <span class="hljs-keyword">local</span> vel_y_is_critical = <span class="hljs-built_in">math</span>.abs(vel_y) &gt; entity_max_speed * <span class="hljs-number">2</span>
+    <span class="hljs-comment">-- Ball is bouncing too fast to reasonably hit.</span>
+    <span class="hljs-comment">-- Cut down its speed by 75% if so.</span>
+    <span class="hljs-keyword">if</span> vel_x_is_critical <span class="hljs-keyword">or</span> vel_y_is_critical <span class="hljs-keyword">then</span>
+      self.body:setLinearVelocity(vel_x * <span class="hljs-number">.75</span>, vel_y * <span class="hljs-number">.75</span>)
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">if</span> speed &gt; entity_max_speed <span class="hljs-keyword">then</span>
+      self.body:setLinearDamping(<span class="hljs-number">0.1</span>)
+    <span class="hljs-keyword">else</span>
+      self.body:setLinearDamping(<span class="hljs-number">0</span>)
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">return</span> entity
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>In the first chunk we get the current x and y velocity, which tells us the x and y direction of the ball:</p>
+<pre><code class="lang-lua">    <span class="hljs-keyword">local</span> vel_x, vel_y = self.body:getLinearVelocity()
+    <span class="hljs-keyword">local</span> speed = <span class="hljs-built_in">math</span>.abs(vel_x) + <span class="hljs-built_in">math</span>.abs(vel_y)
+</code></pre>
+<p>An example <code>vel_x</code>/<code>vel_y</code> may be <code>212</code>/<code>-300</code>, which means the ball is moving up and towards the right.
+The speed is calculated by turning both these numbers into absolute numbers and adding them together (so <code>512</code> in the example).</p>
+<p>In the next chunk there is a safety check to make sure the ball didn&apos;t ricochet with so much force that it&apos;s going too fast to possibly hit.
+If either boolean variable is true then the linear velocity is multiplied by a fraction of itself to quickly slow it down:</p>
+<pre><code class="lang-lua">    <span class="hljs-keyword">local</span> vel_x_is_critical = <span class="hljs-built_in">math</span>.abs(vel_x) &gt; entity_max_speed * <span class="hljs-number">2</span>
+    <span class="hljs-keyword">local</span> vel_y_is_critical = <span class="hljs-built_in">math</span>.abs(vel_y) &gt; entity_max_speed * <span class="hljs-number">2</span>
+    <span class="hljs-comment">-- Ball is bouncing too fast to reasonably hit.</span>
+    <span class="hljs-comment">-- Cut down its speed by 75% if so.</span>
+    <span class="hljs-keyword">if</span> vel_x_is_critical <span class="hljs-keyword">or</span> vel_y_is_critical <span class="hljs-keyword">then</span>
+      self.body:setLinearVelocity(vel_x * <span class="hljs-number">.75</span>, vel_y * <span class="hljs-number">.75</span>)
+    <span class="hljs-keyword">end</span>
+</code></pre>
+<p>Now there is just a check to ease the ball back down to a comfortable maximum speed.
+If the ball&apos;s speed is greater than <code>entity_max_speed</code> a damping is applied which will reduce the balls speed below 880.
+Once the target speed is reached then the damping switches back to 0:</p>
+<pre><code class="lang-lua">    <span class="hljs-keyword">if</span> speed &gt; entity_max_speed <span class="hljs-keyword">then</span>
+      self.body:setLinearDamping(<span class="hljs-number">0.1</span>)
+    <span class="hljs-keyword">else</span>
+      self.body:setLinearDamping(<span class="hljs-number">0</span>)
+    <span class="hljs-keyword">end</span>
+</code></pre>
+<p>Try out the changes to feel it in action compared to the previous physics and hopefully you will find that it&apos;s an improvement.
+It&apos;s not a perfect replica of the arcade game, but playing around with these tricks and features you can get it pretty darn close to something satisfactory.
+Another thing to try out if within the ball&apos;s <code>entity.update</code>, add a line under the speed variable that reads <code>print(speed)</code> and watch the number increase and decrease again as the damping kicks in.
+Pretty neat that most of the heavy calculations are handled by the physics engine for us.</p>
+<h2 id="collision">Collision</h2>
+<p>There are 4 changes involved to make the bricks destructible:</p>
+<ul>
+<li>Update <strong>world.lua</strong> to check for collision functionality for the entities when they collide</li>
+<li>Update <strong>brick.lua</strong> to include a collision callback</li>
+<li>Add a new attribute on the brick entity to let us know its current condition and if it needs to be destroyed. We&apos;ll just call it <code>entity.health</code>.</li>
+<li>Update <strong>main.lua</strong> to remove/destroy any entities that have no more health</li>
+</ul>
+<p>First the world:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- world.lua</span>
+
+<span class="hljs-comment">-- Called at the end of any contact in the world. Parameters:</span>
+<span class="hljs-comment">-- {fixture} fixture_a - first fixture object in the collision.</span>
+<span class="hljs-comment">-- {fixture} fixture_b - second fixture object in the collision.</span>
+<span class="hljs-comment">-- {contact} contact - world object created on and at the point of contact</span>
+<span class="hljs-comment">--   See further: https://love2d.org/wiki/Contact</span>
+<span class="hljs-keyword">local</span> end_contact_callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fixture_a, fixture_b, contact)</span></span>
+  <span class="hljs-keyword">local</span> entity_a = fixture_a:getUserData()
+  <span class="hljs-keyword">local</span> entity_b = fixture_b:getUserData()
+  <span class="hljs-keyword">if</span> entity_a.end_contact <span class="hljs-keyword">then</span> entity_a:end_contact() <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">if</span> entity_b.end_contact <span class="hljs-keyword">then</span> entity_b:end_contact() <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> world = love.physics.newWorld(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+
+world:setCallbacks(<span class="hljs-keyword">nil</span>, end_contact_callback, <span class="hljs-keyword">nil</span>, <span class="hljs-keyword">nil</span>)
+
+<span class="hljs-keyword">return</span> world
+</code></pre>
+<p>The only callback we&apos;ll be using for this tutorial is the end-contact callback, so for <code>world:setCallbacks</code> we are going to returning <code>nil</code> for the rest to keep our code fast and clean.
+Take a look at what is happening inside <code>end_contact_callback</code>.
+Remember inside each entity when we invoked <code>entity.fixture:setUserData(entity)</code>?
+With the entity attached to each fixture, we can get access to those entities by invoking <code>fixture:getUserData</code> in the callback above.
+Once we have access to each entity, we check to see if the entity has any <code>end_contact</code> functions, code specific to that entity that needs to run when ending the collision.</p>
+<p>Now we can go to <strong>brick.lua</strong> and define that functionality:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/brick.lua</span>
+
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x_pos, y_pos)</span></span>
+  <span class="hljs-keyword">local</span> entity = {}
+  entity.body = love.physics.newBody(world, x_pos, y_pos, <span class="hljs-string">&apos;static&apos;</span>)
+  entity.shape = love.physics.newRectangleShape(<span class="hljs-number">50</span>, <span class="hljs-number">20</span>)
+  entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+  entity.fixture:setUserData(entity)
+
+  <span class="hljs-comment">-- How many times the brick can be hit before it is destroyed</span>
+  entity.health = <span class="hljs-number">2</span>
+
+  entity.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    love.graphics.polygon(<span class="hljs-string">&apos;fill&apos;</span>, self.body:getWorldPoints(self.shape:getPoints()))
+  <span class="hljs-keyword">end</span>
+
+  entity.end_contact = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    self.health = self.health - <span class="hljs-number">1</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">return</span> entity
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Notice the two new values in the table, <code>entity.health</code> and <code>entity.end_contact</code>.
+Inside <code>end_contact</code> we are subtracting 1 health when the collision ends.
+Health could start at any number and that means the ball will need to collide with the brick that many times before the health reaches 0.
+Lastly, we need to go into <strong>main.lua</strong> and adjust <code>love.update</code> so it does something when it sees an entity with 0 health:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
+love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> input.paused <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">local</span> index = <span class="hljs-number">1</span>
+    <span class="hljs-keyword">while</span> index &lt;= #entities <span class="hljs-keyword">do</span>
+      <span class="hljs-keyword">local</span> entity = entities[index]
+      <span class="hljs-keyword">if</span> entity.update <span class="hljs-keyword">then</span> entity:update(dt) <span class="hljs-keyword">end</span>
+      <span class="hljs-comment">-- When an entity has no health (brick has been hit enough times</span>
+      <span class="hljs-comment">-- then we remove it from the list of entities. Don&apos;t increment</span>
+      <span class="hljs-comment">-- the index number if doing that though because we have shrunk</span>
+      <span class="hljs-comment">-- the table and made all the items shift down by 1 in the index.</span>
+      <span class="hljs-keyword">if</span> entity.health == <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">table</span>.remove(entities, index)
+        entity.fixture:destroy()
+      <span class="hljs-keyword">else</span>
+        index = index + <span class="hljs-number">1</span>
+      <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+    world:update(dt)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The entity is removed from <code>entities</code> as well as having its fixture destroyed from the world.
+This will only happen to bricks with 0 health.
+It won&apos;t happen to entities where we didn&apos;t define health because <code>nil</code> is not the same thing as <code>0</code>.
+Notice that a <code>while</code> loop was used here.
+This is because we may remove entities from the list we are looping over and this would throw off the index count for a regular <code>for</code> loop.</p>
+<p>If you missed anything or are having issues, here&apos;s a copy of the completed source code for this section:
+<a href="https://github.com/RVAGameJams/learn2love/tree/master/code/breakout-4" target="_blank">https://github.com/RVAGameJams/learn2love/tree/master/code/breakout-4</a></p>
+<p>In the next section we&apos;ll review the checklist and see what is left to cover.</p>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li>It would be great if the colors of the bricks changed depending how much health the brick has. Update the brick&apos;s <code>entity.draw</code> function with some colors. Hint: we covered colors in <a href="02-02-game-loop.md">2.4 - Game loop</a>.</li>
+<li>Add more bricks to the screen. What&apos;s the easiest way to do that?</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02-13-breakout-part-3.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 2.13 - Breakout (part 3)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.14 - Breakout (part 4)","level":"1.3.14","depth":2,"previous":{"title":"2.13 - Breakout (part 3)","level":"1.3.13","depth":2,"path":"pages/02-13-breakout-part-3.md","ref":"pages/02-13-breakout-part-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-14-breakout-part-4.md","mtime":"2018-09-21T15:28:51.588Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-21T15:31:48.171Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

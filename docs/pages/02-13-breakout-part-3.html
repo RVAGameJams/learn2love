@@ -1,0 +1,901 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.13 - Breakout (part 3) · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="02-14-breakout-part-4.html" />
+    
+    
+    <link rel="prev" href="02-12-breakout-part-2.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="02-04-game-loop.html">
+            
+                <a href="02-04-game-loop.html">
+            
+                    
+                    2.4 - Game loop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="02-05-delta-time.html">
+            
+                <a href="02-05-delta-time.html">
+            
+                    
+                    2.5 - Delta time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="02-06-mapping.html">
+            
+                <a href="02-06-mapping.html">
+            
+                    
+                    2.6 - Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="02-07-the-world.html">
+            
+                <a href="02-07-the-world.html">
+            
+                    
+                    2.7 - The world
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="02-08-reading-documentation.html">
+            
+                <a href="02-08-reading-documentation.html">
+            
+                    
+                    2.8 - Reading documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="02-09-modules-and-organization.html">
+            
+                <a href="02-09-modules-and-organization.html">
+            
+                    
+                    2.9 - Modules and organization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="02-10-collision-callbacks.html">
+            
+                <a href="02-10-collision-callbacks.html">
+            
+                    
+                    2.10 - Collision callbacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="02-11-breakout-part-1.html">
+            
+                <a href="02-11-breakout-part-1.html">
+            
+                    
+                    2.11 - Breakout (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="02-12-breakout-part-2.html">
+            
+                <a href="02-12-breakout-part-2.html">
+            
+                    
+                    2.12 - Breakout (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.13" data-path="02-13-breakout-part-3.html">
+            
+                <a href="02-13-breakout-part-3.html">
+            
+                    
+                    2.13 - Breakout (part 3)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="02-14-breakout-part-4.html">
+            
+                <a href="02-14-breakout-part-4.html">
+            
+                    
+                    2.14 - Breakout (part 4)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.13 - Breakout (part 3)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="breakout-part-3-inputs">Breakout (part 3): inputs</h1>
+<h2 id="review">Review</h2>
+<p>In the previous section we reconstructed our entities to make room for bricks and additional functionality.
+We haven&apos;t completed any new items on our checklist:</p>
+<ul>
+<li>The objective of the game is to destroy all the bricks on the screen</li>
+<li>The player controls a &quot;paddle&quot; entity that hits a ball</li>
+<li>The player controls a &quot;paddle&quot; entity that hits a ball</li>
+<li>The ball destroys the bricks</li>
+<li><strong>&#x2714;</strong> The ball needs to stay within the boundaries of the screen</li>
+<li>If the ball touches the bottom of the screen, the game ends</li>
+</ul>
+<p>So let&apos;s come up with a system to handle user input and get the paddle moving.</p>
+<h2 id="input-service">Input service</h2>
+<p>Inside <strong>main.lua</strong> there is some functionality for this that we are going to remove and rewrite starting with a new file that specifically handles all the user input.
+This kind of file is typically called a service because it abstracts away tedious functionality into an easy-to-use service.
+I encourage you to write out the service instead of copying and pasting.
+Read through each function and try to understand what each one does.</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- input.lua</span>
+
+<span class="hljs-comment">-- This table is the service and will contain some functions</span>
+<span class="hljs-comment">-- that can be accessed from entities or the main.lua.</span>
+<span class="hljs-keyword">local</span> input = {}
+<span class="hljs-comment">-- Map specific user inputs to game actions</span>
+<span class="hljs-keyword">local</span> press_functions = {}
+<span class="hljs-keyword">local</span> release_functions = {}
+
+
+<span class="hljs-comment">-- For moving paddle left</span>
+input.left = <span class="hljs-keyword">false</span>
+<span class="hljs-comment">-- For moving paddle right</span>
+input.right = <span class="hljs-keyword">false</span>
+<span class="hljs-comment">-- Keep track of whether game is pause</span>
+input.paused = <span class="hljs-keyword">false</span>
+<span class="hljs-comment">-- Look up in the map for actions that correspond to specific key presses</span>
+input.press = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
+  <span class="hljs-keyword">if</span> press_functions[pressed_key] <span class="hljs-keyword">then</span>
+    press_functions[pressed_key]()
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+<span class="hljs-comment">-- Look up in the map for actions that correspond to specific key releases</span>
+input.release = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(released_key)</span></span>
+  <span class="hljs-keyword">if</span> release_functions[released_key] <span class="hljs-keyword">then</span>
+    release_functions[released_key]()
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+<span class="hljs-comment">-- Handle window focusing/unfocusing</span>
+input.toggle_focus = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(focused)</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> focused <span class="hljs-keyword">then</span>
+    input.paused = <span class="hljs-keyword">true</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+
+press_functions.left = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  input.left = <span class="hljs-keyword">true</span>
+<span class="hljs-keyword">end</span>
+press_functions.right = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  input.right = <span class="hljs-keyword">true</span>
+<span class="hljs-keyword">end</span>
+press_functions.escape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  love.event.quit()
+<span class="hljs-keyword">end</span>
+press_functions.space = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  input.paused = <span class="hljs-keyword">not</span> input.paused
+<span class="hljs-keyword">end</span>
+
+
+release_functions.left = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  input.left = <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">end</span>
+release_functions.right = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  input.right = <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">end</span>
+
+
+<span class="hljs-keyword">return</span> input
+</code></pre>
+<p>The input table is what gets returned, meaning when we <code>require(&apos;input&apos;)</code> in another file, we get back that table and its contents.
+Inside the input there are three boolean properties that get toggled by user input: <code>input.left</code>, <code>input.right</code>, and <code>input.paused</code>.
+Along with these three properties, there are three functions exposed to us to make use of: <code>input.press</code>, <code>input.release</code>, and <code>input.toggle_focus</code>, all of which we will invoke from our callbacks in <strong>main.lua</strong>:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
+
+<span class="hljs-keyword">local</span> entities = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities&apos;</span>)
+<span class="hljs-keyword">local</span> input = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;input&apos;</span>)
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">for</span> _, entity <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(entities) <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">if</span> entity.draw <span class="hljs-keyword">then</span> entity:draw() <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+love.focus = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(focused)</span></span>
+  input.toggle_focus(focused)
+<span class="hljs-keyword">end</span>
+
+love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
+  input.press(pressed_key)
+<span class="hljs-keyword">end</span>
+
+love.keyreleased = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(released_key)</span></span>
+  input.release(released_key)
+<span class="hljs-keyword">end</span>
+
+love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> input.paused <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">for</span> _, entity <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(entities) <span class="hljs-keyword">do</span>
+      <span class="hljs-keyword">if</span> entity.update <span class="hljs-keyword">then</span> entity:update(dt) <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+    world:update(dt)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/paddle.lua</span>
+
+entity.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+  <span class="hljs-comment">-- Don&apos;t move if both keys are pressed. Just return</span>
+  <span class="hljs-comment">-- instead of going through the rest of the function.</span>
+  <span class="hljs-keyword">if</span> input.left <span class="hljs-keyword">and</span> input.right <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">return</span>
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">local</span> self_x, self_y = self.body:getPosition()
+  <span class="hljs-keyword">if</span> input.left <span class="hljs-keyword">then</span>
+    self.body:setPosition(self_x - <span class="hljs-number">10</span>, self_y)
+  <span class="hljs-keyword">elseif</span> input.right <span class="hljs-keyword">then</span>
+    self.body:setPosition(self_x + <span class="hljs-number">10</span>, self_y)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The left and right arrows will now move the paddle!
+There isn&apos;t much else to say here in the way of input.
+A bit unrelated to the actual input, but moreso the paddle functionality is it moves off screen and doesn&apos;t adhere to the boundaries?
+Why is that?</p>
+<p>If you remember when we created the paddle, it is a static entity.
+It doesn&apos;t have the ability to move on its own or by the effect of other entities.
+This will cause us some problems later (and we&apos;re learning the hard way)!
+Rather than forcing the paddle with an invisible push, we force a new position for the paddle when we call <code>body:setPosition</code> inside the paddle&apos;s <code>entity.update</code> function.
+It&apos;s like we&apos;re teleporting it on top of whatever space we want with a keystroke, ignoring all physics and collision.
+This is simpler to code and gets around the fact the paddle&apos;s static body won&apos;t respond to force.
+To fix this, we can artificially set the boundary on the paddle by checking if it is out of bounds before moving it.</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/paddle.lua</span>
+
+entity.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+  <span class="hljs-comment">-- Don&apos;t move if both keys are pressed. Just return</span>
+  <span class="hljs-comment">-- instead of going through the rest of the function.</span>
+  <span class="hljs-keyword">if</span> input.left <span class="hljs-keyword">and</span> input.right <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">return</span>
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">local</span> self_x, self_y = self.body:getPosition()
+  <span class="hljs-keyword">if</span> input.left <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">local</span> new_x = <span class="hljs-built_in">math</span>.max(self_x - <span class="hljs-number">10</span>, <span class="hljs-number">108</span>)
+    self.body:setPosition(new_x, self_y)
+  <span class="hljs-keyword">elseif</span> input.right <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">local</span> new_x = <span class="hljs-built_in">math</span>.min(self_x + <span class="hljs-number">10</span>, <span class="hljs-number">700</span>)
+    self.body:setPosition(new_x, self_y)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Calling <code>math.max</code> means we will set the new x-position to either <code>self_x - 10</code> or <code>100</code>, whichever number is bigger.
+This prevents us from getting a number so small it runs off too far to the left.
+<code>math.min</code> does the opposite and takes care of the right side of the screen.</p>
+<p>One issue you may or may not notice is movement isn&apos;t always a uniform speed, and depending on the speed of your computer the paddle may appear to go faster or slower.
+Remember the article on <a href="02-05-delta-time.html">delta time</a>?
+We need to scale the distance travelled to match the amount of time that has passed.
+Conveniently, we are getting the delta time from <code>love.update</code> already.
+Take a closer look at it:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
+
+love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> input.paused <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">for</span> _, entity <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(entities) <span class="hljs-keyword">do</span>
+      <span class="hljs-comment">-- Delta time is being passed</span>
+      <span class="hljs-comment">-- to the entity.update function here</span>
+      <span class="hljs-comment">--                                  |</span>
+      <span class="hljs-comment">--                                  |</span>
+      <span class="hljs-comment">--                                  V</span>
+      <span class="hljs-keyword">if</span> entity.update <span class="hljs-keyword">then</span> entity:update(dt) <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+    world:update(dt)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Which means we can do this:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/paddle.lua</span>
+
+entity.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self, dt)</span></span>
+  <span class="hljs-comment">-- Don&apos;t move if both keys are pressed. Just return</span>
+  <span class="hljs-comment">-- instead of going through the rest of the function.</span>
+  <span class="hljs-keyword">if</span> input.left <span class="hljs-keyword">and</span> input.right <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">return</span>
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">local</span> self_x, self_y = self.body:getPosition()
+  <span class="hljs-keyword">if</span> input.left <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">local</span> new_x = <span class="hljs-built_in">math</span>.max(self_x - (<span class="hljs-number">400</span> * dt), <span class="hljs-number">100</span>)
+    self.body:setPosition(new_x, self_y)
+  <span class="hljs-keyword">elseif</span> input.right <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">local</span> new_x = <span class="hljs-built_in">math</span>.min(self_x + (<span class="hljs-number">400</span> * dt), <span class="hljs-number">700</span>)
+    self.body:setPosition(new_x, self_y)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The number <code>400</code> is arbitrary and can be whatever speed you want the paddle to move at.
+<code>dt</code> is a small number so it needs to be multiplied by a large number like 400 to match a speed similar to what we were seeing before when we simply were adding and subtracting <code>10</code>.</p>
+<p>If you missed anything or are having issues, here&apos;s a copy of the completed source code for this section:
+<a href="https://github.com/RVAGameJams/learn2love/tree/master/code/breakout-3" target="_blank">https://github.com/RVAGameJams/learn2love/tree/master/code/breakout-3</a></p>
+<p>In the next section we will work on the physics more to give the ball movement a more realistic feel.
+We will also implement the ability to destroy bricks using the world collision callbacks.</p>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li>Despite having a restitution of 1, the ball is losing momentum as it collides with other objects. This is due to friction. How can that be fixed?</li>
+<li>When the game is paused, make it display text on the screen so the player knows the game isn&apos;t just frozen. Hint: you can find the function you need for text in <a href="https://love2d.org/wiki/love.graphics" target="_blank">love.graphics</a>.</li>
+</ul>
+<p>The answers to these exercises will be in the next section&apos;s source code.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02-12-breakout-part-2.html" class="navigation navigation-prev " aria-label="Previous page: 2.12 - Breakout (part 2)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="02-14-breakout-part-4.html" class="navigation navigation-next " aria-label="Next page: 2.14 - Breakout (part 4)">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.13 - Breakout (part 3)","level":"1.3.13","depth":2,"next":{"title":"2.14 - Breakout (part 4)","level":"1.3.14","depth":2,"path":"pages/02-14-breakout-part-4.md","ref":"pages/02-14-breakout-part-4.md","articles":[]},"previous":{"title":"2.12 - Breakout (part 2)","level":"1.3.12","depth":2,"path":"pages/02-12-breakout-part-2.md","ref":"pages/02-12-breakout-part-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-13-breakout-part-3.md","mtime":"2018-09-21T02:59:10.156Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-21T15:31:48.171Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
