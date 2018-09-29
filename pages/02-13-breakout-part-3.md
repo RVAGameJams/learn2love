@@ -7,7 +7,6 @@ We haven't completed any new items on our checklist:
 
 - The objective of the game is to destroy all the bricks on the screen
 - The player controls a "paddle" entity that hits a ball
-- The player controls a "paddle" entity that hits a ball
 - The ball destroys the bricks
 - **✔** The ball needs to stay within the boundaries of the screen
 - If the ball touches the bottom of the screen, the game ends

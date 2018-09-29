@@ -11,6 +11,9 @@ The requirements are pretty simple:
 
 If you still have the code from the previous sections, feel free to copy the folder naming the new one "breakout" or whatever you want your breakout clone to be called.
 At the end of this section there will be a link to all the source code to use as a reference in case you get stuck.
+This may be time consuming, but I encourage you to type out each section and stop to understand what it is you are typing.
+If you copy, paste, and don't read then it will be easy to get lost in this chunk of the chapter as things will move fast.
+
 The first modification we'll make is to set a specific window size so no matter which version of LÖVE you're on we're working with the same window proportions and entity dimensions.
 To do this, open of **conf.lua** or create it if you don't have it and put in the following code:
 ```lua

@@ -307,5 +307,5 @@ In the next section we'll review the checklist and see what is left to cover.
 
 ## Exercises
 
-- It would be great if the colors of the bricks changed depending how much health the brick has. Update the brick's `entity.draw` function with some colors. Hint: we covered colors in [2.4 - Game loop](02-02-game-loop.md).
+- It would be great if the colors of the bricks changed depending how much health the brick has. Update the brick's `entity.draw` function with some colors. Hint: we covered colors in [2.4 - Game loop](02-04-game-loop.md).
 - Add more bricks to the screen. What's the easiest way to do that?
