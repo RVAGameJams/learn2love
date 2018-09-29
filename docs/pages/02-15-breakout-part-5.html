@@ -1,0 +1,1199 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.15 - Breakout (part 5) · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="02-14-breakout-part-4.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="02-04-game-loop.html">
+            
+                <a href="02-04-game-loop.html">
+            
+                    
+                    2.4 - Game loop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="02-05-delta-time.html">
+            
+                <a href="02-05-delta-time.html">
+            
+                    
+                    2.5 - Delta time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="02-06-mapping.html">
+            
+                <a href="02-06-mapping.html">
+            
+                    
+                    2.6 - Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="02-07-the-world.html">
+            
+                <a href="02-07-the-world.html">
+            
+                    
+                    2.7 - The world
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="02-08-reading-documentation.html">
+            
+                <a href="02-08-reading-documentation.html">
+            
+                    
+                    2.8 - Reading documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="02-09-modules-and-organization.html">
+            
+                <a href="02-09-modules-and-organization.html">
+            
+                    
+                    2.9 - Modules and organization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="02-10-collision-callbacks.html">
+            
+                <a href="02-10-collision-callbacks.html">
+            
+                    
+                    2.10 - Collision callbacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="02-11-breakout-part-1.html">
+            
+                <a href="02-11-breakout-part-1.html">
+            
+                    
+                    2.11 - Breakout (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="02-12-breakout-part-2.html">
+            
+                <a href="02-12-breakout-part-2.html">
+            
+                    
+                    2.12 - Breakout (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="02-13-breakout-part-3.html">
+            
+                <a href="02-13-breakout-part-3.html">
+            
+                    
+                    2.13 - Breakout (part 3)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="02-14-breakout-part-4.html">
+            
+                <a href="02-14-breakout-part-4.html">
+            
+                    
+                    2.14 - Breakout (part 4)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.15" data-path="02-15-breakout-part-5.html">
+            
+                <a href="02-15-breakout-part-5.html">
+            
+                    
+                    2.15 - Breakout (part 5)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.15 - Breakout (part 5)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="breakout-part-5-game-state">Breakout (part 5): game state</h1>
+<h2 id="review">Review</h2>
+<p>We&apos;ve gotten a bit done so let&apos;s look at the basic requirements again:</p>
+<ul>
+<li>The objective of the game is to destroy all the bricks on the screen</li>
+<li><strong>&#x2714;</strong> The player controls a &quot;paddle&quot; entity that hits a ball</li>
+<li><strong>&#x2714;</strong> The ball destroys the bricks</li>
+<li><strong>&#x2714;</strong> The ball needs to stay within the boundaries of the screen</li>
+<li>If the ball touches the bottom of the screen, the game ends</li>
+</ul>
+<p>In the previous exercise the question was brought up what would be the easiest way to draw a bunch of bricks across the screen.
+A simple, but <em>very tedious</em> answer to that would be to position the bricks one at a time in <strong>entities.lua</strong> like so:</p>
+<pre><code class="lang-lua">  brick(<span class="hljs-number">40</span>, <span class="hljs-number">80</span>),
+  brick(<span class="hljs-number">100</span>, <span class="hljs-number">140</span>)
+  <span class="hljs-comment">-- and so on...</span>
+</code></pre>
+<p>If you want to make your bricks into a shape or sculpture then that might be the best approach.
+If you just want to arrange your bricks into a grid, then the easiest way would be to write a <a href="01-15-for-loops-1.html">numeric for-loop</a>.</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities.lua</span>
+
+<span class="hljs-keyword">local</span> boundary_bottom = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-bottom&apos;</span>)
+<span class="hljs-keyword">local</span> boundary_vertical = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-vertical&apos;</span>)
+<span class="hljs-keyword">local</span> boundary_top = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-top&apos;</span>)
+<span class="hljs-keyword">local</span> paddle = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/paddle&apos;</span>)
+<span class="hljs-keyword">local</span> pause_text = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/pause-text&apos;</span>)
+<span class="hljs-keyword">local</span> ball = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/ball&apos;</span>)
+<span class="hljs-keyword">local</span> brick = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/brick&apos;</span>)
+
+<span class="hljs-keyword">local</span> entities = {
+  boundary_bottom(<span class="hljs-number">400</span>, <span class="hljs-number">606</span>),
+  boundary_vertical(<span class="hljs-number">-6</span>, <span class="hljs-number">300</span>),
+  boundary_vertical(<span class="hljs-number">806</span>, <span class="hljs-number">300</span>),
+  boundary_top(<span class="hljs-number">400</span>, <span class="hljs-number">-6</span>),
+  paddle(<span class="hljs-number">300</span>, <span class="hljs-number">500</span>),
+  pause_text(),
+  ball(<span class="hljs-number">200</span>, <span class="hljs-number">200</span>)
+}
+
+<span class="hljs-keyword">local</span> row_width = love.window.getMode() - <span class="hljs-number">20</span>
+<span class="hljs-keyword">for</span> number = <span class="hljs-number">0</span>, <span class="hljs-number">38</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">local</span> brick_x = ((number * <span class="hljs-number">60</span>) % row_width) + <span class="hljs-number">40</span>
+  <span class="hljs-keyword">local</span> brick_y = (<span class="hljs-built_in">math</span>.floor((number * <span class="hljs-number">60</span>) / row_width) * <span class="hljs-number">40</span>) + <span class="hljs-number">80</span>
+  entities[#entities + <span class="hljs-number">1</span>] = brick(brick_x, brick_y)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">return</span> entities
+</code></pre>
+<p>Ok this admittedly looks more complicated at first, but if you remember the arithmetic and orders of operation covered in <a href="01-01-interactive-coding.html">1.1 - Interactive coding</a> statements are processed from the inner parenthesis and worked outwards.
+So why the long calculation?
+Let&apos;s start off with a simpler calculation:</p>
+<pre><code class="lang-lua">  <span class="hljs-keyword">local</span> brick_x = number * <span class="hljs-number">60</span>
+</code></pre>
+<p>Starting with the <code>number</code> 0 up to 38, there will be 39 loops and therefore 39 bricks drawn.
+On the first loop, <code>number</code> is 0.
+Since the bricks are 50 pixels wide this would draw the bricks with a 10 pixel space between each.
+First brick at 60, then 120, then 180...
+Ok, but then after only a dozen bricks we would start running off the screen.
+This is where the modulus comes in handy:</p>
+<pre><code class="lang-lua">  <span class="hljs-keyword">local</span> brick_x = (number * <span class="hljs-number">60</span>) % row_width
+</code></pre>
+<p><code>row_width</code> is how wide we want a row of bricks to be be.
+In this case <code>row_width</code> is the screen width, 800 pixels, subtract 20 pixels for padding.
+So draw the bricks every 60 pixels, but then when you get to 780 pixels, start back at 0 pixels and begin drawing a new row.
+Thanks modulus!
+Now just to give the bricks some spacing on the left side away from the wall, we can go ahead and add 40 pixels to the final result for the x-position:</p>
+<pre><code class="lang-lua">  <span class="hljs-keyword">local</span> brick_x = ((number * <span class="hljs-number">60</span>) % row_width) + <span class="hljs-number">40</span>
+</code></pre>
+<p>The brick&apos;s y-position is calculated a little bit differently.
+What we need to find out is which row we&apos;re on so we know where on the y-axis to draw.
+If we take the <code>number</code> and multiply it by 60 then do a modulus we know that gives us the x-position.
+So let&apos;s take that chunk of code from above and make that the basis of our y-position calculation:</p>
+<pre><code class="lang-lua">  <span class="hljs-keyword">local</span> brick_y = (number * <span class="hljs-number">60</span>) % row_width
+</code></pre>
+<p>Rather than using modulus, if we use regular division we get a small remainder every time <code>(number * 60)</code> exceeds the row width:</p>
+<pre><code class="lang-lua">  <span class="hljs-keyword">local</span> brick_y = (number * <span class="hljs-number">60</span>) / row_width
+</code></pre>
+<p>This will give us a number with decimals so to keep things rounded we can use <code>math.floor</code> to snap the y-position  down to the nearest whole number:</p>
+<pre><code class="lang-lua">  <span class="hljs-keyword">local</span> brick_y = <span class="hljs-built_in">math</span>.floor((number * <span class="hljs-number">60</span>) / row_width)
+</code></pre>
+<p>Great!
+Now every time the x-position exceeds the row width, we get back the number of the row we&apos;re on... 0 for the first, 1 for the second, 2 and so on.
+With this number we can now space out each row by 40 pixels:</p>
+<pre><code class="lang-lua">  <span class="hljs-keyword">local</span> brick_y = <span class="hljs-built_in">math</span>.floor((number * <span class="hljs-number">60</span>) / row_width) * <span class="hljs-number">40</span>
+</code></pre>
+<p>Then finally just to shift the bricks a little further down the screen we give it a padding that looks right, say 80:</p>
+<pre><code class="lang-lua">  <span class="hljs-keyword">local</span> brick_y = (<span class="hljs-built_in">math</span>.floor((number * <span class="hljs-number">60</span>) / row_width) * <span class="hljs-number">40</span>) + <span class="hljs-number">80</span>
+</code></pre>
+<p>And there you go.
+The entity can just be added to the end of the entities list so it doesn&apos;t get lost:</p>
+<pre><code class="lang-lua">  entities[#entities + <span class="hljs-number">1</span>] = brick(brick_x, brick_y)
+</code></pre>
+<p>In the previous exercises we also talked about drawing the bricks different colors to indicate their integrity/health left before they will be destroyed.
+Rather than review that now, let&apos;s dive into state management and we&apos;ll wrap coloring up along the way.</p>
+<h2 id="state-management">State management</h2>
+<p>Your average, every-day program has a lot of information it needs to story in memory.
+For our game to function with just the basic features, we need to store information about each entity, whether or not the game is currently paused, or if the game is won or lost.
+This information is called the <em>state</em>.
+The state is data that may change during the lifetime of the application.
+Think of the state of your lights in your room.
+Are they currently in an &quot;on&quot; or &quot;off&quot; state?
+The state can cause different effects on the application, like if the &quot;pause&quot; state of the game is &quot;true&quot; then the world will no longer receive updates.</p>
+<p>One thing we must think of is how to organize the state of our application.
+This is something we take for granted often in the real world;
+We don&apos;t have to figure out where to store the state of our lights.
+It&apos;s a piece of information intrinsic to the lamp&apos;s design.</p>
+<p>So why do we have to care so much about our game&apos;s state?
+To be fair, our game is small so we probably don&apos;t need to.
+However, it is crucial to reconcile such things while applications are small because it will be very difficult to go back and fix a bunch of code once the application is big.
+The way you should organize the state of your application should accomplish a few things:</p>
+<ul>
+<li><strong>It should be easy to find and access the necessary data that makes up the state.</strong> For instance, how easy is it for our main file to access the entities and loop over them in the <code>love.update</code> function?</li>
+<li><strong>There should only be one copy of the state.</strong> If we want to access the &quot;paused&quot; state of our game in multiple places that is fine, but we shouldn&apos;t have multiple &quot;paused&quot; variables floating around our game. If we had a &quot;paused&quot; variable inside an entity file and another inside the input service updating independently then they could get out of sync and our game would get confused on when it should be paused.</li>
+<li><strong>The state should only be accessed where it is needed.</strong> If you were accessing or storing the &quot;paused&quot; state inside the ball entity, then if that ball was destroyed then something bad will happen the next time the game checks to see if it is paused.</li>
+</ul>
+<p>What files contain the state of our game?</p>
+<ul>
+<li><strong>entities.lua</strong> - Each entity table is responsible for its own state. For instance, each brick stores the state of its own health. All the entities tables are generated and stored here. The entities are <strong>not</strong> stored in the entities folder. Those are just functions used to generate the entities. The blueprints.</li>
+<li><strong>input.lua</strong> - This file is responsible for capturing user input, but also storing the state of what keys are currently being pressed.</li>
+<li><strong>world.lua</strong> - This file is not only the blueprints for the game world, but it also stores the world instance that is generated when the game starts. We made the world instance easily accessible to the rest of the application by writing <code>return world</code> at the end. There would be no game if this wasn&apos;t easily accessible.</li>
+</ul>
+<p>A few pieces of game state we need to add are a boolean of whether the game is over, another for if the stage is cleared, and also a list of colors to use in our game which we&apos;ll refer to as our <em>palette</em>.
+This information wouldn&apos;t really fit in any of the places we listed above, and we don&apos;t want to add it to <strong>main.lua</strong> because of our first rule that the game state should be easy to access where it is needed.
+Besides, that&apos;s not the main file&apos;s responsibility.
+We&apos;ll go ahead and just make a new file called <strong>state.lua</strong> and store the overall game state in this file.
+This is also a little matter of opinion but the &quot;paused&quot; and button states we&apos;ll also move in here since they affect the overall game&apos;s state.
+This will also make it so that <strong>input.lua</strong>&apos;s only responsibility is to capture and translate the user input, <strong>not</strong> to handle any state whatsoever.</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- state.lua</span>
+
+<span class="hljs-comment">-- The state of the game. This way our data is separate from our functionality.</span>
+
+<span class="hljs-keyword">return</span> {
+  button_left = <span class="hljs-keyword">false</span>,
+  button_right = <span class="hljs-keyword">false</span>,
+  game_over = <span class="hljs-keyword">false</span>,
+  palette = {
+    {<span class="hljs-number">1.0</span>, <span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>, <span class="hljs-number">1.0</span>},  <span class="hljs-comment">-- red</span>
+    {<span class="hljs-number">0.0</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">0.0</span>, <span class="hljs-number">1.0</span>},  <span class="hljs-comment">-- green</span>
+    {<span class="hljs-number">0.4</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>},  <span class="hljs-comment">-- blue</span>
+    {<span class="hljs-number">0.9</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">0.2</span>, <span class="hljs-number">1.0</span>},  <span class="hljs-comment">-- yellow</span>
+    {<span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>}   <span class="hljs-comment">-- white</span>
+  },
+  paused = <span class="hljs-keyword">false</span>,
+  stage_cleared = <span class="hljs-keyword">false</span>
+}
+</code></pre>
+<p>It&apos;s kind of a nice feeling to keep all the state together.
+We could even move the entities list into <strong>state.lua</strong> and get rid of <strong>entities.lua</strong>, but this doesn&apos;t seem necessary.
+Now with this shift in data we need to update <strong>input.lua</strong> and <strong>main.lua</strong> to reference the new file:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- input.lua</span>
+
+<span class="hljs-keyword">local</span> state = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;state&apos;</span>)
+
+<span class="hljs-comment">-- Map specific user inputs to game states</span>
+<span class="hljs-keyword">local</span> press_functions = {
+  left = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    state.button_left = <span class="hljs-keyword">true</span>
+  <span class="hljs-keyword">end</span>,
+  right = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    state.button_right = <span class="hljs-keyword">true</span>
+  <span class="hljs-keyword">end</span>,
+  escape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    love.event.quit()
+  <span class="hljs-keyword">end</span>,
+  space = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    <span class="hljs-keyword">if</span> state.game_over <span class="hljs-keyword">or</span> state.stage_cleared <span class="hljs-keyword">then</span>
+      <span class="hljs-keyword">return</span>
+    <span class="hljs-keyword">end</span>
+    state.paused = <span class="hljs-keyword">not</span> state.paused
+  <span class="hljs-keyword">end</span>
+}
+
+<span class="hljs-keyword">local</span> release_functions = {
+  left = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    state.button_left = <span class="hljs-keyword">false</span>
+  <span class="hljs-keyword">end</span>,
+  right = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    state.button_right = <span class="hljs-keyword">false</span>
+  <span class="hljs-keyword">end</span>
+}
+
+
+<span class="hljs-comment">-- This table is the service and will contain some functions</span>
+<span class="hljs-comment">-- that can be accessed from entities or the main.lua.</span>
+<span class="hljs-keyword">return</span> {
+  <span class="hljs-comment">-- Look up in the map for actions that correspond to specific key presses</span>
+  press = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
+    <span class="hljs-keyword">if</span> press_functions[pressed_key] <span class="hljs-keyword">then</span>
+      press_functions[pressed_key]()
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>,
+  <span class="hljs-comment">-- Look up in the map for actions that correspond to specific key releases</span>
+  release = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(released_key)</span></span>
+    <span class="hljs-keyword">if</span> release_functions[released_key] <span class="hljs-keyword">then</span>
+      release_functions[released_key]()
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>,
+  <span class="hljs-comment">-- Handle window focusing/unfocusing</span>
+  toggle_focus = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(focused)</span></span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> focused <span class="hljs-keyword">then</span>
+      state.paused = <span class="hljs-keyword">true</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+}
+</code></pre>
+<pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
+
+<span class="hljs-keyword">local</span> entities = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities&apos;</span>)
+<span class="hljs-keyword">local</span> input = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;input&apos;</span>)
+<span class="hljs-keyword">local</span> state = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;state&apos;</span>)
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">for</span> _, entity <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(entities) <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">if</span> entity.draw <span class="hljs-keyword">then</span> entity:draw() <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+love.focus = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(focused)</span></span>
+  input.toggle_focus(focused)
+<span class="hljs-keyword">end</span>
+
+love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
+  input.press(pressed_key)
+<span class="hljs-keyword">end</span>
+
+love.keyreleased = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(released_key)</span></span>
+  input.release(released_key)
+<span class="hljs-keyword">end</span>
+
+love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
+  <span class="hljs-keyword">if</span> state.game_over <span class="hljs-keyword">or</span> state.paused <span class="hljs-keyword">or</span> state.stage_cleared <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">return</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">local</span> index = <span class="hljs-number">1</span>
+  <span class="hljs-keyword">while</span> index &lt;= #entities <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">local</span> entity = entities[index]
+    <span class="hljs-keyword">if</span> entity.update <span class="hljs-keyword">then</span> entity:update(dt) <span class="hljs-keyword">end</span>
+    <span class="hljs-comment">-- When an entity has no health (brick has been hit enough times</span>
+    <span class="hljs-comment">-- then we remove it from the list of entities. Don&apos;t increment</span>
+    <span class="hljs-comment">-- the index number if doing that though because we have shrunk</span>
+    <span class="hljs-comment">-- the table and made all the items shift down by 1 in the index.</span>
+    <span class="hljs-keyword">if</span> entity.health <span class="hljs-keyword">and</span> entity.health &lt; <span class="hljs-number">1</span> <span class="hljs-keyword">then</span>
+      <span class="hljs-built_in">table</span>.remove(entities, index)
+      entity.fixture:destroy()
+    <span class="hljs-keyword">else</span>
+      index = index + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+
+  world:update(dt)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Notice the change to <code>love.update</code>.
+We check if <code>state.game_over</code>, <code>state.paused</code> or <code>state.stage_cleared</code> is true and if so, we return from <code>love.update</code> without doing any of the updates as these kind of game states merit freezing the screen.</p>
+<p>Next up, update <strong>paddle.lua</strong> to require <code>state</code> instead of <code>input</code>.
+The <code>entity.update</code> function now needs to reference <code>state.button_left</code> and <code>state.button_right</code> to tell if the player has pressed any buttons.
+Try updating it on your own.
+If you do get stuck, the source code will be in the link at the bottom waiting for you.</p>
+<p>Ok, now that we have a state where we stored the colors it is probably a good time to try and update <strong>brick.lua</strong>.
+First let&apos;s look at those colors stored in <strong>state.lua</strong>:</p>
+<pre><code class="lang-lua">  palette = {
+    {<span class="hljs-number">1.0</span>, <span class="hljs-number">0.0</span>, <span class="hljs-number">0.0</span>, <span class="hljs-number">1.0</span>},  <span class="hljs-comment">-- red</span>
+    {<span class="hljs-number">0.0</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">0.0</span>, <span class="hljs-number">1.0</span>},  <span class="hljs-comment">-- green</span>
+    {<span class="hljs-number">0.4</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>},  <span class="hljs-comment">-- blue</span>
+    {<span class="hljs-number">0.9</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">0.2</span>, <span class="hljs-number">1.0</span>},  <span class="hljs-comment">-- yellow</span>
+    {<span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>}   <span class="hljs-comment">-- white</span>
+  },
+</code></pre>
+<p>The <code>palette</code> table is a list of more tables.
+Each table in the list represents colors where the first number is the amount of red, 2nd the amount of green, 3rd the amount of blue, and 4th number the amount of opacity.
+Setting the last number to <code>0</code> means the color is 100% transparent and <code>1</code> means it is completely opaque.
+All of these values mix together to form a single color.
+In the case of the first color, we have the red value set to maximum opaque red with no other colors mixed in.
+I would encourage you to go back and edit the colors in this palette after everything is working.
+Now, inside <strong>brick.lua</strong> let&apos;s update <code>entity.draw</code>:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/brick.lua</span>
+
+<span class="hljs-keyword">local</span> state = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;state&apos;</span>)
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x_pos, y_pos)</span></span>
+  <span class="hljs-keyword">local</span> entity = {}
+  entity.body = love.physics.newBody(world, x_pos, y_pos, <span class="hljs-string">&apos;static&apos;</span>)
+  entity.shape = love.physics.newRectangleShape(<span class="hljs-number">50</span>, <span class="hljs-number">20</span>)
+  entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+  entity.fixture:setUserData(entity)
+
+  <span class="hljs-comment">-- How many times the brick can be hit before it is destroyed</span>
+  entity.health = <span class="hljs-number">2</span>
+  <span class="hljs-comment">-- Used to check during update if this entity is a brick</span>
+  <span class="hljs-comment">-- If no bricks are found then the level was cleared</span>
+  entity.<span class="hljs-built_in">type</span> = <span class="hljs-string">&apos;brick&apos;</span>
+
+  entity.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    <span class="hljs-comment">-- Draw the brick in a different color depending on health</span>
+    love.graphics.setColor(state.palette[self.health] <span class="hljs-keyword">or</span> state.palette[<span class="hljs-number">5</span>])
+    love.graphics.polygon(<span class="hljs-string">&apos;fill&apos;</span>, self.body:getWorldPoints(self.shape:getPoints()))
+    <span class="hljs-comment">-- Reset graphics drawer back to the default color (white)</span>
+    love.graphics.setColor(state.palette[<span class="hljs-number">5</span>])
+  <span class="hljs-keyword">end</span>
+
+  entity.end_contact = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    self.health = self.health - <span class="hljs-number">1</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">return</span> entity
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Before drawing the brick&apos;s polygon, we set the graphics renderer to use one of the colors from <code>state.palette</code>.
+The color to use depends on what the brick&apos;s health is.
+So if the brick has 2 health then <code>state.palette[self.health]</code> will become <code>state.palette[2]</code> which will grab the 2nd color in the list... green.
+If the brick&apos;s health was 1, then the first color from the palette would be selected... red.
+After the colored polygon is drawn, <code>entity.draw</code> finishes up by setting the renderer color back to white.
+If we didn&apos;t do this step, the ball and paddle would get drawn the same color as the bricks.</p>
+<p>One last thing we need to do to get the game working is update <strong>pause-text.lua</strong> as it is incorrectly looking for the &quot;pause&quot; state in <strong>input.lua</strong> instead of the new <strong>state.lua</strong> location:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/pause-text.lua</span>
+
+<span class="hljs-keyword">local</span> state = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;state&apos;</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">local</span> window_width, window_height = love.window.getMode()
+
+  <span class="hljs-keyword">local</span> entity = {}
+
+  entity.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    <span class="hljs-keyword">if</span> state.paused <span class="hljs-keyword">then</span>
+      love.graphics.<span class="hljs-built_in">print</span>(
+        {state.palette[<span class="hljs-number">3</span>], <span class="hljs-string">&apos;PAUSED&apos;</span>},
+        <span class="hljs-built_in">math</span>.floor(window_width / <span class="hljs-number">2</span>) - <span class="hljs-number">54</span>,
+        <span class="hljs-built_in">math</span>.floor(window_height / <span class="hljs-number">2</span>),
+        <span class="hljs-number">0</span>,
+        <span class="hljs-number">2</span>,
+        <span class="hljs-number">2</span>
+      )
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">return</span> entity
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h2 id="final-touches">Final touches</h2>
+<p>We need the game to end when the player destroys all the bricks or loses the ball.
+Just like the pause-text entity, display some messages based on the game state.</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/game-over-text.lua</span>
+
+<span class="hljs-keyword">local</span> state = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;state&apos;</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">local</span> window_width, window_height = love.window.getMode()
+
+  <span class="hljs-keyword">local</span> entity = {}
+
+  entity.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    <span class="hljs-keyword">if</span> state.game_over <span class="hljs-keyword">then</span>
+      love.graphics.<span class="hljs-built_in">print</span>(
+        {state.palette[<span class="hljs-number">5</span>], <span class="hljs-string">&apos;GAME OVER&apos;</span>},
+        <span class="hljs-built_in">math</span>.floor(window_width / <span class="hljs-number">2</span>) - <span class="hljs-number">100</span>,
+        <span class="hljs-built_in">math</span>.floor(window_height / <span class="hljs-number">2</span>),
+        <span class="hljs-number">0</span>,
+        <span class="hljs-number">2</span>,
+        <span class="hljs-number">2</span>
+      )
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">return</span> entity
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/stage-clear-text.lua</span>
+
+<span class="hljs-keyword">local</span> state = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;state&apos;</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">local</span> window_width, window_height = love.window.getMode()
+
+  <span class="hljs-keyword">local</span> entity = {}
+
+  entity.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    <span class="hljs-keyword">if</span> state.stage_cleared <span class="hljs-keyword">then</span>
+      love.graphics.<span class="hljs-built_in">print</span>(
+        {state.palette[<span class="hljs-number">4</span>], <span class="hljs-string">&apos;STAGE CLEARED&apos;</span>},
+        <span class="hljs-built_in">math</span>.floor(window_width / <span class="hljs-number">2</span>) - <span class="hljs-number">110</span>,
+        <span class="hljs-built_in">math</span>.floor(window_height / <span class="hljs-number">2</span>),
+        <span class="hljs-number">0</span>,
+        <span class="hljs-number">2</span>,
+        <span class="hljs-number">2</span>
+      )
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">return</span> entity
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>To trigger the &quot;GAME OVER&quot; text is easy enough.
+We need to add a collision callback to <strong>boundary-bottom.lua</strong> to set the game&apos;s <code>state.game_over</code> to true on any collision:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities/boundary-bottom.lua</span>
+
+<span class="hljs-keyword">local</span> state = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;state&apos;</span>)
+<span class="hljs-keyword">local</span> world = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;world&apos;</span>)
+
+<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x_pos, y_pos)</span></span>
+  <span class="hljs-keyword">local</span> entity = {}
+  entity.body = love.physics.newBody(world, x_pos, y_pos, <span class="hljs-string">&apos;static&apos;</span>)
+  entity.shape = love.physics.newRectangleShape(<span class="hljs-number">800</span>, <span class="hljs-number">10</span>)
+  entity.fixture = love.physics.newFixture(entity.body, entity.shape)
+  entity.fixture:setUserData(entity)
+
+  entity.end_contact = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
+    state.game_over = <span class="hljs-keyword">true</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">return</span> entity
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Don&apos;t forget we need to update <strong>entities.lua</strong> to add our two new entities:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entities.lua</span>
+
+<span class="hljs-keyword">local</span> boundary_bottom = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-bottom&apos;</span>)
+<span class="hljs-keyword">local</span> boundary_vertical = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-vertical&apos;</span>)
+<span class="hljs-keyword">local</span> boundary_top = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/boundary-top&apos;</span>)
+<span class="hljs-keyword">local</span> paddle = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/paddle&apos;</span>)
+<span class="hljs-keyword">local</span> game_over_text = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/game-over-text&apos;</span>)
+<span class="hljs-keyword">local</span> pause_text = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/pause-text&apos;</span>)
+<span class="hljs-keyword">local</span> stage_clear_text = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/stage-clear-text&apos;</span>)
+<span class="hljs-keyword">local</span> ball = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/ball&apos;</span>)
+<span class="hljs-keyword">local</span> brick = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entities/brick&apos;</span>)
+
+<span class="hljs-keyword">local</span> entities = {
+  boundary_bottom(<span class="hljs-number">400</span>, <span class="hljs-number">606</span>),
+  boundary_vertical(<span class="hljs-number">-6</span>, <span class="hljs-number">300</span>),
+  boundary_vertical(<span class="hljs-number">806</span>, <span class="hljs-number">300</span>),
+  boundary_top(<span class="hljs-number">400</span>, <span class="hljs-number">-6</span>),
+  paddle(<span class="hljs-number">300</span>, <span class="hljs-number">500</span>),
+  game_over_text(),
+  pause_text(),
+  stage_clear_text(),
+  ball(<span class="hljs-number">200</span>, <span class="hljs-number">200</span>)
+}
+
+<span class="hljs-keyword">local</span> row_width = love.window.getMode() - <span class="hljs-number">20</span>
+<span class="hljs-keyword">for</span> number = <span class="hljs-number">0</span>, <span class="hljs-number">38</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">local</span> brick_x = ((number * <span class="hljs-number">60</span>) % row_width) + <span class="hljs-number">40</span>
+  <span class="hljs-keyword">local</span> brick_y = (<span class="hljs-built_in">math</span>.floor((number * <span class="hljs-number">60</span>) / row_width) * <span class="hljs-number">40</span>) + <span class="hljs-number">80</span>
+  entities[#entities + <span class="hljs-number">1</span>] = brick(brick_x, brick_y)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">return</span> entities
+</code></pre>
+<p>Ok, test that out and check that the &quot;GAME OVER&quot; text works.
+If it does, then let&apos;s continue on and add the conditions for how to win the game.
+This involves checking through all the entities in <code>love.update</code> to make sure we still have bricks.
+If we don&apos;t have any bricks left, then the player destroyed them all and the stage is cleared.</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
+love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
+  <span class="hljs-keyword">if</span> state.game_over <span class="hljs-keyword">or</span> state.paused <span class="hljs-keyword">or</span> state.stage_cleared <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">return</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-comment">-- Switch to true if we have bricks left</span>
+  <span class="hljs-keyword">local</span> have_bricks = <span class="hljs-keyword">false</span>
+
+  <span class="hljs-keyword">local</span> index = <span class="hljs-number">1</span>
+  <span class="hljs-keyword">while</span> index &lt;= #entities <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">local</span> entity = entities[index]
+    <span class="hljs-keyword">if</span> entity.<span class="hljs-built_in">type</span> == <span class="hljs-string">&apos;brick&apos;</span> <span class="hljs-keyword">then</span> have_bricks = <span class="hljs-keyword">true</span> <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">if</span> entity.update <span class="hljs-keyword">then</span> entity:update(dt) <span class="hljs-keyword">end</span>
+    <span class="hljs-comment">-- When an entity has no health (brick has been hit enough times</span>
+    <span class="hljs-comment">-- then we remove it from the list of entities. Don&apos;t increment</span>
+    <span class="hljs-comment">-- the index number if doing that though because we have shrunk</span>
+    <span class="hljs-comment">-- the table and made all the items shift down by 1 in the index.</span>
+    <span class="hljs-keyword">if</span> entity.health <span class="hljs-keyword">and</span> entity.health &lt; <span class="hljs-number">1</span> <span class="hljs-keyword">then</span>
+      <span class="hljs-built_in">table</span>.remove(entities, index)
+      entity.fixture:destroy()
+    <span class="hljs-keyword">else</span>
+      index = index + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-comment">-- Flag the stage cleared if there are no more bricks</span>
+  state.stage_cleared = <span class="hljs-keyword">not</span> have_bricks
+  world:update(dt)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Every time <code>love.update</code> is ran, we set a variable <code>have_bricks</code> to false.
+If this boolean stays <code>false</code> all the way to the bottom of the function then <code>state.stage_cleared</code> gets switched to true and the game is won.
+Inside the <code>while</code> loop, however, we check every entity to see if we find an <code>entity.type</code> of <code>&apos;bricks&apos;</code> and if so, <code>have_bricks</code> gets flipped to <code>true</code> to stop the game from being won yet.</p>
+<p>So that about does it for completing our checklist.
+The game may not be as feature-complete as a true breakout game, but that room for improvement leaves opportunity for you to modify the game to work how you want it to.
+It&apos;s really up to your imagination.
+Try out a few exercises if you can&apos;t think up any new features.
+If you are having trouble running the game, be sure to check out the source code:</p>
+<p><a href="https://github.com/RVAGameJams/learn2love/tree/master/code/breakout-5" target="_blank">https://github.com/RVAGameJams/learn2love/tree/master/code/breakout-5</a></p>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li>Instead of getting a game over as soon as the ball touches the ground once, add a new property in <strong>state.lua</strong> named <code>lives</code> and set it to as many lives as you want the player to have. Make is so the <code>state.lives</code> decreases when the ball hits the ground and make the <code>game_over</code> not trigger unless <code>state.lives &lt; 1</code>.</li>
+<li>Try setting the paddle to different shape to make the game play differently</li>
+<li>Come up with new features to make the game play better and feel more polished<ul>
+<li>Change the ball and paddle colors</li>
+<li>Add a background color</li>
+<li>Figure out how to play a sound effect when the ball collides with things</li>
+<li>Create some kind of power-up entity</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02-14-breakout-part-4.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 2.14 - Breakout (part 4)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.15 - Breakout (part 5)","level":"1.3.15","depth":2,"previous":{"title":"2.14 - Breakout (part 4)","level":"1.3.14","depth":2,"path":"pages/02-14-breakout-part-4.md","ref":"pages/02-14-breakout-part-4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-15-breakout-part-5.md","mtime":"2018-09-29T02:38:50.731Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-29T03:17:28.028Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
