@@ -22,7 +22,7 @@ I'm not going to make any recommendations for that as you can easily search the 
 
 When you launch LÖVE, (see instructions below on how to do that) you will be greeted with a friendly graphic and the text "NO GAME", meaning you are running the engine but didn't give it a game to load.
 
-### OSX and other posix systems
+### macOS and other posix systems
 
 If your system created a shortcut, run that.
 Otherwise you can open the terminal on your system and run the command:
@@ -59,7 +59,7 @@ Now let's figure out how to run it and see what it does.
 
 This will be different for different operating systems.
 
-### OSX and other posix systems
+### macOS and other posix systems
 
 Open the terminal and navigate to the "hello" folder:
 ```sh
