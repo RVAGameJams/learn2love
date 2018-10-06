@@ -7,12 +7,12 @@ A framework is just a set of tools or functionality combined together to serve a
 In the case of LÖVE this includes, but is not limited to:
 
 - Functions for loading images, audio, and text
-- Functions for creating and moving objects
+- Functions for creating and moving objects on screen
 - Parameters for making the objects interact
 
 ## Installing your development environment
 
-The LÖVE website has links to install the software on your system.
+The [LÖVE website](https://love2d.org/) has links to install the software on your system.
 If you have LÖVE installed already, make sure that you at least version 11 (mysterious mysteries) as some functionality we'll cover here doesn't exist in older versions.
 For mobile devices you can find a copy in the app store.
 
@@ -30,6 +30,8 @@ Otherwise you can open the terminal on your system and run the command:
 love
 ```
 
+then press Enter on your keyboard.
+
 ### Windows
 
 If a shortcut for LÖVE didn't appear in the start menu, you should be able to type "love" in the search and see it.
@@ -42,6 +44,11 @@ This will be where our game's code goes.
 
 **Note for Windows:**
 In order to create a file with the name "main.lua", you may need to first create a new "Text Document", right-click on it, click "Properties" then from the properties menu change the file extension from reading "main.lua.txt" to just "main.lua".
+To avoid having to do this for every Lua file you create in the future you can tell Windows to always show the full name of files, including their extension.
+To enable this, type "Control Panel" in the program search and open the "Control Panel" result.
+Within the control panel, select "File Explorer Options".
+Click the "View" tab.
+Remove the check mark from the "Hide extensions for known file types" and press Apply/OK.
 
 ## Create a test game
 

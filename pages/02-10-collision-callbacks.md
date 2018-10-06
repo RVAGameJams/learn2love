@@ -224,4 +224,4 @@ bar     triangle        Contact: 0x55bf29c07590 ending contact
 
 ## Exercises
 
-- Modify the print statements to print out the coordinates where the entities' fixtures are making contact. You can find the information you need to do this in the documentation for the contact table mentioned above.
+- Modify the print statements in each collision callback to print out the coordinates where the entities' fixtures are making contact. You can find the information you need to do this in the documentation for the contact table mentioned above.
