@@ -15,8 +15,8 @@ In the case of LÖVE this includes, but is not limited to:
 The LÖVE website has links to install the software on your system.
 If you have LÖVE installed already, make sure that you at least version 11 (mysterious mysteries) as some functionality we'll cover here doesn't exist in older versions.
 For mobile devices you can find a copy in the app store.
-Along with installing LÖVE, you will need a text editor for creating Lua files on your system.
-I'm not going to make any recommendations for that as you can easily search the web for "code editors" and find any number of suitable choices for your operating system.
+
+Along with installing LÖVE, you will need a text editor for creating Lua files on your system. I'm not going to make any recommendations here, because in the end it all comes down to personal preference, but you can check [this list](https://github.com/love2d-community/awesome-love2d/blob/master/README.md#ides) by the LÖVE community if you need a starting point. It features different editors (and recommended plugins) for LÖVE and Lua development. Simply pick one.
 
 ## Test that LÖVE runs
 
