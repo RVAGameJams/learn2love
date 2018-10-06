@@ -37,7 +37,6 @@ end
 
 Each time we go to print the number, we increase it by 1.
 Run this program and see how quickly the number climbs.
-The faster your computer is, the faster the number will move.
 
 The `love` table is a seemingly complex structure of tables inside tables and functions inside those, but we'll gradually learn the structure and purpose of each thing over the course of this chapter.
 In the next section, let's take a look at the 2nd and 3rd parameters in `love.graphics.print` and see how they work.
