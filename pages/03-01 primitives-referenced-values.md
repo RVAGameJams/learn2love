@@ -3,7 +3,7 @@
 
 ## Introduction
 
-```
+```lua
     local string1 = "hello"
     local string2 = 'hello'
 
@@ -58,7 +58,7 @@ In Lua, though we don't have variable data types, but we have types for the valu
 
 In Lua, there is a function called ‘type’ that enables us to know the type of the variable. Some examples are given in the following code.
 
-```
+```lua
 print(type("What is my type"))   --> string
 t = 10
 
@@ -69,7 +69,7 @@ print(type(nil))                 --> nil
 print(type(type(ABC)))           --> string
 ```
 When you build and execute the above program, it produces the following result on Linux −
-```
+```lua
 string
 number
 boolean
@@ -85,7 +85,7 @@ In lua there is no composite data such as in other language as C/C++. But table 
 Usually composite data type, is a type constructed in a program using the programming language's primitives data types and even other composite types.
 
 Let's see how to declare that in lua
-```
+```lua
 -- I declare the variable myTable to be an empty table
 local myTable = {}
 
@@ -96,19 +96,19 @@ myTable["id"] = 1 -- an int
 ```
 
 Now we have myTable, a table type variable, compose of two others data types, a name (string) and an id (int).
-```
+```lua
 print(type(myTable))
 print(type(myTable["name"]))
 print(type(myTable["id"]))
 ```
 It will display
-```
+```lua
 table
 string
 number
 ```
 As you can see I can acces my fields, with the use of `[ ]`, but you can access it with `.` too.
-```
+```lua
 print(type(myTable.name))
 print(type(myTable.id))
 ```
@@ -123,7 +123,7 @@ That's what looks most to composite data in other languages.
 
 Let's take another example
 
-```
+```lua
 -- I want to create a new player, kind of warrior, for my video game
 
 -- Declare the table
@@ -138,7 +138,7 @@ player.intellect =3
 ```
 That's cool, but a bit messy. We can improve that by grouping some of the stats.
 
-```
+```lua
 -- I want to create a new player, kind of warrior, for my video game
 
 -- Declare the table
@@ -167,7 +167,7 @@ player.attributes = attributesTable
 
 Let's see the result
 
-```
+```lua
 
 print("A new player is created named ".. player.name)
 print("Attributes")
@@ -176,7 +176,8 @@ print("strength "..player.attributes.strength)
 print("agility "..player.attributes.agility)
 print("intellect "..player.attributes.intellect)
 ```
-```
+
+```lua
 A new player is created named player1
 Attributes
 health 50
@@ -196,7 +197,7 @@ Here we go ! Now we have a player table with two fields : name (string) and attr
 	
 	But `Tables, functions, threads, and (full) userdata values are objects: variables do not actually contain these values, only references to them`
 	
-```
+```lua
 local string1 = "hello"
 	
 -- I declare two differentes table
