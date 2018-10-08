@@ -220,7 +220,10 @@ print("myTable.myString == "..myTable.myString)
 
 myTable2 = myTable
 
--- Because table working with reference actually myTable and myTable2 are equal. It means both reference to the area in the memory
+-- Because table working with references, myTable and myTable2 are equals. It means both reference to the same area in the memory.
+-- May be for you memory area is something obscur, but all you have to know is you can have access to a specific space in the memory
+-- with some "id". And when you try to print a table, it's exactly what it returns. So if two tables return the same memory id, it's means
+-- they both point to the same memory area and so they are equals.
 -- And now, if I test if these two tables are equals, it will be true.
 
 if myTable == myTable2 then 
