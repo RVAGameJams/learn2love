@@ -35,7 +35,8 @@
 
     The strings equal and the numbers equal, but why aren't the tables and functions equal since they are both empty?
 ```
-	First, let's see variables types. 
+
+First, let's see variables types and their meanings.
 	
 	
 ### Primitves data types
@@ -194,7 +195,7 @@ Now you can create all type of variable you want ! But remember in Lua, it's onl
 ### Referenced values
 
 
-	Back to our example in the introduction . `The strings equal and the numbers equal, but why aren't the tables and functions equal since they are both empty?`
+Back to our example in the introduction . `The strings equal and the numbers equal, but why aren't the tables and functions equal since they are both empty?`
 Remember `There are eight basic types in Lua: nil, boolean, number, string, function, userdata, thread, and table. ....`
 But `Tables, functions, threads, and (full) userdata values are objects: variables do not actually contain these values, only references to them`
 
@@ -254,10 +255,7 @@ myTable2.myString == changed
 
 
 ### Conclusion
-:warning: `There are eight basic types in Lua: nil, boolean, number, string, function, userdata, thread, and table. ....`
+:warning: ***There are eight basic types in Lua: nil, boolean, number, string, function, userdata, thread, and table.***
 
-:warning: `Tables, functions, threads, and (full) userdata values are objects: variables do not actually contain these values, only references to them`
-
-
-```
+:warning: ***Tables, functions, threads, and (full) userdata values are objects: variables do not actually contain these values, only references to them***
 
