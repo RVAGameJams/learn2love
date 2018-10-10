@@ -3,7 +3,7 @@
 
 ## Introduction
 
-```lua
+```Lua
     local string1 = "hello"
     local string2 = 'hello'
 
@@ -23,27 +23,26 @@
     local function2 = function() end
 
     print(function1 == function2)
-
-    What would happen if you were to run this?
-    In chapter 1 we learned about comparing string with the == operator when we talked about booleans.
-    Let's run the code in the repl and try it out:
-
-    true
-    true
-    false
-    false
-
-    The strings equal and the numbers equal, but why aren't the tables and functions equal since they are both empty?
 ```
+What would happen if you were to run this?
+In chapter 1 we learned about comparing string with the == operator when we talked about booleans.
+Let's run the code in the repl and try it out:  
 
-First, let's see variables types and their meanings.
+```
+    true
+    true
+    false
+    false
+```  
+
+The strings equal and the numbers equal, but why aren't the tables and functions equal since they are both empty?
+
+First let's see the two most common data types in programming .
 	
 	
 ### Primitves data types
-In Lua, though we don't have variable data types, but we have types for the values. The list of data types for values are given below.
-
-
-
+Primitives data types are built in the language.
+Remember from the first chapter, the types ares 
 
 | Value Type | Description |
 | ------------- |:-------------:|
@@ -57,138 +56,88 @@ In Lua, though we don't have variable data types, but we have types for the valu
 |table|Represent ordinary arrays, symbol tables, sets, records, graphs, trees, etc., and implements associative arrays. It can hold any value (except nil).|
 
 
-In Lua, there is a function called ‘type’ that enables us to know the type of the variable. Some examples are given in the following code.
+These types are the primitives. They are uncheangeable and any language give specific built in functions that handle operations on it (exception in Lua : Tables, functions, threads, and userdata). For example 
+all the common mathematic operations : '+', '-', '==' ... Or function like `print()` . These are the basic tools to build all your program and even
+complexe composite data type.
 
-```lua
-print(type("What is my type"))   --> string
-t = 10
 
-print(type(5.8*t))               --> number
-print(type(true))                --> boolean
-print(type(print))               --> function
-print(type(nil))                 --> nil
-print(type(type(ABC)))           --> string
-```
-When you build and execute the above program, it produces the following result on Linux −
-```lua
-string
-number
-boolean
-function
-nil
-string
-```
 
 ### Composite data types
 
-In lua there is no composite data such as in other language as C/C++. But table in lua is a powerful type that can act as composite data type.
+
+In Lua there is no composite data such as in other language as C/C++. But table in Lua is a powerful type that can act as composite data type.
 Usually composite data type, is a type constructed in a program using the programming language's primitives data types and even other composite types.
 
-Let's see how to declare that in lua
-```lua
--- I declare the variable myTable to be an empty table
-local myTable = {}
+Imagine, you need to have a new data type to refer in your program, like a Player data type. That type, will be a composed of multiples primtives types. In my game a player is composed
+of :  
 
+**Player composite data**
+   - name (string)
+   - health (int)
+   - strengh (int)
+   - agility (int)
+   - intellect (int)
+   - isAlive (bool)
+  
+  
+First you have to declare the composite type, the program needs to know you are creating a new data type.
+Once you have created a new composite data, your life will be easier! Every times you want to create a new player, you can create a new variable and assign him Player type.  
+It's exactly the same way as declared a new `int` variable or `string` variable, but in that case it will be a `player` variable.
+Your composite data type will work almost like a primitive, except you want to work on the primitives variables in your composite not the composite it self.  
 
--- I want two named field in my table, named and id
-myTable["name"] = "myTable" -- a string
-myTable["id"] = 1 -- an int
-```
+You can access all the primitives variables from your composite as :
+```Lua
 
-Now we have myTable, a table type variable, compose of two others data types, a name (string) and an id (int).
-```lua
-print(type(myTable))
-print(type(myTable["name"]))
-print(type(myTable["id"]))
-```
-It will display
-```lua
-table
-string
-number
-```
-As you can see I can acces my fields, with the use of `[ ]`, but you can access it with `.` too.
-```lua
-print(type(myTable.name))
-print(type(myTable.id))
-```
-```
-myTable
-1
-```
+local player = playerType
 
-Now you can create table variable that can include other primitive data type.
-That's what looks most to composite data in other languages.
-
-Let's take another example
-
-```lua
--- I want to create a new player, kind of warrior, for my video game
-
--- Declare the table
-local player= {}
--- Filling it with all the attributes I want for my player
-player.name = "player1"
 player.health = 50
-player.strength = 5
-player.agility = 4
-player.intellect = 3
+
+
+print("Player's health :")
+print(player.health)
+
 
 ```
-That's cool, but a bit messy. We can improve that by grouping some of the stats.
-
-```lua
--- I want to create a new player, kind of warrior, for my video game
-
--- Declare the table
-local player= {}
-
--- And I declare another table to group all my attributes
-local attributesTable = {}
-
--- Now I'm filling both player and attributes variables
-
--- Player
-player.name = "player1"
-
--- Attributes
-attributesTable.health = 50
-attributesTable.strength = 5
-attributesTable.agility = 4
-attributesTable.intellect = 3
-
-
--- And finaly, I declare a field attributes for my player.
-
-player.attributes = attributesTable
-
+```Lua
+Player's health :
+50
 ```
 
-Let's see the result
+It's awesome! Now you can create thousands of new players! But how can you know if two variables of playerType, are equals?
 
-```lua
-
-print("A new player is created named ".. player.name)
-print("Attributes")
-print("health "..player.attributes.health)
-print("strength "..player.attributes.strength)
-print("agility "..player.attributes.agility)
-print("intellect "..player.attributes.intellect)
-```
-
-```lua
-A new player is created named player1
-Attributes
-health 50
-strength 5
-agility 4
-intellect 3
+The operation :
 
 ```
+local player1 = playerType
+local player2 = playerType
 
-Here we go ! Now we have a player table lighter, with two fields : name (string) and attributes (table).
+player1.health = 50
+player2.health = 50
 
-Now you can create all type of variable you want ! But remember in Lua, it's only table with fields of differents types.
+
+
+print(player1 == player2)
+```
+will return
+```
+false
+```
+
+Why?
+
+That is a main point of composite data type, the machine doesn't know how handle them for basic operations in contrary of primitives data types.
+All the common operations needed have to be coded like:
+   - addition
+   - substraction
+   - print
+   .
+   .
+   .
+   
+   
+I hope you understand now, that composite data type, are YOUR types. You have to tell everything in your program : how does it look like, how print it , etc ...
+
+But it's extremely powerfull and less time consuming than if you work with only primitives.
 
 
 
@@ -196,13 +145,13 @@ Now you can create all type of variable you want ! But remember in Lua, it's onl
 
 
 Back to our example in the introduction . `The strings equal and the numbers equal, but why aren't the tables and functions equal since they are both empty?`
-Remember `There are eight basic types in Lua: nil, boolean, number, string, function, userdata, thread, and table. ....`
-But `Tables, functions, threads, and (full) userdata values are objects: variables do not actually contain these values, only references to them`
+Remember `There are eight basic types in Lua: nil, boolean, number, string, function, userdata, thread, and table.`
+But Tables, functions, threads, and (full) userdata values are objects: variables do not actually contain these values, only references to them
 
 We will try to understand how it works.
 
 	
-```lua
+```Lua
 local string1 = "hello"
 	
 -- I declare two differentes table
@@ -220,7 +169,7 @@ print("myTable.myString == "..myTable.myString)
 
 myTable2 = myTable
 
--- Because table working with references, myTable and myTable2 are equals. It means both reference to the same area in the memory.
+-- Because tables working with references, myTable and myTable2 are equals. It means both reference to the same area in the memory.
 -- May be for you memory area is something obscur, but all you have to know is you can have access to a specific space in the memory
 -- with some "id". And when you try to print a table, it's exactly what it returns. So if two tables return the same memory id, it's means
 -- they both point to the same memory area and so they are equals.
