@@ -30,6 +30,56 @@ Once you have downloaded the LÖVE binary for macOS (64-bit zipped), proceed to 
 
 macOS might show you a warning modal, because you are trying to open an application by an unverified developer. If so, right click on the application and choose "open" and "open" again in the following dialog. You should now be greeted by the no-game screen.
 
+**Addendum: Homebrew**
+
+If you are familiar with development on a macOS machine, you might have heard of [Homebrew](https://brew.sh/). It is a package manager which allows you to install a lot of programs, libraries and so on directly through your Terminal.
+
+I only recommend this approach for advanced developers who know what they are doing. For completeness sake here are the steps to install LÖVE via homebrew.
+
+```sh
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap caskroom/cask
+brew cask install love
+```
+
+One of the benefits of this approach is, that you don't have to set up your own terminal alias, because Homebrew also takes care of that.
+
+### Windows
+
+If a shortcut for LÖVE didn't appear in the start menu, you should be able to type "love" in the search and see it.
+
+## Create a project folder
+
+Find a safe place to create a folder and give it the name "hello".
+Within the folder, create a new text file named "main.lua".
+This will be where our game's code goes.
+
+**Note for Windows:**
+In order to create a file with the name "main.lua", you may need to first create a new "Text Document", right-click on it, click "Properties" then from the properties menu change the file extension from reading "main.lua.txt" to just "main.lua".
+To avoid having to do this for every Lua file you create in the future you can tell Windows to always show the full name of files, including their extension.
+To enable this, type "Control Panel" in the program search and open the "Control Panel" result.
+Within the control panel, select "File Explorer Options".
+Click the "View" tab.
+Remove the check mark from the "Hide extensions for known file types" and press Apply/OK.
+
+## Create a test game
+
+Within "main.lua", write out the following function:
+
+```lua
+love.draw = function()
+  love.graphics.print('Hello World!', 400, 300)
+end
+```
+
+Now let's figure out how to run it and see what it does.
+
+## Run the game
+
+This will be different for different operating systems.
+
+### macOS
+
 **Starting your game**
 
 The simplest way to start a LÖVE game is to drag the whole folder containing the game's source files (not just the main.lua file!) onto the application file.
@@ -96,72 +146,6 @@ love <path-to-your-game>
 
 And that's it: You can now quickly run your games with the `love` alias. This is especially handy if you are inside of the game's directory, because all it takes now is a quick `love .` to start the game.
 
-**Addendum: Homebrew**
-
-If you are familiar with development on a macOS machine, you might have heard of [Homebrew](https://brew.sh/). It is a package manager which allows you to install a lot of programs, libraries and so on directly through your Terminal.
-
-I only recommend this approach for advanced developers who know what they are doing. For completeness sake here are the steps to install LÖVE via homebrew.
-
-```sh
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap caskroom/cask
-brew cask install love
-```
-
-One of the benefits of this approach is, that you don't have to set up your own alias, because Homebrew takes care of that.
-
-### Windows
-
-If a shortcut for LÖVE didn't appear in the start menu, you should be able to type "love" in the search and see it.
-
-## Create a project folder
-
-Find a safe place to create a folder and give it the name "hello".
-Within the folder, create a new text file named "main.lua".
-This will be where our game's code goes.
-
-**Note for Windows:**
-In order to create a file with the name "main.lua", you may need to first create a new "Text Document", right-click on it, click "Properties" then from the properties menu change the file extension from reading "main.lua.txt" to just "main.lua".
-To avoid having to do this for every Lua file you create in the future you can tell Windows to always show the full name of files, including their extension.
-To enable this, type "Control Panel" in the program search and open the "Control Panel" result.
-Within the control panel, select "File Explorer Options".
-Click the "View" tab.
-Remove the check mark from the "Hide extensions for known file types" and press Apply/OK.
-
-## Create a test game
-
-Within "main.lua", write out the following function:
-
-```lua
-love.draw = function()
-  love.graphics.print('Hello World!', 400, 300)
-end
-```
-
-Now let's figure out how to run it and see what it does.
-
-## Run the game
-
-This will be different for different operating systems.
-
-### macOS and other posix systems
-
-Open the terminal and navigate to the "hello" folder:
-```sh
-cd /path/to/your/game
-ls # Should display "main.lua" if you're in the correct directory.
-```
-
-This will let LÖVE know the game is in this folder.
-Now run LÖVE:
-
-```sh
-love .
-```
-
-The `.` (period) means "current location", so you're telling LÖVE that the game is in this location we're currently in.
-If the game ran successfully, you will see a black window with the text "Hello world!" in small print.
-
 ### Windows
 
 Find the shortcut to LÖVE and drag and drop it in the game folder like so:
@@ -186,6 +170,10 @@ to
 
 Now press "OK" to close the Properties dialog and clicking the shortcut will launch the game.
 If the game ran successfully, you will see a black window with the text "Hello world!" in small print.
+
+### Other Posix Systems
+
+TBD
 
 ## Congratulations!
 
