@@ -40,7 +40,7 @@ This also works with .love files.
 
 **Using the terminal**
 
-If you are familiar with the [Terminal](https://en.wikipedia.org/wiki/Terminal_(macOS)), you can use it as a more convenient method of starting games.
+If you are familiar with the [Terminal](https://en.wikipedia.org/wiki/Terminal_&#40;macOS&#41;), you can use it as a more convenient method of starting games.
 
 Assuming the downloaded "love" application is still in your "Downloads" folder, open a new Terminal and type the following lines (you need to press return after each line):
 
@@ -78,7 +78,7 @@ Now try the following command:
 
 As you can see we now can run LÖVE without using the `open` command, which also has the added benefit of showing the game's console output directly in our terminal.
 
-Of course it would be rather inconvenient if we had to specify the full path each time we want to run our game, so we'll now set up an [alias](https://en.wikipedia.org/wiki/Alias_(command)) in your .bash_profile (which basically acts as a configuration file for your bash sessions).
+Of course it would be rather inconvenient if we had to specify the full path each time we want to run our game, so we'll now set up an [alias](https://en.wikipedia.org/wiki/Alias_&#40;command&#41;) in your .bash_profile (which basically acts as a configuration file for your bash sessions).
 
 Since it is a hidden file you might not be able to spot it in your finder, but we can simply edit it through our Terminal.
 
