@@ -22,15 +22,27 @@ Along with installing LÖVE, you will need a text editor for creating Lua files 
 
 When you launch LÖVE, (see instructions below on how to do that) you will be greeted with a friendly graphic and the text "NO GAME", meaning you are running the engine but didn't give it a game to load.
 
-### macOS and other posix systems
+### macOS
 
-If your system created a shortcut, run that.
-Otherwise you can open the terminal on your system and run the command:
+Once you have downloaded the LÖVE binary for macOS (64-bit zipped), proceed to the "Downloads" folder and unzip the archive. You should now see an application called "love".
+
+![macOS-love](/images/02-01-macos-folder.png)
+
+macOS might show you a warning modal, because you are trying to open an application by an unverified developer. If so, right click on the application and choose "open" and "open" again in the following dialog. You should now be greeted by the no-game screen.
+
+**Addendum: Homebrew**
+
+If you are familiar with development on a macOS machine, you might have heard of [Homebrew](https://brew.sh/). It is a package manager which allows you to install a lot of programs, libraries and so on directly through your Terminal.
+
+I only recommend this approach for advanced developers who know what they are doing. For completeness sake here are the steps to install LÖVE via homebrew.
+
 ```sh
-love
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap caskroom/cask
+brew cask install love
 ```
 
-then press Enter on your keyboard.
+One of the benefits of this approach is, that you don't have to set up your own terminal alias, because Homebrew also takes care of that.
 
 ### Windows
 
@@ -66,23 +78,73 @@ Now let's figure out how to run it and see what it does.
 
 This will be different for different operating systems.
 
-### macOS and other posix systems
+### macOS
 
-Open the terminal and navigate to the "hello" folder:
+**Starting your game**
+
+The simplest way to start a LÖVE game is to drag the whole folder containing the game's source files (not just the main.lua file!) onto the application file.
+
+![macOS-demo](/images/02-01-macos-drop-folder.gif)
+
+This also works with .love files.
+
+**Using the terminal**
+
+If you are familiar with the [Terminal](https://en.wikipedia.org/wiki/Terminal_&#40;macOS&#41;), you can use it as a more convenient method of starting games.
+
+Assuming the downloaded "love" application is still in your "Downloads" folder, open a new Terminal and type the following lines (you need to press return after each line):
+
 ```sh
-cd /path/to/your/game
-ls # Should display "main.lua" if you're in the correct directory.
+# Switches to the Downloads folder
+cd ~/Downloads/
+
+# Start the LÖVE app
+open love.app
 ```
 
-This will let LÖVE know the game is in this folder.
-Now run LÖVE:
+This obviously starts LÖVE with a no-game screen since we didn't specify which folder to load. Let's fix this by typing the following command:
 
 ```sh
-love .
+# In my case the full command to start the galaxy demo would be:
+# open -a love.app ~/Downloads/galaxy
+open -a love.app <path-to-your-game>
 ```
 
-The `.` (period) means "current location", so you're telling LÖVE that the game is in this location we're currently in.
-If the game ran successfully, you will see a black window with the text "Hello world!" in small print.
+**Using a terminal alias**
+
+We can still improve on the previous method by using an alias. Before we do this, we move the "love" application bundle to the Application folder.
+
+```sh
+# Move the app from Downloads to Applications.
+~ mv ~/Downloads/love.app/ ~/Applications/love.app
+```
+
+Now try the following command:
+
+```sh
+# Start LÖVE by using the script inside of the application bundle.
+~/Applications/love.app/Contents/MacOS/love <path-to-your-game>
+```
+
+As you can see we now can run LÖVE without using the `open` command, which also has the added benefit of showing the game's console output directly in our terminal.
+
+Of course it would be rather inconvenient if we had to specify the full path each time we want to run our game, so we'll now set up an [alias](https://en.wikipedia.org/wiki/Alias_&#40;command&#41;) in your .bash_profile (which basically acts as a configuration file for your bash sessions).
+
+Since it is a hidden file you might not be able to spot it in your finder, but we can simply edit it through our Terminal.
+
+```sh
+# Appends the alias definition to an existing .bash_profile
+# or creates a new one.
+echo "alias love='~/Applications/love.app/Contents/MacOS/love'" >> ~/.bash_profile
+
+# Use the updated .bash_profile for the current session.
+source ~/.bash_profile
+
+# Start your game through the alias.
+love <path-to-your-game>
+```
+
+And that's it: You can now quickly run your games with the `love` alias. This is especially handy if you are inside of the game's directory, because all it takes now is a quick `love .` to start the game.
 
 ### Windows
 
@@ -108,6 +170,10 @@ to
 
 Now press "OK" to close the Properties dialog and clicking the shortcut will launch the game.
 If the game ran successfully, you will see a black window with the text "Hello world!" in small print.
+
+### Other Posix Systems
+
+TBD
 
 ## Congratulations!
 
