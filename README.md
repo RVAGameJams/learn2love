@@ -3,8 +3,8 @@
 **Current progress:**
 - [Chapter 1](https://rvagamejams.com/learn2love/pages/01-00-programming-basics.html) - Programming basics ✔
 - [Chapter 2](https://rvagamejams.com/learn2love/pages/02-00-introducing-love.html) - Introducing LÖVE (in progress)
-- Chapter 3 - In-depth programming (in progress)
-- Chapter 4 - In-depth LÖVE (to do)
+- Chapter 3 - Programming in depth (in progress)
+- Chapter 4 - LÖVE in depth (to do)
 
 ## What is this book?
 
