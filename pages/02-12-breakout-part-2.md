@@ -160,7 +160,7 @@ Imagine our game is an organization and each file is a role in the company.
 Our main file is like the secretary that knows how to handle requests from outsiders.
 If somebody called asking the secretary about building-maintenance issues, the secretary wouldn't grab plumbing tools and take care of the problem but rather dispatch the person whose responsibility is that exact kind of problem.
 As the owner of this organization we should know everyone's roles so it's easy to know where each responsibility lies.
-It will make is easier for us to grow the company to the size we desire.
+It will make it easier for us to grow the company to the size we desire.
 
 One easy improvement is to not write out all the instructions for drawing each entity within the main file, but rather let each entity file be responsible for every feature of that entity, including how to draw that entity.
 We may want to get fancy later and draw bricks in different colors, for instance.
