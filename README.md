@@ -25,6 +25,8 @@ I have been programming since 2007, focusing on teaching myself best practices. 
 
 - [jaythomas](https://github.com/jaythomas): Original author
 - [JimmyStevens](https://github.com/JimmyStevens): Edits and suggestions in chapter 1 & 2
+- [rm-code](https://github.com/rm-code): Chapter 2 getting started
+- [ValentinChCloud](https://github.com/ValentinChCloud): Chapter 3 primitives and references
 
 ## Contributing
 
