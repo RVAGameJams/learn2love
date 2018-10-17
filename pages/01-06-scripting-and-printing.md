@@ -56,7 +56,7 @@ return "world"
 
 The `print` function takes any data and *prints* the value in the window pane on the right.
 ```
->  
+>
 "hello"
 => "world"
 ```
@@ -74,4 +74,4 @@ The `print` function and `return` statement will both come in handy when testing
 ## Exercises
 
 - When we pass data into a function, it is called an argument. We passed 1 argument into `print` but it can pass in two, or three, or more. What does it look like when you print multiple arguments?
-- Fun tip, when using a text editor along-side the REPL you can run the code without the mouse by pressing 'command + enter' on Mac and 'Alt + enter' on Windows. Does this speed up your learning? 
+- Fun tip, when using a text editor along-side the REPL you can run the code without the mouse by pressing 'command + enter' on Mac and 'Alt + enter' on Windows. Does this speed up your learning?

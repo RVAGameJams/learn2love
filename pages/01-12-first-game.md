@@ -2,7 +2,7 @@
 
 Let's learn about a few new functions and then we'll be able to write our first game!
 
-## Reading input 
+## Reading input
 
 Not only can our program print out data, but using the function `io.read` it can take data too.
 This function doesn't need any arguments because it will prompt us in the window on the right for us to type in data.
@@ -61,7 +61,7 @@ return "Your number is odd."
 
 Many languages give us access to a random number generator.
 Randomness is how we generate secure passwords and keys in the real world.
-To generate a random number in lua, we use `math.random`:
+To generate a random number in Lua, we use `math.random`:
 
 ```lua
 math.random(100)

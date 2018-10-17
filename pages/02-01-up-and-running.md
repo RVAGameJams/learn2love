@@ -34,7 +34,7 @@ macOS might show you a warning modal, because you are trying to open an applicat
 
 If you are familiar with development on a macOS machine, you might have heard of [Homebrew](https://brew.sh/). It is a package manager which allows you to install a lot of programs, libraries and so on directly through your Terminal.
 
-I only recommend this approach for advanced developers who know what they are doing. For completeness sake here are the steps to install LÖVE via homebrew.
+I only recommend this approach for advanced developers who know what they are doing. For completeness sake here are the steps to install LÖVE via Homebrew.
 
 ```sh
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

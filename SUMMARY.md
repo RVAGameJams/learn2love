@@ -37,4 +37,5 @@
   * [2.14 - Breakout (part 4)](pages/02-14-breakout-part-4.md)
   * [2.15 - Breakout (part 5)](pages/02-15-breakout-part-5.md)
 * [3.0 - Programming in-depth](pages/03-00-programming-in-depth.md)
+  * [3.01 - Primitives and references](pages/03-01-primitives-and-references.md)
   * [3.02 - Higher-order functions](pages/03-02-higher-order-functions.md)

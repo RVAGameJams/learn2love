@@ -150,7 +150,7 @@ return add_three(1)
 The `add_three` variable is assigned a unique and special function.
 It is assigned the inner function within the adder function, but with the data we passed in now assigned to the `a` variable.
 Even though the function was returned outside of the [scope](01-17-scopes.md) it was defined in, the scope's data was enclosed inside the returned function until the function was discarded and the program exited.
-These types of functions are very common to see in situations where a function needs to be generated multiple times but with different data sets.
+These types of functions are common in situations where a function needs to be generated multiple times but with different data sets.
 
 The data in the closure can also continue to be updated, giving you the ability to make storage containers for your data.
 Try this out:

@@ -141,7 +141,7 @@ end
 
 The left and right arrows will now move the paddle!
 There isn't much else to say here in the way of input.
-A bit unrelated to the actual input, but moreso the paddle functionality is it moves off screen and doesn't adhere to the boundaries?
+A bit unrelated to the actual input, but more so the paddle functionality is it moves off screen and doesn't adhere to the boundaries?
 Why is that?
 
 If you remember when we created the paddle, it is a static entity.
