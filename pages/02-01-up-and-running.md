@@ -48,6 +48,37 @@ One of the benefits of this approach is, that you don't have to set up your own 
 
 If a shortcut for LÖVE didn't appear in the start menu, you should be able to type "love" in the search and see it.
 
+### Ubuntu
+
+Open the "Ubuntu Software" application and search "love2d".
+Click on the top result and you should see a familiar application description:
+
+![](/images/02-01-ubuntu-installer.png)
+
+Click the "Install" button to install it.
+Once installed, you can search for the "terminal" application.
+Once that is open, type `love` to launch the application.
+
+### Other GNU/Linux operating systems
+
+Most distros have LÖVE in their respective repositories:
+
+- Arch linux-based systems - `sudo pacman -Sy love`
+- Fedora-based systems - `yum install love`
+
+Once installed from your package manager, open a terminal and type `love` to test that it runs.
+
+If your distro doesn't have LÖVE in the package manager an alternative way to get it is to downloaded the AppImage version from the homepage (https://love2d.org/).
+AppImage files are like a universal executable that works across Linux systems similar to the way an "exe" file works on Windows.
+Once downloaded, open the terminal, change to the directory where you downloaded the AppImage and type the commands:
+
+```
+chmod a+x love-11.1-linux-x86_64.AppImage # Marks the file as a safe executable
+./love-11.1-linux-x86_64.AppImage
+```
+
+`love-11.1-linux-x86_64.AppImage` should be changed to match the name of the downloaded AppImage file.
+
 ## Create a project folder
 
 Find a safe place to create a folder and give it the name "hello".
@@ -171,9 +202,23 @@ to
 Now press "OK" to close the Properties dialog and clicking the shortcut will launch the game.
 If the game ran successfully, you will see a black window with the text "Hello world!" in small print.
 
-### Other Posix Systems
+## GNU/Linux
 
-TBD
+If you know the location of your folder, you can open a terminal and type the command:
+
+```
+love <path-to-your-game>
+```
+
+Where `<path-to-your-game>` has been changed to the actual folder path where your game resides.
+
+If you are already navigated into the game folder, you can run a terminal command within that directory:
+
+```
+love .
+```
+
+The "." simply means "this folder that I am currently in".
 
 ## Congratulations!
 
