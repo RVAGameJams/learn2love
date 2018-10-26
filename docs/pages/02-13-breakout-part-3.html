@@ -573,6 +573,64 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4" data-path="03-00-programming-in-depth.html">
+            
+                <a href="03-00-programming-in-depth.html">
+            
+                    
+                    3.0 - Programming in-depth
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="03-01-primitives-and-references.html">
+            
+                <a href="03-01-primitives-and-references.html">
+            
+                    
+                    3.01 - Primitives and references
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="03-02-higher-order-functions.html">
+            
+                <a href="03-02-higher-order-functions.html">
+            
+                    
+                    3.02 - Higher-order functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="03-03-map-and-filter.html">
+            
+                <a href="03-03-map-and-filter.html">
+            
+                    
+                    3.03 - Map and filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
     
 
@@ -731,6 +789,9 @@ love.update = <span class="hljs-function"><span class="hljs-keyword">function</s
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
+<p>In <code>love.update</code> we skip updates if <code>input.paused</code> is <code>true</code>.
+However if the game is <strong>not</strong> paused then it will loop through the entity list, calling <code>entity.update</code> if the entity has an update function.
+With this added functionality, we can append an <code>entity.update</code> function into our existing paddle code:</p>
 <pre><code class="lang-lua"><span class="hljs-comment">-- entities/paddle.lua</span>
 
 entity.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(self)</span></span>
@@ -749,7 +810,7 @@ entity.update = <span class="hljs-function"><span class="hljs-keyword">function<
 </code></pre>
 <p>The left and right arrows will now move the paddle!
 There isn&apos;t much else to say here in the way of input.
-A bit unrelated to the actual input, but moreso the paddle functionality is it moves off screen and doesn&apos;t adhere to the boundaries?
+A bit unrelated to the actual input, but more so the paddle functionality is it moves off screen and doesn&apos;t adhere to the boundaries?
 Why is that?</p>
 <p>If you remember when we created the paddle, it is a static entity.
 It doesn&apos;t have the ability to move on its own or by the effect of other entities.
@@ -828,7 +889,7 @@ We will also implement the ability to destroy bricks using the world collision c
 <h2 id="exercises">Exercises</h2>
 <ul>
 <li>Despite having a restitution of 1, the ball is losing momentum as it collides with other objects. This is due to friction. How can that be fixed?</li>
-<li>When the game is paused, make it display text on the screen so the player knows the game isn&apos;t just frozen. Hint: you can find the function you need for text in <a href="https://love2d.org/wiki/love.graphics" target="_blank">love.graphics</a>.</li>
+<li>When the game is paused, make it display text on the screen so the player knows the game isn&apos;t just frozen. Hint: you&apos;ll need one of the draw functions from <a href="https://love2d.org/wiki/love.graphics" target="_blank">love.graphics</a> to print the text.</li>
 </ul>
 <p>The answers to these exercises will be in the next section&apos;s source code.</p>
 
@@ -874,7 +935,7 @@ We will also implement the ability to destroy bricks using the world collision c
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.13 - Breakout (part 3)","level":"1.3.13","depth":2,"next":{"title":"2.14 - Breakout (part 4)","level":"1.3.14","depth":2,"path":"pages/02-14-breakout-part-4.md","ref":"pages/02-14-breakout-part-4.md","articles":[]},"previous":{"title":"2.12 - Breakout (part 2)","level":"1.3.12","depth":2,"path":"pages/02-12-breakout-part-2.md","ref":"pages/02-12-breakout-part-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-13-breakout-part-3.md","mtime":"2018-09-25T13:42:03.318Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-29T03:17:28.028Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.13 - Breakout (part 3)","level":"1.3.13","depth":2,"next":{"title":"2.14 - Breakout (part 4)","level":"1.3.14","depth":2,"path":"pages/02-14-breakout-part-4.md","ref":"pages/02-14-breakout-part-4.md","articles":[]},"previous":{"title":"2.12 - Breakout (part 2)","level":"1.3.12","depth":2,"path":"pages/02-12-breakout-part-2.md","ref":"pages/02-12-breakout-part-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-13-breakout-part-3.md","mtime":"2018-10-26T03:25:54.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T04:08:14.242Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

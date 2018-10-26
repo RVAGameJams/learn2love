@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.7 - The world · GitBook</title>
+        <title>3.0 - Programming in-depth · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -58,10 +58,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="02-08-reading-documentation.html" />
+    <link rel="next" href="03-01-primitives-and-references.html" />
     
     
-    <link rel="prev" href="02-06-mapping.html" />
+    <link rel="prev" href="02-15-breakout-part-5.html" />
     
 
     <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
@@ -451,7 +451,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.7" data-path="02-07-the-world.html">
+        <li class="chapter " data-level="1.3.7" data-path="02-07-the-world.html">
             
                 <a href="02-07-the-world.html">
             
@@ -573,7 +573,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="03-00-programming-in-depth.html">
+        <li class="chapter active" data-level="1.4" data-path="03-00-programming-in-depth.html">
             
                 <a href="03-00-programming-in-depth.html">
             
@@ -661,7 +661,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2.7 - The world</a>
+        <a href=".." >3.0 - Programming in-depth</a>
     </h1>
 </div>
 
@@ -676,122 +676,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="the-world">The world</h1>
-<p>A world is a physical space where objects can be created (spawned) and interact.
-Shapes and other things drawn on the screen are not implicitly part of a world and won&apos;t interact with each other unless they are.
-Multiple worlds can co-exist, but the objects in each world won&apos;t interact.
-Going forward I will refer to these objects as <em>entities</em>.</p>
-<h2 id="entities">Entities</h2>
-<p>Entities are made up of different components that allow them to interact.
-These are the 3 fundamental physical components:</p>
-<ul>
-<li><strong>shape</strong> - some sort of polygon to give our entity a physical shape that determines the boundaries of the entity</li>
-<li><strong>body</strong> - holds physical properties such as mass</li>
-<li><strong>fixture</strong> - attaches a shape to a body</li>
-</ul>
-<p>Let&apos;s write a new main.lua from scratch and see how these are all wired up.
-First, a world needs to be defined:</p>
-<pre><code class="lang-lua"><span class="hljs-keyword">local</span> world = love.physics.newWorld(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>)
-</code></pre>
-<p><code>love.physics.newWorld</code> returns a table, an instance of a world.
-The table holds functions that allow us to apply attributes to the world.
-It also holds all the entities in our world, which is currently none on initialization.
-According to the documentation on <a href="https://love2d.org/wiki/love.physics.newWorld" target="_blank"><code>love.physics.newWorld</code></a>, our 1st and 2nd parameters set the X and Y gravity on our world.
-We don&apos;t want any sideways gravity, but we&apos;ll go ahead and set an arbitrary number for the vertical gravity.</p>
-<p>While focusing on the world, we should allow the world to know whenever we get an update to the delta time.
-A world without time would be frozen;
-By letting the world know about the passage of time, it can know whether it needs to make an entity fall another meter or two meters&#x2026;</p>
-<pre><code class="lang-lua">love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
-  world.update(world, dt)
-<span class="hljs-keyword">end</span>
-</code></pre>
-<p>Actually, let&apos;s do one trick here.
-When calling a function in Lua and the first parameter of the function is the table the function is stored in, you can use a shortcut notation:</p>
-<pre><code class="lang-lua">love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
-  world:update(dt)
-<span class="hljs-keyword">end</span>
-</code></pre>
-<p>Aside from being easier to write, you&apos;ll see this way of invoking functions used all over the place in the L&#xD6;VE documentation.</p>
-<p>Finally, we&apos;ll add an entity to the game in 4 steps:</p>
-<ol>
-<li>Create a table to store all the pieces of our entity together. Not entirely necessary but we&apos;ll learn later why this step makes things easier.</li>
-<li>Create a body. This will be added to the entity table and the world.</li>
-<li>Create the shape we want the entity to have.</li>
-<li>Create a fixture to attach the body and shape together.</li>
-</ol>
-<pre><code class="lang-lua"><span class="hljs-comment">-- Triangle is the name of our first entity</span>
-<span class="hljs-keyword">local</span> triangle = {}
-triangle.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-string">&apos;dynamic&apos;</span>)
-<span class="hljs-comment">-- Give the triangle some weight</span>
-triangle.body:setMass(<span class="hljs-number">32</span>)
-triangle.shape = love.physics.newPolygonShape(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>)
-triangle.fixture = love.physics.newFixture(triangle.body, triangle.shape)
-
-love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, triangle.body:getWorldPoints(triangle.shape:getPoints()))
-<span class="hljs-keyword">end</span>
-</code></pre>
-<p>After creating the <code>body</code> table inside <code>triangle</code>, we called <code>triangle.body.setMass</code> to set a weight property on our triangle so it can fall.
-Notice we wrote <code>triangle.body:setMass(32)</code>, which is the same as saying <code>triangle.body.setMass(triangle.body, 32)</code> but shorter and more conventional to the way the L&#xD6;VE documentation writes.</p>
-<p>What&apos;s going on inside <code>love.draw</code> looks pretty crazy so let&apos;s break the long line up.</p>
-<pre><code class="lang-lua">  love.graphics.polygon(
-    <span class="hljs-string">&apos;line&apos;</span>,
-    triangle.body:getWorldPoints(triangle.shape:getPoints())
-  )
-</code></pre>
-<p>We&apos;ve used <code>love.graphics.polygon</code> previously so its purpose should already be familiar.
-The first parameter <code>&apos;line&apos;</code> is telling it that we want an outline of a shape drawn.
-The second parameter is a table containing the points that need to be outlined.
-To get the triangle&apos;s points we call <code>triangle.shape:getPoints()</code>, but this only returns the shape of the triangle and the relative position of the points.
-By then calling <code>triangle.body:getWorldPoints(triangle.shape:getPoints())</code> we convert those relative points to their absolute position as that&apos;s what the polygon drawing function needs to know so it can draw the triangle exactly where it is supposed to be on the screen.</p>
-<p>Let&apos;s put it all together and add one more entity into the mix so the two can interact:</p>
-<pre><code class="lang-lua"><span class="hljs-keyword">local</span> world = love.physics.newWorld(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>)
-
-<span class="hljs-comment">-- Triangle is the name of our first entity</span>
-<span class="hljs-keyword">local</span> triangle = {}
-triangle.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-string">&apos;dynamic&apos;</span>)
-<span class="hljs-comment">-- Give the triangle some weight</span>
-triangle.body.setMass(triangle.body, <span class="hljs-number">32</span>)
-triangle.shape = love.physics.newPolygonShape(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>)
-triangle.fixture = love.physics.newFixture(triangle.body, triangle.shape)
-
-<span class="hljs-comment">-- Another entity</span>
-<span class="hljs-keyword">local</span> bar = {}
-bar.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">450</span>, <span class="hljs-string">&apos;static&apos;</span>)
-bar.shape = love.physics.newPolygonShape(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">20</span>, <span class="hljs-number">400</span>, <span class="hljs-number">20</span>, <span class="hljs-number">400</span>, <span class="hljs-number">0</span>)
-bar.fixture = love.physics.newFixture(bar.body, bar.shape)
-
-
-<span class="hljs-keyword">local</span> key_map = {
-  escape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-    love.event.quit()
-  <span class="hljs-keyword">end</span>
-}
-
-love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, triangle.body:getWorldPoints(triangle.shape:getPoints()))
-  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, bar.body:getWorldPoints(bar.shape:getPoints()))
-<span class="hljs-keyword">end</span>
-
-
-love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
-  <span class="hljs-comment">-- Check in the key map if there is a function</span>
-  <span class="hljs-comment">-- that matches this pressed key&apos;s name</span>
-  <span class="hljs-keyword">if</span> key_map[pressed_key] <span class="hljs-keyword">then</span>
-    key_map[pressed_key]()
-  <span class="hljs-keyword">end</span>
-<span class="hljs-keyword">end</span>
-
-love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
-  world:update(dt)
-<span class="hljs-keyword">end</span>
-</code></pre>
-<p>This is a lot to digest so don&apos;t hesitate to re-read through this code several times if necessary.
-There were a lot of new functions introduced in this section, so in the next section we&apos;ll take a deeper look at the documentation and read more about them and their components.</p>
-<h2 id="exercises">Exercises</h2>
-<ul>
-<li>Try changing the mass (<code>triangle.body:setMass</code>) and gravity (<code>love.physics.newWorld</code>) and see what happens.</li>
-</ul>
+                                <h1 id="chapter-3-programming-in-depth">Chapter 3: Programming in depth</h1>
+<p>The goal of this chapter is to touch on a variety of topics and problems faced while programming and to understand and solve them using Lua.
+Programming is a broad topic so the information here won&apos;t follow a coherent course of learning like the previous chapters.</p>
 
                                 
                                 </section>
@@ -819,12 +706,12 @@ There were a lot of new functions introduced in this section, so in the next sec
 
             
                 
-                <a href="02-06-mapping.html" class="navigation navigation-prev " aria-label="Previous page: 2.6 - Mapping">
+                <a href="02-15-breakout-part-5.html" class="navigation navigation-prev " aria-label="Previous page: 2.15 - Breakout (part 5)">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="02-08-reading-documentation.html" class="navigation navigation-next " aria-label="Next page: 2.8 - Reading documentation">
+                <a href="03-01-primitives-and-references.html" class="navigation navigation-next " aria-label="Next page: 3.01 - Primitives and references">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -835,7 +722,7 @@ There were a lot of new functions introduced in this section, so in the next sec
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.7 - The world","level":"1.3.7","depth":2,"next":{"title":"2.8 - Reading documentation","level":"1.3.8","depth":2,"path":"pages/02-08-reading-documentation.md","ref":"pages/02-08-reading-documentation.md","articles":[]},"previous":{"title":"2.6 - Mapping","level":"1.3.6","depth":2,"path":"pages/02-06-mapping.md","ref":"pages/02-06-mapping.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-07-the-world.md","mtime":"2018-08-26T02:11:44.367Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T04:08:14.242Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.0 - Programming in-depth","level":"1.4","depth":1,"next":{"title":"3.01 - Primitives and references","level":"1.4.1","depth":2,"path":"pages/03-01-primitives-and-references.md","ref":"pages/03-01-primitives-and-references.md","articles":[]},"previous":{"title":"2.15 - Breakout (part 5)","level":"1.3.15","depth":2,"path":"pages/02-15-breakout-part-5.md","ref":"pages/02-15-breakout-part-5.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/03-00-programming-in-depth.md","mtime":"2018-10-12T03:26:44.018Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T04:08:14.242Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

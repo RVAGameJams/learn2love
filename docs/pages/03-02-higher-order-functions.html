@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.7 - The world · GitBook</title>
+        <title>3.02 - Higher-order functions · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -58,10 +58,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="02-08-reading-documentation.html" />
+    <link rel="next" href="03-03-map-and-filter.html" />
     
     
-    <link rel="prev" href="02-06-mapping.html" />
+    <link rel="prev" href="03-01-primitives-and-references.html" />
     
 
     <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
@@ -451,7 +451,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.7" data-path="02-07-the-world.html">
+        <li class="chapter " data-level="1.3.7" data-path="02-07-the-world.html">
             
                 <a href="02-07-the-world.html">
             
@@ -600,7 +600,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="03-02-higher-order-functions.html">
+        <li class="chapter active" data-level="1.4.2" data-path="03-02-higher-order-functions.html">
             
                 <a href="03-02-higher-order-functions.html">
             
@@ -661,7 +661,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2.7 - The world</a>
+        <a href=".." >3.02 - Higher-order functions</a>
     </h1>
 </div>
 
@@ -676,121 +676,163 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="the-world">The world</h1>
-<p>A world is a physical space where objects can be created (spawned) and interact.
-Shapes and other things drawn on the screen are not implicitly part of a world and won&apos;t interact with each other unless they are.
-Multiple worlds can co-exist, but the objects in each world won&apos;t interact.
-Going forward I will refer to these objects as <em>entities</em>.</p>
-<h2 id="entities">Entities</h2>
-<p>Entities are made up of different components that allow them to interact.
-These are the 3 fundamental physical components:</p>
-<ul>
-<li><strong>shape</strong> - some sort of polygon to give our entity a physical shape that determines the boundaries of the entity</li>
-<li><strong>body</strong> - holds physical properties such as mass</li>
-<li><strong>fixture</strong> - attaches a shape to a body</li>
-</ul>
-<p>Let&apos;s write a new main.lua from scratch and see how these are all wired up.
-First, a world needs to be defined:</p>
-<pre><code class="lang-lua"><span class="hljs-keyword">local</span> world = love.physics.newWorld(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>)
-</code></pre>
-<p><code>love.physics.newWorld</code> returns a table, an instance of a world.
-The table holds functions that allow us to apply attributes to the world.
-It also holds all the entities in our world, which is currently none on initialization.
-According to the documentation on <a href="https://love2d.org/wiki/love.physics.newWorld" target="_blank"><code>love.physics.newWorld</code></a>, our 1st and 2nd parameters set the X and Y gravity on our world.
-We don&apos;t want any sideways gravity, but we&apos;ll go ahead and set an arbitrary number for the vertical gravity.</p>
-<p>While focusing on the world, we should allow the world to know whenever we get an update to the delta time.
-A world without time would be frozen;
-By letting the world know about the passage of time, it can know whether it needs to make an entity fall another meter or two meters&#x2026;</p>
-<pre><code class="lang-lua">love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
-  world.update(world, dt)
-<span class="hljs-keyword">end</span>
-</code></pre>
-<p>Actually, let&apos;s do one trick here.
-When calling a function in Lua and the first parameter of the function is the table the function is stored in, you can use a shortcut notation:</p>
-<pre><code class="lang-lua">love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
-  world:update(dt)
-<span class="hljs-keyword">end</span>
-</code></pre>
-<p>Aside from being easier to write, you&apos;ll see this way of invoking functions used all over the place in the L&#xD6;VE documentation.</p>
-<p>Finally, we&apos;ll add an entity to the game in 4 steps:</p>
-<ol>
-<li>Create a table to store all the pieces of our entity together. Not entirely necessary but we&apos;ll learn later why this step makes things easier.</li>
-<li>Create a body. This will be added to the entity table and the world.</li>
-<li>Create the shape we want the entity to have.</li>
-<li>Create a fixture to attach the body and shape together.</li>
-</ol>
-<pre><code class="lang-lua"><span class="hljs-comment">-- Triangle is the name of our first entity</span>
-<span class="hljs-keyword">local</span> triangle = {}
-triangle.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-string">&apos;dynamic&apos;</span>)
-<span class="hljs-comment">-- Give the triangle some weight</span>
-triangle.body:setMass(<span class="hljs-number">32</span>)
-triangle.shape = love.physics.newPolygonShape(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>)
-triangle.fixture = love.physics.newFixture(triangle.body, triangle.shape)
-
-love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, triangle.body:getWorldPoints(triangle.shape:getPoints()))
-<span class="hljs-keyword">end</span>
-</code></pre>
-<p>After creating the <code>body</code> table inside <code>triangle</code>, we called <code>triangle.body.setMass</code> to set a weight property on our triangle so it can fall.
-Notice we wrote <code>triangle.body:setMass(32)</code>, which is the same as saying <code>triangle.body.setMass(triangle.body, 32)</code> but shorter and more conventional to the way the L&#xD6;VE documentation writes.</p>
-<p>What&apos;s going on inside <code>love.draw</code> looks pretty crazy so let&apos;s break the long line up.</p>
-<pre><code class="lang-lua">  love.graphics.polygon(
-    <span class="hljs-string">&apos;line&apos;</span>,
-    triangle.body:getWorldPoints(triangle.shape:getPoints())
-  )
-</code></pre>
-<p>We&apos;ve used <code>love.graphics.polygon</code> previously so its purpose should already be familiar.
-The first parameter <code>&apos;line&apos;</code> is telling it that we want an outline of a shape drawn.
-The second parameter is a table containing the points that need to be outlined.
-To get the triangle&apos;s points we call <code>triangle.shape:getPoints()</code>, but this only returns the shape of the triangle and the relative position of the points.
-By then calling <code>triangle.body:getWorldPoints(triangle.shape:getPoints())</code> we convert those relative points to their absolute position as that&apos;s what the polygon drawing function needs to know so it can draw the triangle exactly where it is supposed to be on the screen.</p>
-<p>Let&apos;s put it all together and add one more entity into the mix so the two can interact:</p>
-<pre><code class="lang-lua"><span class="hljs-keyword">local</span> world = love.physics.newWorld(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>)
-
-<span class="hljs-comment">-- Triangle is the name of our first entity</span>
-<span class="hljs-keyword">local</span> triangle = {}
-triangle.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-string">&apos;dynamic&apos;</span>)
-<span class="hljs-comment">-- Give the triangle some weight</span>
-triangle.body.setMass(triangle.body, <span class="hljs-number">32</span>)
-triangle.shape = love.physics.newPolygonShape(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>)
-triangle.fixture = love.physics.newFixture(triangle.body, triangle.shape)
-
-<span class="hljs-comment">-- Another entity</span>
-<span class="hljs-keyword">local</span> bar = {}
-bar.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">450</span>, <span class="hljs-string">&apos;static&apos;</span>)
-bar.shape = love.physics.newPolygonShape(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">20</span>, <span class="hljs-number">400</span>, <span class="hljs-number">20</span>, <span class="hljs-number">400</span>, <span class="hljs-number">0</span>)
-bar.fixture = love.physics.newFixture(bar.body, bar.shape)
-
-
-<span class="hljs-keyword">local</span> key_map = {
-  escape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-    love.event.quit()
-  <span class="hljs-keyword">end</span>
-}
-
-love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, triangle.body:getWorldPoints(triangle.shape:getPoints()))
-  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, bar.body:getWorldPoints(bar.shape:getPoints()))
+                                <h1 id="higher-order-functions">Higher-order functions</h1>
+<p>In <a href="01-07-making-functions.html">1.07 Making functions</a> we learned about, well, making functions.
+So what about higher-order functions?
+What are they and how do we make them?
+Simply put, higher-order functions are functions built on top of other functions.
+Here&apos;s a basic example:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> run_twice = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(some_function, some_data)</span></span>
+  some_function(some_data)
+  some_function(some_data)
 <span class="hljs-keyword">end</span>
 
+run_twice(<span class="hljs-built_in">print</span>, <span class="hljs-string">&apos;Hello World!&apos;</span>)
+</code></pre>
+<p>It can take any function and run it twice for you, in this case the <code>print</code> function, but it could be any function you pass it.
+Typically higher-order functions return data.
+Here&apos;s a trickier example that does just that:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> twice = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fn, val)</span></span>
+    <span class="hljs-keyword">return</span> fn(fn(val))
+<span class="hljs-keyword">end</span>
 
-love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
-  <span class="hljs-comment">-- Check in the key map if there is a function</span>
-  <span class="hljs-comment">-- that matches this pressed key&apos;s name</span>
-  <span class="hljs-keyword">if</span> key_map[pressed_key] <span class="hljs-keyword">then</span>
-    key_map[pressed_key]()
+<span class="hljs-keyword">local</span> add_four = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(num)</span></span>
+    <span class="hljs-keyword">return</span> num + <span class="hljs-number">4</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">return</span> twice(add_four, <span class="hljs-number">12</span>)
+</code></pre>
+<p>Take a look at the bottom line for a second.
+We are calling the function <code>twice</code> with two arguments, the <code>add_four</code> function and the number <code>12</code>.
+The purpose of the <code>twice</code> function is to take a value, <code>12</code> in this case, and run it through the given function (<code>add_four</code>) twice.
+Now take a look inside the <code>twice</code> function.
+Inside it returns <code>fn(fn(val))</code>.
+Given what we know is being passed to this function, this can be read as saying <code>add_four(add_four(12))</code>.
+The order of operation says to start from the inner-most parenthesis and work your way out:</p>
+<pre><code>add_four(add_four(12))
+</code></pre><p>becomes</p>
+<pre><code>add_four(16)
+</code></pre><p>which becomes</p>
+<pre><code>20
+</code></pre><p>and that is what is returned when you run the code.
+The power of these higher-order functions is that they are re-usable.
+You can give the <code>twice</code> function anything that takes and returns a value:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> twice = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fn, val)</span></span>
+    <span class="hljs-keyword">return</span> fn(fn(val))
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> double = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(number)</span></span>
+    <span class="hljs-keyword">return</span> number * <span class="hljs-number">2</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">return</span> twice(double, <span class="hljs-number">3</span>)
+</code></pre>
+<p>...or similar to our original example:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> twice = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fn, val)</span></span>
+    <span class="hljs-keyword">return</span> fn(fn(val))
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> shout = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(message)</span></span>
+  <span class="hljs-built_in">print</span>(message .. <span class="hljs-string">&apos;!!&apos;</span>)
+    <span class="hljs-keyword">return</span> message
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">return</span> twice(shout, <span class="hljs-string">&apos;hello&apos;</span>)
+</code></pre>
+<p>There are all examples of higher-order functions that accept a function as an argument.
+Another kind of higher-order function is one that <em>returns</em> another function:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> wrapper = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;You found the treasure!&apos;</span>
   <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
 
-love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
-  world:update(dt)
+<span class="hljs-keyword">local</span> kinder_surprise = wrapper()
+<span class="hljs-keyword">local</span> secret = kinder_surprise()
+<span class="hljs-keyword">return</span> secret
+</code></pre>
+<p>When we ran <code>wrapper</code> it returned us <em>another function</em> that we had to invoke to get to the innermost value.
+To avoid all the variable names, you can save some time and invoke such kinds of functions like so:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> wrapper = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;You found the treasure!&apos;</span>
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">return</span> wrapper()()
+</code></pre>
+<h2 id="closures">Closures</h2>
+<p>Which number will print out by running the following code?</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> number = <span class="hljs-number">3</span>
+
+<span class="hljs-keyword">local</span> closure = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">local</span> number = <span class="hljs-number">5</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    <span class="hljs-built_in">print</span>(number)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+
+<span class="hljs-keyword">local</span> print_number = closure()
+print_number()
+</code></pre>
+<p>Strange?</p>
+<p>Ok, so let&apos;s try a this same function-returning-a-function thing but passing in some data:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> adder = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a)</span></span>
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(b)</span></span>
+    <span class="hljs-keyword">return</span> a + b
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> add_three = adder(<span class="hljs-number">3</span>)
+
+<span class="hljs-keyword">return</span> add_three(<span class="hljs-number">1</span>)
+</code></pre>
+<p>The <code>add_three</code> variable is assigned a unique and special function.
+It is assigned the inner function within the adder function, but with the data we passed in now assigned to the <code>a</code> variable.
+Even though the function was returned outside of the <a href="01-17-scopes.html">scope</a> it was defined in, the scope&apos;s data was enclosed inside the returned function until the function was discarded and the program exited.
+These types of functions are common in situations where a function needs to be generated multiple times but with different data sets.</p>
+<p>The data in the closure can also continue to be updated, giving you the ability to make storage containers for your data.
+Try this out:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> make_counter = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">local</span> number = <span class="hljs-number">0</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+    number = number + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> number
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> count = make_counter()
+<span class="hljs-built_in">print</span>(count())
+<span class="hljs-built_in">print</span>(count())
+<span class="hljs-built_in">print</span>(count())
+<span class="hljs-built_in">print</span>(count())
+</code></pre>
+<p>In programs like L&#xD6;VE there are callback systems where a similar effect happens:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> entity = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;entity&apos;</span>)
+
+love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  entity:draw()
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>This is a lot to digest so don&apos;t hesitate to re-read through this code several times if necessary.
-There were a lot of new functions introduced in this section, so in the next section we&apos;ll take a deeper look at the documentation and read more about them and their components.</p>
+<p>As seen in the previous chapter, the <code>love.draw</code> callback is defined in a <strong>main.lua</strong> file and later invoked somewhere within the game engine.
+Since <code>love.draw</code> was defined in the scope where the entity variable is defined, the entity variable lives on and can be used inside <code>love.draw</code> long after the <strong>main.lua</strong> file is done being invoked.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Closures take some practice to understand and appreciate, but once you see practical examples of where and how to use them they become an indispensable item on your programming toolbelt.
+In the previous section we used the term <em>composite data</em> to compare primitive and non-primitive data types.
+In this section we saw how to go about <em>composing</em> higher-order functions.
+In the following pages we will cover some higher-order functions that are the building blocks for old and modern software alike.</p>
 <h2 id="exercises">Exercises</h2>
 <ul>
-<li>Try changing the mass (<code>triangle.body:setMass</code>) and gravity (<code>love.physics.newWorld</code>) and see what happens.</li>
+<li><p>In the <code>make_counter</code> example above, try generating multiple counters:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- Do the numbers in each counter stay in</span>
+<span class="hljs-comment">-- sync or are they tracked independently?</span>
+<span class="hljs-keyword">local</span> count_a = make_counter()
+<span class="hljs-keyword">local</span> count_b = make_counter()
+</code></pre>
+</li>
+<li><p>Using the same <code>make_counter</code> example, modify it to return a table instead of a function. Within this table, define an <code>increment</code> and <code>decrement</code> function so that you can make the counter number go up or down. How would you use such a function?</p>
+</li>
 </ul>
 
                                 
@@ -819,12 +861,12 @@ There were a lot of new functions introduced in this section, so in the next sec
 
             
                 
-                <a href="02-06-mapping.html" class="navigation navigation-prev " aria-label="Previous page: 2.6 - Mapping">
+                <a href="03-01-primitives-and-references.html" class="navigation navigation-prev " aria-label="Previous page: 3.01 - Primitives and references">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="02-08-reading-documentation.html" class="navigation navigation-next " aria-label="Next page: 2.8 - Reading documentation">
+                <a href="03-03-map-and-filter.html" class="navigation navigation-next " aria-label="Next page: 3.03 - Map and filter">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -835,7 +877,7 @@ There were a lot of new functions introduced in this section, so in the next sec
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.7 - The world","level":"1.3.7","depth":2,"next":{"title":"2.8 - Reading documentation","level":"1.3.8","depth":2,"path":"pages/02-08-reading-documentation.md","ref":"pages/02-08-reading-documentation.md","articles":[]},"previous":{"title":"2.6 - Mapping","level":"1.3.6","depth":2,"path":"pages/02-06-mapping.md","ref":"pages/02-06-mapping.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-07-the-world.md","mtime":"2018-08-26T02:11:44.367Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T04:08:14.242Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"next":{"title":"3.03 - Map and filter","level":"1.4.3","depth":2,"path":"pages/03-03-map-and-filter.md","ref":"pages/03-03-map-and-filter.md","articles":[]},"previous":{"title":"3.01 - Primitives and references","level":"1.4.1","depth":2,"path":"pages/03-01-primitives-and-references.md","ref":"pages/03-01-primitives-and-references.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/03-02-higher-order-functions.md","mtime":"2018-10-26T03:25:54.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T04:08:14.242Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

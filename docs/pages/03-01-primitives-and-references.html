@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.7 - The world · GitBook</title>
+        <title>3.01 - Primitives and references · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -58,10 +58,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="02-08-reading-documentation.html" />
+    <link rel="next" href="03-02-higher-order-functions.html" />
     
     
-    <link rel="prev" href="02-06-mapping.html" />
+    <link rel="prev" href="03-00-programming-in-depth.html" />
     
 
     <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
@@ -451,7 +451,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.7" data-path="02-07-the-world.html">
+        <li class="chapter " data-level="1.3.7" data-path="02-07-the-world.html">
             
                 <a href="02-07-the-world.html">
             
@@ -587,7 +587,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="03-01-primitives-and-references.html">
+        <li class="chapter active" data-level="1.4.1" data-path="03-01-primitives-and-references.html">
             
                 <a href="03-01-primitives-and-references.html">
             
@@ -661,7 +661,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >2.7 - The world</a>
+        <a href=".." >3.01 - Primitives and references</a>
     </h1>
 </div>
 
@@ -676,122 +676,203 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="the-world">The world</h1>
-<p>A world is a physical space where objects can be created (spawned) and interact.
-Shapes and other things drawn on the screen are not implicitly part of a world and won&apos;t interact with each other unless they are.
-Multiple worlds can co-exist, but the objects in each world won&apos;t interact.
-Going forward I will refer to these objects as <em>entities</em>.</p>
-<h2 id="entities">Entities</h2>
-<p>Entities are made up of different components that allow them to interact.
-These are the 3 fundamental physical components:</p>
-<ul>
-<li><strong>shape</strong> - some sort of polygon to give our entity a physical shape that determines the boundaries of the entity</li>
-<li><strong>body</strong> - holds physical properties such as mass</li>
-<li><strong>fixture</strong> - attaches a shape to a body</li>
-</ul>
-<p>Let&apos;s write a new main.lua from scratch and see how these are all wired up.
-First, a world needs to be defined:</p>
-<pre><code class="lang-lua"><span class="hljs-keyword">local</span> world = love.physics.newWorld(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>)
-</code></pre>
-<p><code>love.physics.newWorld</code> returns a table, an instance of a world.
-The table holds functions that allow us to apply attributes to the world.
-It also holds all the entities in our world, which is currently none on initialization.
-According to the documentation on <a href="https://love2d.org/wiki/love.physics.newWorld" target="_blank"><code>love.physics.newWorld</code></a>, our 1st and 2nd parameters set the X and Y gravity on our world.
-We don&apos;t want any sideways gravity, but we&apos;ll go ahead and set an arbitrary number for the vertical gravity.</p>
-<p>While focusing on the world, we should allow the world to know whenever we get an update to the delta time.
-A world without time would be frozen;
-By letting the world know about the passage of time, it can know whether it needs to make an entity fall another meter or two meters&#x2026;</p>
-<pre><code class="lang-lua">love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
-  world.update(world, dt)
-<span class="hljs-keyword">end</span>
-</code></pre>
-<p>Actually, let&apos;s do one trick here.
-When calling a function in Lua and the first parameter of the function is the table the function is stored in, you can use a shortcut notation:</p>
-<pre><code class="lang-lua">love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
-  world:update(dt)
-<span class="hljs-keyword">end</span>
-</code></pre>
-<p>Aside from being easier to write, you&apos;ll see this way of invoking functions used all over the place in the L&#xD6;VE documentation.</p>
-<p>Finally, we&apos;ll add an entity to the game in 4 steps:</p>
-<ol>
-<li>Create a table to store all the pieces of our entity together. Not entirely necessary but we&apos;ll learn later why this step makes things easier.</li>
-<li>Create a body. This will be added to the entity table and the world.</li>
-<li>Create the shape we want the entity to have.</li>
-<li>Create a fixture to attach the body and shape together.</li>
-</ol>
-<pre><code class="lang-lua"><span class="hljs-comment">-- Triangle is the name of our first entity</span>
-<span class="hljs-keyword">local</span> triangle = {}
-triangle.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-string">&apos;dynamic&apos;</span>)
-<span class="hljs-comment">-- Give the triangle some weight</span>
-triangle.body:setMass(<span class="hljs-number">32</span>)
-triangle.shape = love.physics.newPolygonShape(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>)
-triangle.fixture = love.physics.newFixture(triangle.body, triangle.shape)
+                                <h1 id="primitives-and-references">Primitives and references</h1>
+<p>Take a look at this code:</p>
+<pre><code class="lang-lua">    <span class="hljs-keyword">local</span> string1 = <span class="hljs-string">&quot;hello&quot;</span>
+    <span class="hljs-keyword">local</span> string2 = <span class="hljs-string">&apos;hello&apos;</span>
 
-love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, triangle.body:getWorldPoints(triangle.shape:getPoints()))
-<span class="hljs-keyword">end</span>
+    <span class="hljs-built_in">print</span>(string1 == string2)
+
+    <span class="hljs-keyword">local</span> number1 = <span class="hljs-number">14</span>
+    <span class="hljs-keyword">local</span> number2 = <span class="hljs-number">14</span>
+
+    <span class="hljs-built_in">print</span>(number1 == number2)
+
+    <span class="hljs-keyword">local</span> table1 = {}
+    <span class="hljs-keyword">local</span> table2 = {}
+
+    <span class="hljs-built_in">print</span>(table1 == table2)
+
+    <span class="hljs-keyword">local</span> function1 = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">local</span> function2 = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> <span class="hljs-keyword">end</span>
+
+    <span class="hljs-built_in">print</span>(function1 == function2)
 </code></pre>
-<p>After creating the <code>body</code> table inside <code>triangle</code>, we called <code>triangle.body.setMass</code> to set a weight property on our triangle so it can fall.
-Notice we wrote <code>triangle.body:setMass(32)</code>, which is the same as saying <code>triangle.body.setMass(triangle.body, 32)</code> but shorter and more conventional to the way the L&#xD6;VE documentation writes.</p>
-<p>What&apos;s going on inside <code>love.draw</code> looks pretty crazy so let&apos;s break the long line up.</p>
-<pre><code class="lang-lua">  love.graphics.polygon(
-    <span class="hljs-string">&apos;line&apos;</span>,
-    triangle.body:getWorldPoints(triangle.shape:getPoints())
-  )
+<p>What would happen if you were to run this?</p>
+<p>In chapter 1 we learned about comparing strings with the <code>==</code> operator when we talked about <a href="01-08-booleans.html">booleans</a>.
+Let&apos;s <a href="https://repl.it/languages/Lua" target="_blank">run the code in the REPL</a> and try it out:</p>
+<pre><code>true
+true
+false
+false
+</code></pre><p>The strings equal and the numbers equal, but why aren&apos;t the tables and functions equal since they are both empty?
+Try printing the tables and functions and look what happens:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> table1 = {}
+<span class="hljs-keyword">local</span> table2 = {}
+
+<span class="hljs-built_in">print</span>(table1)
+<span class="hljs-built_in">print</span>(table2)
+
+<span class="hljs-keyword">local</span> function1 = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">local</span> function2 = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> <span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(function1)
+<span class="hljs-built_in">print</span>(function2)
 </code></pre>
-<p>We&apos;ve used <code>love.graphics.polygon</code> previously so its purpose should already be familiar.
-The first parameter <code>&apos;line&apos;</code> is telling it that we want an outline of a shape drawn.
-The second parameter is a table containing the points that need to be outlined.
-To get the triangle&apos;s points we call <code>triangle.shape:getPoints()</code>, but this only returns the shape of the triangle and the relative position of the points.
-By then calling <code>triangle.body:getWorldPoints(triangle.shape:getPoints())</code> we convert those relative points to their absolute position as that&apos;s what the polygon drawing function needs to know so it can draw the triangle exactly where it is supposed to be on the screen.</p>
-<p>Let&apos;s put it all together and add one more entity into the mix so the two can interact:</p>
-<pre><code class="lang-lua"><span class="hljs-keyword">local</span> world = love.physics.newWorld(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>)
+<pre><code>table: 0x16af270
+table: 0x16af220
+function: 0x16ae840
+function: 0x16aeff0
+</code></pre><p>Attempting to print each value you are given back a <a href="https://en.wikipedia.org/wiki/Hexadecimal" target="_blank">hexadecimal number</a>, the place in memory where those values are located.
+Each table and function resides in a different place in memory.
+So how is this relevant?</p>
+<p>When checking data like strings and numbers, the <code>==</code> operator does indeed check that the data matches.
+These data types are simple and take very little effort for a computer to check that they are equal.
+Booleans, strings, numbers, and <code>nil</code> are all <em>primitive</em> types of data and behave this way.</p>
+<p>When checking data like functions and tables, however, the <code>==</code> operator checks the memory location of the data on both sides of the operator and if the variables reference the same location then they are equal.
+In other words, the <code>==</code> operator checks these data types to see if they have the same identity.
+No matter how many empty tables or functions you have, each one is created with a unique identity.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> string1 = <span class="hljs-string">&apos;hello&apos;</span>
+<span class="hljs-keyword">local</span> string2 = <span class="hljs-string">&quot;hello&quot;</span>
+<span class="hljs-comment">-- Another copy of &quot;hello&quot; is created in memory:</span>
+<span class="hljs-keyword">local</span> string3 = string2
+<span class="hljs-comment">-- But these two copies are equal</span>
+<span class="hljs-built_in">print</span>(string2 == string3)
 
-<span class="hljs-comment">-- Triangle is the name of our first entity</span>
-<span class="hljs-keyword">local</span> triangle = {}
-triangle.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-string">&apos;dynamic&apos;</span>)
-<span class="hljs-comment">-- Give the triangle some weight</span>
-triangle.body.setMass(triangle.body, <span class="hljs-number">32</span>)
-triangle.shape = love.physics.newPolygonShape(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>)
-triangle.fixture = love.physics.newFixture(triangle.body, triangle.shape)
+<span class="hljs-keyword">local</span> table1 = {}
+<span class="hljs-keyword">local</span> table2 = table1
+<span class="hljs-built_in">print</span>(table1 == table2)
+</code></pre>
+<p>What is the result of <code>print(table1 == table2)</code>?
+Aha! Both these variables reference the same data.
+Quick&#x2013; a magician waves two wands in front of your face and asks you to count how many wands there are.
+How do you know if there are really two wands or if this is just a trick with mirrors?
+What do you do?
+You take one of the wands and break it of course.
+If the other wand breaks then they were the same wand the entire time.
+Let&apos;s try that with the two objects:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> table1 = {}
+<span class="hljs-keyword">local</span> table2 = table1
+table1.rabbit = <span class="hljs-string">&apos;white&apos;</span>
 
-<span class="hljs-comment">-- Another entity</span>
-<span class="hljs-keyword">local</span> bar = {}
-bar.body = love.physics.newBody(world, <span class="hljs-number">200</span>, <span class="hljs-number">450</span>, <span class="hljs-string">&apos;static&apos;</span>)
-bar.shape = love.physics.newPolygonShape(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">20</span>, <span class="hljs-number">400</span>, <span class="hljs-number">20</span>, <span class="hljs-number">400</span>, <span class="hljs-number">0</span>)
-bar.fixture = love.physics.newFixture(bar.body, bar.shape)
+<span class="hljs-built_in">print</span>(table2.rabbit)
+</code></pre>
+<p>As long as your variables reference the same table, updating the table from one variable you will see the result when checking the other variable.
+This doesn&apos;t work with primitive data because you&apos;re always making a copy when assigning it to a new variable name:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> string1 = <span class="hljs-string">&apos;hello&apos;</span>
+<span class="hljs-keyword">local</span> string2 = string1
+string1 = <span class="hljs-string">&apos;world&apos;</span>
 
-
-<span class="hljs-keyword">local</span> key_map = {
-  escape = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-    love.event.quit()
-  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">return</span> string2
+</code></pre>
+<pre><code>=&gt; hello
+</code></pre><h2 id="primitive-versus-non-primitive-data-types">Primitive versus non-primitive data types</h2>
+<p>Whenever we assign non-primitive data to a new variable, we&apos;re always referencing the original data:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> grocery_list = {
+  <span class="hljs-string">&apos;carrots&apos;</span>,
+  <span class="hljs-string">&apos;celery&apos;</span>,
+  <span class="hljs-string">&apos;pecans&apos;</span>
 }
 
-love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, triangle.body:getWorldPoints(triangle.shape:getPoints()))
-  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, bar.body:getWorldPoints(bar.shape:getPoints()))
-<span class="hljs-keyword">end</span>
+<span class="hljs-keyword">local</span> same_list = grocery_list
 
+grocery_list[<span class="hljs-number">1</span>] = <span class="hljs-string">&apos;grapes&apos;</span>
 
-love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
-  <span class="hljs-comment">-- Check in the key map if there is a function</span>
-  <span class="hljs-comment">-- that matches this pressed key&apos;s name</span>
-  <span class="hljs-keyword">if</span> key_map[pressed_key] <span class="hljs-keyword">then</span>
-    key_map[pressed_key]()
-  <span class="hljs-keyword">end</span>
-<span class="hljs-keyword">end</span>
-
-love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dt)</span></span>
-  world:update(dt)
-<span class="hljs-keyword">end</span>
+<span class="hljs-keyword">return</span> same_list[<span class="hljs-number">1</span>]
 </code></pre>
-<p>This is a lot to digest so don&apos;t hesitate to re-read through this code several times if necessary.
-There were a lot of new functions introduced in this section, so in the next section we&apos;ll take a deeper look at the documentation and read more about them and their components.</p>
-<h2 id="exercises">Exercises</h2>
-<ul>
-<li>Try changing the mass (<code>triangle.body:setMass</code>) and gravity (<code>love.physics.newWorld</code>) and see what happens.</li>
-</ul>
+<p>But assigning primitive data to a variable, even primitive data inside tables, we&apos;re always making a unique copy:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> grocery_list = {
+  <span class="hljs-string">&apos;carrots&apos;</span>,
+  <span class="hljs-string">&apos;celery&apos;</span>,
+  <span class="hljs-string">&apos;pecans&apos;</span>
+}
+
+<span class="hljs-keyword">local</span> item_copy = grocery_list[<span class="hljs-number">1</span>]
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;item_copy is &apos;</span> .. item_copy)
+
+grocery_list[<span class="hljs-number">1</span>] = <span class="hljs-string">&apos;grapes&apos;</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;item_copy still is &apos;</span> .. item_copy)
+</code></pre>
+<p>If you need to make each item in your table reference-able, you need to make each item a non-primitive data type:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> grocery_list = {
+  { name = <span class="hljs-string">&apos;carrots&apos;</span>, location = <span class="hljs-string">&apos;produce&apos;</span> },
+  { name = <span class="hljs-string">&apos;celery&apos;</span>, location = <span class="hljs-string">&apos;produce&apos;</span> },
+  { name = <span class="hljs-string">&apos;pecans&apos;</span>, location = <span class="hljs-string">&apos;baking&apos;</span> }
+}
+
+<span class="hljs-keyword">local</span> item_reference = grocery_list[<span class="hljs-number">1</span>]
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;item_reference is &apos;</span> .. item_reference.name)
+
+grocery_list[<span class="hljs-number">1</span>].name = <span class="hljs-string">&apos;grapes&apos;</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;item_reference is now &apos;</span> .. item_reference.name)
+</code></pre>
+<p>So rather than replacing the first item in the list, the first item was retained and only modified.</p>
+<h2 id="cloning-non-primitive-data-types">Cloning non-primitive data types</h2>
+<p>As we are familiar with at this point, tables are a special data type that can contain other data types.
+You can build structures containing strings, variables, and even other tables.
+That makes the table a <em>composite</em> data type, in other words, a data type with distinguishable parts.
+Not all languages have composite data types, but for Lua the table is one of its primary features.</p>
+<p>One thing a programmer may want to do with a table is once constructed, create a copy of it.
+If there was a table for a monster in a video game, you may want to have more than one table.
+If you did this:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> enemy1 = { health = <span class="hljs-number">10</span>, strength = <span class="hljs-number">12</span>, <span class="hljs-built_in">type</span> = <span class="hljs-string">&apos;orc&apos;</span> }
+<span class="hljs-keyword">local</span> enemy2 = enemy1
+</code></pre>
+<p>You would still only have one table.
+You could use a loop to copy all the values out of a table and into a brand new table.
+A function to do that may look like this, more or less:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> copy = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(orig_table)</span></span>
+  <span class="hljs-keyword">local</span> new_table = {}
+  <span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(orig_table) <span class="hljs-keyword">do</span>
+    new_table[key] = value
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">return</span> new_table
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> enemy1 = { health = <span class="hljs-number">10</span>, strength = <span class="hljs-number">12</span>, <span class="hljs-built_in">type</span> = <span class="hljs-string">&apos;orc&apos;</span> }
+<span class="hljs-keyword">local</span> enemy2 = copy(enemy1)
+</code></pre>
+<p>There is nothing terribly wrong with this method, but a more efficient way to do such a thing would be to construct each monster table inside a function instead of copying one from another.
+This method will be familiar already if you read and followed through the <a href="02-11-breakout-part-1.html">breakout game</a>.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> create_orc = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(strength)</span></span>
+  <span class="hljs-keyword">return</span> {
+    health = <span class="hljs-number">10</span>,
+    strength = strength,
+    <span class="hljs-built_in">type</span> = <span class="hljs-string">&apos;orc&apos;</span>
+  }
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> enemy1 = create_orc(<span class="hljs-number">12</span>)
+<span class="hljs-keyword">local</span> enemy2 = create_orc(<span class="hljs-number">12</span>)
+</code></pre>
+<p>Every time the function <code>create_orc</code> is ran, it constructs a new table from scratch.
+You define an orc-style table only once and don&apos;t need to read values in from one table to another.
+A function that constructs tables for you is a common paradigm in programming known as a <em>factory</em> function.
+You made a factory that builds orcs!
+Of course this factory function paradigm works with other non-primitive types of data as well:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> create_function = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + <span class="hljs-number">1</span> <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> fn1 = create_function()
+<span class="hljs-keyword">local</span> fn2 = create_function()
+
+<span class="hljs-built_in">print</span>(fn1)
+<span class="hljs-built_in">print</span>(fn2)
+</code></pre>
+<p>A function that generates other functions?
+This may seem like an odd thing to want to do, but method of programming can be quite useful as we&apos;ll see in <a href="03-02-higher-order-functions.html">3.02 - Higher-order functions</a> and later follow-up sections.
+One thing that should be mentioned though is that functions can also be considered a composite data type as it can return other data types, and even other functions.
+Composite in that you can compose higher-order functionality in the way tables can be used to compose higher-order structures.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>When comparing or referencing data, always keep in mind whether you handling primitive or non-primitive data.
+If you are modifying data in one place, think if this might be affecting you somewhere else in your program.
+Even when writing out a <code>local some_module = require(&apos;some-module&apos;)</code> in your code <code>some_module</code> is just a table and like every other table, every reference to it can affect each other.
+So modifying <code>some_module</code> in two different files can have either beneficial or disastrous consequences depending how much care and regard you give your code.</p>
 
                                 
                                 </section>
@@ -819,12 +900,12 @@ There were a lot of new functions introduced in this section, so in the next sec
 
             
                 
-                <a href="02-06-mapping.html" class="navigation navigation-prev " aria-label="Previous page: 2.6 - Mapping">
+                <a href="03-00-programming-in-depth.html" class="navigation navigation-prev " aria-label="Previous page: 3.0 - Programming in-depth">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="02-08-reading-documentation.html" class="navigation navigation-next " aria-label="Next page: 2.8 - Reading documentation">
+                <a href="03-02-higher-order-functions.html" class="navigation navigation-next " aria-label="Next page: 3.02 - Higher-order functions">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -835,7 +916,7 @@ There were a lot of new functions introduced in this section, so in the next sec
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.7 - The world","level":"1.3.7","depth":2,"next":{"title":"2.8 - Reading documentation","level":"1.3.8","depth":2,"path":"pages/02-08-reading-documentation.md","ref":"pages/02-08-reading-documentation.md","articles":[]},"previous":{"title":"2.6 - Mapping","level":"1.3.6","depth":2,"path":"pages/02-06-mapping.md","ref":"pages/02-06-mapping.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-07-the-world.md","mtime":"2018-08-26T02:11:44.367Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T04:08:14.242Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.01 - Primitives and references","level":"1.4.1","depth":2,"next":{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},"previous":{"title":"3.0 - Programming in-depth","level":"1.4","depth":1,"path":"pages/03-00-programming-in-depth.md","ref":"pages/03-00-programming-in-depth.md","articles":[{"title":"3.01 - Primitives and references","level":"1.4.1","depth":2,"path":"pages/03-01-primitives-and-references.md","ref":"pages/03-01-primitives-and-references.md","articles":[]},{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},{"title":"3.03 - Map and filter","level":"1.4.3","depth":2,"path":"pages/03-03-map-and-filter.md","ref":"pages/03-03-map-and-filter.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/03-01-primitives-and-references.md","mtime":"2018-10-26T03:25:54.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T04:08:14.242Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

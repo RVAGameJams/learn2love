@@ -1,0 +1,1011 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.03 - Map and filter · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="03-02-higher-order-functions.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="02-04-game-loop.html">
+            
+                <a href="02-04-game-loop.html">
+            
+                    
+                    2.4 - Game loop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="02-05-delta-time.html">
+            
+                <a href="02-05-delta-time.html">
+            
+                    
+                    2.5 - Delta time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="02-06-mapping.html">
+            
+                <a href="02-06-mapping.html">
+            
+                    
+                    2.6 - Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="02-07-the-world.html">
+            
+                <a href="02-07-the-world.html">
+            
+                    
+                    2.7 - The world
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="02-08-reading-documentation.html">
+            
+                <a href="02-08-reading-documentation.html">
+            
+                    
+                    2.8 - Reading documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="02-09-modules-and-organization.html">
+            
+                <a href="02-09-modules-and-organization.html">
+            
+                    
+                    2.9 - Modules and organization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="02-10-collision-callbacks.html">
+            
+                <a href="02-10-collision-callbacks.html">
+            
+                    
+                    2.10 - Collision callbacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="02-11-breakout-part-1.html">
+            
+                <a href="02-11-breakout-part-1.html">
+            
+                    
+                    2.11 - Breakout (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="02-12-breakout-part-2.html">
+            
+                <a href="02-12-breakout-part-2.html">
+            
+                    
+                    2.12 - Breakout (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="02-13-breakout-part-3.html">
+            
+                <a href="02-13-breakout-part-3.html">
+            
+                    
+                    2.13 - Breakout (part 3)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="02-14-breakout-part-4.html">
+            
+                <a href="02-14-breakout-part-4.html">
+            
+                    
+                    2.14 - Breakout (part 4)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="02-15-breakout-part-5.html">
+            
+                <a href="02-15-breakout-part-5.html">
+            
+                    
+                    2.15 - Breakout (part 5)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="03-00-programming-in-depth.html">
+            
+                <a href="03-00-programming-in-depth.html">
+            
+                    
+                    3.0 - Programming in-depth
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="03-01-primitives-and-references.html">
+            
+                <a href="03-01-primitives-and-references.html">
+            
+                    
+                    3.01 - Primitives and references
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="03-02-higher-order-functions.html">
+            
+                <a href="03-02-higher-order-functions.html">
+            
+                    
+                    3.02 - Higher-order functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3" data-path="03-03-map-and-filter.html">
+            
+                <a href="03-03-map-and-filter.html">
+            
+                    
+                    3.03 - Map and filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.03 - Map and filter</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="map-and-filter">Map and filter</h1>
+<p>In the previous section we practiced creating some higher order functions.
+In this sections we&apos;ll compose two higher-order functions commonly used in internet applications for transforming lists.</p>
+<p>We&apos;ll start by taking a look at our grocery list to see what items we need to pick up:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> grocery_list = {
+  {
+    name = <span class="hljs-string">&apos;grapes&apos;</span>,
+    price = <span class="hljs-string">&apos;7.20&apos;</span>,
+    location = <span class="hljs-string">&apos;produce&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;celery&apos;</span>,
+    price = <span class="hljs-string">&apos;5.50&apos;</span>,
+    location = <span class="hljs-string">&apos;produce&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;walnuts&apos;</span>,
+    price = <span class="hljs-string">&apos;6.20&apos;</span>,
+    location = <span class="hljs-string">&apos;baking&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;sugar&apos;</span>,
+    price = <span class="hljs-string">&apos;8.00&apos;</span>,
+    location = <span class="hljs-string">&apos;baking&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;mayonnaise&apos;</span>,
+    price = <span class="hljs-string">&apos;3.50&apos;</span>,
+    location = <span class="hljs-string">&apos;dressings&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;cream&apos;</span>,
+    price = <span class="hljs-string">&apos;3.00&apos;</span>,
+    location = <span class="hljs-string">&apos;dairy&apos;</span>
+  }
+}
+</code></pre>
+<p>This list has more information than we want to see at a quick glance.
+If we wanted to only display a numbered list of item names, we could do so by writing a for-loop that generates a new list for us:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> new_grocery_list = {}
+<span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(grocery_list) <span class="hljs-keyword">do</span>
+  new_grocery_list[key] = key .. <span class="hljs-string">&apos;. &apos;</span> .. value.name
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">for</span> _, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(new_grocery_list) <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(value)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Here we generated a list with a loop then looped over the list again to print our results:</p>
+<pre><code>1. grapes
+2. celery
+3. walnuts
+4. sugar
+5. mayonnaise
+6. cream
+</code></pre><p>This works great for simple code like this example, but it can get messy if you are working with many lists or if you want to transform lists to different formats.</p>
+<h2 id="map">Map</h2>
+<p>Here&apos;s our higher order function, <code>map</code>.
+It takes a list and a function as arguments then returns a new list.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> map = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(list, transform_fn)</span></span>
+  <span class="hljs-keyword">local</span> new_list = {}
+  <span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(list) <span class="hljs-keyword">do</span>
+    new_list[key] = transform_fn(value, key)
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">return</span> new_list
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>A new list is created by looping over each item in the original list, applying your function to the item, then assigning the transformed data to the new list.
+Our code can be re-written to use the map function:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> map = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(list, transform_fn)</span></span>
+  <span class="hljs-keyword">local</span> new_list = {}
+  <span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(list) <span class="hljs-keyword">do</span>
+    new_list[key] = transform_fn(value, key)
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">return</span> new_list
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> grocery_list = {
+  {
+    name = <span class="hljs-string">&apos;grapes&apos;</span>,
+    price = <span class="hljs-string">&apos;7.20&apos;</span>,
+    location = <span class="hljs-string">&apos;produce&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;celery&apos;</span>,
+    price = <span class="hljs-string">&apos;5.50&apos;</span>,
+    location = <span class="hljs-string">&apos;produce&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;walnuts&apos;</span>,
+    price = <span class="hljs-string">&apos;6.20&apos;</span>,
+    location = <span class="hljs-string">&apos;baking&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;sugar&apos;</span>,
+    price = <span class="hljs-string">&apos;8.00&apos;</span>,
+    location = <span class="hljs-string">&apos;baking&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;mayonnaise&apos;</span>,
+    price = <span class="hljs-string">&apos;3.50&apos;</span>,
+    location = <span class="hljs-string">&apos;dressings&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;cream&apos;</span>,
+    price = <span class="hljs-string">&apos;3.00&apos;</span>,
+    location = <span class="hljs-string">&apos;dairy&apos;</span>
+  }
+}
+
+<span class="hljs-keyword">local</span> new_grocery_list = map(grocery_list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item, index)</span></span>
+  <span class="hljs-keyword">return</span> index .. <span class="hljs-string">&apos;. &apos;</span> .. item.name
+<span class="hljs-keyword">end</span>)
+
+<span class="hljs-keyword">for</span> _, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(new_grocery_list) <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(value)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Calling <code>map(...)</code> we get back the new list then we loop over it again just to print our results out.
+Notice how the second argument we passed into map is just a function with no name.
+Functions with no names are sometimes called anonymous functions.
+In some languages they&apos;re called lambdas, especially when used inside a higher-order function in a situation like this.
+The transform function takes in the item and its index and must return back a new result for <code>map</code> to put inside the new function.</p>
+<p>Maybe a few more examples will help out, so what if we want to return another list with just the prices so we can add up how much we need to spend?</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> price_list = map(grocery_list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item)</span></span>
+  <span class="hljs-built_in">print</span>(item.price)
+  <span class="hljs-keyword">return</span> item.price
+<span class="hljs-keyword">end</span>)
+</code></pre>
+<p>Here the map function is passed in a transform function with a print statement inside it.
+That way it will print the item prices as it builds the list so you can see what each value will be.</p>
+<p>If you had other lists for which you wanted to print prices, it could be done quite easily with <code>map</code>:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> transform_fn = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item)</span></span> <span class="hljs-keyword">return</span> item.price <span class="hljs-keyword">end</span>
+
+map(grocery_list, transform_fn)
+map(car_parts, transform_fn)
+map(card_transactions, transform_fn)
+</code></pre>
+<h2 id="filter">Filter</h2>
+<p>Let&apos;s say we wanted to only see the things on our grocery list that are in the baking aisle.
+We could write a loop to do that:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> filtered_list = {}
+<span class="hljs-keyword">for</span> _, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(grocery_list) <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">if</span> value.location == <span class="hljs-string">&apos;baking&apos;</span> <span class="hljs-keyword">then</span>
+    filtered_list[#filtered_list + <span class="hljs-number">1</span>] = value
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">for</span> _, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(filtered_list) <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(value.name)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Try running that and once it makes sense, let&apos;s think about how to turn this into a re-usable higher-order function like <code>map</code>.
+We&apos;ll make a function called <code>filter</code> that, like <code>map</code>, takes a list and a function.
+The function will return <code>true</code> if it wants to put an item in the new list or <code>false</code> if it doesn&apos;t.
+We&apos;ll call it the <em>predicate function</em>.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> filter = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(list, predicate_fn)</span></span>
+  <span class="hljs-keyword">local</span> new_list = {}
+  <span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(list) <span class="hljs-keyword">do</span>
+    <span class="hljs-comment">-- The predicate_fn that was passed in should return</span>
+    <span class="hljs-comment">-- a value that evaluates to either true or false.</span>
+    <span class="hljs-keyword">if</span> predicate_fn(value, key) <span class="hljs-keyword">then</span>
+      new_list[#new_list + <span class="hljs-number">1</span>] = value
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">return</span> new_list
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>And we can use this function to filter down to just our baking items like this:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> filter = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(list, predicate_fn)</span></span>
+  <span class="hljs-keyword">local</span> new_list = {}
+  <span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(list) <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">if</span> predicate_fn(value, key) <span class="hljs-keyword">then</span>
+      new_list[#new_list + <span class="hljs-number">1</span>] = value
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">return</span> new_list
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> grocery_list = {
+  {
+    name = <span class="hljs-string">&apos;grapes&apos;</span>,
+    price = <span class="hljs-string">&apos;7.20&apos;</span>,
+    location = <span class="hljs-string">&apos;produce&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;celery&apos;</span>,
+    price = <span class="hljs-string">&apos;5.50&apos;</span>,
+    location = <span class="hljs-string">&apos;produce&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;walnuts&apos;</span>,
+    price = <span class="hljs-string">&apos;6.20&apos;</span>,
+    location = <span class="hljs-string">&apos;baking&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;sugar&apos;</span>,
+    price = <span class="hljs-string">&apos;8.00&apos;</span>,
+    location = <span class="hljs-string">&apos;baking&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;mayonnaise&apos;</span>,
+    price = <span class="hljs-string">&apos;3.50&apos;</span>,
+    location = <span class="hljs-string">&apos;dressings&apos;</span>
+  },
+  {
+    name = <span class="hljs-string">&apos;cream&apos;</span>,
+    price = <span class="hljs-string">&apos;3.00&apos;</span>,
+    location = <span class="hljs-string">&apos;dairy&apos;</span>
+  }
+}
+
+<span class="hljs-keyword">local</span> filtered_list = filter(grocery_list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item)</span></span>
+  <span class="hljs-keyword">return</span> item.location == <span class="hljs-string">&apos;baking&apos;</span>
+<span class="hljs-keyword">end</span>)
+
+<span class="hljs-keyword">for</span> _, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(filtered_list) <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(value.name)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Notice our predicate function we wrote:</p>
+<pre><code class="lang-lua"><span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item)</span></span>
+  <span class="hljs-keyword">return</span> item.location == <span class="hljs-string">&apos;baking&apos;</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The operation after the <code>return</code> always returns a boolean <code>true</code> or <code>false</code>, so <code>filter</code> knows exactly what to do with the item based on those results.</p>
+<p>You can imagine the <code>filter</code> function could be useful for processing a search query.
+For instance, if we wanted to see only medium-sized shirts that fit a specific price range:</p>
+<pre><code class="lang-lua">filter(products, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item)</span></span>
+  <span class="hljs-keyword">if</span> item.<span class="hljs-built_in">type</span> == <span class="hljs-string">&apos;shirt&apos;</span> <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">if</span> item.size == <span class="hljs-string">&apos;M&apos;</span> <span class="hljs-keyword">then</span>
+      <span class="hljs-keyword">return</span> item.price &lt; <span class="hljs-number">40</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">end</span>)
+</code></pre>
+<h2 id="caveats">Caveats</h2>
+<p>The filter function returns a new list, but the items in the list still reference the old list if they aren&apos;t primitives.
+For instance if we modified the grocery list, the filtered copy would be updated.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> filtered_list = filter(grocery_list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item)</span></span>
+  <span class="hljs-keyword">return</span> item.location == <span class="hljs-string">&apos;baking&apos;</span>
+<span class="hljs-keyword">end</span>)
+
+grocery_list[<span class="hljs-number">3</span>].name = <span class="hljs-string">&apos;peanuts&apos;</span>
+<span class="hljs-built_in">print</span>(filtered_list[<span class="hljs-number">1</span>].name)
+</code></pre>
+<p>This behavior can be advantageous if it&apos;s expected, but it&apos;s something that should be understood about how Lua and similar programming languages work.
+This is explained more in <a href="03-01-primitives-and-references.html">3.1 - Primitives and references</a>.</p>
+<p>Another thing to consider is whether or not to write the functions yourself or to use a pre-written library you can <code>require</code> into your project.
+Not all implementations are the same and some may perform better than others, or behave differently.
+Some languages have built-in versions of these functions to standardize things.
+Unfortunately Lua doesn&apos;t provide these functions built in or as a standard library.</p>
+<p>At least you now know how to write them yourself if the need arises.</p>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li>Try filtering the grocery list to only &quot;produce&quot; items, then mapping those results down to just the names.</li>
+<li>Using <code>filter</code>, now can you return the number of items in the grocery list with a price of more than 5? Hint: you will need to use <a href="https://www.lua.org/manual/5.1/manual.html#pdf-tonumber" target="_blank">tonumber()</a> to convert the item prices to numbers for comparing.</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="03-02-higher-order-functions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 3.02 - Higher-order functions">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.03 - Map and filter","level":"1.4.3","depth":2,"previous":{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/03-03-map-and-filter.md","mtime":"2018-10-26T03:25:54.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T04:08:14.242Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

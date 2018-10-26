@@ -573,6 +573,64 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4" data-path="03-00-programming-in-depth.html">
+            
+                <a href="03-00-programming-in-depth.html">
+            
+                    
+                    3.0 - Programming in-depth
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="03-01-primitives-and-references.html">
+            
+                <a href="03-01-primitives-and-references.html">
+            
+                    
+                    3.01 - Primitives and references
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="03-02-higher-order-functions.html">
+            
+                <a href="03-02-higher-order-functions.html">
+            
+                    
+                    3.02 - Higher-order functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="03-03-map-and-filter.html">
+            
+                <a href="03-03-map-and-filter.html">
+            
+                    
+                    3.03 - Map and filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
     
 
@@ -626,30 +684,61 @@ A framework is just a set of tools or functionality combined together to serve a
 In the case of L&#xD6;VE this includes, but is not limited to:</p>
 <ul>
 <li>Functions for loading images, audio, and text</li>
-<li>Functions for creating and moving objects</li>
+<li>Functions for creating and moving objects on screen</li>
 <li>Parameters for making the objects interact</li>
 </ul>
 <h2 id="installing-your-development-environment">Installing your development environment</h2>
-<p>The L&#xD6;VE website has links to install the software on your system.
+<p>The <a href="https://love2d.org/" target="_blank">L&#xD6;VE website</a> has links to install the software on your system.
 If you have L&#xD6;VE installed already, make sure that you at least version 11 (mysterious mysteries) as some functionality we&apos;ll cover here doesn&apos;t exist in older versions.
-For mobile devices you can find a copy in the app store.
-Along with installing L&#xD6;VE, you will need a text editor for creating Lua files on your system.
-I&apos;m not going to make any recommendations for that as you can easily search the web for &quot;code editors&quot; and find any number of suitable choices for your operating system.</p>
+For mobile devices you can find a copy in the app store.</p>
+<p>Along with installing L&#xD6;VE, you will need a text editor for creating Lua files on your system. I&apos;m not going to make any recommendations here, because in the end it all comes down to personal preference, but you can check <a href="https://github.com/love2d-community/awesome-love2d/blob/master/README.md#ides" target="_blank">this list</a> by the L&#xD6;VE community if you need a starting point. It features different editors (and recommended plugins) for L&#xD6;VE and Lua development. Simply pick one.</p>
 <h2 id="test-that-l&#xF6;ve-runs">Test that L&#xD6;VE runs</h2>
 <p>When you launch L&#xD6;VE, (see instructions below on how to do that) you will be greeted with a friendly graphic and the text &quot;NO GAME&quot;, meaning you are running the engine but didn&apos;t give it a game to load.</p>
-<h3 id="osx-and-other-posix-systems">OSX and other posix systems</h3>
-<p>If your system created a shortcut, run that.
-Otherwise you can open the terminal on your system and run the command:</p>
-<pre><code class="lang-sh">love
+<h3 id="macos">macOS</h3>
+<p>Once you have downloaded the L&#xD6;VE binary for macOS (64-bit zipped), proceed to the &quot;Downloads&quot; folder and unzip the archive. You should now see an application called &quot;love&quot;.</p>
+<p><img src="../images/02-01-macos-folder.png" alt="macOS-love"></p>
+<p>macOS might show you a warning modal, because you are trying to open an application by an unverified developer. If so, right click on the application and choose &quot;open&quot; and &quot;open&quot; again in the following dialog. You should now be greeted by the no-game screen.</p>
+<p><strong>Addendum: Homebrew</strong></p>
+<p>If you are familiar with development on a macOS machine, you might have heard of <a href="https://brew.sh/" target="_blank">Homebrew</a>. It is a package manager which allows you to install a lot of programs, libraries and so on directly through your Terminal.</p>
+<p>I only recommend this approach for advanced developers who know what they are doing. For completeness sake here are the steps to install L&#xD6;VE via Homebrew.</p>
+<pre><code class="lang-sh">/usr/bin/ruby <span class="hljs-_">-e</span> <span class="hljs-string">&quot;<span class="hljs-variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span>
+brew tap caskroom/cask
+brew cask install love
 </code></pre>
+<p>One of the benefits of this approach is, that you don&apos;t have to set up your own terminal alias, because Homebrew also takes care of that.</p>
 <h3 id="windows">Windows</h3>
 <p>If a shortcut for L&#xD6;VE didn&apos;t appear in the start menu, you should be able to type &quot;love&quot; in the search and see it.</p>
+<h3 id="ubuntu">Ubuntu</h3>
+<p>Open the &quot;Ubuntu Software&quot; application and search &quot;love2d&quot;.
+Click on the top result and you should see a familiar application description:</p>
+<p><img src="../images/02-01-ubuntu-installer.png" alt=""></p>
+<p>Click the &quot;Install&quot; button to install it.
+Once installed, you can search for the &quot;terminal&quot; application.
+Once that is open, type <code>love</code> to launch the application.</p>
+<h3 id="other-gnulinux-operating-systems">Other GNU/Linux operating systems</h3>
+<p>Most distros have L&#xD6;VE in their respective repositories:</p>
+<ul>
+<li>Arch linux-based systems - <code>sudo pacman -Sy love</code></li>
+<li>Fedora-based systems - <code>yum install love</code></li>
+</ul>
+<p>Once installed from your package manager, open a terminal and type <code>love</code> to test that it runs.</p>
+<p>If your distro doesn&apos;t have L&#xD6;VE in the package manager an alternative way to get it is to downloaded the AppImage version from the homepage (<a href="https://love2d.org/" target="_blank">https://love2d.org/</a>).
+AppImage files are like a universal executable that works across Linux systems similar to the way an &quot;exe&quot; file works on Windows.
+Once downloaded, open the terminal, change to the directory where you downloaded the AppImage and type the commands:</p>
+<pre><code>chmod a+x love-11.1-linux-x86_64.AppImage # Marks the file as a safe executable
+./love-11.1-linux-x86_64.AppImage
+</code></pre><p><code>love-11.1-linux-x86_64.AppImage</code> should be changed to match the name of the downloaded AppImage file.</p>
 <h2 id="create-a-project-folder">Create a project folder</h2>
 <p>Find a safe place to create a folder and give it the name &quot;hello&quot;.
 Within the folder, create a new text file named &quot;main.lua&quot;.
 This will be where our game&apos;s code goes.</p>
 <p><strong>Note for Windows:</strong>
-In order to create a file with the name &quot;main.lua&quot;, you may need to first create a new &quot;Text Document&quot;, right-click on it, click &quot;Properties&quot; then from the properties menu change the file extension from reading &quot;main.lua.txt&quot; to just &quot;main.lua&quot;.</p>
+In order to create a file with the name &quot;main.lua&quot;, you may need to first create a new &quot;Text Document&quot;, right-click on it, click &quot;Properties&quot; then from the properties menu change the file extension from reading &quot;main.lua.txt&quot; to just &quot;main.lua&quot;.
+To avoid having to do this for every Lua file you create in the future you can tell Windows to always show the full name of files, including their extension.
+To enable this, type &quot;Control Panel&quot; in the program search and open the &quot;Control Panel&quot; result.
+Within the control panel, select &quot;File Explorer Options&quot;.
+Click the &quot;View&quot; tab.
+Remove the check mark from the &quot;Hide extensions for known file types&quot; and press Apply/OK.</p>
 <h2 id="create-a-test-game">Create a test game</h2>
 <p>Within &quot;main.lua&quot;, write out the following function:</p>
 <pre><code class="lang-lua">love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
@@ -659,17 +748,48 @@ In order to create a file with the name &quot;main.lua&quot;, you may need to fi
 <p>Now let&apos;s figure out how to run it and see what it does.</p>
 <h2 id="run-the-game">Run the game</h2>
 <p>This will be different for different operating systems.</p>
-<h3 id="osx-and-other-posix-systems">OSX and other posix systems</h3>
-<p>Open the terminal and navigate to the &quot;hello&quot; folder:</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> /path/to/your/game
-ls <span class="hljs-comment"># Should display &quot;main.lua&quot; if you&apos;re in the correct directory.</span>
+<h3 id="macos">macOS</h3>
+<p><strong>Starting your game</strong></p>
+<p>The simplest way to start a L&#xD6;VE game is to drag the whole folder containing the game&apos;s source files (not just the main.lua file!) onto the application file.</p>
+<p><img src="../images/02-01-macos-drop-folder.gif" alt="macOS-demo"></p>
+<p>This also works with .love files.</p>
+<p><strong>Using the terminal</strong></p>
+<p>If you are familiar with the <a href="https://en.wikipedia.org/wiki/Terminal_(macOS)" target="_blank">Terminal</a>, you can use it as a more convenient method of starting games.</p>
+<p>Assuming the downloaded &quot;love&quot; application is still in your &quot;Downloads&quot; folder, open a new Terminal and type the following lines (you need to press return after each line):</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># Switches to the Downloads folder</span>
+<span class="hljs-built_in">cd</span> ~/Downloads/
+
+<span class="hljs-comment"># Start the L&#xD6;VE app</span>
+open love.app
 </code></pre>
-<p>This will let L&#xD6;VE know the game is in this folder.
-Now run L&#xD6;VE:</p>
-<pre><code class="lang-sh">love .
+<p>This obviously starts L&#xD6;VE with a no-game screen since we didn&apos;t specify which folder to load. Let&apos;s fix this by typing the following command:</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># In my case the full command to start the galaxy demo would be:</span>
+<span class="hljs-comment"># open -a love.app ~/Downloads/galaxy</span>
+open <span class="hljs-_">-a</span> love.app &lt;path-to-your-game&gt;
 </code></pre>
-<p>The <code>.</code> (period) means &quot;current location&quot;, so you&apos;re telling L&#xD6;VE that the game is in this location we&apos;re currently in.
-If the game ran successfully, you will see a black window with the text &quot;Hello world!&quot; in small print.</p>
+<p><strong>Using a terminal alias</strong></p>
+<p>We can still improve on the previous method by using an alias. Before we do this, we move the &quot;love&quot; application bundle to the Application folder.</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># Move the app from Downloads to Applications.</span>
+~ mv ~/Downloads/love.app/ ~/Applications/love.app
+</code></pre>
+<p>Now try the following command:</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># Start L&#xD6;VE by using the script inside of the application bundle.</span>
+~/Applications/love.app/Contents/MacOS/love &lt;path-to-your-game&gt;
+</code></pre>
+<p>As you can see we now can run L&#xD6;VE without using the <code>open</code> command, which also has the added benefit of showing the game&apos;s console output directly in our terminal.</p>
+<p>Of course it would be rather inconvenient if we had to specify the full path each time we want to run our game, so we&apos;ll now set up an <a href="https://en.wikipedia.org/wiki/Alias_(command)" target="_blank">alias</a> in your .bash_profile (which basically acts as a configuration file for your bash sessions).</p>
+<p>Since it is a hidden file you might not be able to spot it in your finder, but we can simply edit it through our Terminal.</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># Appends the alias definition to an existing .bash_profile</span>
+<span class="hljs-comment"># or creates a new one.</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;alias love=&apos;~/Applications/love.app/Contents/MacOS/love&apos;&quot;</span> &gt;&gt; ~/.bash_profile
+
+<span class="hljs-comment"># Use the updated .bash_profile for the current session.</span>
+<span class="hljs-built_in">source</span> ~/.bash_profile
+
+<span class="hljs-comment"># Start your game through the alias.</span>
+love &lt;path-to-your-game&gt;
+</code></pre>
+<p>And that&apos;s it: You can now quickly run your games with the <code>love</code> alias. This is especially handy if you are inside of the game&apos;s directory, because all it takes now is a quick <code>love .</code> to start the game.</p>
 <h3 id="windows">Windows</h3>
 <p>Find the shortcut to L&#xD6;VE and drag and drop it in the game folder like so:</p>
 <p><img src="../images/02-01-windows-folder.png" alt=""></p>
@@ -684,6 +804,13 @@ For instance the target path in the picture should go from reading:</p>
 <pre><code>&quot;C:\Program Files\LOVE\love.exe&quot; &quot;C:\Users\IEUser\Desktop\hello&quot;
 </code></pre><p>Now press &quot;OK&quot; to close the Properties dialog and clicking the shortcut will launch the game.
 If the game ran successfully, you will see a black window with the text &quot;Hello world!&quot; in small print.</p>
+<h2 id="gnulinux">GNU/Linux</h2>
+<p>If you know the location of your folder, you can open a terminal and type the command:</p>
+<pre><code>love &lt;path-to-your-game&gt;
+</code></pre><p>Where <code>&lt;path-to-your-game&gt;</code> has been changed to the actual folder path where your game resides.</p>
+<p>If you are already navigated into the game folder, you can run a terminal command within that directory:</p>
+<pre><code>love .
+</code></pre><p>The &quot;.&quot; simply means &quot;this folder that I am currently in&quot;.</p>
 <h2 id="congratulations">Congratulations!</h2>
 <p>You&apos;ve set up your development environment for writing a game in Lua.
 If you had issues getting through this, reach out to me either through a GitHub issue or my contact information and I will update this guide to including any additional troubleshooting steps for future users.</p>
@@ -736,7 +863,7 @@ But what are the 2nd and 3rd parameters for?</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.1 - Up and running","level":"1.3.1","depth":2,"next":{"title":"2.2 - LÖVE structure","level":"1.3.2","depth":2,"path":"pages/02-02-love-structure.md","ref":"pages/02-02-love-structure.md","articles":[]},"previous":{"title":"2.0 - Introducing LÖVE","level":"1.3","depth":1,"path":"pages/02-00-introducing-love.md","ref":"pages/02-00-introducing-love.md","articles":[{"title":"2.1 - Up and running","level":"1.3.1","depth":2,"path":"pages/02-01-up-and-running.md","ref":"pages/02-01-up-and-running.md","articles":[]},{"title":"2.2 - LÖVE structure","level":"1.3.2","depth":2,"path":"pages/02-02-love-structure.md","ref":"pages/02-02-love-structure.md","articles":[]},{"title":"2.3 - Geometry","level":"1.3.3","depth":2,"path":"pages/02-03-geometry.md","ref":"pages/02-03-geometry.md","articles":[]},{"title":"2.4 - Game loop","level":"1.3.4","depth":2,"path":"pages/02-04-game-loop.md","ref":"pages/02-04-game-loop.md","articles":[]},{"title":"2.5 - Delta time","level":"1.3.5","depth":2,"path":"pages/02-05-delta-time.md","ref":"pages/02-05-delta-time.md","articles":[]},{"title":"2.6 - Mapping","level":"1.3.6","depth":2,"path":"pages/02-06-mapping.md","ref":"pages/02-06-mapping.md","articles":[]},{"title":"2.7 - The world","level":"1.3.7","depth":2,"path":"pages/02-07-the-world.md","ref":"pages/02-07-the-world.md","articles":[]},{"title":"2.8 - Reading documentation","level":"1.3.8","depth":2,"path":"pages/02-08-reading-documentation.md","ref":"pages/02-08-reading-documentation.md","articles":[]},{"title":"2.9 - Modules and organization","level":"1.3.9","depth":2,"path":"pages/02-09-modules-and-organization.md","ref":"pages/02-09-modules-and-organization.md","articles":[]},{"title":"2.10 - Collision callbacks","level":"1.3.10","depth":2,"path":"pages/02-10-collision-callbacks.md","ref":"pages/02-10-collision-callbacks.md","articles":[]},{"title":"2.11 - Breakout (part 1)","level":"1.3.11","depth":2,"path":"pages/02-11-breakout-part-1.md","ref":"pages/02-11-breakout-part-1.md","articles":[]},{"title":"2.12 - Breakout (part 2)","level":"1.3.12","depth":2,"path":"pages/02-12-breakout-part-2.md","ref":"pages/02-12-breakout-part-2.md","articles":[]},{"title":"2.13 - Breakout (part 3)","level":"1.3.13","depth":2,"path":"pages/02-13-breakout-part-3.md","ref":"pages/02-13-breakout-part-3.md","articles":[]},{"title":"2.14 - Breakout (part 4)","level":"1.3.14","depth":2,"path":"pages/02-14-breakout-part-4.md","ref":"pages/02-14-breakout-part-4.md","articles":[]},{"title":"2.15 - Breakout (part 5)","level":"1.3.15","depth":2,"path":"pages/02-15-breakout-part-5.md","ref":"pages/02-15-breakout-part-5.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-01-up-and-running.md","mtime":"2018-08-26T02:11:44.367Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-29T03:17:28.028Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.1 - Up and running","level":"1.3.1","depth":2,"next":{"title":"2.2 - LÖVE structure","level":"1.3.2","depth":2,"path":"pages/02-02-love-structure.md","ref":"pages/02-02-love-structure.md","articles":[]},"previous":{"title":"2.0 - Introducing LÖVE","level":"1.3","depth":1,"path":"pages/02-00-introducing-love.md","ref":"pages/02-00-introducing-love.md","articles":[{"title":"2.1 - Up and running","level":"1.3.1","depth":2,"path":"pages/02-01-up-and-running.md","ref":"pages/02-01-up-and-running.md","articles":[]},{"title":"2.2 - LÖVE structure","level":"1.3.2","depth":2,"path":"pages/02-02-love-structure.md","ref":"pages/02-02-love-structure.md","articles":[]},{"title":"2.3 - Geometry","level":"1.3.3","depth":2,"path":"pages/02-03-geometry.md","ref":"pages/02-03-geometry.md","articles":[]},{"title":"2.4 - Game loop","level":"1.3.4","depth":2,"path":"pages/02-04-game-loop.md","ref":"pages/02-04-game-loop.md","articles":[]},{"title":"2.5 - Delta time","level":"1.3.5","depth":2,"path":"pages/02-05-delta-time.md","ref":"pages/02-05-delta-time.md","articles":[]},{"title":"2.6 - Mapping","level":"1.3.6","depth":2,"path":"pages/02-06-mapping.md","ref":"pages/02-06-mapping.md","articles":[]},{"title":"2.7 - The world","level":"1.3.7","depth":2,"path":"pages/02-07-the-world.md","ref":"pages/02-07-the-world.md","articles":[]},{"title":"2.8 - Reading documentation","level":"1.3.8","depth":2,"path":"pages/02-08-reading-documentation.md","ref":"pages/02-08-reading-documentation.md","articles":[]},{"title":"2.9 - Modules and organization","level":"1.3.9","depth":2,"path":"pages/02-09-modules-and-organization.md","ref":"pages/02-09-modules-and-organization.md","articles":[]},{"title":"2.10 - Collision callbacks","level":"1.3.10","depth":2,"path":"pages/02-10-collision-callbacks.md","ref":"pages/02-10-collision-callbacks.md","articles":[]},{"title":"2.11 - Breakout (part 1)","level":"1.3.11","depth":2,"path":"pages/02-11-breakout-part-1.md","ref":"pages/02-11-breakout-part-1.md","articles":[]},{"title":"2.12 - Breakout (part 2)","level":"1.3.12","depth":2,"path":"pages/02-12-breakout-part-2.md","ref":"pages/02-12-breakout-part-2.md","articles":[]},{"title":"2.13 - Breakout (part 3)","level":"1.3.13","depth":2,"path":"pages/02-13-breakout-part-3.md","ref":"pages/02-13-breakout-part-3.md","articles":[]},{"title":"2.14 - Breakout (part 4)","level":"1.3.14","depth":2,"path":"pages/02-14-breakout-part-4.md","ref":"pages/02-14-breakout-part-4.md","articles":[]},{"title":"2.15 - Breakout (part 5)","level":"1.3.15","depth":2,"path":"pages/02-15-breakout-part-5.md","ref":"pages/02-15-breakout-part-5.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-01-up-and-running.md","mtime":"2018-10-26T04:07:54.313Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T04:08:14.242Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
