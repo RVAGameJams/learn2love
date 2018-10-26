@@ -184,7 +184,11 @@ end
 As seen in the previous chapter, the `love.draw` callback is defined in a **main.lua** file and later invoked somewhere within the game engine.
 Since `love.draw` was defined in the scope where the entity variable is defined, the entity variable lives on and can be used inside `love.draw` long after the **main.lua** file is done being invoked.
 
+## Conclusion
+
 Closures take some practice to understand and appreciate, but once you see practical examples of where and how to use them they become an indispensable item on your programming toolbelt.
+In the previous section we used the term *composite data* to compare primitive and non-primitive data types.
+In this section we saw how to go about *composing* higher-order functions.
 In the following pages we will cover some higher-order functions that are the building blocks for old and modern software alike.
 
 ## Exercises
