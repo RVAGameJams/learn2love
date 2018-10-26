@@ -121,6 +121,10 @@ love.update = function(dt)
 end
 ```
 
+In `love.update` we skip updates if `input.paused` is `true`.
+However if the game is **not** paused then it will loop through the entity list, calling `entity.update` if the entity has an update function.
+With this added functionality, we can append an `entity.update` function into our existing paddle code:
+
 ```lua
 -- entities/paddle.lua
 
@@ -234,6 +238,6 @@ We will also implement the ability to destroy bricks using the world collision c
 ## Exercises
 
 - Despite having a restitution of 1, the ball is losing momentum as it collides with other objects. This is due to friction. How can that be fixed?
-- When the game is paused, make it display text on the screen so the player knows the game isn't just frozen. Hint: you can find the function you need for text in [love.graphics](https://love2d.org/wiki/love.graphics).
+- When the game is paused, make it display text on the screen so the player knows the game isn't just frozen. Hint: you'll need one of the draw functions from [love.graphics](https://love2d.org/wiki/love.graphics) to print the text.
 
 The answers to these exercises will be in the next section's source code.

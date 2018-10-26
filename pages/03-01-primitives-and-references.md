@@ -118,145 +118,137 @@ return string2
 => hello
 ```
 
-### Composite data types
+## Primitive versus non-primitive data types
 
-In Lua there is no composite data such as in other language as C/C++. But the table in Lua is a powerful type that can act as composite data type.
-Usually composite data type, is a type constructed in a program using the programming language's primitives data types and even other composite types.
-
-Imagine, you need to have a new data type to refer in your program, like a Player data type. That type, will be a composed of multiples primitives types. In my game a player is composed
-of:
-
-**Player composite data**
-   - name (string)
-   - health (int)
-   - strengh (int)
-   - agility (int)
-   - intellect (int)
-   - isAlive (bool)
-
-
-First you have to declare the composite type, the program needs to know you are creating a new data type.
-Once you have created a new composite data, your life will be easier! Every times you want to create a new player, you can create a new variable and assign him Player type.
-It's exactly the same way as declared a new `int` variable or `string` variable, but in that case it will be a `player` variable.
-Your composite data type will work almost like a primitive, except you want to work on the primitives variables in your composite not the composite it self.
-
-You can access all the primitives variables from your composite as:
+Whenever we assign non-primitive data to a new variable, we're always referencing the original data:
 
 ```lua
-local player = playerType
+local grocery_list = {
+  'carrots',
+  'celery',
+  'pecans'
+}
 
-player.health = 50
+local same_list = grocery_list
 
+grocery_list[1] = 'grapes'
 
-print("Player's health :")
-print(player.health)
+return same_list[1]
 ```
 
-Player's health:
+But assigning primitive data to a variable, even primitive data inside tables, we're always making a unique copy:
 
 ```lua
-50
+local grocery_list = {
+  'carrots',
+  'celery',
+  'pecans'
+}
+
+local item_copy = grocery_list[1]
+
+print('item_copy is ' .. item_copy)
+
+grocery_list[1] = 'grapes'
+
+print('item_copy still is ' .. item_copy)
 ```
 
-It's awesome! Now you can create thousands of new players! But how can you know if two variables of playerType, are equals?
-
-The operation:
+If you need to make each item in your table reference-able, you need to make each item a non-primitive data type:
 
 ```lua
-local player1 = playerType
-local player2 = playerType
+local grocery_list = {
+  { name = 'carrots', location = 'produce' },
+  { name = 'celery', location = 'produce' },
+  { name = 'pecans', location = 'baking' }
+}
 
-player1.health = 50
-player2.health = 50
+local item_reference = grocery_list[1]
 
+print('item_reference is ' .. item_reference.name)
 
+grocery_list[1].name = 'grapes'
 
-print(player1 == player2)
+print('item_reference is now ' .. item_reference.name)
 ```
 
-will return
+So rather than replacing the first item in the list, the first item was retained and only modified.
 
-```
-false
-```
+## Cloning non-primitive data types
 
-Why?
+As we are familiar with at this point, tables are a special data type that can contain other data types.
+You can build structures containing strings, variables, and even other tables.
+That makes the table a *composite* data type, in other words, a data type with distinguishable parts.
+Not all languages have composite data types, but for Lua the table is one of its primary features.
 
-That is a main point of composite data type, the machine doesn't know how handle them for basic operations in contrary of primitives data types.
-All the common operations needed have to be coded like:
-    - addition
-    - subtraction
-    - print
-
-I hope you understand now, that composite data type, are YOUR types. You have to tell everything in your program : how does it look like, how print it, etc...
-
-But it's extremely powerful and less time consuming than if you work with only primitives.
-
-
-
-### Referenced values
-
-
-Back to our example in the introduction . `The strings equal and the numbers equal, but why aren't the tables and functions equal since they are both empty?`
-Remember `There are eight basic types in Lua: nil, boolean, number, string, function, userdata, thread, and table.`
-But Tables, functions, threads, and (full) userdata values are objects: variables do not actually contain these values, only references to them
-
-We will try to understand how it works.
-
+One thing a programmer may want to do with a table is once constructed, create a copy of it.
+If there was a table for a monster in a video game, you may want to have more than one table.
+If you did this:
 
 ```lua
-local string1 = "hello"
+local enemy1 = { health = 10, strength = 12, type = 'orc' }
+local enemy2 = enemy1
+```
 
--- I declare two different table
-local myTable = {}
-local myTable2 ={}
+You would still only have one table.
+You could use a loop to copy all the values out of a table and into a brand new table.
+A function to do that may look like this, more or less:
 
--- I declare a new field myString in myTable, and it's equal to string1, BUT because string1 is a string, the value is copied in my new field
--- In any case if I modified myTable.myString, string1 will not be modified.
-myTable.myString = string1
-
-print("myTable.myString == "..myTable.myString)
-
-
--- Now I want myTable2 to be equal to myTable. If you remember, myTable2 will have the same reference as myTable, IT IS NOT a copy
-
-myTable2 = myTable
-
--- Because tables working with references, myTable and myTable2 are equals. It means both reference to the same area in the memory.
--- May be for you memory area is something obscure, but all you have to know is you can have access to a specific space in the memory
--- with some "id". And when you try to print a table, it's exactly what it returns. So if two tables return the same memory id, it's means
--- they both point to the same memory area and so they are equals.
--- And now, if I test if these two tables are equals, it will be true.
-
-if myTable == myTable2 then
-print(tostring(myTable).." is the same as "..tostring(myTable2) )
+```lua
+local copy = function(orig_table)
+  local new_table = {}
+  for key, value in pairs(orig_table) do
+    new_table[key] = value
+  end
+  return new_table
 end
 
--- So if I change something in myTable2 does myTable will be changed too?
-
-
-myTable2.myString = "changed"
-
-
-
-print("Final")
-print("string1 == "..string1)
-print("myTable.myString == "..myTable.myString)
-print("myTable2.myString == "..myTable2.myString)
+local enemy1 = { health = 10, strength = 12, type = 'orc' }
+local enemy2 = copy(enemy1)
 ```
 
+There is nothing terribly wrong with this method, but a more efficient way to do such a thing would be to construct each monster table inside a function instead of copying one from another.
+This method will be familiar already if you read and followed through the [breakout game](02-11-breakout-part-1.md).
+
+```lua
+local create_orc = function(strength)
+  return {
+    health = 10,
+    strength = strength,
+    type = 'orc'
+  }
+end
+
+local enemy1 = create_orc(12)
+local enemy2 = create_orc(12)
 ```
-myTable.myString == hello
-table: 0x22ed7e0 is the same as table: 0x22ed7e0
-Final
-string1 == hello
-myTable.myString == changed
-myTable2.myString == changed
+
+Every time the function `create_orc` is ran, it constructs a new table from scratch.
+You define an orc-style table only once and don't need to read values in from one table to another.
+A function that constructs tables for you is a common paradigm in programming known as a *factory* function.
+You made a factory that builds orcs!
+Of course this factory function paradigm works with other non-primitive types of data as well:
+
+```lua
+local create_function = function()
+  return function() return 1 + 1 end
+end
+
+local fn1 = create_function()
+local fn2 = create_function()
+
+print(fn1)
+print(fn2)
 ```
 
+A function that generates other functions?
+This may seem like an odd thing to want to do, but method of programming can be quite useful as we'll see in [3.02 - Higher-order functions](03-02-higher-order-functions.md) and later follow-up sections.
+One thing that should be mentioned though is that functions can also be considered a composite data type as it can return other data types, and even other functions.
+Composite in that you can compose higher-order functionality in the way tables can be used to compose higher-order structures.
 
-### Conclusion
+## Conclusion
 
-:warning: ***There are eight basic types in Lua: nil, boolean, number, string, function, userdata, thread, and table.***
-
-:warning: ***Tables, functions, threads, and (full) userdata values are objects: variables do not actually contain these values, only references to them***
+When comparing or referencing data, always keep in mind whether you handling primitive or non-primitive data.
+If you are modifying data in one place, think if this might be affecting you somewhere else in your program.
+Even when writing out a `local some_module = require('some-module')` in your code `some_module` is just a table and like every other table, every reference to it can affect each other.
+So modifying `some_module` in two different files can have either beneficial or disastrous consequences depending how much care and regard you give your code.
