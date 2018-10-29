@@ -27,7 +27,7 @@ Take a look at this code:
 What would happen if you were to run this?
 
 In chapter 1 we learned about comparing strings with the `==` operator when we talked about [booleans](01-08-booleans.md).
-Let's [run the code in the REPL](https://repl.it/languages/Lua) and try it out:
+Let's run the code in [the REPL](https://repl.it/languages/Lua) and try it out:
 
 ```
 true
@@ -100,7 +100,7 @@ local table1 = {}
 local table2 = table1
 table1.rabbit = 'white'
 
-print(table2.rabbit)
+print(table2.rabbit) -- Equals 'white' too
 ```
 
 As long as your variables reference the same table, updating the table from one variable you will see the result when checking the other variable.
@@ -172,7 +172,12 @@ grocery_list[1].name = 'grapes'
 print('item_reference is now ' .. item_reference.name)
 ```
 
-So rather than replacing the first item in the list, the first item was retained and only modified.
+So rather than replacing the first item in the list, the first item was retained and only modified:
+
+```lua
+item_reference is carrots
+item_reference is now grapes
+```
 
 ## Cloning non-primitive data types
 
