@@ -58,6 +58,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="03-04-stack-and-recursion.html" />
+    
     
     <link rel="prev" href="03-02-higher-order-functions.html" />
     
@@ -624,6 +626,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.4" data-path="03-04-stack-and-recursion.html">
+            
+                <a href="03-04-stack-and-recursion.html">
+            
+                    
+                    3.04 - Stack and recursion
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -803,7 +818,13 @@ The transform function takes in the item and its index and must return back a ne
   <span class="hljs-keyword">return</span> item.price
 <span class="hljs-keyword">end</span>)
 </code></pre>
-<p>Here the map function is passed in a transform function with a print statement inside it.
+<pre><code>7.20
+5.50
+6.20
+8.00
+3.50
+3.00
+</code></pre><p>Here the map function is passed in a transform function with a print statement inside it.
 That way it will print the item prices as it builds the list so you can see what each value will be.</p>
 <p>If you had other lists for which you wanted to print prices, it could be done quite easily with <code>map</code>:</p>
 <pre><code class="lang-lua"><span class="hljs-keyword">local</span> transform_fn = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item)</span></span> <span class="hljs-keyword">return</span> item.price <span class="hljs-keyword">end</span>
@@ -894,7 +915,9 @@ We&apos;ll call it the <em>predicate function</em>.</p>
   <span class="hljs-built_in">print</span>(value.name)
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>Notice our predicate function we wrote:</p>
+<pre><code>walnuts
+sugar
+</code></pre><p>Notice our predicate function we wrote:</p>
 <pre><code class="lang-lua"><span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item)</span></span>
   <span class="hljs-keyword">return</span> item.location == <span class="hljs-string">&apos;baking&apos;</span>
 <span class="hljs-keyword">end</span>
@@ -921,7 +944,8 @@ For instance if we modified the grocery list, the filtered copy would be updated
 grocery_list[<span class="hljs-number">3</span>].name = <span class="hljs-string">&apos;peanuts&apos;</span>
 <span class="hljs-built_in">print</span>(filtered_list[<span class="hljs-number">1</span>].name)
 </code></pre>
-<p>This behavior can be advantageous if it&apos;s expected, but it&apos;s something that should be understood about how Lua and similar programming languages work.
+<pre><code>peanuts
+</code></pre><p>This behavior can be advantageous if it&apos;s expected, but it&apos;s something that should be understood about how Lua and similar programming languages work.
 This is explained more in <a href="03-01-primitives-and-references.html">3.1 - Primitives and references</a>.</p>
 <p>Another thing to consider is whether or not to write the functions yourself or to use a pre-written library you can <code>require</code> into your project.
 Not all implementations are the same and some may perform better than others, or behave differently.
@@ -960,10 +984,14 @@ Unfortunately Lua doesn&apos;t provide these functions built in or as a standard
 
             
                 
-                <a href="03-02-higher-order-functions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 3.02 - Higher-order functions">
+                <a href="03-02-higher-order-functions.html" class="navigation navigation-prev " aria-label="Previous page: 3.02 - Higher-order functions">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="03-04-stack-and-recursion.html" class="navigation navigation-next " aria-label="Next page: 3.04 - Stack and recursion">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -972,7 +1000,7 @@ Unfortunately Lua doesn&apos;t provide these functions built in or as a standard
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.03 - Map and filter","level":"1.4.3","depth":2,"previous":{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/03-03-map-and-filter.md","mtime":"2018-10-26T03:25:54.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T04:08:14.242Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.03 - Map and filter","level":"1.4.3","depth":2,"next":{"title":"3.04 - Stack and recursion","level":"1.4.4","depth":2,"path":"pages/03-04-stack-and-recursion.md","ref":"pages/03-04-stack-and-recursion.md","articles":[]},"previous":{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/03-03-map-and-filter.md","mtime":"2018-10-29T13:55:44.644Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-29T13:55:51.393Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

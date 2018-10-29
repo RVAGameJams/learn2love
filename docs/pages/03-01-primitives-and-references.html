@@ -626,6 +626,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.4" data-path="03-04-stack-and-recursion.html">
+            
+                <a href="03-04-stack-and-recursion.html">
+            
+                    
+                    3.04 - Stack and recursion
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -700,7 +713,7 @@
 </code></pre>
 <p>What would happen if you were to run this?</p>
 <p>In chapter 1 we learned about comparing strings with the <code>==</code> operator when we talked about <a href="01-08-booleans.html">booleans</a>.
-Let&apos;s <a href="https://repl.it/languages/Lua" target="_blank">run the code in the REPL</a> and try it out:</p>
+Let&apos;s run the code in <a href="https://repl.it/languages/Lua" target="_blank">the REPL</a> and try it out:</p>
 <pre><code>true
 true
 false
@@ -755,7 +768,7 @@ Let&apos;s try that with the two objects:</p>
 <span class="hljs-keyword">local</span> table2 = table1
 table1.rabbit = <span class="hljs-string">&apos;white&apos;</span>
 
-<span class="hljs-built_in">print</span>(table2.rabbit)
+<span class="hljs-built_in">print</span>(table2.rabbit) <span class="hljs-comment">-- Equals &apos;white&apos; too</span>
 </code></pre>
 <p>As long as your variables reference the same table, updating the table from one variable you will see the result when checking the other variable.
 This doesn&apos;t work with primitive data because you&apos;re always making a copy when assigning it to a new variable name:</p>
@@ -810,7 +823,10 @@ grocery_list[<span class="hljs-number">1</span>].name = <span class="hljs-string
 
 <span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;item_reference is now &apos;</span> .. item_reference.name)
 </code></pre>
-<p>So rather than replacing the first item in the list, the first item was retained and only modified.</p>
+<p>So rather than replacing the first item in the list, the first item was retained and only modified:</p>
+<pre><code class="lang-lua">item_reference is carrots
+item_reference is now grapes
+</code></pre>
 <h2 id="cloning-non-primitive-data-types">Cloning non-primitive data types</h2>
 <p>As we are familiar with at this point, tables are a special data type that can contain other data types.
 You can build structures containing strings, variables, and even other tables.
@@ -916,7 +932,7 @@ So modifying <code>some_module</code> in two different files can have either ben
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.01 - Primitives and references","level":"1.4.1","depth":2,"next":{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},"previous":{"title":"3.0 - Programming in-depth","level":"1.4","depth":1,"path":"pages/03-00-programming-in-depth.md","ref":"pages/03-00-programming-in-depth.md","articles":[{"title":"3.01 - Primitives and references","level":"1.4.1","depth":2,"path":"pages/03-01-primitives-and-references.md","ref":"pages/03-01-primitives-and-references.md","articles":[]},{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},{"title":"3.03 - Map and filter","level":"1.4.3","depth":2,"path":"pages/03-03-map-and-filter.md","ref":"pages/03-03-map-and-filter.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/03-01-primitives-and-references.md","mtime":"2018-10-26T03:25:54.796Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T04:08:14.242Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.01 - Primitives and references","level":"1.4.1","depth":2,"next":{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},"previous":{"title":"3.0 - Programming in-depth","level":"1.4","depth":1,"path":"pages/03-00-programming-in-depth.md","ref":"pages/03-00-programming-in-depth.md","articles":[{"title":"3.01 - Primitives and references","level":"1.4.1","depth":2,"path":"pages/03-01-primitives-and-references.md","ref":"pages/03-01-primitives-and-references.md","articles":[]},{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},{"title":"3.03 - Map and filter","level":"1.4.3","depth":2,"path":"pages/03-03-map-and-filter.md","ref":"pages/03-03-map-and-filter.md","articles":[]},{"title":"3.04 - Stack and recursion","level":"1.4.4","depth":2,"path":"pages/03-04-stack-and-recursion.md","ref":"pages/03-04-stack-and-recursion.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/03-01-primitives-and-references.md","mtime":"2018-10-29T13:55:44.644Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-29T13:55:51.393Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

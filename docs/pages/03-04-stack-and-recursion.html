@@ -1,0 +1,1117 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.04 - Stack and recursion · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="03-03-map-and-filter.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="02-04-game-loop.html">
+            
+                <a href="02-04-game-loop.html">
+            
+                    
+                    2.4 - Game loop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="02-05-delta-time.html">
+            
+                <a href="02-05-delta-time.html">
+            
+                    
+                    2.5 - Delta time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="02-06-mapping.html">
+            
+                <a href="02-06-mapping.html">
+            
+                    
+                    2.6 - Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="02-07-the-world.html">
+            
+                <a href="02-07-the-world.html">
+            
+                    
+                    2.7 - The world
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="02-08-reading-documentation.html">
+            
+                <a href="02-08-reading-documentation.html">
+            
+                    
+                    2.8 - Reading documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="02-09-modules-and-organization.html">
+            
+                <a href="02-09-modules-and-organization.html">
+            
+                    
+                    2.9 - Modules and organization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="02-10-collision-callbacks.html">
+            
+                <a href="02-10-collision-callbacks.html">
+            
+                    
+                    2.10 - Collision callbacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="02-11-breakout-part-1.html">
+            
+                <a href="02-11-breakout-part-1.html">
+            
+                    
+                    2.11 - Breakout (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="02-12-breakout-part-2.html">
+            
+                <a href="02-12-breakout-part-2.html">
+            
+                    
+                    2.12 - Breakout (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="02-13-breakout-part-3.html">
+            
+                <a href="02-13-breakout-part-3.html">
+            
+                    
+                    2.13 - Breakout (part 3)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="02-14-breakout-part-4.html">
+            
+                <a href="02-14-breakout-part-4.html">
+            
+                    
+                    2.14 - Breakout (part 4)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="02-15-breakout-part-5.html">
+            
+                <a href="02-15-breakout-part-5.html">
+            
+                    
+                    2.15 - Breakout (part 5)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="03-00-programming-in-depth.html">
+            
+                <a href="03-00-programming-in-depth.html">
+            
+                    
+                    3.0 - Programming in-depth
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="03-01-primitives-and-references.html">
+            
+                <a href="03-01-primitives-and-references.html">
+            
+                    
+                    3.01 - Primitives and references
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="03-02-higher-order-functions.html">
+            
+                <a href="03-02-higher-order-functions.html">
+            
+                    
+                    3.02 - Higher-order functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="03-03-map-and-filter.html">
+            
+                <a href="03-03-map-and-filter.html">
+            
+                    
+                    3.03 - Map and filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.4" data-path="03-04-stack-and-recursion.html">
+            
+                <a href="03-04-stack-and-recursion.html">
+            
+                    
+                    3.04 - Stack and recursion
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.04 - Stack and recursion</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="stack-and-recursion">Stack and recursion</h1>
+<p>When running a program, the interpreter (Lua in this case) keeps track of variables defined in a scope and which function you are currently in.
+It organizes this information into a list in memory called <em>the stack</em>.
+The first item in the stack is the starting point - the root of your application.
+Take the following example:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> two = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;two&apos;</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> one = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;one&apos;</span>)
+  two()
+<span class="hljs-keyword">end</span>
+
+one()
+</code></pre>
+<p>When starting the program, the start of the stack is the top level of the module.
+The Lua stack calls this the &quot;main chunk&quot;.
+When a function is invoked, another layer is added to the stack.
+Every time a function is called from another function, the stack continues to build.
+So with the example code above, The stack will follow the progression:</p>
+<ul>
+<li>Stack is <code>{ &quot;main chunk&quot; }</code>.</li>
+<li>Now start executing <code>one</code>. Stack is <code>{ &quot;main chunk&quot;, &quot;one&quot; }</code>.</li>
+<li>Now start executing <code>two</code> while still in <code>one</code>. Stack is <code>{ &quot;main chunk&quot;, &quot;one&quot;, &quot;two&quot; }</code>.</li>
+<li><code>two</code> is done executing. Stack is now <code>{ &quot;main chunk&quot;, &quot;one&quot; }</code>.</li>
+<li><code>one</code> is done executing. Stack is now <code>{ &quot;main chunk&quot; }</code>.</li>
+<li>Program exits.</li>
+</ul>
+<p>This can be visualized by throwing an error at any point the program.
+The interpreter will give you back a <em>stack trace</em> that details where it was when the problem occurred.
+Lua provides a helpful <code>error</code> function for debugging that we can use here:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> three = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-built_in">error</span>(<span class="hljs-string">&apos;This is an error.&apos;</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> two = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;two&apos;</span>)
+  three()
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> one = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;one&apos;</span>)
+  two()
+<span class="hljs-keyword">end</span>
+
+one()
+</code></pre>
+<p>Unfortunately the REPL doesn&apos;t provide us with stack traces, but if you have a Lua interpreter on your computer (<code>lua</code> command, <code>luajit</code>, or L&#xD6;VE) you will see the error message and a stack trace like this:</p>
+<pre><code>lua: test.lua:2: This is an error.
+stack traceback:
+        [C]: in function &apos;error&apos;
+        test.lua:2: in upvalue &apos;three&apos;
+        test.lua:7: in upvalue &apos;two&apos;
+        test.lua:12: in local &apos;one&apos;
+        test.lua:15: in main chunk
+        [C]: in ?
+</code></pre><p>From the &quot;stack traceback&quot; you can see the newest from the top of the stack to the oldest on the bottom.
+In complex programs is can be very beneficial to see which function invoked another function to help trace down how an error came about.</p>
+<p>Understanding the stack is beneficial for more than just reading errors.
+Let&apos;s switch the conversation over to something seemingly unrelated for a bit.</p>
+<h2 id="recursion">Recursion</h2>
+<p>When thinking of loops, many programmers first think of the <code>for</code> loop or the <code>while</code> loop.
+Another common method is to make a function call itself.
+Similar to the <code>while</code> loop, you can create infinite loops like this one</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> loop
+loop = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;hello!&apos;</span>)
+  loop()
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>When a function invokes itself, whether directly or indirectly, this is called <em>recursion</em>.
+The same function will recur again and again until a condition changes.
+Or in the case above, <code>loop()</code> will be called unconditionally.
+Without a condition, any kind of loop will run infinitely (or crash trying).
+Here&apos;s a loop that is a little safer to run:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> count_to_5
+count_to_5 = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(current_number)</span></span>
+  <span class="hljs-built_in">print</span>(current_number)
+  <span class="hljs-keyword">if</span> current_number &lt; <span class="hljs-number">5</span> <span class="hljs-keyword">then</span>
+    count_to_5(current_number + <span class="hljs-number">1</span>)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+count_to_5(<span class="hljs-number">1</span>)
+</code></pre>
+<p>Which prints:</p>
+<pre><code>1
+2
+3
+4
+5
+</code></pre><p>One quick little aside;
+Notice how the function was defined in both these situations:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> loop
+loop = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  ...
+</code></pre>
+<p>The variable was defined before the function was created.
+Since the function needs to access the variable inside itself, the variable needs to exist at the time the function&apos;s scope is created.
+Variables created after the function are unknown to the function.
+This is discussed in <a href="01-17-scopes.html">1.17 - Scopes</a> and is a limitation of Lua&apos;s design.
+Fortunately there is shorthand syntax for writing recursive functions:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">count_to_5</span><span class="hljs-params">(current_number)</span></span>
+  <span class="hljs-built_in">print</span>(current_number)
+  <span class="hljs-keyword">if</span> current_number &lt; <span class="hljs-number">5</span> <span class="hljs-keyword">then</span>
+    count_to_5(current_number + <span class="hljs-number">1</span>)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+count_to_5(<span class="hljs-number">1</span>)
+</code></pre>
+<p>is the same as writing:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> count_to_5
+count_to_5 = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(current_number)</span></span>
+  ...
+</code></pre>
+<p>Let&apos;s try another recursive loop:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> grocery_list = {
+  <span class="hljs-string">&apos;pumpkin&apos;</span>,
+  <span class="hljs-string">&apos;pecans&apos;</span>,
+  <span class="hljs-string">&apos;butter&apos;</span>,
+  <span class="hljs-string">&apos;flour&apos;</span>,
+  <span class="hljs-string">&apos;sugar&apos;</span>
+}
+
+<span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">print_items</span><span class="hljs-params">(list, index)</span></span>
+  index = index <span class="hljs-keyword">or</span> <span class="hljs-number">1</span>
+  <span class="hljs-keyword">if</span> index &lt;= #list <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">print</span>(list[index])
+    print_items(list, index + <span class="hljs-number">1</span>)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+print_items(grocery_list)
+</code></pre>
+<p>Which prints the grocery list.
+Don&apos;t forget the <code>local</code> at the beginning of <code>local function print_items</code>, otherwise you will accidentally generate global variables in your code when trying to define functions.</p>
+<p>We can even re-implement our <code>map</code> function from earlier to use recursion instead of a <code>for</code> loop.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> grocery_list = {
+  <span class="hljs-string">&apos;pumpkin&apos;</span>,
+  <span class="hljs-string">&apos;pecans&apos;</span>,
+  <span class="hljs-string">&apos;butter&apos;</span>,
+  <span class="hljs-string">&apos;flour&apos;</span>,
+  <span class="hljs-string">&apos;sugar&apos;</span>
+}
+
+<span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">map</span><span class="hljs-params">(orig_list, transform_fn, new_list)</span></span>
+  new_list = new_list <span class="hljs-keyword">or</span> {}
+  <span class="hljs-keyword">if</span> #new_list &lt; #orig_list <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">local</span> index = #new_list + <span class="hljs-number">1</span>
+    new_list[index] = transform_fn(orig_list[index], index)
+    <span class="hljs-keyword">return</span> map(orig_list, transform_fn, new_list)
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">return</span> new_list
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> new_list = map(grocery_list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(value, index)</span></span>
+  <span class="hljs-keyword">return</span> index .. <span class="hljs-string">&apos;. &apos;</span> .. value
+<span class="hljs-keyword">end</span>)
+
+map(new_list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(value)</span></span>
+  <span class="hljs-built_in">print</span>(value)
+  <span class="hljs-keyword">return</span> value
+<span class="hljs-keyword">end</span>)
+</code></pre>
+<p>Which prints:</p>
+<pre><code class="lang-lua"><span class="hljs-number">1.</span> pumpkin
+<span class="hljs-number">2.</span> pecans
+<span class="hljs-number">3.</span> butter
+<span class="hljs-number">4.</span> flour
+<span class="hljs-number">5.</span> sugar
+</code></pre>
+<h2 id="stack-overflow">Stack overflow</h2>
+<p>So what does the stack look like during recursion when a function enters itself?
+Here&apos;s a script to test:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">recur</span><span class="hljs-params">(n)</span></span>
+  <span class="hljs-comment">-- assert is like error, but takes an expression to test as its first parameter</span>
+  <span class="hljs-built_in">assert</span>(n &lt; <span class="hljs-number">5</span>, <span class="hljs-string">&apos;This is a conditional error&apos;</span>)
+  <span class="hljs-built_in">print</span>(n)
+  recur(n + <span class="hljs-number">1</span>)
+<span class="hljs-keyword">end</span>
+
+recur(<span class="hljs-number">1</span>)
+</code></pre>
+<pre><code>lua: test2.lua:2: This is a conditional error
+stack traceback:
+        [C]: in function &apos;assert&apos;
+        test2.lua:2: in upvalue &apos;recur&apos;
+        test2.lua:4: in upvalue &apos;recur&apos;
+        test2.lua:4: in upvalue &apos;recur&apos;
+        test2.lua:4: in upvalue &apos;recur&apos;
+        test2.lua:4: in local &apos;recur&apos;
+        test2.lua:7: in main chunk
+        [C]: in ?
+</code></pre><p>Every time the function recurs we get another addition to the stack.
+This can be a problem if you are looping over a large set of data because the stack will consume more and more memory as it stacks up.
+This can be accomplished by creating a recursive loop that runs infinitely.
+If you haven&apos;t tried so already, here&apos;s an easy example:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">recur</span><span class="hljs-params">()</span></span>
+  recur()
+<span class="hljs-keyword">end</span>
+
+recur()
+</code></pre>
+<p>When the stack reaches a critical size, you get a <em>stack overflow</em> error:</p>
+<pre><code class="lang-lua">lua: test3.lua:<span class="hljs-number">2</span>: stack overflow
+stack traceback:
+        test3.lua:<span class="hljs-number">2</span>: <span class="hljs-keyword">in</span> upvalue <span class="hljs-string">&apos;recur&apos;</span>
+        test3.lua:<span class="hljs-number">2</span>: <span class="hljs-keyword">in</span> upvalue <span class="hljs-string">&apos;recur&apos;</span>
+        ...
+        test3.lua:<span class="hljs-number">2</span>: <span class="hljs-keyword">in</span> upvalue <span class="hljs-string">&apos;recur&apos;</span>
+        test3.lua:<span class="hljs-number">2</span>: <span class="hljs-keyword">in</span> upvalue <span class="hljs-string">&apos;recur&apos;</span>
+        test3.lua:<span class="hljs-number">2</span>: <span class="hljs-keyword">in</span> <span class="hljs-keyword">local</span> <span class="hljs-string">&apos;recur&apos;</span>
+        test3.lua:<span class="hljs-number">5</span>: <span class="hljs-keyword">in</span> main chunk
+        [C]: <span class="hljs-keyword">in</span> ?
+</code></pre>
+<p>With a specific <code>return</code> statement added to the loop, however, we no longer get a stack overflow:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">recur</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> recur()
+<span class="hljs-keyword">end</span>
+
+recur()
+</code></pre>
+<p>This will run until you manually kill the application process.
+Killing it returns a somewhat mysterious stack track:</p>
+<pre><code>lua: test4.lua:2: interrupted!
+stack traceback:
+        test4.lua:2: in function &lt;test4.lua:1&gt;
+        (...tail calls...)
+        test4.lua:2: in function &lt;test4.lua:1&gt;
+        (...tail calls...)
+        test4.lua:5: in main chunk
+        [C]: in ?
+</code></pre><p>So how did our modification save us from overflowing our stack?</p>
+<h2 id="tail-call-optimization">Tail call optimization</h2>
+<p>Inside a function when you return another function call, the interpreter has the ability to re-use the same layer of the stack instead of creating another layer.
+This works with direct recursion (function calling itself) and indirect (mutual) recursion such as two functions calling each other:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> one
+<span class="hljs-keyword">local</span> two
+
+one = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> two()
+<span class="hljs-keyword">end</span>
+
+two = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> one()
+<span class="hljs-keyword">end</span>
+
+one()
+</code></pre>
+<p><a href="https://www.lua.org/pil/6.3.html" target="_blank">Programming in Lua</a> goes into greater detail on when a recursion will or won&apos;t be optimized, but the simple thing to remember is that the function(s) must return the value of invoking a function for this to work.
+The following will be tail-call optimized:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> one
+<span class="hljs-keyword">local</span> two
+
+one = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(n)</span></span>
+  <span class="hljs-built_in">print</span>(n)
+  <span class="hljs-keyword">return</span> two(n + <span class="hljs-number">1</span>)
+<span class="hljs-keyword">end</span>
+
+two = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(n)</span></span>
+  <span class="hljs-built_in">print</span>(n)
+  <span class="hljs-keyword">return</span> one(n + <span class="hljs-number">1</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">-- Count until we run out of numbers</span>
+one(<span class="hljs-number">1</span>)
+</code></pre>
+<p>But the following won&apos;t, since it returns an operation including the function call instead of just the function call itself:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> one
+<span class="hljs-keyword">local</span> two
+
+one = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(n)</span></span>
+  <span class="hljs-built_in">print</span>(n)
+  <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + two(n)
+<span class="hljs-keyword">end</span>
+
+two = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(n)</span></span>
+  <span class="hljs-built_in">print</span>(n)
+  <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + one(n)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">-- This won&apos;t work!</span>
+one(<span class="hljs-number">1</span>)
+</code></pre>
+<h2 id="the-case-for-recursive-loops">The case for recursive loops</h2>
+<p>So why would we want to do recursion?
+It seems trickier than a <code>for</code> loop and perhaps just as easy to mess up as a <code>while</code> loop.</p>
+<p>It&apos;s not necessarily a replacement for the <code>for</code> loop, but allows you to do certain things you can&apos;t easily do without recursion.
+Take this example from <a href="http://rosettacode.org/wiki/Flatten_a_list#Lua" target="_blank">Rosetta Code</a> which will flatten a list of lists into a single, flat list.
+It uses a <code>for</code> loop and a recursive loop in conjunction with each other:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">flatten</span><span class="hljs-params">(list)</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span>(list) ~= <span class="hljs-string">&quot;table&quot;</span> <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> {list} <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">local</span> flat_list = {}
+  <span class="hljs-keyword">for</span> _, elem <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(list) <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">for</span> _, val <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(flatten(elem)) <span class="hljs-keyword">do</span>
+      flat_list[#flat_list + <span class="hljs-number">1</span>] = val
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">return</span> flat_list
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> test_list = {
+  {<span class="hljs-number">1</span>},
+  <span class="hljs-number">2</span>,
+  {{<span class="hljs-number">3</span>,<span class="hljs-number">4</span>}, <span class="hljs-number">5</span>},
+  {{{}}},
+  {{{<span class="hljs-number">6</span>}}},
+  <span class="hljs-number">7</span>,
+  <span class="hljs-number">8</span>,
+  {}
+}
+
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">table</span>.concat(flatten(test_list), <span class="hljs-string">&quot;,&quot;</span>))
+</code></pre>
+<p>Which prints:</p>
+<pre><code>1,2,3,4,5,6,7,8
+</code></pre><p>This function isn&apos;t tail-call optimized, but it probably won&apos;t be passed a nested list deep enough to cause a stack overflow.</p>
+<p>Here&apos;s just a few of the many situations where recursion is usually the best tool for the job:</p>
+<ul>
+<li>Sorting data</li>
+<li>Searching trees (nested data) in a database or nested folders in a filesystem.</li>
+<li>Finding the shortest path between two points</li>
+<li>Loops that increment or decrement in irregular patterns</li>
+<li>Evaluating a finite set of moves in a game like chess</li>
+</ul>
+<p>The point isn&apos;t to replace the <code>for</code> loop, although you can.
+Take the following example, which returns the <a href="https://en.wikipedia.org/wiki/Factorial" target="_blank">factorial</a> of the given number (5):</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> fact = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(n)</span></span>
+  <span class="hljs-keyword">local</span> acc = <span class="hljs-number">1</span>
+  <span class="hljs-keyword">for</span> iteration = n, <span class="hljs-number">1</span>, <span class="hljs-number">-1</span> <span class="hljs-keyword">do</span>
+    acc = acc * iteration
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">return</span> acc
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(fact(<span class="hljs-number">5</span>))
+</code></pre>
+<p>The same functionality written with a recursive loop would look very different:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fact</span><span class="hljs-params">(n, acc)</span></span>
+  acc = acc <span class="hljs-keyword">or</span> <span class="hljs-number">1</span>
+  <span class="hljs-keyword">if</span> n == <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">return</span> acc
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">return</span> fact(n<span class="hljs-number">-1</span>, n*acc)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>...but one method wouldn&apos;t offer an advantage over the other here.
+Depending on the language you are working in, one method may be easier to read than the other.
+Maybe the language supports one type of loop and not the other.
+These are the factors that will often do the deciding for you.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="03-03-map-and-filter.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 3.03 - Map and filter">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.04 - Stack and recursion","level":"1.4.4","depth":2,"previous":{"title":"3.03 - Map and filter","level":"1.4.3","depth":2,"path":"pages/03-03-map-and-filter.md","ref":"pages/03-03-map-and-filter.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/03-04-stack-and-recursion.md","mtime":"2018-10-29T13:55:44.644Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-29T13:55:51.393Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
