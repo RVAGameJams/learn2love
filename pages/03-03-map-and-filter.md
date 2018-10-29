@@ -151,6 +151,14 @@ local price_list = map(grocery_list, function(item)
 end)
 ```
 
+```
+7.20
+5.50
+6.20
+8.00
+3.50
+3.00
+```
 Here the map function is passed in a transform function with a print statement inside it.
 That way it will print the item prices as it builds the list so you can see what each value will be.
 
@@ -256,6 +264,11 @@ for _, value in ipairs(filtered_list) do
 end
 ```
 
+```
+walnuts
+sugar
+```
+
 Notice our predicate function we wrote:
 
 ```lua
@@ -292,6 +305,10 @@ end)
 
 grocery_list[3].name = 'peanuts'
 print(filtered_list[1].name)
+```
+
+```
+peanuts
 ```
 
 This behavior can be advantageous if it's expected, but it's something that should be understood about how Lua and similar programming languages work.
