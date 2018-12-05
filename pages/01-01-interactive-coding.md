@@ -100,21 +100,21 @@ The modulus operator is represented in most languages as a `%` (percent) symbol:
 ```
 
 Modulus operations aren't seen in grade school classrooms as often as the rest, but are quite common in software and computer sciences.
-The way it works is you take the 2nd number and subtract it from the bigger number as many times as possible until the 1st number is bigger than the 2nd.
+The way it works is you take the 2nd number and subtract it from the bigger number as many times as possible until the 2nd number is bigger than the 1st.
 The result is what's left of the 1st number.
 With `8 % 3`, if you keep subtracting `3` from `8` then you end up with `2` left.
 
 A real world example is time elapsing on an analog clock.
 Imagine the face of a clock with the hour hand on noon.
-If 25 hours pass then the hour hand goes all the way around and ends on 1.
-That would be the same as saying:
+If 25 hours pass then the hour hand goes all the way around twice and ends on 1.
+That would be equivalent to writing:
 
 ```lua
 25 % 12
 => 1
 ```
 
-The hour hand resets every time is passes 12, so `13 % 12`, `25 % 12`, and `37 % 12` would all equal `1`.
+The hour hand resets every time it passes 12, so `13 % 12`, `25 % 12`, and `37 % 12` would all equal `1`.
 Likewise, `10 % 4` results in `2` because 4 goes into 10 twice, and leaves a remainder of 2.
 
 ## Exercises
@@ -123,4 +123,3 @@ Likewise, `10 % 4` results in `2` because 4 goes into 10 twice, and leaves a rem
 - Try using negative numbers (`-3 + -2`).
 - Try using a set of parenthesis inside another set of parenthesis. Does it behave as you expect?
 - After running through all the exercises press the 'up' key in the REPL. What happens and how can this speed up your work?
-

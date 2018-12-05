@@ -3,31 +3,31 @@
 Take a look at this code:
 
 ```lua
-    local string1 = "hello"
-    local string2 = 'hello'
+local string1 = "hello"
+local string2 = 'hello'
 
-    print(string1 == string2)
+print(string1 == string2)
 
-    local number1 = 14
-    local number2 = 14
+local number1 = 14
+local number2 = 14
 
-    print(number1 == number2)
+print(number1 == number2)
 
-    local table1 = {}
-    local table2 = {}
+local table1 = {}
+local table2 = {}
 
-    print(table1 == table2)
+print(table1 == table2)
 
-    local function1 = function() end
-    local function2 = function() end
+local function1 = function() end
+local function2 = function() end
 
-    print(function1 == function2)
+print(function1 == function2)
 ```
 
 What would happen if you were to run this?
 
 In chapter 1 we learned about comparing strings with the `==` operator when we talked about [booleans](01-08-booleans.md).
-Let's run the code in [the REPL](https://repl.it/languages/Lua) and try it out:
+Run the code above in [the REPL](https://repl.it/languages/Lua) and see what it returns:
 
 ```
 true
@@ -247,7 +247,7 @@ print(fn2)
 ```
 
 A function that generates other functions?
-This may seem like an odd thing to want to do, but method of programming can be quite useful as we'll see in [3.02 - Higher-order functions](03-02-higher-order-functions.md) and later follow-up sections.
+This may seem like an odd thing to want to do, but this method of programming can be quite useful as we'll see in [3.02 - Higher-order functions](03-02-higher-order-functions.md) and later follow-up sections.
 One thing that should be mentioned though is that functions can also be considered a composite data type as it can return other data types, and even other functions.
 Composite in that you can compose higher-order functionality in the way tables can be used to compose higher-order structures.
 
