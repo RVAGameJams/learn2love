@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>1.7 - Making functions · GitBook</title>
+        <title>2.16 - Binary and bitmasks · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -58,10 +58,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="01-08-booleans.html" />
+    <link rel="next" href="03-00-programming-in-depth.html" />
     
     
-    <link rel="prev" href="01-06-scripting-and-printing.html" />
+    <link rel="prev" href="02-15-breakout-part-5.html" />
     
 
     <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
@@ -198,7 +198,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.7" data-path="01-07-making-functions.html">
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
             
                 <a href="01-07-making-functions.html">
             
@@ -568,7 +568,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.16" data-path="02-16-binary-and-bitmasks.html">
+        <li class="chapter active" data-level="1.3.16" data-path="02-16-binary-and-bitmasks.html">
             
                 <a href="02-16-binary-and-bitmasks.html">
             
@@ -687,7 +687,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >1.7 - Making functions</a>
+        <a href=".." >2.16 - Binary and bitmasks</a>
     </h1>
 </div>
 
@@ -702,117 +702,332 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="making-functions">Making functions</h1>
-<p>Functions are the third data type we&apos;ve seen.
-We&apos;ve accessed some variables where functions were defined for us and had a blast using them (I know I did).
-Functions are the building blocks of software.
-You can compose them then snap them together like Danish plastic blocks.
-It takes time to understand how they work and much longer to master their inner power.
-So without further ado, let&apos;s see what they actually look like:</p>
-<pre><code class="lang-lua"><span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-  <span class="hljs-keyword">return</span> <span class="hljs-number">4</span> + <span class="hljs-number">4</span>
-<span class="hljs-keyword">end</span>
-</code></pre>
-<p>Type it out in the text editor window and let us break this down line by line and word for word.
-Whenever we type <code>function()</code> we are beginning a new function.
-The 2nd line is the body of our function where things happen.
-The body of the function can be many lines long.
-The body of the function could also be empty (but that&apos;s not very useful).
-On the last line of the function body we return data.
-This return statement won&apos;t end our entire program though!
-It will only tell the computer we&apos;re finishing up with our function.
-Then on the third line, we&apos;re telling the computer we&apos;re done writing our function.
-In order to use this example function, we should probably use a variable to give it a name:</p>
-<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-  <span class="hljs-keyword">return</span> <span class="hljs-number">4</span> + <span class="hljs-number">4</span>
-<span class="hljs-keyword">end</span>
-</code></pre>
-<p>The first bit should be understandable.
-We <em>declared</em> a variable called <code>add</code>, then we assigned some data to it on the right of the equal sign.
-In this case, our function.
-Now it is ready to use.</p>
-<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-  <span class="hljs-keyword">return</span> <span class="hljs-number">4</span> + <span class="hljs-number">4</span>
-<span class="hljs-keyword">end</span>
+                                <h1 id="binary-and-bitmasks">Binary and bitmasks</h1>
+<p>In <a href="02-10-collision-callbacks">2.10 - Collision callbacks</a> we saw how to react to entities colliding.
+In this section we&apos;re going to discuss how we can better control when collisions happen.
+As the title suggests, this will involve understanding some binary.</p>
+<p>Let&apos;s say we have a beat-em-up game where two players are fighting bad guys and we don&apos;t want players to collide with each other and instead only collide with enemies.
+The collision callback could look something like this:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> begin_contact_callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fixture_a, fixture_b)</span></span>
+  <span class="hljs-keyword">local</span> entity_a_type = fixture_a:getUserData()
+  <span class="hljs-keyword">local</span> entity_b_type = fixture_b:getUserData()
+  <span class="hljs-comment">-- Check these aren&apos;t the same type of entity</span>
+  <span class="hljs-keyword">if</span> entity_a_type ~= entity_b_type <span class="hljs-keyword">then</span>
+    <span class="hljs-comment">-- Some code to handle the collision goes here...</span>
 
-result = add()
-<span class="hljs-keyword">return</span> result
-</code></pre>
-<pre><code>=&gt; 8
-</code></pre><p>We&apos;ve made our very own function with our very own name for it and even invoked it and got back data!
-If you instead got an error message, double check what you typed that nothing is missing.
-Error messages give you a <em>line number</em> of where to find the error that crashed the program.</p>
-<p>Take a look for a minute at how we invoked our function:</p>
-<pre><code class="lang-lua">add()
-</code></pre>
-<p>We typed out the variable name that our function is assigned to, followed by some parenthesis.
-In those parenthesis is the data that we passed into our function... wait a minute the parenthesis are empty.
-We didn&apos;t pass any data into our function.
-Whenever we called those other functions we passed in data, like when we passed <code>&quot;hello&quot;</code> into <code>string.reverse(&quot;hello&quot;)</code>.
-What if we modify our line where we invoke our function and give it some data?</p>
-<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-  <span class="hljs-keyword">return</span> <span class="hljs-number">4</span> + <span class="hljs-number">4</span>
+  <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
+</code></pre>
+<p>But what if you had power-ups and you want players to collide with the power-ups but you don&apos;t want enemies touching the power-ups?
+Things can get complicated pretty quickly:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> begin_contact_callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fixture_a, fixture_b)</span></span>
+  <span class="hljs-keyword">local</span> a = fixture_a:getUserData()
+  <span class="hljs-keyword">local</span> b = fixture_b:getUserData()
+  <span class="hljs-keyword">if</span> (a == <span class="hljs-string">&apos;powerup&apos;</span> <span class="hljs-keyword">and</span> b == <span class="hljs-string">&apos;player&apos;</span>) <span class="hljs-keyword">or</span> (a == <span class="hljs-string">&apos;player&apos;</span> <span class="hljs-keyword">and</span> b == <span class="hljs-string">&apos;powerup&apos;</span>) <span class="hljs-keyword">then</span>
+    <span class="hljs-comment">-- Some power-up code...</span>
 
-result = add(<span class="hljs-number">16</span>)
-<span class="hljs-keyword">return</span> result
-</code></pre>
-<p>It seems it always returns <code>=&gt; 8</code> no matter what arguments we try to pass in.
-We need to rewind to the first line of our function and take a close look at this bit:</p>
-<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
-</code></pre>
-<p>The <code>()</code> at the end of <code>function()</code> is where we tell our program how many arguments we are accepting.
-If the parenthesis are empty, then our function is ignoring all arguments and will likely always return the same result.
-Let&apos;s tweak the function slightly and give it one parameter with the name <code>a</code>.
-Let&apos;s also tweak the second line while we&apos;re at it:</p>
-<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a)</span></span>
-  <span class="hljs-keyword">return</span> a + <span class="hljs-number">4</span>
+  <span class="hljs-comment">-- Don&apos;t let power-ups collide with other entity types like bad guys</span>
+  <span class="hljs-keyword">elseif</span> a ~= b <span class="hljs-keyword">and</span> a ~= <span class="hljs-string">&apos;powerup&apos;</span> <span class="hljs-keyword">and</span> b~= <span class="hljs-string">&apos;powerup&apos;</span> <span class="hljs-keyword">then</span>
+    <span class="hljs-comment">-- Code to handle the rest of the collisions...</span>
+
+  <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span>
+</code></pre>
+<p>Let&apos;s find a better way!</p>
+<h2 id="binary-operations">Binary operations</h2>
+<p>Back in <a href="01-00-programming-basics.html">1.0 - Programming basics</a> we discussed <em>operations</em>&#x2013; how to operate on strings with equality (<code>==</code>) checks, how to operate on numbers with arithmetic operations, and even how to perform <a href="01-08-booleans.html">boolean operations</a> like <code>and</code> and <code>or</code>.
+Binary numbers have their own operations, often called bitwise operations.
+To perform binary operations, let&apos;s first look at how to represent binary numbers.
+Typing a number like <code>101</code>, Lua will interpret it as a decimal number (literally one-hundred one) so we need to represent it as a string and convert it to a number.
+To convert a string to a number, you pass in the number and the base (base-2 in this case) like so:</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">tonumber</span>(<span class="hljs-string">&apos;101&apos;</span>, <span class="hljs-number">2</span>))
+</code></pre>
+<p>Which converts the binary number <code>101</code> to decimal when it prints out:</p>
+<pre><code>5
+</code></pre><p>For counting in binary and learning how to read and convert between binary and decimal, there are many resources that already explain it in much better.
+Learning how to do the conversions isn&apos;t necessary to learning these basic binary operations, but is an essential skill to have in the field of computer science.</p>
+<p>Moving on, let&apos;s take a look at some of the basic operations.</p>
+<h3 id="and">AND</h3>
+<p>Binary numbers are similar to booleans in that binary only has 1&apos;s and 0&apos;s.
+The AND operator also works similarly to the boolean <code>and</code>.
+You give it two digits and both must be <code>1</code> (<code>true</code>) for the output to be <code>1</code>.</p>
+<p>Unfortunately at the time of writing this the online REPL has an outdated version of Lua that doesn&apos;t support binary operations.
+No worries, let&apos;s create a <strong>main.lua</strong> file and try it out using L&#xD6;VE.
+To perform binary operations, the included <code>&apos;bit&apos;</code> library must be loaded.
+When required, it will return a table with many functions in it related to binary operations.
+The first function we&apos;ll try, <code>bit.band()</code> performs a <strong>b</strong>inary <strong>AND</strong> operation.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> bit = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;bit&apos;</span>)
 
-result = add(<span class="hljs-number">16</span>)
-<span class="hljs-keyword">return</span> result
+<span class="hljs-built_in">print</span>(bit.band(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>))
+<span class="hljs-built_in">print</span>(bit.band(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>))
+<span class="hljs-built_in">print</span>(bit.band(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>))
+<span class="hljs-built_in">print</span>(bit.band(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))
 </code></pre>
-<pre><code>=&gt; 20
-</code></pre><p>Now when we pass in different numbers, we get different results:</p>
-<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a)</span></span>
-  <span class="hljs-keyword">return</span> a + <span class="hljs-number">4</span>
-<span class="hljs-keyword">end</span>
+<p>This will print to the debug console:</p>
+<pre><code>0
+0
+0
+1
+</code></pre><p>You can pass it the decimals <code>1</code> and <code>0</code> as those numbers are the same in binary and decimal.</p>
+<p>The operation is not limited to two inputs:</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">print</span>(bit.band(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>))
+</code></pre>
+<p>You can also pass it multi-digit numbers:</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">print</span>(bit.band(
+  <span class="hljs-built_in">tonumber</span>(<span class="hljs-string">&apos;111&apos;</span>, <span class="hljs-number">2</span>),
+  <span class="hljs-built_in">tonumber</span>(<span class="hljs-string">&apos;101&apos;</span>, <span class="hljs-number">2</span>)
+))
+</code></pre>
+<p>Note that you need to always use <code>tonumber()</code> to convert your binary string to a number as the function always expects a decimal number.
+Likewise the output will always be a decimal number:</p>
+<pre><code>5
+</code></pre><p>Lay it out like an arithmetic table and you can solve it just as easily:</p>
+<pre><code>  111
+  101
+  ---
+  101 --&gt; 5
 
-<span class="hljs-built_in">print</span>(add(<span class="hljs-number">16</span>))
-<span class="hljs-built_in">print</span>(add(<span class="hljs-number">12</span>))
-</code></pre>
-<p>To complete this function, let&apos;s give it a second parameter of <code>b</code> and modify the return statement in the function body:</p>
-<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span></span>
-  <span class="hljs-keyword">return</span> a + b
-<span class="hljs-keyword">end</span>
 
-<span class="hljs-built_in">print</span>(add(<span class="hljs-number">16</span>))
-<span class="hljs-built_in">print</span>(add(<span class="hljs-number">12</span>))
-</code></pre>
-<p>If we try and run the code now, we&apos;ll get another error:</p>
-<pre><code class="lang-lua">[<span class="hljs-built_in">string</span> <span class="hljs-string">&quot;add = function(a, b)...&quot;</span>]:<span class="hljs-number">2</span>: attempt to perform arithmetic on <span class="hljs-keyword">local</span> <span class="hljs-string">&apos;b&apos;</span> (a <span class="hljs-keyword">nil</span> value)
-</code></pre>
-<p>Let&apos;s read this error carefully.
-It is saying inside the square brackets that an error occurred when using the function we defined (<code>add = function(a, b)...</code>).
-To the right of the square brackets it is saying line 2 (<code>:2</code>) of our text is the particular location of the crash.
-To the right of the line number is what happened that made it crash.
-It tried to perform addition with <code>a + b</code> but the value of <code>b</code> was nil.
-We stated that our function requires two parameters now, <code>a</code> and <code>b</code>, and our program will crash if we try and invoke the function with only one parameter.
-Let&apos;s modify the lines where we invoke the function to give it two arguments each time we invoke it:</p>
-<pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a, b)</span></span>
-  <span class="hljs-keyword">return</span> a + b
-<span class="hljs-keyword">end</span>
+  11011010
+  10111100
+  --------
+  10011000 --&gt; 152
+</code></pre><h3 id="or">OR</h3>
+<p>Like with the boolean <code>or</code>, the binary OR output will be <code>1</code> if either the first <strong>or</strong> the second number is 1.
+You could say it is the least picky operator in that it doesn&apos;t care as long as it gets a 1 somewhere at least once.</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
+<span class="hljs-keyword">local</span> bit = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;bit&apos;</span>)
 
-<span class="hljs-built_in">print</span>(add(<span class="hljs-number">16</span>, <span class="hljs-number">10</span>))
-<span class="hljs-built_in">print</span>(add(<span class="hljs-number">12</span>, <span class="hljs-number">2</span>))
+<span class="hljs-built_in">print</span>(bit.bor(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>))
+<span class="hljs-built_in">print</span>(bit.bor(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>))
+<span class="hljs-built_in">print</span>(bit.bor(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>))
+<span class="hljs-built_in">print</span>(bit.bor(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>))
 </code></pre>
-<p>Great, everything is working again!
-With the experience of our first, fully-functional function, we can now start treading the waters of this great world.</p>
+<pre><code>1
+1
+0
+1
+</code></pre><h3 id="xor">XOR</h3>
+<p>Xor (e<strong>x</strong>clusive <strong>or</strong>), returns 1 only when it gets one 1.
+Let&apos;s compare XOR in a table to the others:</p>
+<p><strong>AND</strong></p>
+<table>
+<thead>
+<tr>
+<th>input A</th>
+<th>input B</th>
+<th>output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>OR</strong></p>
+<table>
+<thead>
+<tr>
+<th>input A</th>
+<th>input B</th>
+<th>output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>XOR</strong></p>
+<table>
+<thead>
+<tr>
+<th>input A</th>
+<th>input B</th>
+<th>output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Binary operations are some of the most fundamental computer operations and can be physically built with <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/Electronic/trangate.html" target="_blank">a few transistors</a>.
+Given the simplicity of these operations, it also makes for a fast method of calculating collisions.</p>
+<h2 id="bitmasks">Bitmasks</h2>
+<p><img src="../images/02-16-collision-colored.png" alt=""></p>
+<p>Let&apos;s take a look at this scene for a moment and identify from the crudely drawn shapes some potential entities:</p>
+<p><img src="../images/02-16-collision-labeled.png" alt=""></p>
+<p>All these entities fall into unique categories in that we want each of them to collide with certain other entities.
+If this were a game, we&apos;d define each category with a unique binary digit, or bit, so let&apos;s first do that:</p>
+<table>
+<thead>
+<tr>
+<th>entity</th>
+<th>category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sun</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>player</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>powerup</td>
+<td>0010</td>
+</tr>
+<tr>
+<td>enemy</td>
+<td>0100</td>
+</tr>
+<tr>
+<td>ground</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+<p>Let&apos;s set some rules for each of these entities.
+For instance, we want the player to collide with the powerup (0010), enemy (0100), and of course the ground (1000).
+To tell the game engine this, we create a <em>bitmask</em> for the fixture.
+This is a binary number with all the bits switched on that we want the entity to collide with.
+In other words, the player&apos;s bitmask would be (1110).
+We left the first bit blank so that the player can&apos;t collide with other potential players (player 2).
+Let&apos;s update the table with the bitmask we want each entity to have:</p>
+<table>
+<thead>
+<tr>
+<th>entity</th>
+<th>category</th>
+<th>bitmask</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sun</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>player</td>
+<td>0001</td>
+<td>1110</td>
+</tr>
+<tr>
+<td>powerup</td>
+<td>0010</td>
+<td>1001</td>
+</tr>
+<tr>
+<td>enemy</td>
+<td>0100</td>
+<td>1001</td>
+</tr>
+<tr>
+<td>ground</td>
+<td>1000</td>
+<td>1111</td>
+</tr>
+</tbody>
+</table>
+<p>So how does it all come together and work?
+When two entity&apos;s fixtures contact, a binary AND operation is performed again the entity&apos;s bitmask and the other entity&apos;s category.
+If the resulting number isn&apos;t 0000 then we have a collision.
+Take the player and enemy for instance:</p>
+<pre><code>0001   player&apos;s category
+1001   enemy&apos;s bitmask
+----
+0001   we have a collision
+</code></pre><p>And how about the enemy and the powerup:</p>
+<pre><code>0100   enemy&apos;s category
+1001   powerup&apos;s bitmask
+----
+0000   we have NO collision
+</code></pre><p>Armed with this knowledge, we can assert the following information from the table above:</p>
+<ul>
+<li>The sun collides with nothing (and doesn&apos;t even get a category). It&apos;s just in the background and non-interactive.</li>
+<li>The player collides with everything except other players (and of course the sun).</li>
+<li>The powerup collides only with the ground and players.</li>
+<li>The enemy collides only with the ground and players.</li>
+<li>The ground collides with everything.</li>
+</ul>
+<p>Go into the code folder and run the &quot;collision&quot; game:</p>
+<p><a href="https://github.com/RVAGameJams/learn2love/tree/master/code/collision" target="_blank">https://github.com/RVAGameJams/learn2love/tree/master/code/collision</a></p>
+<p>Do the entities interact as expected?
+Take a look inside the <em>entities</em> folder to see the particular function being called to accomplish apply the categories and bitmasks to each entity&#x2013; <a href="https://love2d.org/wiki/Fixture:setFilterData" target="_blank">Fixture:setFilterData</a></p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- square.lua</span>
+...
+square.category = <span class="hljs-built_in">tonumber</span>(<span class="hljs-string">&apos;0001&apos;</span>, <span class="hljs-number">2</span>)
+square.mask = <span class="hljs-built_in">tonumber</span>(<span class="hljs-string">&apos;1110&apos;</span>, <span class="hljs-number">2</span>)
+square.group = <span class="hljs-number">0</span>
+...
+square.fixture:setFilterData(square.category, square.mask, square.group)
+</code></pre>
+<p>The examples above only use 4 bits for the category and mask bceause that&apos;s all we needed, however L&#xD6;VE supports up to 16 bits for the category and bitmask (<code>0000000000000000</code>).
+The <em>group</em> property isn&apos;t used and should be set to 0 when it isn&apos;t.
+We haven&apos;t mentioned groups before because if you know how to use categories and bitmasks then you don&apos;t need to use groups as categories and bitmasks offer a more powerful way of doing the same thing.
+That being said, collision groups should be relatively straight-forward to learn about so it will be left up as an exercise to read and study.</p>
 <h2 id="exercises">Exercises</h2>
 <ul>
-<li>To get used to writing functions, try writing some complimentary functions named <code>subtract</code>, <code>multiply</code>, <code>divide</code>, or <code>modulate</code> (modulus).</li>
-<li>Make a <code>concatenate</code> function that accepts 2 strings and returns 1 combined string.</li>
-<li>Try making a function that takes 3 or more parameters.</li>
+<li>Play with the bitmasks. Can you make the enemy collide with the powerup instead of the player?</li>
+<li>Take a look at how groups work as described in <a href="https://love2d.org/wiki/Fixture:setGroupIndex" target="_blank">Fixture:setGroupIndex</a>. How can you create collision rules using groups instead of setting the bitmask and category? What are the advantages of each method?</li>
 </ul>
 
                                 
@@ -841,12 +1056,12 @@ With the experience of our first, fully-functional function, we can now start tr
 
             
                 
-                <a href="01-06-scripting-and-printing.html" class="navigation navigation-prev " aria-label="Previous page: 1.6 - Scripting and printing">
+                <a href="02-15-breakout-part-5.html" class="navigation navigation-prev " aria-label="Previous page: 2.15 - Breakout (part 5)">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="01-08-booleans.html" class="navigation navigation-next " aria-label="Next page: 1.8 - Booleans">
+                <a href="03-00-programming-in-depth.html" class="navigation navigation-next " aria-label="Next page: 3.0 - Programming in-depth">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -857,7 +1072,7 @@ With the experience of our first, fully-functional function, we can now start tr
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.7 - Making functions","level":"1.2.7","depth":2,"next":{"title":"1.8 - Booleans","level":"1.2.8","depth":2,"path":"pages/01-08-booleans.md","ref":"pages/01-08-booleans.md","articles":[]},"previous":{"title":"1.6 - Scripting and printing","level":"1.2.6","depth":2,"path":"pages/01-06-scripting-and-printing.md","ref":"pages/01-06-scripting-and-printing.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/01-07-making-functions.md","mtime":"2018-08-26T02:11:44.367Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-28T14:58:51.996Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.16 - Binary and bitmasks","level":"1.3.16","depth":2,"next":{"title":"3.0 - Programming in-depth","level":"1.4","depth":1,"path":"pages/03-00-programming-in-depth.md","ref":"pages/03-00-programming-in-depth.md","articles":[{"title":"3.01 - Primitives and references","level":"1.4.1","depth":2,"path":"pages/03-01-primitives-and-references.md","ref":"pages/03-01-primitives-and-references.md","articles":[]},{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},{"title":"3.03 - Map and filter","level":"1.4.3","depth":2,"path":"pages/03-03-map-and-filter.md","ref":"pages/03-03-map-and-filter.md","articles":[]},{"title":"3.04 - Stack and recursion","level":"1.4.4","depth":2,"path":"pages/03-04-stack-and-recursion.md","ref":"pages/03-04-stack-and-recursion.md","articles":[]}]},"previous":{"title":"2.15 - Breakout (part 5)","level":"1.3.15","depth":2,"path":"pages/02-15-breakout-part-5.md","ref":"pages/02-15-breakout-part-5.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-16-binary-and-bitmasks.md","mtime":"2019-02-28T14:55:15.543Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-28T14:58:51.996Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

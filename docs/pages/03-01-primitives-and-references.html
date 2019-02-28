@@ -568,6 +568,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.16" data-path="02-16-binary-and-bitmasks.html">
+            
+                <a href="02-16-binary-and-bitmasks.html">
+            
+                    
+                    2.16 - Binary and bitmasks
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -691,29 +704,29 @@
                                 
                                 <h1 id="primitives-and-references">Primitives and references</h1>
 <p>Take a look at this code:</p>
-<pre><code class="lang-lua">    <span class="hljs-keyword">local</span> string1 = <span class="hljs-string">&quot;hello&quot;</span>
-    <span class="hljs-keyword">local</span> string2 = <span class="hljs-string">&apos;hello&apos;</span>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> string1 = <span class="hljs-string">&quot;hello&quot;</span>
+<span class="hljs-keyword">local</span> string2 = <span class="hljs-string">&apos;hello&apos;</span>
 
-    <span class="hljs-built_in">print</span>(string1 == string2)
+<span class="hljs-built_in">print</span>(string1 == string2)
 
-    <span class="hljs-keyword">local</span> number1 = <span class="hljs-number">14</span>
-    <span class="hljs-keyword">local</span> number2 = <span class="hljs-number">14</span>
+<span class="hljs-keyword">local</span> number1 = <span class="hljs-number">14</span>
+<span class="hljs-keyword">local</span> number2 = <span class="hljs-number">14</span>
 
-    <span class="hljs-built_in">print</span>(number1 == number2)
+<span class="hljs-built_in">print</span>(number1 == number2)
 
-    <span class="hljs-keyword">local</span> table1 = {}
-    <span class="hljs-keyword">local</span> table2 = {}
+<span class="hljs-keyword">local</span> table1 = {}
+<span class="hljs-keyword">local</span> table2 = {}
 
-    <span class="hljs-built_in">print</span>(table1 == table2)
+<span class="hljs-built_in">print</span>(table1 == table2)
 
-    <span class="hljs-keyword">local</span> function1 = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> <span class="hljs-keyword">end</span>
-    <span class="hljs-keyword">local</span> function2 = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">local</span> function1 = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">local</span> function2 = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> <span class="hljs-keyword">end</span>
 
-    <span class="hljs-built_in">print</span>(function1 == function2)
+<span class="hljs-built_in">print</span>(function1 == function2)
 </code></pre>
 <p>What would happen if you were to run this?</p>
 <p>In chapter 1 we learned about comparing strings with the <code>==</code> operator when we talked about <a href="01-08-booleans.html">booleans</a>.
-Let&apos;s run the code in <a href="https://repl.it/languages/Lua" target="_blank">the REPL</a> and try it out:</p>
+Run the code above in <a href="https://repl.it/languages/Lua" target="_blank">the REPL</a> and see what it returns:</p>
 <pre><code>true
 true
 false
@@ -881,7 +894,7 @@ Of course this factory function paradigm works with other non-primitive types of
 <span class="hljs-built_in">print</span>(fn2)
 </code></pre>
 <p>A function that generates other functions?
-This may seem like an odd thing to want to do, but method of programming can be quite useful as we&apos;ll see in <a href="03-02-higher-order-functions.html">3.02 - Higher-order functions</a> and later follow-up sections.
+This may seem like an odd thing to want to do, but this method of programming can be quite useful as we&apos;ll see in <a href="03-02-higher-order-functions.html">3.02 - Higher-order functions</a> and later follow-up sections.
 One thing that should be mentioned though is that functions can also be considered a composite data type as it can return other data types, and even other functions.
 Composite in that you can compose higher-order functionality in the way tables can be used to compose higher-order structures.</p>
 <h2 id="conclusion">Conclusion</h2>
@@ -932,7 +945,7 @@ So modifying <code>some_module</code> in two different files can have either ben
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.01 - Primitives and references","level":"1.4.1","depth":2,"next":{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},"previous":{"title":"3.0 - Programming in-depth","level":"1.4","depth":1,"path":"pages/03-00-programming-in-depth.md","ref":"pages/03-00-programming-in-depth.md","articles":[{"title":"3.01 - Primitives and references","level":"1.4.1","depth":2,"path":"pages/03-01-primitives-and-references.md","ref":"pages/03-01-primitives-and-references.md","articles":[]},{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},{"title":"3.03 - Map and filter","level":"1.4.3","depth":2,"path":"pages/03-03-map-and-filter.md","ref":"pages/03-03-map-and-filter.md","articles":[]},{"title":"3.04 - Stack and recursion","level":"1.4.4","depth":2,"path":"pages/03-04-stack-and-recursion.md","ref":"pages/03-04-stack-and-recursion.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/03-01-primitives-and-references.md","mtime":"2018-10-29T13:55:44.644Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-29T13:55:51.393Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.01 - Primitives and references","level":"1.4.1","depth":2,"next":{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},"previous":{"title":"3.0 - Programming in-depth","level":"1.4","depth":1,"path":"pages/03-00-programming-in-depth.md","ref":"pages/03-00-programming-in-depth.md","articles":[{"title":"3.01 - Primitives and references","level":"1.4.1","depth":2,"path":"pages/03-01-primitives-and-references.md","ref":"pages/03-01-primitives-and-references.md","articles":[]},{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},{"title":"3.03 - Map and filter","level":"1.4.3","depth":2,"path":"pages/03-03-map-and-filter.md","ref":"pages/03-03-map-and-filter.md","articles":[]},{"title":"3.04 - Stack and recursion","level":"1.4.4","depth":2,"path":"pages/03-04-stack-and-recursion.md","ref":"pages/03-04-stack-and-recursion.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/03-01-primitives-and-references.md","mtime":"2018-12-05T00:38:44.254Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-28T14:58:51.996Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
