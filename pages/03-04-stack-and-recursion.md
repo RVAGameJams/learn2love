@@ -221,7 +221,8 @@ Here's a script to test:
 
 ```lua
 local function recur(n)
-  -- assert is like error, but takes an expression to test as its first parameter
+  -- assert is like error, but takes an expression to test. If the
+  -- expression passed becomes false then it throws the error message.
   assert(n < 5, 'This is a conditional error')
   print(n)
   recur(n + 1)

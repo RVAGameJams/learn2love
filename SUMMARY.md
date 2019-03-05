@@ -42,3 +42,4 @@
   * [3.02 - Higher-order functions](pages/03-02-higher-order-functions.md)
   * [3.03 - Map and filter](pages/03-03-map-and-filter.md)
   * [3.04 - Stack and recursion](pages/03-04-stack-and-recursion.md)
+  * [3.05 - Reduce](pages/03-05-reduce.md)
