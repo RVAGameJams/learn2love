@@ -1,0 +1,1293 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.05 - Reduce · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="03-04-stack-and-recursion.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="02-04-game-loop.html">
+            
+                <a href="02-04-game-loop.html">
+            
+                    
+                    2.4 - Game loop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="02-05-delta-time.html">
+            
+                <a href="02-05-delta-time.html">
+            
+                    
+                    2.5 - Delta time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="02-06-mapping.html">
+            
+                <a href="02-06-mapping.html">
+            
+                    
+                    2.6 - Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="02-07-the-world.html">
+            
+                <a href="02-07-the-world.html">
+            
+                    
+                    2.7 - The world
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="02-08-reading-documentation.html">
+            
+                <a href="02-08-reading-documentation.html">
+            
+                    
+                    2.8 - Reading documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="02-09-modules-and-organization.html">
+            
+                <a href="02-09-modules-and-organization.html">
+            
+                    
+                    2.9 - Modules and organization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="02-10-collision-callbacks.html">
+            
+                <a href="02-10-collision-callbacks.html">
+            
+                    
+                    2.10 - Collision callbacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="02-11-breakout-part-1.html">
+            
+                <a href="02-11-breakout-part-1.html">
+            
+                    
+                    2.11 - Breakout (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="02-12-breakout-part-2.html">
+            
+                <a href="02-12-breakout-part-2.html">
+            
+                    
+                    2.12 - Breakout (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="02-13-breakout-part-3.html">
+            
+                <a href="02-13-breakout-part-3.html">
+            
+                    
+                    2.13 - Breakout (part 3)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="02-14-breakout-part-4.html">
+            
+                <a href="02-14-breakout-part-4.html">
+            
+                    
+                    2.14 - Breakout (part 4)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="02-15-breakout-part-5.html">
+            
+                <a href="02-15-breakout-part-5.html">
+            
+                    
+                    2.15 - Breakout (part 5)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="02-16-binary-and-bitmasks.html">
+            
+                <a href="02-16-binary-and-bitmasks.html">
+            
+                    
+                    2.16 - Binary and bitmasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="03-00-programming-in-depth.html">
+            
+                <a href="03-00-programming-in-depth.html">
+            
+                    
+                    3.0 - Programming in-depth
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="03-01-primitives-and-references.html">
+            
+                <a href="03-01-primitives-and-references.html">
+            
+                    
+                    3.01 - Primitives and references
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="03-02-higher-order-functions.html">
+            
+                <a href="03-02-higher-order-functions.html">
+            
+                    
+                    3.02 - Higher-order functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="03-03-map-and-filter.html">
+            
+                <a href="03-03-map-and-filter.html">
+            
+                    
+                    3.03 - Map and filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03-04-stack-and-recursion.html">
+            
+                <a href="03-04-stack-and-recursion.html">
+            
+                    
+                    3.04 - Stack and recursion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.5" data-path="03-05-reduce.html">
+            
+                <a href="03-05-reduce.html">
+            
+                    
+                    3.05 - Reduce
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.05 - Reduce</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="reduce-fold">Reduce (fold)</h1>
+<p>In previous sections we discussed many methods for iterating over data and transforming it.
+In this section we&apos;ll discuss another higher order function that is arguably one of the most powerful.
+It is a concept recognized across enough programming languages to get its own <a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function" target="_blank">wikipedia article</a>.
+Most popular languages call it <strong>reduce</strong>, although some languages will call it <em>fold</em> or <em>inject</em>.
+Here&apos;s the parameters it takes, and although the order of the parameters may be different in other languages the functionality and output will be the same.</p>
+<pre><code>reduce(list, fn, starting_value)
+</code></pre><p>Like with <code>map()</code> and <code>filter()</code>, it takes a list you want to transform and a function (<code>fn</code>) to do the transformation.
+The transformation function behaves like a recursive loop like seen in the last section.
+Here&apos;s a function that takes a list of numbers and gives you the total sum of those numbers.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> list = {<span class="hljs-number">23</span>, <span class="hljs-number">63</span>, <span class="hljs-number">12</span>, <span class="hljs-number">48</span>, <span class="hljs-number">3</span>}
+
+<span class="hljs-keyword">local</span> sum_fn = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(accumulator, current_number)</span></span>
+  <span class="hljs-keyword">return</span> accumulator + current_number
+<span class="hljs-keyword">end</span>
+
+
+<span class="hljs-keyword">local</span> total_sum = reduce(list, sum_fn, <span class="hljs-number">0</span>)
+</code></pre>
+<p>We pass reduce a starting number of <code>0</code>.
+What happens is <code>sum_fn</code> is invoked with the first parameter, the <code>accumulator</code> being the starting number 0 and <code>current_number</code> being the first number in the list.
+Whatever value the function returns becomes the new value for <code>accumulator</code> next loop around.</p>
+<p>Lua doesn&apos;t have a reduce function built in so we&apos;ll implement our own here with a detailed description of all the parameters.
+Try not to get too hung up on the actual reduce function&apos;s implementation at the top, but rather focus below that on how it works.
+There will be several more examples.
+Once you understand how to use it, go back to the top and look at the actual <code>reduce</code> function&apos;s implementation.
+Copy all this code into the text editor window on the REPL and run it:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- Applies fn on two arguments cumulative to the items of the array t,</span>
+<span class="hljs-comment">-- from left to right, so as to reduce the array to a single value. If</span>
+<span class="hljs-comment">-- a first value is specified the accumulator is initialized to this,</span>
+<span class="hljs-comment">-- otherwise the first value in the array is used.</span>
+<span class="hljs-comment">-- @param {table} t - a table to reduce</span>
+<span class="hljs-comment">-- @param {function} fn - the reducer for comparing the two values</span>
+<span class="hljs-comment">--   @param {*} acc - The accumulator accumulates the callback&apos;s return</span>
+<span class="hljs-comment">--     values; It is the accumulated value previously returned in the</span>
+<span class="hljs-comment">--     last invocation of the callback, or `first_value`, if supplied.</span>
+<span class="hljs-comment">--   @param {*} current_value - The current element being processed in the list.</span>
+<span class="hljs-comment">--   @param {number} current_index - The index of the current element</span>
+<span class="hljs-comment">--     being processed in the list, starting at 1.</span>
+<span class="hljs-comment">-- @param {*} first_value - The initial value of the accumulation. If the array is</span>
+<span class="hljs-comment">--   empty, the first_value will also be the returned value. If the array is empty</span>
+<span class="hljs-comment">--   and no first value is specified an error is raised.</span>
+<span class="hljs-comment">-- @example</span>
+<span class="hljs-comment">--   -- returns &apos;zxy&apos;</span>
+<span class="hljs-comment">--   reduce(</span>
+<span class="hljs-comment">--     { &apos;x&apos;, &apos;y&apos; },</span>
+<span class="hljs-comment">--     function(a, b) return a + b end,</span>
+<span class="hljs-comment">--     &apos;z&apos;</span>
+<span class="hljs-comment">--    )</span>
+<span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reduce</span><span class="hljs-params">(t, fn, first)</span></span>
+  <span class="hljs-keyword">local</span> acc = first
+  <span class="hljs-keyword">local</span> starting_value = first ~= <span class="hljs-keyword">nil</span>
+  <span class="hljs-keyword">for</span> i, v <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(t) <span class="hljs-keyword">do</span>
+    <span class="hljs-comment">-- No starting value, start on</span>
+    <span class="hljs-comment">-- the first element in the list</span>
+    <span class="hljs-keyword">if</span> starting_value <span class="hljs-keyword">then</span>
+      acc = fn(acc, v, i, t)
+    <span class="hljs-keyword">else</span>
+      acc = v
+      starting_value = <span class="hljs-keyword">true</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-built_in">assert</span>(
+    starting_value,
+    <span class="hljs-string">&apos;Attempted to reduce an empty table with no first value.&apos;</span>
+  )
+  <span class="hljs-keyword">return</span> acc
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> list = {<span class="hljs-number">23</span>, <span class="hljs-number">63</span>, <span class="hljs-number">12</span>, <span class="hljs-number">48</span>, <span class="hljs-number">3</span>}
+<span class="hljs-keyword">local</span> sum_fn = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(accumulator, current_number)</span></span>
+  <span class="hljs-built_in">print</span>(accumulator)
+  <span class="hljs-keyword">return</span> accumulator + current_number
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> total_sum = reduce(list, sum_fn, <span class="hljs-number">0</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;The total sum is:&apos;</span>, total_sum)
+</code></pre>
+<p>Following the <code>print</code> statement inside of <code>sum_fn</code>, we can see that the <code>accumulator</code> starts out with the 0 we pass in.
+We add <code>current_number</code> to <code>accumulator</code> and it begins to <em>accumulate</em> all the values as it goes.</p>
+<pre><code>0
+23
+86
+98
+146
+The total sum is:   149
+</code></pre><p>If we don&apos;t pass in a starting number, the accumulator will begin right away with the first number in the list:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> sum_fn = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(accumulator, current_number)</span></span>
+  <span class="hljs-built_in">print</span>(accumulator)
+  <span class="hljs-keyword">return</span> accumulator + current_number
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> total_sum = reduce(list, sum_fn)
+</code></pre>
+<pre><code>23
+86
+98
+146
+The total sum is:   149
+</code></pre><p>If you&apos;ve used javascript, you may be starting to see the uncanny resemblance it bears to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank">javascript&apos;s reduce function</a>.
+Both languages are very similar syntactically, and given the ubiquity of javascript this Lua implementation follows much of the same behavior.</p>
+<p>Let&apos;s look at some more examples to better understand how to reduce and what situations doing so could prove useful.
+The reduce function is omitted in the following examples, but you can copy and paste the function in the REPL alongside the examples to run the code yourself.</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- Concatenate a list of words</span>
+<span class="hljs-keyword">local</span> list = {<span class="hljs-string">&apos;this&apos;</span>, <span class="hljs-string">&apos;is&apos;</span>, <span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;sentence&apos;</span>}
+
+<span class="hljs-keyword">local</span> sentence = reduce(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(acc, word, index, list)</span></span>
+  <span class="hljs-comment">-- Add a period if this is the last word</span>
+  <span class="hljs-keyword">if</span> index == #list <span class="hljs-keyword">then</span>
+    word = word .. <span class="hljs-string">&apos;.&apos;</span>
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-comment">-- Otherwise add a space between the words</span>
+  <span class="hljs-keyword">return</span> acc .. <span class="hljs-string">&apos; &apos;</span> .. word
+<span class="hljs-keyword">end</span>)
+
+<span class="hljs-built_in">print</span>(sentence)
+</code></pre>
+<pre><code>this is a sentence.
+</code></pre><pre><code class="lang-lua"><span class="hljs-comment">-- Only keep odd numbers</span>
+<span class="hljs-keyword">local</span> list = {<span class="hljs-number">23</span>, <span class="hljs-number">63</span>, <span class="hljs-number">12</span>, <span class="hljs-number">48</span>, <span class="hljs-number">3</span>}
+<span class="hljs-keyword">local</span> odd_numbers = reduce(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(acc, current_number)</span></span>
+  <span class="hljs-keyword">if</span> current_number % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">return</span> acc
+  <span class="hljs-keyword">end</span>
+  acc[#acc + <span class="hljs-number">1</span>] = current_number
+  <span class="hljs-keyword">return</span> acc
+<span class="hljs-keyword">end</span>, {})
+
+<span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(odd_numbers) <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(value)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code>23
+63
+3
+</code></pre><p>This looks similar to what we might do with the <code>filter</code> function previously covered in <a href="03-03-map-and-filter.html">3.3 - Map and filter</a>.
+In fact, we can compose <code>filter</code> and <code>map</code> from <code>reduce</code>.
+Take a look at the same code refactored out:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> filter = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(list, predicate_fn)</span></span>
+  <span class="hljs-keyword">return</span> reduce(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(acc, val, i, t)</span></span>
+    <span class="hljs-keyword">if</span> predicate_fn(val, i, t) <span class="hljs-keyword">then</span>
+      acc[#acc + <span class="hljs-number">1</span>] = val
+      <span class="hljs-keyword">return</span> acc
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">return</span> acc
+  <span class="hljs-keyword">end</span>, {})
+<span class="hljs-keyword">end</span>
+
+
+<span class="hljs-comment">-- Only keep odd numbers</span>
+<span class="hljs-keyword">local</span> list = {<span class="hljs-number">23</span>, <span class="hljs-number">63</span>, <span class="hljs-number">12</span>, <span class="hljs-number">48</span>, <span class="hljs-number">3</span>}
+<span class="hljs-keyword">local</span> odd_numbers = filter(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(current_number)</span></span>
+  <span class="hljs-keyword">return</span> current_number % <span class="hljs-number">2</span> ~= <span class="hljs-number">0</span>
+<span class="hljs-keyword">end</span>)
+
+<span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(odd_numbers) <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(value)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>An example of wrapping <code>reduce</code> with a new <code>map</code> function won&apos;t be explained here, but rather left up to the reader as an exercise at the end of this section.</p>
+<p>Here&apos;s one more example that is a bit more complex, a function called <code>compose</code> that creates a pipeline for passing data through.
+It accomplishes this by passing any functions you give it through to <code>reduce</code> as a list:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- Function that allows you to compose other functions</span>
+<span class="hljs-comment">-- together to form a pipeline. The resulting pipeline</span>
+<span class="hljs-comment">-- is a function that you can pass your intended data through.</span>
+<span class="hljs-keyword">local</span> compose = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(...)</span></span>
+  <span class="hljs-comment">-- &quot;...&quot; and &quot;arg&quot; are special keywords in Lua.</span>
+  <span class="hljs-comment">-- See: https://www.lua.org/pil/5.2.html</span>
+  <span class="hljs-keyword">local</span> fns = arg
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span></span>
+    <span class="hljs-keyword">return</span> reduce(fns, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(acc, v)</span></span>
+      <span class="hljs-keyword">return</span> v(acc)
+    <span class="hljs-keyword">end</span>, x)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">-- Some example composable functions</span>
+<span class="hljs-keyword">local</span> add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span></span>
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(y)</span></span>
+    <span class="hljs-keyword">return</span> y + x
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+<span class="hljs-keyword">local</span> multiply = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span></span>
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(y)</span></span>
+    <span class="hljs-keyword">return</span> y * x
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+<span class="hljs-keyword">local</span> subtract = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span></span>
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(y)</span></span>
+    <span class="hljs-keyword">return</span> y - x
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+
+<span class="hljs-keyword">local</span> number_pipeline = compose(add(<span class="hljs-number">12</span>), multiply(<span class="hljs-number">2</span>), subtract(<span class="hljs-number">9</span>))
+<span class="hljs-built_in">print</span>(number_pipeline(<span class="hljs-number">3</span>))
+<span class="hljs-built_in">print</span>(number_pipeline(<span class="hljs-number">2</span>))
+</code></pre>
+<h2 id="alternative-reduce-implementations">Alternative reduce implementations</h2>
+<h3 id="iterating-tables">Iterating tables</h3>
+<p>Let&apos;s go back to the implementation of reduce for a moment.
+Take a look at the implementation of it given above.
+Notice the iteration inside is using <code>ipairs</code> which expects an array/list-type table.
+If we wanted to reduce a non-list table we could modify <code>reduce</code> to first check if the table is an array and do appropriate iteration over the table whether or not it is.
+Let&apos;s test that:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reduce</span><span class="hljs-params">(t, fn, first)</span></span>
+  <span class="hljs-keyword">local</span> get_iterator = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(t)</span></span>
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span>(t) == <span class="hljs-string">&apos;table&apos;</span> <span class="hljs-keyword">then</span>
+      <span class="hljs-comment">-- If property of 1 is empty then</span>
+      <span class="hljs-comment">-- iterate as a regular keyed table</span>
+      <span class="hljs-keyword">if</span> t[<span class="hljs-number">1</span>] == <span class="hljs-keyword">nil</span> <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">pairs</span>(t)
+      <span class="hljs-keyword">end</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">ipairs</span>(t)
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-built_in">error</span>(<span class="hljs-string">&apos;Expected table, got &apos;</span> .. <span class="hljs-built_in">tostring</span>(t))
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">local</span> acc = first
+  <span class="hljs-keyword">local</span> starting_value = first ~= <span class="hljs-keyword">nil</span>
+  <span class="hljs-comment">-- Whether we do ipairs or pairs is conditional</span>
+  <span class="hljs-keyword">for</span> i, v <span class="hljs-keyword">in</span> get_iterator(t) <span class="hljs-keyword">do</span>
+    <span class="hljs-comment">-- No starting value, start on</span>
+    <span class="hljs-comment">-- the first element in the list</span>
+    <span class="hljs-keyword">if</span> starting_value <span class="hljs-keyword">then</span>
+      acc = fn(acc, v, i, t)
+    <span class="hljs-keyword">else</span>
+      acc = v
+      starting_value = <span class="hljs-keyword">true</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-built_in">assert</span>(
+    starting_value,
+    <span class="hljs-string">&apos;Attempted to reduce an empty table with no first value.&apos;</span>
+  )
+  <span class="hljs-keyword">return</span> acc
+<span class="hljs-keyword">end</span>
+
+
+<span class="hljs-keyword">local</span> list = {
+  monday = <span class="hljs-number">23</span>,
+  tuesday = <span class="hljs-number">63</span>,
+  wednesday = <span class="hljs-number">12</span>,
+  thursday = <span class="hljs-number">48</span>,
+  friday = <span class="hljs-number">3</span>
+}
+<span class="hljs-keyword">local</span> total_sum = reduce(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(acc, current_number, key)</span></span>
+  <span class="hljs-built_in">print</span>(key .. <span class="hljs-string">&apos;: &apos;</span> .. current_number)
+  <span class="hljs-keyword">return</span> acc + current_number
+<span class="hljs-keyword">end</span>)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;total sum: &apos;</span> .. total_sum)
+</code></pre>
+<p>This should print something like this:</p>
+<pre><code>wednesday: 12
+friday: 3
+thursday: 48
+monday: 23
+total sum: 149
+</code></pre><p>Note that the order the keys are iterated in are not guaranteed.
+Also &quot;tuesday&quot; wasn&apos;t printed out because it was the starting number, but it was still included in the total.
+Passing an extra argument of <code>0</code> to <code>reduce</code> would have caused all the days to be passed through our reducer function and printed out.</p>
+<h3 id="break-early">Break early</h3>
+<p>Ok, here&apos;s another example that seems tricky at first glance;
+Let&apos;s say you implemented some search functionality on top of reduce like this:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> list = {<span class="hljs-number">23</span>, <span class="hljs-number">63</span>, <span class="hljs-number">12</span>, <span class="hljs-number">48</span>, <span class="hljs-number">3</span>}
+
+<span class="hljs-keyword">local</span> find = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(list, predicate_fn)</span></span>
+  <span class="hljs-keyword">return</span> reduce(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(acc, v, i, t)</span></span>
+    <span class="hljs-keyword">if</span> predicate_fn(v, a, t) <span class="hljs-keyword">then</span>
+      <span class="hljs-keyword">return</span> v
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">return</span> acc
+  <span class="hljs-keyword">end</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(find(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span></span>
+  <span class="hljs-keyword">return</span> val &gt; <span class="hljs-number">50</span>
+<span class="hljs-keyword">end</span>))
+<span class="hljs-built_in">print</span>(find(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span></span>
+  <span class="hljs-keyword">return</span> val % <span class="hljs-number">8</span> == <span class="hljs-number">0</span>
+<span class="hljs-keyword">end</span>))
+</code></pre>
+<p>Which prints out the expected results:</p>
+<pre><code>63
+48
+</code></pre><p>But do you see what&apos;s problematic about this?
+If we find the results we want, the reduce function will keep running through the entire list unnecessarily.
+Typically when doing a search you only want the first item you find anyway, but the above implementation will return the last item found if more than one match is made.
+Do you remember how the reduce function passes in the table as the last argument to the reducer function?
+We can take control of iterator via the table and kill the iteration prematurely.
+This involved mutating the table:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> list = {<span class="hljs-number">23</span>, <span class="hljs-number">63</span>, <span class="hljs-number">12</span>, <span class="hljs-number">48</span>, <span class="hljs-number">3</span>}
+
+<span class="hljs-keyword">local</span> find = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(list, predicate_fn)</span></span>
+  <span class="hljs-keyword">return</span> reduce(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(acc, v, i, t)</span></span>
+    <span class="hljs-keyword">if</span> predicate_fn(v, a, t) <span class="hljs-keyword">then</span>
+      <span class="hljs-comment">-- If a result was found, destroy the next item in the list</span>
+      <span class="hljs-comment">-- to prevent the iteration from going any further.</span>
+      t[i + <span class="hljs-number">1</span>] = <span class="hljs-keyword">nil</span>
+      <span class="hljs-keyword">return</span> v
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">return</span> acc
+  <span class="hljs-keyword">end</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(find(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span></span>
+  <span class="hljs-keyword">return</span> val &gt; <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>))
+</code></pre>
+<p>This returns the correct result:</p>
+<pre><code>23
+</code></pre><p>But if we loop over the table afterwards we can see we&apos;ve messed with the original data which can lead to unexpected consequences in a real application.
+If your data is coming from an immutable source, meaning something is generating a new copy each time you use it then this wouldn&apos;t be a problem:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> generate_list = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> {<span class="hljs-number">23</span>, <span class="hljs-number">63</span>, <span class="hljs-number">12</span>, <span class="hljs-number">48</span>, <span class="hljs-number">3</span>}
+<span class="hljs-keyword">end</span>
+
+reduce(generate_list(), <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  ...
+  ...
+</code></pre>
+<p>However we could fix all of this if we are willing to add another parameter to our reduce implementation.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reduce</span><span class="hljs-params">(t, fn, first)</span></span>
+  <span class="hljs-keyword">local</span> get_iterator = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(t)</span></span>
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span>(t) == <span class="hljs-string">&apos;table&apos;</span> <span class="hljs-keyword">then</span>
+      <span class="hljs-comment">-- If property of 1 is empty then</span>
+      <span class="hljs-comment">-- iterate as a regular keyed table</span>
+      <span class="hljs-keyword">if</span> t[<span class="hljs-number">1</span>] == <span class="hljs-keyword">nil</span> <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">pairs</span>(t)
+      <span class="hljs-keyword">end</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">ipairs</span>(t)
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-built_in">error</span>(<span class="hljs-string">&apos;Expected table, got &apos;</span> .. <span class="hljs-built_in">tostring</span>(t))
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">local</span> acc = first
+  <span class="hljs-keyword">local</span> starting_value = first ~= <span class="hljs-keyword">nil</span>
+  <span class="hljs-keyword">for</span> i, v <span class="hljs-keyword">in</span> get_iterator(t) <span class="hljs-keyword">do</span>
+    <span class="hljs-comment">-- Exit the loop when true</span>
+    <span class="hljs-keyword">local</span> should_break = <span class="hljs-keyword">false</span>
+    <span class="hljs-comment">-- No starting value, start on</span>
+    <span class="hljs-comment">-- the first element in the list</span>
+    <span class="hljs-keyword">if</span> starting_value <span class="hljs-keyword">then</span>
+      acc, should_break = fn(acc, v, i, t)
+      <span class="hljs-keyword">if</span> should_break <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">break</span>
+      <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">else</span>
+      acc = v
+      starting_value = <span class="hljs-keyword">true</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-built_in">assert</span>(
+    starting_value,
+    <span class="hljs-string">&apos;Attempted to reduce an empty table with no first value.&apos;</span>
+  )
+  <span class="hljs-keyword">return</span> acc
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Now if we pass <code>true</code> as a second return parameter then we will get the first number we are looking for instead of the last.
+Loop through and print out the list afterward to make sure we haven&apos;t mutated it unexpectedly.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> list = {<span class="hljs-number">23</span>, <span class="hljs-number">63</span>, <span class="hljs-number">12</span>, <span class="hljs-number">48</span>, <span class="hljs-number">3</span>}
+
+<span class="hljs-keyword">local</span> find = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(list, predicate_fn)</span></span>
+  <span class="hljs-keyword">return</span> reduce(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(acc, v, i, t)</span></span>
+    <span class="hljs-keyword">if</span> predicate_fn(v, a, t) <span class="hljs-keyword">then</span>
+      <span class="hljs-keyword">return</span> v, <span class="hljs-keyword">true</span>
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">return</span> acc
+  <span class="hljs-keyword">end</span>, <span class="hljs-keyword">false</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(find(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span></span>
+  <span class="hljs-keyword">return</span> val &gt; <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>))
+
+<span class="hljs-keyword">for</span> idx, val <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(list) <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(idx, val)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="reduceright">reduce_right</h3>
+<p>Another possible change you would want to make is to replace the iterator with a custom-made one to transform data in a specific order or pattern.
+Taken from lua-users.org&apos;s <a href="http://lua-users.org/wiki/IteratorsTutorial" target="_blank">Iteration Tutorial</a> is this reverse-ipairs (<code>ripairs</code>) implementation that allows you to iterate over a table from right to left.
+This modified version of <code>reduce</code> is typically called <code>reduce_right</code>.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reduce_right</span><span class="hljs-params">(t, fn, first)</span></span>
+  <span class="hljs-keyword">local</span> ripairs = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(t)</span></span>
+    <span class="hljs-keyword">local</span> max = <span class="hljs-number">1</span>
+    <span class="hljs-keyword">while</span> t[max] ~= <span class="hljs-keyword">nil</span> <span class="hljs-keyword">do</span>
+      max = max + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ripairs_it</span><span class="hljs-params">(t, i)</span></span>
+      i = i<span class="hljs-number">-1</span>
+      <span class="hljs-keyword">local</span> v = t[i]
+      <span class="hljs-keyword">if</span> v ~= <span class="hljs-keyword">nil</span> <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">return</span> i,v
+      <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">nil</span>
+      <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">return</span> ripairs_it, t, max
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">local</span> acc = first
+  <span class="hljs-keyword">local</span> starting_value = first ~= <span class="hljs-keyword">nil</span>
+  <span class="hljs-keyword">for</span> i, v <span class="hljs-keyword">in</span> ripairs(t) <span class="hljs-keyword">do</span>
+    <span class="hljs-comment">-- Exit the loop when true</span>
+    <span class="hljs-keyword">local</span> should_break = <span class="hljs-keyword">false</span>
+    <span class="hljs-comment">-- No starting value, start on</span>
+    <span class="hljs-comment">-- the first element in the list</span>
+    <span class="hljs-keyword">if</span> starting_value <span class="hljs-keyword">then</span>
+      acc, should_break = fn(acc, v, i, t)
+      <span class="hljs-keyword">if</span> should_break <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">break</span>
+      <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">else</span>
+      acc = v
+      starting_value = <span class="hljs-keyword">true</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-built_in">assert</span>(
+    starting_value,
+    <span class="hljs-string">&apos;Attempted to reduce an empty table with no first value.&apos;</span>
+  )
+  <span class="hljs-keyword">return</span> acc
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Then swap out <code>reduce</code> for <code>reduce_right</code> in the places you want to use it:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> list = {<span class="hljs-number">23</span>, <span class="hljs-number">63</span>, <span class="hljs-number">12</span>, <span class="hljs-number">48</span>, <span class="hljs-number">3</span>}
+
+<span class="hljs-keyword">local</span> find = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(list, predicate_fn)</span></span>
+  <span class="hljs-keyword">return</span> reduce_right(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(acc, v, i, t)</span></span>
+    <span class="hljs-keyword">if</span> predicate_fn(v, a, t) <span class="hljs-keyword">then</span>
+      <span class="hljs-keyword">return</span> v, <span class="hljs-keyword">true</span>
+    <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">return</span> acc
+  <span class="hljs-keyword">end</span>, <span class="hljs-keyword">false</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-built_in">print</span>(find(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span></span>
+  <span class="hljs-keyword">return</span> val &gt; <span class="hljs-number">1</span>
+<span class="hljs-keyword">end</span>))
+</code></pre>
+<h3 id="recursive">Recursive</h3>
+<p>Since we talked about recursion in the last section, let&apos;s try a recursive implementation of <code>reduce</code>.
+Although with Lua there&apos;s no practical reason to choose a recursive implementation over a for-loop or while-loop implementation, doing recursion is fun.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reduce</span><span class="hljs-params">(t, fn, acc, key)</span></span>
+  <span class="hljs-comment">-- Check for starting value</span>
+  <span class="hljs-keyword">if</span> key == <span class="hljs-keyword">nil</span> <span class="hljs-keyword">and</span> acc == <span class="hljs-keyword">nil</span> <span class="hljs-keyword">then</span>
+    key = <span class="hljs-built_in">next</span>(t, key)
+    acc = t[key]
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-comment">-- Begin next iteration. Next is a Lua built-in function</span>
+  <span class="hljs-comment">-- that fetches the next key in a table after the given key.</span>
+  <span class="hljs-comment">-- See: https://www.lua.org/pil/7.3.html</span>
+  key = <span class="hljs-built_in">next</span>(t, key)
+  <span class="hljs-comment">-- Return acc if we&apos;ve iterated all keys</span>
+  <span class="hljs-keyword">if</span> key == <span class="hljs-keyword">nil</span> <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">return</span> acc
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">local</span> break_early = <span class="hljs-keyword">false</span>
+  <span class="hljs-comment">-- Collect new accumulator from predicate function</span>
+  acc, break_early = fn(acc, t[key], key, t)
+  <span class="hljs-comment">-- Check to see if the predicate wants to end early</span>
+  <span class="hljs-keyword">if</span> break_early <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">return</span> acc
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-comment">-- Recur</span>
+  <span class="hljs-keyword">return</span> reduce(t, fn, acc, key, acc)
+<span class="hljs-keyword">end</span>
+
+
+<span class="hljs-comment">-- Test it by getting the total sum from a table like before</span>
+<span class="hljs-keyword">local</span> list = {
+  monday = <span class="hljs-number">23</span>,
+  tuesday = <span class="hljs-number">63</span>,
+  wednesday = <span class="hljs-number">12</span>,
+  thursday = <span class="hljs-number">48</span>,
+  friday = <span class="hljs-number">3</span>
+}
+<span class="hljs-keyword">local</span> total_sum = reduce(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(acc, current_number, key)</span></span>
+  <span class="hljs-built_in">print</span>(key .. <span class="hljs-string">&apos;: &apos;</span> .. current_number)
+  <span class="hljs-keyword">return</span> acc + current_number
+<span class="hljs-keyword">end</span>, <span class="hljs-number">0</span>)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;total sum: &apos;</span> .. total_sum)
+</code></pre>
+<p>This supports breaking early like the two previous implementations.</p>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li><p>Create a <code>count</code> function that counts up the number of items in a list that match the predicate and returns the total. It should work like this:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> count = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(list, predicate_fn)</span></span>
+  ????
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">local</span> list = {<span class="hljs-number">23</span>, <span class="hljs-number">63</span>, <span class="hljs-number">12</span>, <span class="hljs-number">48</span>, <span class="hljs-number">3</span>}
+<span class="hljs-comment">-- Print number of items evenly divisible by 3 (should return 4)</span>
+<span class="hljs-built_in">print</span>(count(list, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(v)</span></span>
+  <span class="hljs-keyword">return</span> v % <span class="hljs-number">3</span> == <span class="hljs-number">0</span>
+<span class="hljs-keyword">end</span>))
+</code></pre>
+</li>
+<li><p>Go back to the <a href="03-03-map-and-filter.html#map">map section in 3.3</a> and see if you can reimplement the <code>map</code> function on top of <code>reduce</code>.</p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="03-04-stack-and-recursion.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 3.04 - Stack and recursion">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.05 - Reduce","level":"1.4.5","depth":2,"previous":{"title":"3.04 - Stack and recursion","level":"1.4.4","depth":2,"path":"pages/03-04-stack-and-recursion.md","ref":"pages/03-04-stack-and-recursion.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/03-05-reduce.md","mtime":"2019-03-05T19:42:49.136Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-05T19:58:20.085Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

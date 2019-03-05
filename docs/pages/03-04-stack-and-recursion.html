@@ -58,6 +58,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="03-05-reduce.html" />
+    
     
     <link rel="prev" href="03-03-map-and-filter.html" />
     
@@ -650,6 +652,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.5" data-path="03-05-reduce.html">
+            
+                <a href="03-05-reduce.html">
+            
+                    
+                    3.05 - Reduce
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -877,7 +892,8 @@ map(new_list, <span class="hljs-function"><span class="hljs-keyword">function</s
 <p>So what does the stack look like during recursion when a function enters itself?
 Here&apos;s a script to test:</p>
 <pre><code class="lang-lua"><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">recur</span><span class="hljs-params">(n)</span></span>
-  <span class="hljs-comment">-- assert is like error, but takes an expression to test as its first parameter</span>
+  <span class="hljs-comment">-- assert is like error, but takes an expression to test. If the</span>
+  <span class="hljs-comment">-- expression passed becomes false then it throws the error message.</span>
   <span class="hljs-built_in">assert</span>(n &lt; <span class="hljs-number">5</span>, <span class="hljs-string">&apos;This is a conditional error&apos;</span>)
   <span class="hljs-built_in">print</span>(n)
   recur(n + <span class="hljs-number">1</span>)
@@ -1079,10 +1095,14 @@ These are the factors that will often do the deciding for you.</p>
 
             
                 
-                <a href="03-03-map-and-filter.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 3.03 - Map and filter">
+                <a href="03-03-map-and-filter.html" class="navigation navigation-prev " aria-label="Previous page: 3.03 - Map and filter">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="03-05-reduce.html" class="navigation navigation-next " aria-label="Next page: 3.05 - Reduce">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -1091,7 +1111,7 @@ These are the factors that will often do the deciding for you.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.04 - Stack and recursion","level":"1.4.4","depth":2,"previous":{"title":"3.03 - Map and filter","level":"1.4.3","depth":2,"path":"pages/03-03-map-and-filter.md","ref":"pages/03-03-map-and-filter.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/03-04-stack-and-recursion.md","mtime":"2018-10-29T13:55:44.644Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-28T14:58:51.996Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.04 - Stack and recursion","level":"1.4.4","depth":2,"next":{"title":"3.05 - Reduce","level":"1.4.5","depth":2,"path":"pages/03-05-reduce.md","ref":"pages/03-05-reduce.md","articles":[]},"previous":{"title":"3.03 - Map and filter","level":"1.4.3","depth":2,"path":"pages/03-03-map-and-filter.md","ref":"pages/03-03-map-and-filter.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/03-04-stack-and-recursion.md","mtime":"2019-03-01T03:55:14.557Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-05T19:58:20.085Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
