@@ -250,7 +250,7 @@ Armed with this knowledge, we can assert the following information from the tabl
 - The enemy collides only with the ground and players.
 - The ground collides with everything.
 
-Go into the code folder and run the "collision" game:
+Copy or download the "collision" game from the example code and run it:
 
 https://github.com/RVAGameJams/learn2love/tree/master/code/collision
 
@@ -275,4 +275,4 @@ That being said, collision groups should be relatively straight-forward to learn
 ## Exercises
 
 - Play with the bitmasks. Can you make the enemy collide with the powerup instead of the player?
-- Take a look at how groups work as described in [Fixture:setGroupIndex](https://love2d.org/wiki/Fixture:setGroupIndex). How can you create collision rules using groups instead of setting the bitmask and category? What are the advantages of each method?
+- Take a look at how groups work as described in [Fixture:setGroupIndex](https://love2d.org/wiki/Fixture:setGroupIndex). This is a simpler, but more limited method of detecting collision. Can it be used to imitate the collision rules above?
