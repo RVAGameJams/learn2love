@@ -1,5 +1,7 @@
 # Previously-rendered books
 docs
+book.pdf
+book.epub
 
 # source code examples
 code
@@ -9,6 +11,7 @@ code
 
 # Dev stuff
 package.json
+.luacheckrc
 .editorconfig
 .gitignore
 *.log

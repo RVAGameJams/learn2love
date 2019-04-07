@@ -6,12 +6,13 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "rm -rf docs && gitbook build && cp -r _book docs",
+    "build": "rm -rf docs && gitbook pdf ./ ./book.pdf && gitbook epub ./ ./book.epub && gitbook build && cp -r _book docs",
     "start": "gitbook serve"
   },
   "devDependencies": {
     "gitbook": "^3.2.3",
     "gitbook-cli": "^2.3.2",
-    "gitbook-plugin-graph": "^0.1.0"
+    "gitbook-plugin-graph": "^0.1.0",
+    "svgexport": "^0.3.2"
   }
 }

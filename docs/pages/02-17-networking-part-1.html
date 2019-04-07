@@ -1,0 +1,1164 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.17 - Networking (part 1) · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="02-18-networking-part-2.html" />
+    
+    
+    <link rel="prev" href="02-16-binary-and-bitmasks.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="02-04-game-loop.html">
+            
+                <a href="02-04-game-loop.html">
+            
+                    
+                    2.4 - Game loop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="02-05-delta-time.html">
+            
+                <a href="02-05-delta-time.html">
+            
+                    
+                    2.5 - Delta time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="02-06-mapping.html">
+            
+                <a href="02-06-mapping.html">
+            
+                    
+                    2.6 - Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="02-07-the-world.html">
+            
+                <a href="02-07-the-world.html">
+            
+                    
+                    2.7 - The world
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="02-08-reading-documentation.html">
+            
+                <a href="02-08-reading-documentation.html">
+            
+                    
+                    2.8 - Reading documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="02-09-modules-and-organization.html">
+            
+                <a href="02-09-modules-and-organization.html">
+            
+                    
+                    2.9 - Modules and organization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="02-10-collision-callbacks.html">
+            
+                <a href="02-10-collision-callbacks.html">
+            
+                    
+                    2.10 - Collision callbacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="02-11-breakout-part-1.html">
+            
+                <a href="02-11-breakout-part-1.html">
+            
+                    
+                    2.11 - Breakout (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="02-12-breakout-part-2.html">
+            
+                <a href="02-12-breakout-part-2.html">
+            
+                    
+                    2.12 - Breakout (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="02-13-breakout-part-3.html">
+            
+                <a href="02-13-breakout-part-3.html">
+            
+                    
+                    2.13 - Breakout (part 3)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="02-14-breakout-part-4.html">
+            
+                <a href="02-14-breakout-part-4.html">
+            
+                    
+                    2.14 - Breakout (part 4)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="02-15-breakout-part-5.html">
+            
+                <a href="02-15-breakout-part-5.html">
+            
+                    
+                    2.15 - Breakout (part 5)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="02-16-binary-and-bitmasks.html">
+            
+                <a href="02-16-binary-and-bitmasks.html">
+            
+                    
+                    2.16 - Binary and bitmasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.17" data-path="02-17-networking-part-1.html">
+            
+                <a href="02-17-networking-part-1.html">
+            
+                    
+                    2.17 - Networking (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.18" data-path="02-18-networking-part-2.html">
+            
+                <a href="02-18-networking-part-2.html">
+            
+                    
+                    2.18 - Networking (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="03-00-programming-in-depth.html">
+            
+                <a href="03-00-programming-in-depth.html">
+            
+                    
+                    3.0 - Programming in-depth
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="03-01-primitives-and-references.html">
+            
+                <a href="03-01-primitives-and-references.html">
+            
+                    
+                    3.01 - Primitives and references
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="03-02-higher-order-functions.html">
+            
+                <a href="03-02-higher-order-functions.html">
+            
+                    
+                    3.02 - Higher-order functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="03-03-map-and-filter.html">
+            
+                <a href="03-03-map-and-filter.html">
+            
+                    
+                    3.03 - Map and filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03-04-stack-and-recursion.html">
+            
+                <a href="03-04-stack-and-recursion.html">
+            
+                    
+                    3.04 - Stack and recursion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="03-05-reduce.html">
+            
+                <a href="03-05-reduce.html">
+            
+                    
+                    3.05 - Reduce
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.17 - Networking (part 1)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="networking-part-1">Networking (part 1)</h1>
+<p>When creating a program such as a game, one of the first things to consider should be whether it is a networked application.
+Such a choice will radically change the structure and complexity of the application.
+To build a networked (&quot;online&quot;) multiplayer game, we must understand some networking basics.
+Some of this information is oversimplified, but let&apos;s establish a baseline of knowledge.</p>
+<h2 id="internet-protocol-ip">Internet protocol (IP)</h2>
+<p>Networks are possible because computers agree on a way to communicate with each other.
+Like ogres, messages sent across the internet have many layers.
+Each layer represents a different protocol that interprets how the message should be handled.
+The internet protocol (IP) tells computers how to relay messages to their intended destination.
+There are two things we need to know about this protocol: <strong>IP addresses</strong> and <strong>ports</strong>.</p>
+<p>Every device connected to the internet has an IP address assigned to it when it connects.
+Messages sent out from your device are sent with a destination IP address attached so it knows where to go.
+Messages are relayed from one machine to another until it reaches the destination machine&apos;s address.</p>
+<p>If you open your terminal or command prompt and type <code>ping google.com</code> you will get a response back that tells you the destination IP address; The IP address of the server running the google.com homepage you see.
+You may even be able to type that IP address into your web browser and it will direct you to the website in the same fashion typing google.com in the address bar would (although this won&apos;t work for all websites because of unrelated, complicated reasons).
+Let&apos;s say you connected to google.com through the IP address 172.217.7.14.
+You&apos;re actually connecting to that IP through a specific port.
+Ports are represented as numbers, so that IP like most every other website on the internet is accessed through port 443.</p>
+<p>IP ports are like the maritime ports that harbor ships.
+A single destination can have multiple ports for different purposes.
+If I were bringing in a military vessel I may go to a different port than a commercial vessel.</p>
+<p>Depending on your intentions for a network connection you will use different IP ports.
+For instance, if you are trying to view a website located at 172.217.7.14 you will use port 443 for an HTTPS connection, port 80 for an HTTP connection (if allowed), and if I am an administrator of the machine running on 172.217.7.14 I will use a completely different port to establish a backdoor connection such as port 22.</p>
+<p>For our example program we will try connecting to a special reserved IP address, 127.0.0.1.
+This IP address is your machine&apos;s own IP address it uses when it wants to connect to itself.
+Since we&apos;ll be testing our program by running both copies on the same computer we won&apos;t need to worry about multiple IP addresses for now.
+For the port you have a range from 0 to 65535 and it doesn&apos;t really matter which one you use so long as it&apos;s not already in use or being reserved for other purposes.
+We&apos;ll pick a random one that is unlikely to be in use by other programs... 6789.</p>
+<h2 id="transport-layer">Transport layer</h2>
+<p>The transport layer decides how your data will be packaged and streamed.
+You have a choice on a few different protocols for the transport layer.
+Understanding the details of each protocol in the transport layer isn&apos;t too important for this section of the book but let&apos;s discuss why we may want to use one or the other.</p>
+<ul>
+<li><strong>TCP</strong> - This protocol provides different features to make sure data doesn&apos;t get corrupt. Most notably, it waits for a confirmation response from the other end to make sure the message was received. If a response isn&apos;t received by a certain timeout then the connection is considered a failure. Websites use TCP 99% of the time because of its reliability and ensuring you&apos;ve received the site&apos;s full content.</li>
+<li><strong>UDP</strong> - This protocol sends data to a server and expects no response back. Sending data without confirming it reaches the destination could lead to less reliable data transportation. However, less back and forth communication could mean a faster connection. This protocol is used by applications needing to send lots of data quickly, like an audio stream or a video game. This is the protocol we&apos;ll use.</li>
+</ul>
+<p>Imagine you have two players needing to communicate their position with each other so we decide to use UDP.
+You may send messages back and forth several times a second to communicate your positions.
+Since you are sending data so rapidly, if one of those messages is lost then the player position can be re-synchronized next message.
+This is fast and unless one of the players has a faulty internet connection you typically won&apos;t notice a small jitter or hiccup every now and then.</p>
+<p>Now imagine another scenario where we want to send a message that a player gained an extra life.
+If we were using UDP and that message got lost, we could have two online players with out-of-sync information that would ultimately jeopardize gameplay.
+One solution around this would be to use TCP for mission-critical messages and UDP for everything else.
+Another solution is to keep all messages in UDP, but to write a callback in Lua around our mission-critical messages to check that we get a reply.
+Yup, you can have your application send UDP messages and expect a response but even though UDP doesn&apos;t have this feature as part of its protocol you can still program in your application a timeout that expects a response.
+This sounds like a lot of work, but Lua and many other languages have libraries available you can require in your project that do this for you.
+We&apos;ll see how easy this is later on.</p>
+<h2 id="application-layer">Application layer</h2>
+<p>Finally we have the protocol we create for each running copy of a game to know how to communicate once a connection is established.
+For instance if a message with the string <code>&quot;ping&quot;</code> is being received, we may want to respond <code>&quot;pong&quot;</code>.
+The more complicated the game is, the more complicated the protocol will be.
+Let&apos;s check out one of the libraries Lua offers for networking and build a test program with a basic application protocol where the server responds to <code>&quot;meow&quot;</code> with <code>&quot;bark&quot;</code> and the client responds to <code>&quot;bark&quot;</code> with <code>&quot;meow&quot;</code>.
+As you can guess this will lead to an infinite back-and-forth conversation between the two hosts if we are successful.</p>
+<h2 id="enet">ENet</h2>
+<p>There are several third-party libraries for Lua for networking.
+L&#xD6;VE includes two of the most popular, <a href="http://w3.impa.br/~diego/software/luasocket/" target="_blank">LuaSocket</a> and <a href="http://leafo.net/lua-enet/" target="_blank">lua-enet</a>.
+LuaSocket is very flexible and allows you to create TCP and UDP connections.
+Lua-enet is built on top of the ENet library, a simple yet high performance networking library.
+It uses UDP, but handles everything around the transport layer for us so we can focus on our application layer.
+It even does message confirmation over UDP for us when we need it to so we get the best of both worlds.
+Let&apos;s create a server and client program in L&#xD6;VE and we&apos;ll run them separately, connecting them to each other.</p>
+<h2 id="our-server-application">Our server application</h2>
+<p>Create a folder called <code>server</code> and in it create a file named <code>server.lua</code>.
+We&apos;ll start by requiring <code>enet</code>:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- server/server.lua</span>
+<span class="hljs-keyword">local</span> enet = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;enet&apos;</span>)
+</code></pre>
+<p>This file will return a table of functions for starting and stopping the server.
+To start the server, we need to create a host and tell it which IP address and port it is running on.
+Let&apos;s create a <code>server.start</code> function that does just that:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- server/server.lua</span>
+<span class="hljs-keyword">local</span> enet = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;enet&apos;</span>)
+
+<span class="hljs-keyword">local</span> host
+<span class="hljs-keyword">local</span> server = {}
+
+server.start = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  host = enet.host_create(<span class="hljs-string">&apos;127.0.0.1:6789&apos;</span>)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">return</span> server
+</code></pre>
+<p>The IP address is <code>127.0.0.1</code> as we said we would use.
+That is telling ENet we want to start the server on our machine&apos;s local address.
+The IP address is followed by a colon (<code>:</code>) then the port number (<code>6789</code>) which is an arbitrary port that should be free to use.
+If we create a main.lua file we can require server.lua and create a server when L&#xD6;VE starts.</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- server/main.lua</span>
+<span class="hljs-comment">-- Our server application</span>
+<span class="hljs-keyword">local</span> server = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;server&apos;</span>)
+
+love.<span class="hljs-built_in">load</span> = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  server.start()
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>If we try and run this, nothing will happen.
+Let&apos;s define <code>love.draw</code> and print some text to tell us when someone connects to our server:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- server/main.lua</span>
+<span class="hljs-comment">-- Our server application</span>
+<span class="hljs-keyword">local</span> server = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;server&apos;</span>)
+
+love.<span class="hljs-built_in">load</span> = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-comment">-- Keep text pixels sharp and intact instead of blurring</span>
+  <span class="hljs-comment">-- https://love2d.org/wiki/FilterMode</span>
+  love.graphics.setDefaultFilter(<span class="hljs-string">&apos;nearest&apos;</span>, <span class="hljs-string">&apos;nearest&apos;</span>)
+
+  server.start()
+<span class="hljs-keyword">end</span>
+
+love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-comment">-- Scale up the size of the text being printed</span>
+  <span class="hljs-keyword">local</span> transform = love.<span class="hljs-built_in">math</span>.newTransform(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>)
+  <span class="hljs-keyword">if</span> server.is_connected() <span class="hljs-keyword">then</span>
+    love.graphics.<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;client connected to us (see console)&apos;</span>, transform)
+  <span class="hljs-keyword">else</span>
+    love.graphics.<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;server started... awaiting clients&apos;</span>, transform)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment">-- It&apos;s convenient to be able to press escape to close the program</span>
+love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
+  <span class="hljs-keyword">if</span> pressed_key == <span class="hljs-string">&apos;escape&apos;</span> <span class="hljs-keyword">then</span>
+    love.event.quit()
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>With this done, we need to figure out how the server knows someone is connected.
+We call <code>server.is_connected()</code> in <code>love.draw</code>, so let&apos;s start by defining that:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- server/server.lua</span>
+<span class="hljs-keyword">local</span> enet = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;enet&apos;</span>)
+
+<span class="hljs-keyword">local</span> host
+<span class="hljs-keyword">local</span> received_data = <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">local</span> server = {}
+
+server.start = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  host = enet.host_create(<span class="hljs-string">&apos;127.0.0.1:6789&apos;</span>)
+<span class="hljs-keyword">end</span>
+
+server.is_connected = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> received_data
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">return</span> server
+</code></pre>
+<p>Ok, so <code>server.is_connected()</code> will return the value of <code>received_data</code> which defaults to <code>false</code>.
+Now the part that does all the action:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- server/server.lua</span>
+<span class="hljs-keyword">local</span> enet = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;enet&apos;</span>)
+
+<span class="hljs-keyword">local</span> host
+<span class="hljs-keyword">local</span> peer
+<span class="hljs-keyword">local</span> received_data = <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">local</span> server = {}
+
+server.start = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  host = enet.host_create(<span class="hljs-string">&apos;127.0.0.1:6789&apos;</span>)
+<span class="hljs-keyword">end</span>
+
+server.is_connected = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> received_data
+<span class="hljs-keyword">end</span>
+
+server.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> host <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">local</span> event = host:service()
+  <span class="hljs-keyword">if</span> event <span class="hljs-keyword">then</span>
+    received_data = <span class="hljs-keyword">true</span>
+    peer = event.peer
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;----&apos;</span>)
+    <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(event) <span class="hljs-keyword">do</span>
+      <span class="hljs-built_in">print</span>(k, v)
+    <span class="hljs-keyword">end</span>
+    event.peer:send(<span class="hljs-string">&apos;bark&apos;</span>)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">return</span> server
+</code></pre>
+<p>Let&apos;s take a close look at <code>server.update</code> piece by piece.
+First thing is an <code>if</code> statement to check that <code>host</code> is defined.
+If <code>server.update</code> is called before <code>server.start</code> then it won&apos;t be so there is no server update to be made.
+If our server host was created and we get past the if-statement check, we call <code>host:service()</code>.
+If we read the documentation for <a href="http://leafo.net/lua-enet/#hostservicetimeout" target="_blank"><code>host:service</code></a> we can see the purpose of calling this is to check for any incoming packets (messages) and send out any we have queued up.
+If we receive any, we will get back an <code>event</code> table.
+If we do get an event table, we&apos;ll change <code>received_data</code> to <code>true</code> (which in turn means <code>server.is_connected()</code> now returns <code>true</code>).
+Next we will capture the peer (the client) that sent us this data which we can use to send messages to later:</p>
+<pre><code class="lang-lua">peer = event.peer
+</code></pre>
+<p>While we have the event table, let&apos;s just iterate over it and print its contents to the console:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(event) <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">print</span>(k, v)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Then finally we&apos;ll send the client a message that simply reads &quot;bark&quot;.</p>
+<pre><code class="lang-lua">event.peer:send(<span class="hljs-string">&apos;bark&apos;</span>)
+</code></pre>
+<p>We can now call <code>server.update</code> inside our game loop&apos;s <code>love.update</code> function:</p>
+<pre><code class="lang-lua">love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  server.update()
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>We need to test our server, but to test our server, we need a client.</p>
+<h2 id="our-client-application">Our client application</h2>
+<p>Create a &quot;client&quot; folder like the &quot;server&quot; folder created above.
+Most of the code will be identical to our server.
+The main difference is that when we create a host we won&apos;t pass it an IP address and port to serve on, but instead will tell it to connect to the address and port the server is running on.</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- client/main.lua</span>
+<span class="hljs-comment">-- Our client application</span>
+<span class="hljs-keyword">local</span> client = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;client&apos;</span>)
+
+love.<span class="hljs-built_in">load</span> = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-comment">-- Keep text pixels sharp and intact instead of blurring</span>
+  <span class="hljs-comment">-- https://love2d.org/wiki/FilterMode</span>
+  love.graphics.setDefaultFilter(<span class="hljs-string">&apos;nearest&apos;</span>, <span class="hljs-string">&apos;nearest&apos;</span>)
+
+  client.start()
+<span class="hljs-keyword">end</span>
+
+love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-comment">-- Scale up the size of the text being printed</span>
+  <span class="hljs-keyword">local</span> transform = love.<span class="hljs-built_in">math</span>.newTransform(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>)
+  <span class="hljs-keyword">if</span> client.is_connected() <span class="hljs-keyword">then</span>
+    love.graphics.<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;connected to server (see console)&apos;</span>, transform)
+  <span class="hljs-keyword">else</span>
+    love.graphics.<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;establishing a connection...&apos;</span>, transform)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
+  <span class="hljs-keyword">if</span> pressed_key == <span class="hljs-string">&apos;escape&apos;</span> <span class="hljs-keyword">then</span>
+    love.event.quit()
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  client.update()
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code class="lang-lua"><span class="hljs-comment">-- client/client.lua</span>
+<span class="hljs-keyword">local</span> enet = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;enet&apos;</span>)
+<span class="hljs-keyword">local</span> client = {}
+<span class="hljs-keyword">local</span> host
+<span class="hljs-keyword">local</span> peer
+<span class="hljs-keyword">local</span> received_data = <span class="hljs-keyword">false</span>
+
+client.start = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  host = enet.host_create()
+  peer = host:connect(<span class="hljs-string">&apos;127.0.0.1:6789&apos;</span>)
+<span class="hljs-keyword">end</span>
+
+client.is_connected = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> received_data
+<span class="hljs-keyword">end</span>
+
+client.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">if</span> host <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">local</span> event = host:service()
+    <span class="hljs-keyword">if</span> event <span class="hljs-keyword">then</span>
+      received_data = <span class="hljs-keyword">true</span>
+      <span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;----&apos;</span>)
+      <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(event) <span class="hljs-keyword">do</span>
+        <span class="hljs-built_in">print</span>(k, v)
+      <span class="hljs-keyword">end</span>
+      event.peer:send(<span class="hljs-string">&apos;meow&apos;</span>)
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">return</span> client
+</code></pre>
+<p>If we receive a message from the server we&apos;ll &quot;meow&quot; back at it.</p>
+<h2 id="testing-things-out">Testing things out</h2>
+<p>If you run the server you will see a message saying &quot;server started... awaiting clients&quot;.
+Since we are printing to the console, if you are running this code on Windows remember that you will need to enable the console.
+This can be done by creating a conf.lua file in both the client and server folders.</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- L&#xD6;VE configuration file</span>
+
+love.conf = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(t)</span></span>
+  t.console = <span class="hljs-keyword">true</span>        <span class="hljs-comment">-- Enable the debug console for Windows.</span>
+  t.window.width = <span class="hljs-number">800</span>    <span class="hljs-comment">-- Game&apos;s screen width (number of pixels)</span>
+  t.window.height = <span class="hljs-number">600</span>   <span class="hljs-comment">-- Game&apos;s screen height (number of pixels)</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>If the server is up and running with the console enabled, go ahead and start the client with its console enabled too.
+You should immediately see a flood of events printing out in the server and client consoles.</p>
+<p>Server console:</p>
+<pre><code>----
+peer    127.0.0.1:58384
+channel 0
+data    meow
+type    receive
+</code></pre><p>Client console:</p>
+<pre><code>----
+peer    127.0.0.1:6789
+channel 0
+data    bark
+type    receive
+</code></pre><p>This will go back and forth until you close either one of them.
+If you close one though, the messages will stop and it will just sit there.
+If you close the server first, for instance, the client will sit there then after several seconds a message will appear:</p>
+<pre><code>----
+peer    127.0.0.1:6789
+data    0
+type    disconnect
+</code></pre><p>Normally a disconnect like this wouldn&apos;t be detected with UDP, but the ENet library sends &quot;heartbeat&quot; messages back and forth to make sure both peers are still connected to each other.
+The timeout is defined to be somewhere between 5 and 30 seconds before the peer realizes it has been disconnnected from the other one.
+Just to polish things off here, let&apos;s make ENet send a disconnect event to the other peer immediately when we are closing our application.
+The lua-enet documentation lists a function we can invoke to do that, <a href="http://leafo.net/lua-enet/#peerdisconnect_nowdata" target="_blank"><code>peer:disconnect_now</code></a>.
+L&#xD6;VE has a <a href="https://love2d.org/wiki/love.quit" target="_blank"><code>love.quit</code></a> callback that is called when our application is closing.
+We can write a <code>server.disconnect</code> function and call it from <code>love.quit</code>.</p>
+<p>Server:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- server/main.lua</span>
+
+...
+
+love.quit = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  server.disconnect()
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code class="lang-lua"><span class="hljs-comment">-- server/server.lua</span>
+
+...
+
+server.disconnect = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">if</span> peer <span class="hljs-keyword">then</span>
+    peer:disconnect_now()
+    peer = <span class="hljs-keyword">nil</span>
+  <span class="hljs-keyword">end</span>
+  host = <span class="hljs-keyword">nil</span>
+  received_data = <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The <code>client.disconnect</code> code would be identical.</p>
+<p>To see this full example or if you have any problems getting your code to run check out the code on GitHub:
+<a href="https://github.com/RVAGameJams/learn2love/tree/master/code/networking-1" target="_blank">https://github.com/RVAGameJams/learn2love/tree/master/code/networking-1</a></p>
+<p>In the next part we will look at network architecture and add entities to the screen to work with.</p>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li>What happens if you try to connect multiple clients to the server? What about running multiple servers on the same IP address and port? Why does it behave like it does?</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02-16-binary-and-bitmasks.html" class="navigation navigation-prev " aria-label="Previous page: 2.16 - Binary and bitmasks">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="02-18-networking-part-2.html" class="navigation navigation-next " aria-label="Next page: 2.18 - Networking (part 2)">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.17 - Networking (part 1)","level":"1.3.17","depth":2,"next":{"title":"2.18 - Networking (part 2)","level":"1.3.18","depth":2,"path":"pages/02-18-networking-part-2.md","ref":"pages/02-18-networking-part-2.md","articles":[]},"previous":{"title":"2.16 - Binary and bitmasks","level":"1.3.16","depth":2,"path":"pages/02-16-binary-and-bitmasks.md","ref":"pages/02-16-binary-and-bitmasks.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-17-networking-part-1.md","mtime":"2019-04-07T19:34:59.617Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-07T20:02:53.122Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1402 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.18 - Networking (part 2) · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="03-00-programming-in-depth.html" />
+    
+    
+    <link rel="prev" href="02-17-networking-part-1.html" />
+    
+
+    <script src="../gitbook/gitbook-plugin-graph/d3.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-graph/function-plot.js"></script>    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="01-00-programming-basics.html">
+            
+                <a href="01-00-programming-basics.html">
+            
+                    
+                    1.0 - Programming basics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="01-01-interactive-coding.html">
+            
+                <a href="01-01-interactive-coding.html">
+            
+                    
+                    1.1 - Interactive coding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="01-02-strings.html">
+            
+                <a href="01-02-strings.html">
+            
+                    
+                    1.2 - Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="01-03-nil-and-variables.html">
+            
+                <a href="01-03-nil-and-variables.html">
+            
+                    
+                    1.3 - Nil and variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="01-04-using-functions.html">
+            
+                <a href="01-04-using-functions.html">
+            
+                    
+                    1.4 - Using functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="01-05-comments-in-code.html">
+            
+                <a href="01-05-comments-in-code.html">
+            
+                    
+                    1.5 - Comments in code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="01-06-scripting-and-printing.html">
+            
+                <a href="01-06-scripting-and-printing.html">
+            
+                    
+                    1.6 - Scripting and printing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="01-07-making-functions.html">
+            
+                <a href="01-07-making-functions.html">
+            
+                    
+                    1.7 - Making functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="01-08-booleans.html">
+            
+                <a href="01-08-booleans.html">
+            
+                    
+                    1.8 - Booleans
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="01-09-flow-control.html">
+            
+                <a href="01-09-flow-control.html">
+            
+                    
+                    1.9 - Flow control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="01-10-while.html">
+            
+                <a href="01-10-while.html">
+            
+                    
+                    1.10 - While
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="01-11-type-checking.html">
+            
+                <a href="01-11-type-checking.html">
+            
+                    
+                    1.11 - Type checking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="01-12-first-game.html">
+            
+                <a href="01-12-first-game.html">
+            
+                    
+                    1.12 - First game
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="01-13-tables-1.html">
+            
+                <a href="01-13-tables-1.html">
+            
+                    
+                    1.13 - Tables (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="01-14-tables-2.html">
+            
+                <a href="01-14-tables-2.html">
+            
+                    
+                    1.14 - Tables (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="01-15-for-loops-1.html">
+            
+                <a href="01-15-for-loops-1.html">
+            
+                    
+                    1.15 - For loops (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="01-16-for-loops-2.html">
+            
+                <a href="01-16-for-loops-2.html">
+            
+                    
+                    1.16 - For loops (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="01-17-scopes.html">
+            
+                <a href="01-17-scopes.html">
+            
+                    
+                    1.17 - Scopes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="01-18-chapter-review.html">
+            
+                <a href="01-18-chapter-review.html">
+            
+                    
+                    1.18 - Chapter review
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-00-introducing-love.html">
+            
+                <a href="02-00-introducing-love.html">
+            
+                    
+                    2.0 - Introducing LÖVE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="02-01-up-and-running.html">
+            
+                <a href="02-01-up-and-running.html">
+            
+                    
+                    2.1 - Up and running
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="02-02-love-structure.html">
+            
+                <a href="02-02-love-structure.html">
+            
+                    
+                    2.2 - LÖVE structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="02-03-geometry.html">
+            
+                <a href="02-03-geometry.html">
+            
+                    
+                    2.3 - Geometry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="02-04-game-loop.html">
+            
+                <a href="02-04-game-loop.html">
+            
+                    
+                    2.4 - Game loop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="02-05-delta-time.html">
+            
+                <a href="02-05-delta-time.html">
+            
+                    
+                    2.5 - Delta time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="02-06-mapping.html">
+            
+                <a href="02-06-mapping.html">
+            
+                    
+                    2.6 - Mapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="02-07-the-world.html">
+            
+                <a href="02-07-the-world.html">
+            
+                    
+                    2.7 - The world
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="02-08-reading-documentation.html">
+            
+                <a href="02-08-reading-documentation.html">
+            
+                    
+                    2.8 - Reading documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="02-09-modules-and-organization.html">
+            
+                <a href="02-09-modules-and-organization.html">
+            
+                    
+                    2.9 - Modules and organization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="02-10-collision-callbacks.html">
+            
+                <a href="02-10-collision-callbacks.html">
+            
+                    
+                    2.10 - Collision callbacks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="02-11-breakout-part-1.html">
+            
+                <a href="02-11-breakout-part-1.html">
+            
+                    
+                    2.11 - Breakout (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="02-12-breakout-part-2.html">
+            
+                <a href="02-12-breakout-part-2.html">
+            
+                    
+                    2.12 - Breakout (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="02-13-breakout-part-3.html">
+            
+                <a href="02-13-breakout-part-3.html">
+            
+                    
+                    2.13 - Breakout (part 3)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="02-14-breakout-part-4.html">
+            
+                <a href="02-14-breakout-part-4.html">
+            
+                    
+                    2.14 - Breakout (part 4)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="02-15-breakout-part-5.html">
+            
+                <a href="02-15-breakout-part-5.html">
+            
+                    
+                    2.15 - Breakout (part 5)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="02-16-binary-and-bitmasks.html">
+            
+                <a href="02-16-binary-and-bitmasks.html">
+            
+                    
+                    2.16 - Binary and bitmasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.17" data-path="02-17-networking-part-1.html">
+            
+                <a href="02-17-networking-part-1.html">
+            
+                    
+                    2.17 - Networking (part 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.18" data-path="02-18-networking-part-2.html">
+            
+                <a href="02-18-networking-part-2.html">
+            
+                    
+                    2.18 - Networking (part 2)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="03-00-programming-in-depth.html">
+            
+                <a href="03-00-programming-in-depth.html">
+            
+                    
+                    3.0 - Programming in-depth
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="03-01-primitives-and-references.html">
+            
+                <a href="03-01-primitives-and-references.html">
+            
+                    
+                    3.01 - Primitives and references
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="03-02-higher-order-functions.html">
+            
+                <a href="03-02-higher-order-functions.html">
+            
+                    
+                    3.02 - Higher-order functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="03-03-map-and-filter.html">
+            
+                <a href="03-03-map-and-filter.html">
+            
+                    
+                    3.03 - Map and filter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="03-04-stack-and-recursion.html">
+            
+                <a href="03-04-stack-and-recursion.html">
+            
+                    
+                    3.04 - Stack and recursion
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="03-05-reduce.html">
+            
+                <a href="03-05-reduce.html">
+            
+                    
+                    3.05 - Reduce
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.18 - Networking (part 2)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="networking-part-2">Networking (part 2)</h1>
+<p>In the previous section we made two applications that could talk to each other.
+One application was the server and the second one connecting to it was the client.
+In game design this style of networking can be described as a direct connection.</p>
+<h2 id="direct-connection">Direct connection</h2>
+<p><img src="../images/02-18-direct-connection.svg" alt=""></p>
+<p>In a direct connection one of the players takes on the role of server, meaning their game world is the ultimate authority if there are any discrepancies or out-of-sync communication between the two.
+This also means the server player can find ways to cheat and exploit the game.</p>
+<p>One of the advantages to this setup is since you are directly connected to each other, you get as minimal lag as possible.
+This advantage doesn&apos;t hold true if there are more than 2 players.
+If player 1 is the server and player 2 and 3 are connected to player 1, then player 2 and 3 have to relay updates to each other through player 1 instead of directly to each other.
+Outside of 2-player games, this setup isn&apos;t as popular as having a dedicated server.</p>
+<h2 id="dedicated-server">Dedicated server</h2>
+<p><img src="../images/02-18-dedicated-server.svg" alt=""></p>
+<p>Dedicated servers are exactly what they sound like.
+They are hosts dedicated to serving players.
+The difference here is all players are clients and the server is a neutral ground where players can connect and communicate indirectly with each other through it.
+Servers typically run a modified version of the game code that has no user interface and therefore can run on a less expensive computer.
+If one of the players is detected cheating the server can detect that something is wrong and kick them from the game.
+The server is the ultimate authority over the state of the game world.</p>
+<p>Our network setup will sort of be a mix between the two styles of networking.
+We&apos;ll have a dedicated server that doesn&apos;t participate in the gameplay, but the server will have a graphical interface so we can view what is going on during our testing.</p>
+<h2 id="consolidating-our-code">Consolidating our code</h2>
+<p>Rather than managing two folders of code like in the previous section, we&apos;ll combine the code and use a menu system to select between being a server and being a client.
+The menu code isn&apos;t important to this tutorial so try to focus on the client and server code as before.
+The refactored code can be found in the code repository <a href="https://github.com/RVAGameJams/learn2love/tree/master/code/networking-2" target="_blank">here</a>.</p>
+<p>Given the amount of files it is easiest to download the zip of the whole project where you will find the relevant files inside <code>code/networking-2</code>: <a href="https://github.com/RVAGameJams/learn2love/archive/master.zip" target="_blank">https://github.com/RVAGameJams/learn2love/archive/master.zip</a></p>
+<p>Once downloaded, when you run the program you should be greeted with a menu screen like so:</p>
+<p><img src="../images/02-18-menu.png" alt=""></p>
+<p>Test it out and confirm you can connect a server and client instance with the new code.</p>
+<p>Ok.
+The modifications to <code>main.lua</code> should be easy enough to understand.
+Let&apos;s take a look at that and the new &quot;net&quot; service first before we begin making any modifications.
+At the top of the file we&apos;re loading the net and menu services then telling the menu service which menu to load on startup:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
+
+<span class="hljs-keyword">local</span> menu_service = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;services/menu&apos;</span>)
+<span class="hljs-keyword">local</span> net_service = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;services/net&apos;</span>)
+
+love.<span class="hljs-built_in">load</span> = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-comment">-- Keep text pixels sharp and intact instead of blurring</span>
+  <span class="hljs-comment">-- https://love2d.org/wiki/FilterMode</span>
+  love.graphics.setDefaultFilter(<span class="hljs-string">&apos;nearest&apos;</span>, <span class="hljs-string">&apos;nearest&apos;</span>)
+
+  menu_service.<span class="hljs-built_in">load</span>(<span class="hljs-string">&apos;main-menu&apos;</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Next, if a key is pressed it will pass that pressed-key event to the menu service.
+If we are in the game and no menu is loaded, the menu service will do nothing with the event.</p>
+<pre><code class="lang-lua">love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
+  menu_service.handle_keypress(pressed_key)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Inside <code>love.draw</code> we have a similar story.
+If we have an active menu then <code>menu_service.draw()</code> will draw it
+Otherwise it won&apos;t do anything.
+(If you open <code>services/menu.lua</code> you will see the draw function where this all happens.)</p>
+<pre><code class="lang-lua">love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  menu_service.draw()
+  <span class="hljs-comment">-- Scale up the size of the text being printed</span>
+  <span class="hljs-keyword">local</span> transform = love.<span class="hljs-built_in">math</span>.newTransform(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>)
+  <span class="hljs-keyword">if</span> net_service.is_connected() <span class="hljs-keyword">then</span>
+    love.graphics.<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;peer connected (see console)&apos;</span>, transform)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Another thing inside <code>love.draw</code> is a check to see if we&apos;ve made a connection either as server or client (using <code>net_service.is_connected()</code>) then draw the &quot;peer connected&quot; text on the screen as before.
+We use the word &quot;peer&quot; as a generic term to refer to either the client we&apos;re connected to (if we&apos;re the server) or the server (if we&apos;re the client).</p>
+<p>Inside <code>love.update</code> and <code>love.quit</code> we have combined the code we had before and added a <code>menu.update()</code> call.
+If there is a menu, update it.
+If either a server host or client host is running, <code>net.update()</code> will update it.</p>
+<pre><code class="lang-lua">love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  menu_service.update()
+  net_service.update()
+<span class="hljs-keyword">end</span>
+
+love.quit = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  net_service.disconnect()
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>So everywhere we were calling &quot;server&quot; or &quot;client&quot; we just call <code>net_service</code> and it will do it&apos;s thing no matter the type of connection.
+Let&apos;s open up <code>net.lua</code> and we&apos;ll see something very close to the original code:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- net.lua</span>
+
+<span class="hljs-keyword">local</span> enet = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;enet&apos;</span>)
+
+<span class="hljs-comment">-- Populate one or the other depending if we start a server or client host</span>
+<span class="hljs-keyword">local</span> client_host
+<span class="hljs-keyword">local</span> server_host
+
+<span class="hljs-comment">-- As a server, we want to keep track of all the connected clients</span>
+<span class="hljs-keyword">local</span> peers = {}
+<span class="hljs-keyword">local</span> received_data = <span class="hljs-keyword">false</span>
+
+<span class="hljs-comment">-- The service we will be returning</span>
+<span class="hljs-keyword">local</span> net = {}
+</code></pre>
+<p>At the top of the file we create some empty local variables.
+The <code>net</code> table is full of functions that are being used in <code>main.lua</code> and elsewhere.</p>
+<pre><code class="lang-lua">net.start_server = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  server_host = enet.host_create(<span class="hljs-string">&apos;localhost:6789&apos;</span>)
+<span class="hljs-keyword">end</span>
+
+net.start_client = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  client_host = enet.host_create()
+  server_host = client_host:connect(<span class="hljs-string">&apos;localhost:6789&apos;</span>)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>On the menu when you select &quot;Host&quot; or &quot;Join&quot;, the <code>net.start_server</code> and <code>net.start_client</code> functions are being called respectively.</p>
+<p>Below that are some functions to check what kind of connection we have:</p>
+<pre><code class="lang-lua">net.is_connected = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> received_data
+<span class="hljs-keyword">end</span>
+
+net.is_client = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> client_host <span class="hljs-keyword">and</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">or</span> <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">end</span>
+
+net.is_server = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">return</span> server_host <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> client_host
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Then finally we have the <code>update</code> and <code>disconnect</code> code like we originally had in the server and client services, but combined.
+One addition to the disconnect function is we are looping over the <code>peers</code> list.
+The <code>peers</code> list exists because we are expecting to have multiple players connect to the server and if the server is running, it will want to disconnect from them all when the game quits.</p>
+<h2 id="communication-layer">Communication layer</h2>
+<p>Before we update the code, let&apos;s discuss the functionality and draw out the network communication for that functionality.</p>
+<ul>
+<li>When connecting to the server you should have a controllable player spawn on screen</li>
+<li>When you move your player, your peers should be able to see your player move</li>
+<li>When other peers move their players, you should be able to see them move</li>
+<li>Each player should look different so you know which one is you</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Client</th>
+<th>Server</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(Create a host)</td>
+<td>(Create a host)</td>
+<td>Both client and server&apos;s net services are booted. No communication has been made between the two at this point.</td>
+</tr>
+<tr>
+<td>Send &quot;connect&quot; message to server</td>
+<td></td>
+<td>Client sends a connect message automatically. This will be interpreted as a request to join the game.</td>
+</tr>
+<tr>
+<td></td>
+<td>(Spawn entity)</td>
+<td>Server generates and stores all the entities in the game. When spawning an entity, associate the client&apos;s connection ID with it.</td>
+</tr>
+<tr>
+<td></td>
+<td>Respond &quot;your-id|4177457821|100|500&quot;</td>
+<td>Server responds by passing the client a <code>&quot;your-id&quot;</code> message. All messages sent must be strings so in this case where multiple values need to be embedded in the message, each value is separated by a pipe (&quot;|&quot;) character to help us re-separate the values when receiving the message client side. The first value is the unique player ID that the server has assigned the client, followed by the X position then Y position.</td>
+</tr>
+<tr>
+<td></td>
+<td>Send &quot;peer-id|233142890|326|177&quot;</td>
+<td>Server sends the new client other peers that need to be spawned on screen. Included are the ID, X and Y position of that player.</td>
+</tr>
+<tr>
+<td></td>
+<td>Send &quot;move|233142890|327|177&quot;</td>
+<td>Server is letting the client know the player with the ID &quot;233142890&quot; has changed position. Notice the updated X position.</td>
+</tr>
+<tr>
+<td></td>
+<td>Send &quot;move|233142890|328|177&quot;</td>
+<td>Another move update.</td>
+</tr>
+<tr>
+<td>Send &quot;move|100|502&quot;</td>
+<td></td>
+<td>Client is letting the server know it is moving its player too.</td>
+</tr>
+<tr>
+<td></td>
+<td>Send &quot;peer-id|81850530|500|500&quot;</td>
+<td>Another player has joined the server.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="adding-entities">Adding entities</h2>
+<p>On connection from a client, the server needs to spawn entities so let&apos;s create an entity service for handling all our entity-related needs:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entity.lua</span>
+
+<span class="hljs-keyword">local</span> entity_service = {}
+
+<span class="hljs-comment">-- All player entities</span>
+entity_service.entities = {}
+
+entity_service.spawn = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(player_id, x_pos, y_pos)</span></span>
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-comment">-- <span class="hljs-doctag">TODO:</span> We&apos;ll add a color randomizer later</span>
+    color = {<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>},
+    id = player_id,
+    <span class="hljs-comment">-- <span class="hljs-doctag">TODO:</span> We&apos;ll add a shape randomizer later too</span>
+    shape = love.physics.newPolygonShape(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">50</span>, <span class="hljs-number">0</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">0</span>, <span class="hljs-number">50</span>),
+    x_pos = x_pos,
+    y_pos = y_pos
+  }
+<span class="hljs-keyword">end</span>
+
+entity_service.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(entity)</span></span>
+  love.graphics.setColor(entity.color)
+  <span class="hljs-keyword">local</span> points = { entity.shape:getPoints() }
+  <span class="hljs-keyword">for</span> idx, point <span class="hljs-keyword">in</span> <span class="hljs-built_in">ipairs</span>(points) <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">if</span> idx % <span class="hljs-number">2</span> == <span class="hljs-number">1</span> <span class="hljs-keyword">then</span>
+      points[idx] = point + entity.x_pos
+    <span class="hljs-keyword">else</span>
+      points[idx] = point + entity.y_pos
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+  love.graphics.polygon(<span class="hljs-string">&apos;line&apos;</span>, points)
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">return</span> entity_service
+</code></pre>
+<p>These entities will just be basic shapes.
+No world, body, or fixtures to worry about as dealing with physics is a bit out of the scope of this section.</p>
+<p>Now we&apos;ll do some heavy upgrades to the net service.
+Somewhere near the top of the file we&apos;ll define two tables with callbacks that will get invoked when an event comes in.
+They&apos;ll be empty functions for now and we&apos;ll fill them out as we go.</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- Callbacks to invoke when certain events are received from a peer</span>
+<span class="hljs-comment">-- Define a callback to handle every type of message in our application protocol</span>
+<span class="hljs-keyword">local</span> message_handlers = {
+  [<span class="hljs-string">&apos;your-id&apos;</span>] = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(message, event, is_server)</span></span>
+  <span class="hljs-keyword">end</span>,
+  [<span class="hljs-string">&apos;peer-id&apos;</span>] = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(message, event, is_server)</span></span>
+  <span class="hljs-keyword">end</span>,
+  [<span class="hljs-string">&apos;move&apos;</span>] = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(message, event, is_server)</span></span>
+  <span class="hljs-keyword">end</span>
+}
+<span class="hljs-comment">-- These event types are defined by Lua-enet. A &quot;receive&quot; type of event</span>
+<span class="hljs-comment">-- is a generic event that carries any of the messages above.</span>
+<span class="hljs-keyword">local</span> event_handlers = {
+  connect = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event, is_server)</span></span>
+  <span class="hljs-keyword">end</span>,
+  disconnect = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event, is_server)</span></span>
+  <span class="hljs-keyword">end</span>,
+  receive = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event, is_server)</span></span>
+  <span class="hljs-keyword">end</span>
+}
+</code></pre>
+<p>Then we&apos;ll modify the <code>net.update</code> function so it can call one of the three callbacks inside the <code>event_handlers</code> table:</p>
+<pre><code class="lang-lua">net.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">local</span> host = client_host <span class="hljs-keyword">or</span> server_host
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> host <span class="hljs-keyword">then</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">local</span> event = host:service()
+  <span class="hljs-keyword">if</span> event <span class="hljs-keyword">then</span>
+    received_data = <span class="hljs-keyword">true</span>
+    <span class="hljs-comment">-- event.type will be either &quot;connect&quot;, &quot;disconnect&quot;, or &quot;receive&quot;</span>
+    event_handlers[event.<span class="hljs-built_in">type</span>](event, net.is_server())
+    <span class="hljs-comment">-- Print out the event table for debug purposes</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;----&apos;</span>)
+    <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(event) <span class="hljs-keyword">do</span>
+      <span class="hljs-built_in">print</span>(k, v)
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>So you see, <code>event_handlers.connect</code> will be called when a &quot;connect&quot; type event comes in and we&apos;ll pass it the event and <code>net.is_server()</code> boolean as its two parameters.
+Now we can go back and fill out the &quot;connect&quot; event handler.
+Read each code comment as there is a lot going on here in just a few lines of code.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> event_handlers = {
+  connect = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event, is_server)</span></span>
+    <span class="hljs-comment">-- Only the server needs to do stuff here on connect</span>
+    <span class="hljs-keyword">if</span> is_server <span class="hljs-keyword">then</span>
+      <span class="hljs-comment">-- event.peer:connect_id() provides us with a unique number.</span>
+      <span class="hljs-comment">-- We&apos;ll convert that number to a string and use it as the player ID.</span>
+      <span class="hljs-keyword">local</span> player = entity_service.spawn(<span class="hljs-built_in">tostring</span>(event.peer:connect_id()), <span class="hljs-number">100</span>, <span class="hljs-number">100</span>)
+      <span class="hljs-comment">-- Store this player in the player table with the player ID as the key.</span>
+      entity_service.entities[player.id] = player
+      <span class="hljs-comment">-- Send the initial &quot;your-id&quot; message back to the connecting client so they can spawn this entity too.</span>
+      event.peer:send(<span class="hljs-string">&apos;your-id|&apos;</span> .. player.id .. <span class="hljs-string">&apos;|&apos;</span> .. player.x_pos .. <span class="hljs-string">&apos;|&apos;</span> .. player.y_pos)
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>,
+  disconnect = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event, is_server)</span></span>
+    <span class="hljs-comment">-- <span class="hljs-doctag">TODO:</span> Add code to remove entities when a client disconnects</span>
+  <span class="hljs-keyword">end</span>,
+  receive = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event, is_server)</span></span>
+    <span class="hljs-comment">-- <span class="hljs-doctag">TODO:</span> Add code to parse &quot;receive&quot; events and call the appropriate message handler callback</span>
+  <span class="hljs-keyword">end</span>
+}
+</code></pre>
+<p>Since we&apos;re using the entity service in net.lua we&apos;ll need to require it at the very top:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> entity_service = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;services/entity&apos;</span>)
+</code></pre>
+<p>Now that the player receives the message to spawn an entity, we can fill out the &quot;receive&quot; event handler.</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> event_handlers = {
+  connect = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event, is_server)</span></span>
+    <span class="hljs-comment">-- Only the server needs to do stuff here on connect</span>
+    <span class="hljs-keyword">if</span> is_server <span class="hljs-keyword">then</span>
+      <span class="hljs-comment">-- event.peer:connect_id() provides us with a unique number.</span>
+      <span class="hljs-comment">-- We&apos;ll convert that number to a string and use it as the player ID.</span>
+      <span class="hljs-keyword">local</span> player = entity_service.spawn(<span class="hljs-built_in">tostring</span>(event.peer:connect_id()), <span class="hljs-number">100</span>, <span class="hljs-number">100</span>)
+      <span class="hljs-comment">-- Store this player in the player table with the player ID as the key.</span>
+      entity_service.entities[player.id] = player
+      <span class="hljs-comment">-- Send the initial &quot;your-id&quot; message back to the connecting client so they can spawn this entity too.</span>
+      event.peer:send(<span class="hljs-string">&apos;your-id|&apos;</span> .. player.id .. <span class="hljs-string">&apos;|&apos;</span> .. player.x_pos .. <span class="hljs-string">&apos;|&apos;</span> .. player.y_pos)
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>,
+  disconnect = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event, is_server)</span></span>
+    <span class="hljs-comment">-- <span class="hljs-doctag">TODO:</span> Add code to remove entities when a client disconnects</span>
+  <span class="hljs-keyword">end</span>,
+  receive = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event, is_server)</span></span>
+    <span class="hljs-comment">-- Extract the message out from the event and call the appropriate callback above</span>
+    <span class="hljs-keyword">local</span> message = {}
+    <span class="hljs-keyword">for</span> match <span class="hljs-keyword">in</span> (event.data .. <span class="hljs-string">&apos;|&apos;</span>):gmatch(<span class="hljs-string">&apos;(.-)|&apos;</span>) <span class="hljs-keyword">do</span>
+      <span class="hljs-built_in">table</span>.insert(message, match)
+    <span class="hljs-keyword">end</span>
+    message_handlers[message[<span class="hljs-number">1</span>]](message, event, is_server)
+  <span class="hljs-keyword">end</span>
+}
+</code></pre>
+<p>Don&apos;t let this code feel intimidating as it&apos;s only taking the string message from the event (<code>&quot;your-id:87335:500:500&quot;</code>) and splitting it into a list table (<code>{ &quot;your-id&quot;, &quot;87335&quot;, &quot;500&quot;, &quot;500&quot; }</code>) so we can work with the data.
+Once we have the message fragments, we call <code>message_handlers[message[1]]()</code>, where <code>message[1]</code> will be one of the keys in the <code>message_handlers</code> table: <code>&quot;your-id&quot;</code>, <code>&quot;peer-id&quot;</code>, or <code>&quot;move&quot;</code>.
+Let&apos;s fill out the &quot;your-id&quot; handler first:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- Callbacks to invoke when certain events are received from a peer</span>
+<span class="hljs-comment">-- Define a callback to handle every type of message in our application protocol</span>
+<span class="hljs-keyword">local</span> message_handlers = {
+  [<span class="hljs-string">&apos;your-id&apos;</span>] = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(message, event, is_server)</span></span>
+    <span class="hljs-keyword">local</span> player_id = message[<span class="hljs-number">2</span>]
+    <span class="hljs-keyword">local</span> x_pos = message[<span class="hljs-number">3</span>]
+    <span class="hljs-keyword">local</span> y_pos = message[<span class="hljs-number">4</span>]
+    entity_service.player_id = player_id
+    entity_service.entities[player_id] = entity_service.spawn(player_id, x_pos, y_pos)
+  <span class="hljs-keyword">end</span>,
+  [<span class="hljs-string">&apos;peer-id&apos;</span>] = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(message, event_is_server)</span></span>
+  <span class="hljs-keyword">end</span>,
+  [<span class="hljs-string">&apos;move&apos;</span>] = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(message, event, is_server)</span></span>
+  <span class="hljs-keyword">end</span>
+}
+</code></pre>
+<p>Now when the client gets the &quot;your-id&quot; message, it can spawn an entity too.
+Let&apos;s add the appropriate code to <strong>main.lua</strong> for drawing entities so we can see if our protocol is working so far:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
+
+<span class="hljs-keyword">local</span> entity_service = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;services/entity&apos;</span>)
+</code></pre>
+<p>...</p>
+<pre><code class="lang-lua">love.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  menu_service.draw()
+  <span class="hljs-comment">-- Scale up the size of the text being printed</span>
+  <span class="hljs-keyword">local</span> transform = love.<span class="hljs-built_in">math</span>.newTransform(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>)
+  <span class="hljs-keyword">if</span> net_service.is_connected() <span class="hljs-keyword">and</span> net_service.is_server() <span class="hljs-keyword">then</span>
+    love.graphics.setColor({<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>})
+    love.graphics.<span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;Server preview. See console for details.&apos;</span>, transform)
+  <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">for</span> _, entity <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(entity_service.entities) <span class="hljs-keyword">do</span>
+    entity_service.draw(entity)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>If you&apos;ve updated everything correctly, you&apos;ll see this happen when a server and client run side-by-side:</p>
+<p><img src="../images/02-18-entity-preview.png" alt=""></p>
+<p>If you get an error, remember to check the line number and filename where the error occurred and make sure the code looks similar to how it is above.
+If you get stuck, there will be a full example available at the bottom of this section.</p>
+<p>If everything is working for you then fantastic.
+This means the server and client are successfully syncing an entity state with each other.</p>
+<p>Next let&apos;s add movement so we can see live updates happening between the two game windows.
+Inside the services folder, we&apos;ll create an <strong>input.lua</strong> file that returns an empty table:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- input.lua</span>
+
+<span class="hljs-keyword">return</span> {}
+</code></pre>
+<p>Why are we returning an empty table?
+Well, it&apos;s only empty right now, but as keys are pressed and released our table will get updated.
+Let&apos;s update <code>love.keypressed</code> and add a <code>love.keyreleased</code> function to <strong>main.lua</strong> to see how that works:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- main.lua</span>
+
+<span class="hljs-keyword">local</span> input_service = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;services/input&apos;</span>)
+</code></pre>
+<p>...</p>
+<pre><code class="lang-lua">love.keypressed = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(pressed_key)</span></span>
+  menu_service.handle_keypress(pressed_key)
+  input_service[pressed_key] = <span class="hljs-keyword">true</span>
+<span class="hljs-keyword">end</span>
+
+love.keyreleased = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(released_key)</span></span>
+  input_service[released_key] = <span class="hljs-keyword">false</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Now when we press some arrow keys for instance, our table in <strong>input.lua</strong> will look more like this in memory:</p>
+<pre><code class="lang-lua">{
+  left = <span class="hljs-keyword">true</span>,
+  right = <span class="hljs-keyword">false</span>,
+  up = <span class="hljs-keyword">true</span>,
+  down = <span class="hljs-keyword">false</span>
+}
+</code></pre>
+<p>Now inside <strong>entity.lua</strong> we&apos;ll add an <code>entity_service.move</code> function that checks for input changes and moves the entity if any of the arrow keys are pressed:</p>
+<pre><code class="lang-lua"><span class="hljs-comment">-- entity.lua</span>
+
+<span class="hljs-keyword">local</span> input_service = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;services/input&apos;</span>)
+</code></pre>
+<p>...</p>
+<pre><code class="lang-lua">entity_service.move = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  <span class="hljs-keyword">local</span> player = entity_service.entities[entity_service.player_id]
+
+  <span class="hljs-comment">-- Don&apos;t let the player press up and down at the same time</span>
+  <span class="hljs-keyword">if</span> input_service.up <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> input_service.down <span class="hljs-keyword">then</span>
+    player.y_pos = player.y_pos - <span class="hljs-number">2</span>
+  <span class="hljs-keyword">elseif</span> input_service.down <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> input_service.up <span class="hljs-keyword">then</span>
+    player.y_pos = player.y_pos + <span class="hljs-number">2</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-comment">-- Don&apos;t let the player press left and right at the same time</span>
+  <span class="hljs-keyword">if</span> input_service.left <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> input_service.right <span class="hljs-keyword">then</span>
+    player.x_pos = player.x_pos - <span class="hljs-number">2</span>
+  <span class="hljs-keyword">elseif</span> input_service.right <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> input_service.left <span class="hljs-keyword">then</span>
+    player.x_pos = player.x_pos + <span class="hljs-number">2</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>This will cause our entity to move across the client&apos;s screen, but the server won&apos;t get these updates unless the client sends them over.
+We need to go back to <strong>main.lua</strong> and send a &quot;move&quot; message.
+Inside <code>love.update</code> check to see if the player position has changed and send a move message to the server if so:</p>
+<pre><code class="lang-lua">love.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
+  menu_service.update()
+  <span class="hljs-comment">-- Check to see if a player has spawned and update its movement if any direction keys are being pressed</span>
+  <span class="hljs-keyword">if</span> entity_service.player_id <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">local</span> player = entity_service.entities[entity_service.player_id]
+    <span class="hljs-keyword">local</span> old_x = player.x_pos
+    <span class="hljs-keyword">local</span> old_y = player.y_pos
+    entity_service.move()
+    <span class="hljs-keyword">if</span> player.x_pos ~= old_x <span class="hljs-keyword">or</span> player.y_pos ~= old_y <span class="hljs-keyword">then</span>
+      net_service.send(<span class="hljs-string">&apos;move|&apos;</span> .. player.id .. <span class="hljs-string">&apos;|&apos;</span> .. player.x_pos .. <span class="hljs-string">&apos;|&apos;</span> .. player.y_pos)
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+  net_service.update()
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>The <code>net_service.send</code> function we haven&apos;t defined that yet.
+Jump back over to <strong>net.lua</strong> and we&apos;ll define that for sending either client or server messages if needed:</p>
+<pre><code class="lang-lua">net.send = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(message)</span></span>
+  <span class="hljs-keyword">if</span> net.is_client() <span class="hljs-keyword">then</span>
+    server_host:send(message)
+  <span class="hljs-keyword">else</span>
+    server_host:broadcast(message)
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Now we are sending a message to the server when we move, but we need to have the server read the message and update the entity position on its end too.
+Let&apos;s fill out the &quot;move&quot; message handler in net.lua to accomplish this:</p>
+<pre><code class="lang-lua"><span class="hljs-keyword">local</span> message_handlers = {
+  [<span class="hljs-string">&apos;your-id&apos;</span>] = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(message, event, is_server)</span></span>
+    <span class="hljs-keyword">local</span> player_id = message[<span class="hljs-number">2</span>]
+    <span class="hljs-keyword">local</span> x_pos = message[<span class="hljs-number">3</span>]
+    <span class="hljs-keyword">local</span> y_pos = message[<span class="hljs-number">4</span>]
+    entity_service.player_id = player_id
+    entity_service.entities[player_id] = entity_service.spawn(player_id, x_pos, y_pos)
+  <span class="hljs-keyword">end</span>,
+  [<span class="hljs-string">&apos;peer-id&apos;</span>] = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(message, event, is_server)</span></span>
+    <span class="hljs-comment">-- <span class="hljs-doctag">TODO:</span> handle peer-id messages for when more players join the server</span>
+  <span class="hljs-keyword">end</span>,
+  [<span class="hljs-string">&apos;move&apos;</span>] = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(message, event, is_server)</span></span>
+    <span class="hljs-keyword">local</span> player_id = message[<span class="hljs-number">2</span>]
+    <span class="hljs-keyword">local</span> x_pos = message[<span class="hljs-number">3</span>]
+    <span class="hljs-keyword">local</span> y_pos = message[<span class="hljs-number">4</span>]
+    entity_service.entities[player_id].x_pos = x_pos
+    entity_service.entities[player_id].y_pos = y_pos
+    <span class="hljs-keyword">if</span> is_server <span class="hljs-keyword">then</span>
+      <span class="hljs-comment">-- Relay this message to the other players</span>
+      <span class="hljs-keyword">for</span> id, peer <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(peers) <span class="hljs-keyword">do</span>
+        <span class="hljs-keyword">if</span> id ~= player_id <span class="hljs-keyword">then</span>
+          peer:send(event.data)
+        <span class="hljs-keyword">end</span>
+      <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+}
+</code></pre>
+<p>Notice the extra server check.
+If the server received the &quot;move&quot; command it should relay it over to any other connected player so they can see you moving too.
+The <code>peers</code> table needs to be defined inside net.lua <em>above</em> the message handlers or you may get an error when it tries to loop over the table and sees a nil value that hasn&apos;t been defined yet.</p>
+<p>Try it out again and we should see the square moving on both screens now.</p>
+<p>All that hard work is starting to pay off!
+We have a few more changes to make for this to be fully functional though.
+If you try and run the game now with multiple clients, the players won&apos;t see each other.
+In our application protocol we defined a <code>peer-id</code> message so that when new players connect we receive information to spawn them.</p>
+<p>Inside net.lua, go ahead and fill out the &quot;peer-id&quot; message handler so that it spawns an entity when invoked:</p>
+<pre><code class="lang-lua">  [<span class="hljs-string">&apos;peer-id&apos;</span>] = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(message, event, is_server)</span></span>
+    <span class="hljs-keyword">local</span> player_id = message[<span class="hljs-number">2</span>]
+    <span class="hljs-keyword">local</span> x_pos = message[<span class="hljs-number">3</span>]
+    <span class="hljs-keyword">local</span> y_pos = message[<span class="hljs-number">4</span>]
+    entity_service.entities[player_id] = entity_service.spawn(player_id, x_pos, y_pos)
+  <span class="hljs-keyword">end</span>,
+</code></pre>
+<p>Now the server needs to send all the peers to a new player connecting, but it also needs to send new players to pre-existing peers during a connect event.
+We&apos;ll update the &quot;connect&quot; event handler to do that:</p>
+<pre><code class="lang-lua">  connect = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event, is_server)</span></span>
+    <span class="hljs-comment">-- Only the server needs to do stuff here on connect</span>
+    <span class="hljs-keyword">if</span> is_server <span class="hljs-keyword">then</span>
+      <span class="hljs-comment">-- event.peer:connect_id() provides us with a unique number.</span>
+      <span class="hljs-comment">-- We&apos;ll convert that number to a string and use it as the player ID.</span>
+      <span class="hljs-keyword">local</span> player = entity_service.spawn(<span class="hljs-built_in">tostring</span>(event.peer:connect_id()), <span class="hljs-number">100</span>, <span class="hljs-number">100</span>)
+      <span class="hljs-comment">-- Store this player in the player table with the player ID as the key.</span>
+      entity_service.entities[player.id] = player
+      <span class="hljs-comment">-- Send the initial &quot;your-id&quot; message back to the connecting client so they can spawn this entity too.</span>
+      event.peer:send(<span class="hljs-string">&apos;your-id|&apos;</span> .. player.id .. <span class="hljs-string">&apos;|&apos;</span> .. player.x_pos .. <span class="hljs-string">&apos;|&apos;</span> .. player.y_pos)
+      <span class="hljs-comment">-- Let all the other peers know about this player</span>
+      <span class="hljs-keyword">for</span> _, peer <span class="hljs-keyword">in</span> <span class="hljs-built_in">pairs</span>(peers) <span class="hljs-keyword">do</span>
+        <span class="hljs-keyword">local</span> peer_player = entity_service.entities[<span class="hljs-built_in">tostring</span>(peer:connect_id())]
+        peer:send(<span class="hljs-string">&apos;peer-id|&apos;</span> .. player.id .. <span class="hljs-string">&apos;|&apos;</span> .. player.x_pos .. <span class="hljs-string">&apos;|&apos;</span> .. player.y_pos)
+        event.peer:send(<span class="hljs-string">&apos;peer-id|&apos;</span> .. peer_player.id .. <span class="hljs-string">&apos;|&apos;</span> .. peer_player.x_pos .. <span class="hljs-string">&apos;|&apos;</span> .. peer_player.y_pos)
+      <span class="hljs-keyword">end</span>
+      <span class="hljs-comment">-- Add this peer to the peer list</span>
+      peers[<span class="hljs-built_in">tostring</span>(event.peer:connect_id())] = event.peer
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>,
+</code></pre>
+<p>After sending the new client their id as &quot;your-id&quot;, we send that id to every other client as &quot;peer-id&quot; in the for loop.
+Notice we add the new connecting client to the peer table at the very end.
+We do this after looping over the peer list so we don&apos;t send that client a &quot;peer-id&quot; message of themselves.
+Again, when registering peers and entities we call <code>tostring()</code> on the <code>connect_id()</code> to ensure we are storing IDs as strings rather than numbers.
+Storing data in tables it matters whether you store them as keys or numbers.
+See <a href="01-14-tables-2">1.14 - Tables (part 2)</a> to see what I mean.</p>
+<p>Anyways, try running the game now with multiple clients connecting to the server and you will see each entity can move separately and the changes will be synchronized across all clients.
+One change to make the entities easier to distinguish would be to randomize their color and shape.
+Let&apos;s modify <code>entity_service.spawn</code> inside <strong>entity.lua</strong>:</p>
+<pre><code class="lang-lua">entity_service.spawn = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(player_id, x_pos, y_pos)</span></span>
+  <span class="hljs-keyword">local</span> colors = {
+    {<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>},
+    {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>},
+    {<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>},
+    {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>},
+    {<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>},
+    {<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>},
+    {<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>}
+  }
+  <span class="hljs-keyword">local</span> shapes = {
+    love.physics.newPolygonShape(<span class="hljs-number">25</span>, <span class="hljs-number">0</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">0</span>, <span class="hljs-number">50</span>),
+    love.physics.newPolygonShape(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">50</span>, <span class="hljs-number">0</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">0</span>, <span class="hljs-number">50</span>),
+    love.physics.newPolygonShape(<span class="hljs-number">12</span>, <span class="hljs-number">0</span>, <span class="hljs-number">36</span>, <span class="hljs-number">0</span>, <span class="hljs-number">49</span>, <span class="hljs-number">15</span>, <span class="hljs-number">49</span>, <span class="hljs-number">33</span>, <span class="hljs-number">36</span>, <span class="hljs-number">49</span>, <span class="hljs-number">12</span>, <span class="hljs-number">49</span>, <span class="hljs-number">0</span>, <span class="hljs-number">33</span>, <span class="hljs-number">0</span>, <span class="hljs-number">15</span>)
+  }
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-comment">-- Cycle through the list of colors based on whatever the player id is</span>
+    <span class="hljs-comment">-- Calling tonumber() to make player_id a number instead of a string so we can do math on it</span>
+    color = colors[(<span class="hljs-built_in">tonumber</span>(player_id) % #colors) + <span class="hljs-number">1</span>],
+    id = player_id,
+    shape = shapes[(<span class="hljs-built_in">tonumber</span>(player_id) % #shapes) + <span class="hljs-number">1</span>],
+    x_pos = x_pos,
+    y_pos = y_pos
+  }
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Here we use a modulus to cycle through the list of colors and shapes and assign one based on the pseudo-random player ID we received.
+This also means a player will look the same on every other players&apos; client.
+Try running it again and you should see something similar:</p>
+<p><img src="../images/02-18-entity-colors.png" alt=""></p>
+<p>The final networking code can be found <a href="https://github.com/RVAGameJams/learn2love/tree/master/code/networking-3" target="_blank">here</a>.
+Again, given the amount of files if you need the whole folder then it is easiest to download the zip of the whole project.
+You will find the relevant files inside <code>code/networking-3</code>: <a href="https://github.com/RVAGameJams/learn2love/archive/master.zip" target="_blank">https://github.com/RVAGameJams/learn2love/archive/master.zip</a></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This is about as basic in functionality as a multiplayer game can get.
+There are many features missing from our code.
+Just to name a few major ones:</p>
+<ul>
+<li>Sanity checks on messages. You can crash the server by sending it an invalid message.</li>
+<li>The &quot;move&quot; message expects a player id when the server should be able to figure this out on its own. The server can easily be fooled into accepting &quot;move&quot; messages from a client to move another client.</li>
+<li>To make things simpler there is no world or physics nor any net code to handle collisions or anything of the like.</li>
+<li>The entities just stick around when you close/disconnect a client.</li>
+<li>If you lose connection, there is no attempt to restore the connection.</li>
+</ul>
+<p>There is a great set of articles by Gabriel Gambetta on the problems faced by making a action-based multiplayer games and it&apos;s worth a read to get a high-level overview of the challenges and how to reason about them.
+<a href="http://www.gabrielgambetta.com/client-server-game-architecture.html" target="_blank">Link to his articles</a>.</p>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li>Having all the players spawn at the exact same point isn&apos;t ideal. Inside net.lua in the &quot;connect&quot; event handler, make a list of spawn points and make the players spawn at one of the points based on their <code>peer:connect_id()</code>. Hint: the code should look similar to the color cycle code inside <code>entity.spawn</code> in entity.lua.</li>
+<li>Inside net.lua, complete the &quot;disconnect&quot; event handler and make is so when a client quits their entity is removed from the game for all peers.</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="02-17-networking-part-1.html" class="navigation navigation-prev " aria-label="Previous page: 2.17 - Networking (part 1)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="03-00-programming-in-depth.html" class="navigation navigation-next " aria-label="Next page: 3.0 - Programming in-depth">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.18 - Networking (part 2)","level":"1.3.18","depth":2,"next":{"title":"3.0 - Programming in-depth","level":"1.4","depth":1,"path":"pages/03-00-programming-in-depth.md","ref":"pages/03-00-programming-in-depth.md","articles":[{"title":"3.01 - Primitives and references","level":"1.4.1","depth":2,"path":"pages/03-01-primitives-and-references.md","ref":"pages/03-01-primitives-and-references.md","articles":[]},{"title":"3.02 - Higher-order functions","level":"1.4.2","depth":2,"path":"pages/03-02-higher-order-functions.md","ref":"pages/03-02-higher-order-functions.md","articles":[]},{"title":"3.03 - Map and filter","level":"1.4.3","depth":2,"path":"pages/03-03-map-and-filter.md","ref":"pages/03-03-map-and-filter.md","articles":[]},{"title":"3.04 - Stack and recursion","level":"1.4.4","depth":2,"path":"pages/03-04-stack-and-recursion.md","ref":"pages/03-04-stack-and-recursion.md","articles":[]},{"title":"3.05 - Reduce","level":"1.4.5","depth":2,"path":"pages/03-05-reduce.md","ref":"pages/03-05-reduce.md","articles":[]}]},"previous":{"title":"2.17 - Networking (part 1)","level":"1.3.17","depth":2,"path":"pages/02-17-networking-part-1.md","ref":"pages/02-17-networking-part-1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/02-18-networking-part-2.md","mtime":"2019-04-07T19:34:59.617Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-07T20:02:53.122Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

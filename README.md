@@ -6,6 +6,10 @@
 - [Chapter 3](https://rvagamejams.com/learn2love/pages/03-00-programming-in-depth.html) - Programming in depth (in progress)
 - Chapter 4 - LÖVE in depth (to do)
 
+**View as a webpage: [link](https://rvagamejams.com/learn2love/)**
+
+**Download in ebook format: [pdf](https://raw.githubusercontent.com/RVAGameJams/learn2love/master/book.pdf) - [epub](https://raw.githubusercontent.com/RVAGameJams/learn2love/master/book.epub)**
+
 ## What is this book?
 
 This book teaches programming from the ground up in the context of Lua and LÖVE.

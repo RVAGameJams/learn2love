@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 297 210"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="server-clients.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="260.71429"
+     inkscape:cy="560"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="3838"
+     inkscape:window-height="2095"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-87)">
+    <rect
+       id="rect10"
+       width="65"
+       height="52.349998"
+       x="166.49852"
+       y="163.95238"
+       style="fill:#d45500;stroke-width:0.26458332" />
+    <rect
+       style="fill:#008080;stroke-width:0.26458332"
+       id="rect14"
+       width="65"
+       height="52"
+       x="56.318455"
+       y="163.95238" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.69999981px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="67.65773"
+       y="192.67856"
+       id="text18"><tspan
+         sodipodi:role="line"
+         id="tspan16"
+         x="67.65773"
+         y="192.67856"
+         style="font-size:12.69999981px;text-align:start;text-anchor:start;fill:#f9f9f9;stroke-width:0.26458332">Server</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="180.10565"
+       y="194.37947"
+       id="text22"><tspan
+         sodipodi:role="line"
+         id="tspan20"
+         x="180.10565"
+         y="194.37947"
+         style="font-size:12.69999981px;fill:#f9f9f9;stroke-width:0.26458332">Client</tspan></text>
+    <path
+       style="fill:#6a2ca0;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 93.171125,97.995534 -0.18898,10.583336 z"
+       id="path4546"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#d50000;stroke-width:1.76499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 126.43303,189.65476 35.34077,0.18899 z"
+       id="path4562"
+       inkscape:connector-curvature="0" />
+    <rect
+       id="rect10-3"
+       width="65"
+       height="52.349998"
+       x="166.12648"
+       y="103.00358"
+       style="fill:#d45500;stroke-width:0.26458332" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="179.73361"
+       y="133.43066"
+       id="text22-6"><tspan
+         sodipodi:role="line"
+         id="tspan20-7"
+         x="179.73361"
+         y="133.43066"
+         style="font-size:12.69999981px;fill:#f9f9f9;stroke-width:0.26458332">Client</tspan></text>
+    <rect
+       id="rect10-5"
+       width="65"
+       height="52.349998"
+       x="166.88243"
+       y="226.79076"
+       style="fill:#d45500;stroke-width:0.26458332" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="180.48956"
+       y="257.21786"
+       id="text22-3"><tspan
+         sodipodi:role="line"
+         id="tspan20-5"
+         x="180.48956"
+         y="257.21786"
+         style="font-size:12.69999981px;fill:#f9f9f9;stroke-width:0.26458332">Client</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#d50000;stroke-width:1.76499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 123.97618,160.73959 162.52976,128.8006 Z"
+       id="path4614"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#d50000;stroke-width:1.76499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 124.16517,218.56994 37.79762,32.69494 z"
+       id="path4618"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
