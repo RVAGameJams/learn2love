@@ -751,43 +751,31 @@ Once you are done typing all the code you can click the &quot;Run&quot; button.<
 number = number + <span class="hljs-number">1</span>
 </code></pre>
 <p>But when you click run, nothing happens.
-Ok well now that you are writing a program, you need to <em>return</em> data.
 So let&apos;s provide another <em>statement</em> to our program.</p>
 <pre><code class="lang-lua">number = <span class="hljs-number">4</span>
 number = number + <span class="hljs-number">1</span>
-<span class="hljs-keyword">return</span> number
+<span class="hljs-built_in">print</span>(number)
 </code></pre>
-<p>Now when you click Run, the text <code>=&gt; 5</code> appears in the console.
-When you told it to run, it read and evaluated each line of the code, then when it got to the line with <code>return</code> on it, the program stopped and returned the value you asked it to return (in this case <code>5</code>).
-If you write any code after the return statement, it will cause an error when we try to run the program, so the return statement should be the last thing in our file.</p>
-<pre><code class="lang-lua">number = <span class="hljs-number">4</span>
-number = number + <span class="hljs-number">1</span>
-<span class="hljs-keyword">return</span> number
-<span class="hljs-comment">-- This line will cause an error:</span>
-number = <span class="hljs-number">10</span>
-</code></pre>
-<p>You can return any type of data, not just numbers:</p>
-<pre><code class="lang-lua"><span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hello&quot;</span>
+<p>Now when you click Run, the text <code>5</code> appears in the right-hand pane.
+When you told it to run, it read and evaluated each line of the code in sequence.</p>
+<p>You can print any type of data, not just numbers:</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello&quot;</span>)
 </code></pre>
 <p>Remember those other functions we used before?
-You can write those as part of the return statement.</p>
-<pre><code class="lang-lua"><span class="hljs-keyword">return</span> <span class="hljs-built_in">string</span>.reverse(<span class="hljs-string">&quot;hello&quot;</span>)
-</code></pre>
-<p>Sometimes when writing programs, we want to poke around and see values while the program is running and not wait until it is done.
-This is so common that there is a function that provides this for us.</p>
-<pre><code class="lang-lua"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello&quot;</span>)
-<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;world&quot;</span>
-</code></pre>
-<p>The <code>print</code> function takes any data and <em>prints</em> the value in the window pane on the right.</p>
-<pre><code>&gt;
-&quot;hello&quot;
-=&gt; &quot;world&quot;
-</code></pre><p>So <code>&quot;hello&quot;</code> is being printed and <code>=&gt; &quot;world&quot;</code> is being returned.
-You can invoke functions on the same line when printing if you really want to get crazy:</p>
+You can write those inside of a print statement.</p>
 <pre><code class="lang-lua"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">string</span>.reverse(<span class="hljs-string">&quot;hello&quot;</span>))
-<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;world&quot;</span>
 </code></pre>
-<p>The <code>print</code> function and <code>return</code> statement will both come in handy when testing the functions we&apos;re going to write.</p>
+<p>We can even print functions themselves:</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">string</span>.reverse)
+</code></pre>
+<p>And see a memory location of where that function exists:</p>
+<pre><code>function: 0x1795320
+</code></pre><p>This can serve as a unique indentity for that function, which we&apos;ll see more of in a later page.</p>
+<p>Lua provides this <code>print</code> function to allow us to poke around while our program is running.
+We can print as many things as we want.</p>
+<pre><code class="lang-lua"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;world&quot;</span>)
+</code></pre>
 <h2 id="exercises">Exercises</h2>
 <ul>
 <li>When we pass data into a function, it is called an argument. We passed 1 argument into <code>print</code> but it can pass in two, or three, or more. What does it look like when you print multiple arguments?</li>
@@ -836,7 +824,7 @@ You can invoke functions on the same line when printing if you really want to ge
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.6 - Scripting and printing","level":"1.2.6","depth":2,"next":{"title":"1.7 - Making functions","level":"1.2.7","depth":2,"path":"pages/01-07-making-functions.md","ref":"pages/01-07-making-functions.md","articles":[]},"previous":{"title":"1.5 - Comments in code","level":"1.2.5","depth":2,"path":"pages/01-05-comments-in-code.md","ref":"pages/01-05-comments-in-code.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/01-06-scripting-and-printing.md","mtime":"2018-10-17T13:26:24.518Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-07T20:02:53.122Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.6 - Scripting and printing","level":"1.2.6","depth":2,"next":{"title":"1.7 - Making functions","level":"1.2.7","depth":2,"path":"pages/01-07-making-functions.md","ref":"pages/01-07-making-functions.md","articles":[]},"previous":{"title":"1.5 - Comments in code","level":"1.2.5","depth":2,"path":"pages/01-05-comments-in-code.md","ref":"pages/01-05-comments-in-code.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/01-06-scripting-and-printing.md","mtime":"2020-05-23T20:10:12.700Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-23T20:27:58.338Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

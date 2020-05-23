@@ -757,9 +757,7 @@ Whenever we type <code>function()</code> we are beginning a new function.
 The 2nd line is the body of our function where things happen.
 The body of the function can be many lines long.
 The body of the function could also be empty (but that&apos;s not very useful).
-On the last line of the function body we return data.
-This return statement won&apos;t end our entire program though!
-It will only tell the computer we&apos;re finishing up with our function.
+On the last line of the function body we write <code>return</code> which tells our function to stop running and to &quot;return&quot; data back to the main program.
 Then on the third line, we&apos;re telling the computer we&apos;re done writing our function.
 In order to use this example function, we should probably use a variable to give it a name:</p>
 <pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
@@ -775,9 +773,9 @@ Now it is ready to use.</p>
 <span class="hljs-keyword">end</span>
 
 result = add()
-<span class="hljs-keyword">return</span> result
+<span class="hljs-built_in">print</span>(result)
 </code></pre>
-<pre><code>=&gt; 8
+<pre><code>8
 </code></pre><p>We&apos;ve made our very own function with our very own name for it and even invoked it and got back data!
 If you instead got an error message, double check what you typed that nothing is missing.
 Error messages give you a <em>line number</em> of where to find the error that crashed the program.</p>
@@ -794,9 +792,9 @@ What if we modify our line where we invoke our function and give it some data?</
 <span class="hljs-keyword">end</span>
 
 result = add(<span class="hljs-number">16</span>)
-<span class="hljs-keyword">return</span> result
+<span class="hljs-built_in">print</span>(result)
 </code></pre>
-<p>It seems it always returns <code>=&gt; 8</code> no matter what arguments we try to pass in.
+<p>It seems it always returns <code>8</code> no matter what arguments we try to pass in.
 We need to rewind to the first line of our function and take a close look at this bit:</p>
 <pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>
 </code></pre>
@@ -809,9 +807,9 @@ Let&apos;s also tweak the second line while we&apos;re at it:</p>
 <span class="hljs-keyword">end</span>
 
 result = add(<span class="hljs-number">16</span>)
-<span class="hljs-keyword">return</span> result
+<span class="hljs-built_in">print</span>(result)
 </code></pre>
-<pre><code>=&gt; 20
+<pre><code>20
 </code></pre><p>Now when we pass in different numbers, we get different results:</p>
 <pre><code class="lang-lua">add = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(a)</span></span>
   <span class="hljs-keyword">return</span> a + <span class="hljs-number">4</span>
@@ -896,7 +894,7 @@ With the experience of our first, fully-functional function, we can now start tr
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.7 - Making functions","level":"1.2.7","depth":2,"next":{"title":"1.8 - Booleans","level":"1.2.8","depth":2,"path":"pages/01-08-booleans.md","ref":"pages/01-08-booleans.md","articles":[]},"previous":{"title":"1.6 - Scripting and printing","level":"1.2.6","depth":2,"path":"pages/01-06-scripting-and-printing.md","ref":"pages/01-06-scripting-and-printing.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/01-07-making-functions.md","mtime":"2018-08-26T02:11:44.367Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-07T20:02:53.122Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.7 - Making functions","level":"1.2.7","depth":2,"next":{"title":"1.8 - Booleans","level":"1.2.8","depth":2,"path":"pages/01-08-booleans.md","ref":"pages/01-08-booleans.md","articles":[]},"previous":{"title":"1.6 - Scripting and printing","level":"1.2.6","depth":2,"path":"pages/01-06-scripting-and-printing.md","ref":"pages/01-06-scripting-and-printing.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["graph"],"pluginsConfig":{"graph":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/01-07-making-functions.md","mtime":"2020-05-23T19:57:07.870Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-23T20:27:58.338Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
