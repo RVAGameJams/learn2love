@@ -18,9 +18,7 @@ Whenever we type `function()` we are beginning a new function.
 The 2nd line is the body of our function where things happen.
 The body of the function can be many lines long.
 The body of the function could also be empty (but that's not very useful).
-On the last line of the function body we return data.
-This return statement won't end our entire program though!
-It will only tell the computer we're finishing up with our function.
+On the last line of the function body we write `return` which tells our function to stop running and to "return" data back to the main program.
 Then on the third line, we're telling the computer we're done writing our function.
 In order to use this example function, we should probably use a variable to give it a name:
 
@@ -41,10 +39,10 @@ add = function()
 end
 
 result = add()
-return result
+print(result)
 ```
 ```
-=> 8
+8
 ```
 
 We've made our very own function with our very own name for it and even invoked it and got back data!
@@ -69,10 +67,10 @@ add = function()
 end
 
 result = add(16)
-return result
+print(result)
 ```
 
-It seems it always returns `=> 8` no matter what arguments we try to pass in.
+It seems it always returns `8` no matter what arguments we try to pass in.
 We need to rewind to the first line of our function and take a close look at this bit:
 
 ```lua
@@ -90,10 +88,10 @@ add = function(a)
 end
 
 result = add(16)
-return result
+print(result)
 ```
 ```
-=> 20
+20
 ```
 
 Now when we pass in different numbers, we get different results:

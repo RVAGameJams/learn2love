@@ -12,64 +12,51 @@ number = number + 1
 ```
 
 But when you click run, nothing happens.
-Ok well now that you are writing a program, you need to *return* data.
 So let's provide another *statement* to our program.
 
 ```lua
 number = 4
 number = number + 1
-return number
+print(number)
 ```
 
-Now when you click Run, the text `=> 5` appears in the console.
-When you told it to run, it read and evaluated each line of the code, then when it got to the line with `return` on it, the program stopped and returned the value you asked it to return (in this case `5`).
-If you write any code after the return statement, it will cause an error when we try to run the program, so the return statement should be the last thing in our file.
+Now when you click Run, the text `5` appears in the right-hand pane.
+When you told it to run, it read and evaluated each line of the code in sequence.
 
-```lua
-number = 4
-number = number + 1
-return number
--- This line will cause an error:
-number = 10
-```
-
-You can return any type of data, not just numbers:
-
-```lua
-return "hello"
-```
-
-Remember those other functions we used before?
-You can write those as part of the return statement.
-
-```lua
-return string.reverse("hello")
-```
-
-Sometimes when writing programs, we want to poke around and see values while the program is running and not wait until it is done.
-This is so common that there is a function that provides this for us.
+You can print any type of data, not just numbers:
 
 ```lua
 print("hello")
-return "world"
 ```
 
-The `print` function takes any data and *prints* the value in the window pane on the right.
-```
->
-"hello"
-=> "world"
-```
-So `"hello"` is being printed and `=> "world"` is being returned.
-You can invoke functions on the same line when printing if you really want to get crazy:
+Remember those other functions we used before?
+You can write those inside of a print statement.
 
 ```lua
 print(string.reverse("hello"))
-return "world"
 ```
 
-The `print` function and `return` statement will both come in handy when testing the functions we're going to write.
+We can even print functions themselves:
 
+```lua
+print(string.reverse)
+```
+
+And see a memory location of where that function exists:
+
+```
+function: 0x1795320
+```
+
+This can serve as a unique indentity for that function, which we'll see more of in a later page.
+
+Lua provides this `print` function to allow us to poke around while our program is running.
+We can print as many things as we want.
+
+```lua
+print("hello")
+print("world")
+```
 
 ## Exercises
 
