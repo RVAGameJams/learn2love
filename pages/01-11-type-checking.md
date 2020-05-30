@@ -41,7 +41,7 @@ type(type(12))
 
 ## Converting data types
 
-We've already seen data type conversion previously when we took numbers in and operation and transformed that into a true or false statement.
+We've already seen data type conversion previously when we took numbers and an operation in, transforming that into a true or false statement.
 
 ```lua
 type(12 > 3)

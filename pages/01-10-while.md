@@ -26,7 +26,7 @@ while boolean do
   print("Boolean has been set to false.")
 end
 
-print("We made it out of the loop!"
+print("We made it out of the loop!")
 ```
 
 Understanding that we can change the *while* condition from inside the body of the loop, we have the power to write programs that end exactly when we want them to.
