@@ -645,8 +645,7 @@ Just to name a few major ones:
 - The entities just stick around when you close/disconnect a client.
 - If you lose connection, there is no attempt to restore the connection.
 
-There is a great set of articles by Gabriel Gambetta on the problems faced by making a action-based multiplayer games and it's worth a read to get a high-level overview of the challenges and how to reason about them.
-[Link to his articles](http://www.gabrielgambetta.com/client-server-game-architecture.html).
+There is a [great set of articles by Gabriel Gambetta](http://www.gabrielgambetta.com/client-server-game-architecture.html) on the problems faced by making a action-based multiplayer games and it's worth a read to get a high-level overview of the challenges and how to reason about them.
 
 ## Exercises
 

@@ -51,10 +51,13 @@ number = tonumber(data)
 
 -- If the user gave us an answer that isn't a
 -- number, then the value of "number" is nil.
-if number == nil then return "Invalid number." end
-if number % 2 == 0 then return "Your number is even." end
-
-return "Your number is odd."
+if number == nil then
+  print("Invalid number.")
+elseif number % 2 == 0 then
+  print("Your number is even.")
+else
+  print("Your number is odd.")
+end
 ```
 
 ## Random number
@@ -91,7 +94,7 @@ Let's take the system time and feed it in using `math.randomseed` then from ther
 ```lua
 seed_number = os.time()
 math.randomseed(seed_number)
-return math.random(100)
+print(math.random(100))
 ```
 ```
 => 19
