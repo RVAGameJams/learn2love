@@ -28,7 +28,7 @@ Let's modify main.lua to have a contrived example:
 local current_color = {1, 1, 1, 1}
 
 love.draw = function()
-  local square = {100, 100, 200, 200, 100, 200, 100, 200}
+  local square = {100, 100, 100, 200, 200, 200, 200, 100}
 
   -- Initialize the square with the default color (white)
   love.graphics.setColor(current_color)
