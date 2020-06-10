@@ -31,6 +31,7 @@ I have been programming since 2007, focusing on teaching myself best practices. 
 - [JimmyStevens](https://github.com/JimmyStevens): Edits and suggestions in chapter 1 & 2
 - [rm-code](https://github.com/rm-code): Chapter 2 getting started
 - [ValentinChCloud](https://github.com/ValentinChCloud): Chapter 3 primitives and references
+- [valuefit](https://github.com/valuefit): Chapter 2 bug fix [[1]](https://github.com/RVAGameJams/learn2love/commit/b98c3cc1dca97f0adc4b25933cf4c2e3f7d3546a)
 
 ## Contributing
 
