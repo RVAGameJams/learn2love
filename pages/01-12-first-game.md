@@ -217,6 +217,6 @@ end
 
 ## Exercises
 
-- Try adding more messages to the `guess_counter` for different scores.
-- Try adding a message to the if statement with the hints for when the user guesses an invalid number. How would you do that?
-- Make the condition exit if `guess_counter` goes above 10 and tell the user they lost the game but should try again.
+- Try adding more messages for different numbers of guesses. You can modify the if statement where `guess_counter` is checked.
+- Make the `while` condition exit if `guess_counter` goes above 10 and tell the user they lost the game (but that should try again).
+- Try adding some messages to the if statement with the hints for when the user guesses an invalid number too far out of range. What if they guess a number that is more than 100? How would you do that?
