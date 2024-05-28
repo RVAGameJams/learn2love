@@ -133,7 +133,7 @@ print_number()
 
 Strange?
 
-Ok, so let's try a this same function-returning-a-function thing but passing in some data:
+Ok, so let's try this same function-returning-a-function thing but passing in some data:
 
 ```lua
 local adder = function(a)
